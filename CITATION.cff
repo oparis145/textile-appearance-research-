@@ -4,13 +4,16 @@ message: >-
   Cite the original papers separately when using their methods. This repository
   is research software, not a published validation study of measured fabrics.
 type: software
-title: Textile Optics Engine
+title: Multiscale Textile Appearance Modeling and Meta-Optical Sensing
 version: 0.3.0
 authors:
   - name: Phill-lms
-repository-code: https://github.com/Phill-lms/textile-optics-engine
+repository-code: https://github.com/Phill-lms/textile-appearance-research
 abstract: >-
-  An explicit fiber-to-ply-to-yarn-to-woven-fabric research engine with
+  Research software for reducing the gap between textile appearance on screens
+  and in person through multiscale physics, computational imaging and
+  experimentally justified meta-optical sensing. It includes an explicit
+  fiber-to-ply-to-yarn-to-woven-fabric engine with
   versioned geometry, constituent optical spectra, validated local 2D wave
   and ray adapters, reduced quasi-static yarn-height equilibrium, hierarchical
   projected-area and SGGX diagnostics, and multi-material explicit-fiber spectral

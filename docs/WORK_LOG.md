@@ -140,3 +140,13 @@ GitHub 앱으로 업로드한 각 단계의 tree가 로컬 commit의 tree와 정
 문서·22쪽 보고서 단계의 원격 commit은 `1daf366f7299636dc0efd4c29710bb019eefee89`이다. 그 뒤 한국어 README에서 숫자와 강조 기호가 붙어 표시되는 문제만 수정한 commit `6e18d28`을 릴리스 대상으로 삼았다. 과학 소스는 최종 239-test summary에 기록된 SHA-256과 모두 일치했다. PDF는 1,635,817 bytes, SHA-256 `0b16f74315204d0b5f845cf903399349146987c4d3a70a5dea582926f78cd609`이다.
 
 [기계 판독 가능한 v0.3 배포 검증](../data/repository_release_v3_audit.json)과 [릴리스 확인 화면](github_v0_3_release_verified.jpg)을 이 로그와 함께 별도 provenance commit으로 보존한다. 따라서 이후 main에는 이 게시 기록이 추가되지만 v0.3.0 tag는 검증된 연구 snapshot에 유지된다. 이 게시 확인에서 실험이나 전체 테스트를 다시 실행한 것으로 기록하지 않으며 GitHub Actions 성공을 주장하지 않는다.
+
+## 2026-10-11 — 연구 정체성과 문서 구조 수정
+
+사용자가 저장소 제목과 앞선 연구 논의의 반영 여부를 지적했다. 기존 연구 설계에는 화면·실물의 외관 차이와 VIS/IR·메타광학 목표가 일부 보존되어 있었지만, README 제목은 구현체 이름이었고 긴 릴리스 기록이 전체 연구 목적을 가렸다. 대표 제목을 **「직물 외관 재현을 위한 다중 규모 광학 모델링과 메타광학 계측」 / Multiscale Textile Appearance Modeling and Meta-Optical Sensing**으로 정했다.
+
+동일한 비공개 저장소(ID 1414149528)를 `Phill-lms/textile-appearance-research`로 이름 변경하고 GitHub About을 연구 목적에 맞춰 수정했다. README는 목적·현재 검증 상태·원래 논의의 결정·연구 모듈·구현 계층·재현 순서로 재구성했다. [연구헌장](RESEARCH_CHARTER_KO.md)은 사용자의 요구, 범위 결정, 모듈별 입력·출력·검증 기준을 연결한다. 연구 설계와 CITATION의 제목·현재 URL도 일치시켰다.
+
+대화의 M1–M9와 v0.1 PDF의 M1–M9가 서로 다른 역할에 쓰였음을 확인했다. 현재 연구 모듈은 R-M, 구현 모듈은 H/K/O/V/C/Q로 구분하고, 역할이 보존되지 않은 M3은 임의 추정하지 않았다. IR 보조 경로는 R-IR 신규 확장으로 표시했다. 고해상도 RGB 비교군, VIS 외관 검증, IR·메타광학의 추가 가치 입증, 원단별 실측 물성, 촉감의 별도 기준 측정, 염색·퇴색 보류를 명시했다.
+
+이 변경은 과거 tag·commit·첨부 논문·보고서·배포 hash를 수정하지 않는다. 과거 버전의 이름은 당시 기록으로 유지하고, v0.3 테스트 수치의 링크는 해당 tag에 고정했다. 로컬 작업 경로도 기존 산출물 링크를 위해 유지한다. [저장소 identity 확인](../data/repository_identity_2026_10_11.json)은 이름 변경 당시의 원격 head와 private 상태를 기록한다. 이 문서 변경만으로 추가 시뮬레이션이나 실제 원단 검증을 완료했다고 표시하지 않는다.

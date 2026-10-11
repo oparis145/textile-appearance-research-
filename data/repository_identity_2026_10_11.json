@@ -1,0 +1,16 @@
+{
+  "changed_at_utc": "2026-10-11T13:20:56.918474+00:00",
+  "repository_id": 1414149528,
+  "previous_full_name": "Phill-lms/textile-optics-engine",
+  "current_full_name": "Phill-lms/textile-appearance-research",
+  "url": "https://github.com/Phill-lms/textile-appearance-research",
+  "visibility": "private",
+  "research_title_ko": "직물 외관 재현을 위한 다중 규모 광학 모델링과 메타광학 계측",
+  "research_title_en": "Multiscale Textile Appearance Modeling and Meta-Optical Sensing",
+  "description": "직물 외관 재현을 위한 다중 규모 광학 모델링과 메타광학 계측 연구. Fiber–ply–yarn–weave–fabric 물리 모델, VIS/IR 계산영상과 측정 설계, 재조명·재질감 검증을 통해 화면과 실물의 외관 차이를 줄이는 것을 목표로 합니다.",
+  "reason": "User requested a research title and research-first README reflecting the visible conversation, rather than an implementation-only engine identity.",
+  "verified_unchanged_repository_id": true,
+  "main_commit_at_metadata_change": "66a5debaefc419961a6fb36aa528749000dd90b4",
+  "history_policy": "Historical release reports, manifests, source hashes and provenance retain their original bytes and names; current navigation and citation metadata use the new repository name.",
+  "local_working_directory_policy": "The existing checkout path is retained so saved experiment paths and links remain usable."
+}
