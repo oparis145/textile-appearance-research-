@@ -1,0 +1,55 @@
+{
+  "verified_at_utc": "2026-10-11T10:08:51.918Z",
+  "repository": "Phill-lms/textile-optics-engine",
+  "visibility": "private",
+  "baseline": {
+    "remote_commit": "e5ec6113c21627feaec746fb5e72e78202ea0bfe",
+    "tree_sha": "5ee52af67b01804d8825b468e8ed1853fa17939b",
+    "tag": "v0.1.0-baseline",
+    "files": 205
+  },
+  "version": "0.2.0",
+  "release_url": "https://github.com/Phill-lms/textile-optics-engine/releases/tag/v0.2.0",
+  "release_commit": "9a6c3cee7d1fbcac8bff857c418b36c79b0a0568",
+  "release_tree": "2065a75362cafa9c88a41b8ee11f33f4d744c28c",
+  "git_files": 348,
+  "git_content_bytes": 162333705,
+  "tree_matches_local": true,
+  "release_tag_matches_commit": true,
+  "stages": [
+    {
+      "kind": "implementation",
+      "remote_commit": "e3424e5785eab47ca6ce909dbb23b3ed60cfbb1b",
+      "local_archive_commit": "ecc476162f43f9f8295e0a2aebcee25922db7531"
+    },
+    {
+      "kind": "experiments",
+      "remote_commit": "3d23fce5d3b01d487a5b0562565fdb977a318418",
+      "local_archive_commit": "e8ce40364f0a150ed739bcd8017cb99647de4671"
+    },
+    {
+      "kind": "documentation",
+      "remote_commit": "9a6c3cee7d1fbcac8bff857c418b36c79b0a0568",
+      "local_archive_commit": "1e54cbae0048b0a0a29e92c82bf3a7d0cc24690c"
+    }
+  ],
+  "release_assets": [
+    {
+      "id": 630405946,
+      "name": "2406.19398v3.pdf",
+      "bytes": 47640125,
+      "sha256": "15cb20b1b9953c0cb760945e0f033f9e1ca0a450838d9a8746d2a4f6396dde5e",
+      "browser_download_url": "https://github.com/Phill-lms/textile-optics-engine/releases/download/v0.2.0/2406.19398v3.pdf",
+      "state": "uploaded"
+    }
+  ],
+  "tests": {
+    "run": 181,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "source": "data/final_test_summary.json",
+    "github_actions": "workflow prepared; not executed remotely"
+  },
+  "note": "This audit records the immutable v0.2.0 release tree before the subsequent provenance-only audit commit. GitHub release asset SHA-256 equals the original user attachment. Git tree equality checks every tracked path, mode, and blob content; numerical test scope is not real-material validation."
+}

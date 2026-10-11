@@ -80,7 +80,7 @@ GitHub 앱으로 업로드한 각 단계의 tree가 로컬 commit의 tree와 정
 
 기준 release `v0.1.0-baseline`이 원격 `e5ec611`을 가리키는 것을 확인했다. 기존 12.8 MB 보고서는 웹 업로드 후 Git blob SHA를 검증해 원래 `report/` 위치로 보존했다. 사용자 첨부 논문 가운데 47.6 MB 파일은 GitHub 웹 파일 제한보다 커서 비공개 v0.2.0 release의 asset으로 보존하며, 정확한 파일명·바이트 수·SHA-256은 [첨부 provenance](../references/user_provided/PROVENANCE.json)에 기록한다. 기존 `PACKAGE_MANIFEST.json`은 v0.1 archive에 대한 과거 기록이며 v0.2 전체 파일 목록으로 해석하지 않는다.
 
-문서·22쪽 PDF와 최종 release/asset의 원격 검증은 배포 후 추가 기록한다. GitHub Actions는 수동 workflow를 제공했으며 원격 실행 성공으로 주장하지 않는다.
+문서·22쪽 PDF의 원격 commit은 `9a6c3cee7d1fbcac8bff857c418b36c79b0a0568`이며, `v0.2.0` tag가 이 commit을 가리킨다. 해당 release tree `2065a75362cafa9c88a41b8ee11f33f4d744c28c`는 로컬 배포 tree와 정확히 일치한다: Git 파일 348개, 총 162,333,705 bytes. 비공개 상태와 두 release를 확인했고, Tang 원본 PDF의 GitHub asset ID `630405946`, 47,640,125 bytes, SHA-256 digest가 로컬 원본과 일치함을 확인했다. [기계 판독 가능한 배포 검증](../data/repository_release_audit.json)을 배포 뒤 별도 provenance commit으로 기록한다. 이 기록 추가는 수치 소스·결과를 바꾸지 않는다. GitHub Actions는 수동 workflow를 제공했으며 원격 실행 성공으로 주장하지 않는다.
 
 ## 5. 이후 로그 작성 형식
 

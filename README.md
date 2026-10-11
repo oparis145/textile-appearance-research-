@@ -4,7 +4,7 @@
 
 연구 목적은 제품 사진에서 잘 드러나지 않는 원단의 방향성 광택, 미세 구조, 비침을 설명하고, 다른 조명·관찰각에서 어떻게 보일지 예측하는 것입니다. 고해상도 RGB를 출발점으로 삼고, 이후 각도·분광·편광 측정과 메타광학이 어떤 추가 정보를 주는지 검증할 수 있는 forward model을 만듭니다. **염색·퇴색은 현재 범위에서 제외했습니다.**
 
-현재 작업 버전은 **0.2.0**입니다. 이전 시뮬레이션과 수치 결과는 [v0.1.0-baseline](https://github.com/Phill-lms/textile-optics-engine/releases/tag/v0.1.0-baseline)으로 보존했고, 새 계층·광학 연결 모듈을 추가했습니다. 이 코드는 통제된 합성 입력의 연구 프로토타입이며, 실크·코튼·큐프라·린넨의 실측 외관을 검증한 제품은 아닙니다. 저장소: [Phill-lms/textile-optics-engine](https://github.com/Phill-lms/textile-optics-engine).
+현재 배포 버전은 **[0.2.0](https://github.com/Phill-lms/textile-optics-engine/releases/tag/v0.2.0)**입니다. 이전 시뮬레이션과 수치 결과는 [v0.1.0-baseline](https://github.com/Phill-lms/textile-optics-engine/releases/tag/v0.1.0-baseline)으로 보존했고, 새 계층·광학 연결 모듈을 추가했습니다. 이 코드는 통제된 합성 입력의 연구 프로토타입이며, 실크·코튼·큐프라·린넨의 실측 외관을 검증한 제품은 아닙니다. 저장소: [Phill-lms/textile-optics-engine](https://github.com/Phill-lms/textile-optics-engine).
 
 ## 먼저 볼 문서
 
@@ -17,7 +17,7 @@
 | [광학 연결의 수학·구현](notes/optical_bridge.md) | 재료 스펙트럼, 단면 유효성, 파동·광선·Mitsuba 변환과 실제 결과 |
 | [문헌·공식 코드 검토](notes/literature_engine_v2.md) | 두 첨부 논문과 관련 연구의 검토 깊이, 코드·라이선스 확인 범위 |
 | [독립 리뷰](notes/review_engine_v2.md) | 발견·수정한 결함, 수학 검산, 실제 solver를 통과한 독립 테스트 |
-| [작업 로그](docs/WORK_LOG.md), [변경 기록](CHANGELOG.md) | 날짜별 실제 작업, 보존된 baseline과 버전별 변경 |
+| [작업 로그](docs/WORK_LOG.md), [변경 기록](CHANGELOG.md), [배포 검증](data/repository_release_audit.json) | 날짜별 실제 작업, 보존된 baseline과 버전별 변경 |
 | [v0.1 원본 설명](docs/baseline_v0.1.md), [기존 상세 PDF](report/textile_optical_simulation_report_ko.pdf) | 먼저 구현했던 wave/ray/camera/meta 모듈과 이전 실행 결과 |
 
 ## 이번 버전에서 실제로 만든 것

@@ -15,6 +15,10 @@
     "rights": "Original authors/publishers retain rights; included only in the user-requested private research repository.",
     "storage": "Private GitHub Release asset",
     "release_tag": "v0.2.0",
-    "asset_name": "2406.19398v3.pdf"
+    "asset_name": "2406.19398v3.pdf",
+    "release_url": "https://github.com/Phill-lms/textile-optics-engine/releases/tag/v0.2.0",
+    "download_url": "https://github.com/Phill-lms/textile-optics-engine/releases/download/v0.2.0/2406.19398v3.pdf",
+    "github_asset_id": 630405946,
+    "github_digest_matches_original": true
   }
 ]
