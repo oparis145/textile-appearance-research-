@@ -316,3 +316,11 @@ NPZ를 메모리에서 완성한 뒤 임시 파일에 write·flush·fsync하고 
 | 최종 원단·oracle·척도·391 tests·검산 자료 | `c2df0609a30d6e473971299b29ec3d4770fd1847` | `af2ce4d209b83b818186783719451b692408619e` | `abf6e1906589491d5f4319941784fd683d200791` |
 
 코드와 자료 단계 모두 로컬·원격 commit의 metadata가 달라도 동일한 tree를 확인했다. 이 시점에는 두 원격 commit 객체의 내용을 확인했으며, main은 최종 문서와 함께 갱신하기 전의 v0.4 상태다. 이 표는 최종 문서 commit·v0.5 tag·release 게시를 완료했다고 기록하지 않는다. 자료·문서를 포함한 최종 tree와 게시 상태는 실제 확인 후 별도 게시 감사 절에 추가한다. 과거 v0.4.0 tag와 원래 실험 결과는 유지한다.
+
+### v0.5 최종 게시 확인 — 2026-10-12 01:23 KST
+
+최종 문서까지 포함한 로컬 commit `cc73ceefeb4b09d4bdb4b42b60ff977aab237655`와 원격 commit `7c72530b756be59326f85c1dc40254abe5767922`의 tree는 **`8fae16181504f1ebfd9e85dfb15bdaf174706849`로 동일**했다. 기존 main head를 조건으로 한 fast-forward 갱신 후 GitHub branch API에서 commit·tree를 확인했다. 저장소 ID **1414149528**, 이름 **Phill-lms/textile-appearance-research**, **private=true**와 연구 설명도 재확인했다.
+
+**[v0.5.0 릴리스](https://github.com/Phill-lms/textile-appearance-research/releases/tag/v0.5.0)는 2026-10-11 16:23:03 UTC / 2026-10-12 01:23:03 KST에 게시됐다.** Release ID는 `409780890`이며 draft가 아니다. `v0.5.0` tag는 위 원격 commit을 가리킨다. 브라우저에서 연구 제목, tag·commit, 391개 테스트와 216/32/72회 표가 표시된 것을 확인하고 [게시 화면](github_v0_5_release_verified.jpg)을 보존했다. [게시 감사 JSON](../data/repository_release_v5_audit.json)에 확인 범위와 해시를 기록했다.
+
+문서의 로컬 링크 362개와 코드 fence를 검사했고 누락이 없었다. 마지막 검증의 75개 source 파일은 최종 391-test summary와 해시가 같았다. 첫 게시 기록 이후에는 감사 증거와 사용자가 추가 요청한 구조맵·figure 작업을 별도 commit으로 이어간다. **v0.5.0의 과학 코드·수치 자료 tag는 고정**하며 새로운 그림을 이전 실험 결과에 소급해 포함하지 않는다.
