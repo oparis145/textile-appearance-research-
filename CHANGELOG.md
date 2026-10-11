@@ -2,6 +2,40 @@
 
 변경 기록은 구현한 기능과 검증 범위를 기준으로 작성한다. 최종 배포 commit/tag는 [작업 로그](docs/WORK_LOG.md)에서 확인한다. 현재 저장소에 별도의 오픈소스 라이선스를 부여하지 않았다.
 
+## 0.4.0 — 2026-10-11
+
+### Research identity
+
+- 같은 비공개 저장소를 `Phill-lms/textile-appearance-research`로 이름 변경. 연구 제목은 **직물 외관 재현을 위한 다중 규모 광학 모델링과 메타광학 계측 / Multiscale Textile Appearance Modeling and Meta-Optical Sensing**.
+- README·About·CITATION을 연구 목적에 맞추고, 연구헌장에 대화의 요구사항·유지할 결정·모듈·검증 기준을 연결.
+- 연구 모듈 R-M과 구현 모듈 H/K/O/V/C/Q를 구분. 원래 목표, 강한 RGB 비교군, VIS/IR 역할, 원단별 실측 물성, 메타표면의 이득 검증, 촉감의 별도 기준과 염색·퇴색 보류를 유지.
+
+### Added
+
+- `material_transport.py`: 명시적 reference/target director와 부모 correspondence, immutable reference labels, yarn→ply→fiber의 3-component framed offset map.
+- `FramedCurve`의 RMF/SO(3) 보간과 지원 범위 검사, reference/state semantic hash, 부모·fiber·mode·pose의 정합 검사.
+- 선분별 stretch·engineering/log strain·반지름·원기둥 부피 proxy 저장. 일정 반지름과 선분 proxy 보존 모드를 구분하고, 가변 반지름의 기존 광학 export를 차단.
+- `run_material_transport_experiments.py`: initial/regenerated/transported 기하, 두 radius mode, 새 clearance·scene·spline audit, 공통 rig의 450/550/650 nm 비교.
+- `verify_material_transport_artifacts_v4.py`: 저장 raw arrays에서 물질좌표·frame·기하·strain·부피·scene·curve·투영량·paired radiance를 재검산. Producer 완료와 전체 output hash ledger 확인.
+- `run_engine_v4.py`: experiment→verify→tests, cold dry-run, 출력 분리, 명시적 렌더 예산, 부분 실패의 미확정 횟수, source/input/output hash와 기존 결과 검산의 구분.
+- 실제 최종 108회 단색 렌더와 원시 배열·그림, 수학/API·실험 설명·독립 리뷰. 원래 v3 계층/평형/분광 자료는 그대로 보존.
+
+### Fixed during independent review
+
+- 새 ply tangent에 초기 normal을 독립 투영할 때 좌표계 선택에 따라 생길 수 있던 spurious spin: reference ply director를 parent rotation으로 운반한 뒤 최소 tangent 정렬.
+- Reference hash에서 빠진 부모 대응을 포함하고, 다른 reference·radius mode·잘못된 부모/위치가 섞인 state를 거부.
+- 그래프의 고정 strain 범위에 의한 clipping과 seed 수 하드코딩 제거. 절대 밝기 차이의 CI를 관측 baseline으로 나눈 표시를 모수의 상대비율 CI와 구분.
+- Verify-only 경로에서도 저장 producer의 source hash와 현재 source를 대조. 과거 외부 입력의 절대 경로를 재탐색하는 대신, 저장 실험 폴더를 독립 재구성하고 run 중 변화를 검사.
+
+### Actual outcomes and boundaries
+
+- 42 fibers / 8,106 vertices / 8,064 segments의 material labels 보존. 총 길이 +0.0442244%와 국소 strain 약 −14~+14%의 상쇄를 확인.
+- 선분 proxy 보존 모드의 최대 상대 부피 잔차 6.66e−16. 이 수치는 3D 전체 체적·질량·접촉 물리의 보존 증명이 아님.
+- 재생성과 추적 사이의 위치 RMS 차이 0.07734 μm. 9개 조명·파장 조건 중 8개의 pointwise 95% 구간이 0 포함; 실물 외관 정확도 개선을 주장하지 않음.
+- 최종 전체 테스트·실험·독립 검산 수치는 [v0.4 릴리스 설명](docs/RELEASE_V0_4.md)과 [현재 test summary](data/final_test_summary.json)에 기록.
+- 원본 pilot 108회 후 표시·일반 입력 범위 리뷰를 반영해 최종 108회를 재실행. 두 run의 원시 radiance는 byte까지 동일하므로 독립 표본 수를 늘린 것으로 계산하지 않음. [Pilot checkpoint](data/validation_v4/pilot_checkpoint/checkpoint.json)에서 공통 원시 파일을 content hash로 연결하고 변경 파일·당시 source를 보존.
+- 현재 모듈은 prescribed no-slip kinematics이며 stress-free reference·full rod/contact/sliding/twist equilibrium·가변 radius renderer·실측 원단·메타표면 효과는 후속 연구.
+
 ## 0.3.0 — 2026-10-11
 
 ### Added

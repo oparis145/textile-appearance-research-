@@ -1,6 +1,6 @@
 # 아키텍처와 데이터 계약
 
-버전 0.3.0. 이 문서는 실제 구현된 경로와 확장을 위해 남겨 둔 경계를 설명한다. 수학적 연구 목적은 [RESEARCH_DESIGN_KO.md](RESEARCH_DESIGN_KO.md), 계층·기존 광학 유도는 [hierarchy_design.md](../notes/hierarchy_design.md)와 [optical_bridge.md](../notes/optical_bridge.md), v3의 추가 수학은 [weave_mechanics_v3.md](../notes/weave_mechanics_v3.md)와 [optical_scale_v3.md](../notes/optical_scale_v3.md)에 있다.
+버전 0.4.0. 이 문서는 **직물 외관 재현을 위한 다중 규모 광학 모델링과 메타광학 계측** 연구에서 실제 구현된 경로와 확장 경계를 설명한다. 연구 목적·모듈의 기준은 [연구헌장](RESEARCH_CHARTER_KO.md)과 [연구 설계](RESEARCH_DESIGN_KO.md), 계층·기존 광학 유도는 [hierarchy_design.md](../notes/hierarchy_design.md)와 [optical_bridge.md](../notes/optical_bridge.md)에 있다. v3의 추가 수학은 [weave_mechanics_v3.md](../notes/weave_mechanics_v3.md)와 [optical_scale_v3.md](../notes/optical_scale_v3.md), v4의 물질좌표 계약은 [material_transport_v4.md](../notes/material_transport_v4.md)에 있다.
 
 ## 1. 설계 원칙
 
@@ -23,6 +23,9 @@ flowchart TD
     D --> B["weave_mechanics.py"]
     B --> H
     D --> H
+    H --> T["material_transport.py"]
+    B --> T
+    T --> S["optical_scene.py"]
     H --> S["optical_scene.py"]
     P["MaterialSpectrum"] --> S
     S --> M["render.py / Mitsuba"]
@@ -33,13 +36,14 @@ flowchart TD
     M --> C["분광 radiance / CIE 적분"]
 ```
 
-`run_engine_v3.py`는 mechanics, optics, verify, tests를 순서대로 실행하고 입력·출력·로그 hash를 남긴다. `run_engine_v2.py`의 geometry, refinement, optics, tests 단계는 기존 계층 실험의 독립 실행 경로로 유지한다. `run_all.py`는 보존된 v0.1 optical/camera/meta 실험을 재실행한다. Runner가 기존의 서로 다른 물리 backend를 하나의 검증된 3D wave solver로 합치지는 않는다.
+`run_engine_v4.py`는 기존 부모 곡선의 두 상태를 받아 experiment, verify, tests를 연결한다. 실제 실험은 `run_material_transport_experiments.py`, 저장 원시 배열의 독립 재검산은 `verify_material_transport_artifacts_v4.py`가 담당한다. v4는 원사 평형을 다시 풀지 않으며, 명시된 기존 initial/relaxed 곡선에 material-coordinate 대응을 부여한다. `run_engine_v3.py`는 mechanics, optics, verify, tests를 순서대로 실행하고 입력·출력·로그 hash를 남긴다. `run_engine_v2.py`의 geometry, refinement, optics, tests 단계는 기존 계층 실험의 독립 실행 경로로 유지한다. `run_all.py`는 보존된 v0.1 optical/camera/meta 실험을 재실행한다. Runner가 기존의 서로 다른 물리 backend를 하나의 검증된 3D wave solver로 합치지는 않는다.
 
 | 경로 | 역할 |
 | --- | --- |
 | `textile_sim/weave_draft.py` | 직조 위상·lift-plan·주기 crossing 높이 |
 | `textile_sim/hierarchy.py` | explicit fiber/ply/yarn/fabric, sampling·clearance, 저장 |
 | `textile_sim/weave_mechanics.py` | 축소 원사 높이 평형, 제약·KKT·identity, fiber 계층 재구성 |
+| `textile_sim/material_transport.py` | 고정 reference의 yarn→ply→fiber 물질좌표 운반, frame·strain·선분 부피 proxy·엄격한 optical export |
 | `textile_sim/optical_lod.py` | 계층 투영 통계, SGGX projected-area fitting, CIE·Planck 적분, paired MC 통계 |
 | `textile_sim/optical_scene.py` | 재료/scene schema, renderer·2D adapter, 통계 |
 | `textile_sim/fiber_wave*.py` | 원형 cylinder/cluster의 2D electromagnetic reference와 beam |
@@ -48,6 +52,7 @@ flowchart TD
 | `textile_sim/camera.py`, `meta_optics.py`, `angular_measurement.py` | 보존된 관측·이상적 위상 pupil·검출 실험 |
 | `examples/mechanics/` | 42-fiber optical pair와 84-fiber multi-ply 평형 설정 |
 | `data/mechanics_v3/`, `data/optical_v3/` | 평형·sweep·수렴, raw 파장/seed radiance, optical metrics, CIE 출처 |
+| `data/material_transport_v4/` | 두 반지름 모드의 원시 material labels·strain, 세 기하 상태, 공통 rig의 108회 단색 radiance |
 | `examples/hierarchy/` | 실행된 5개 입력 JSON과 geometry 진단 plotter |
 | `tests/` | analytic/numerical/regression/integration 검사 |
 | `data/hierarchy_v2/`, `data/optical_bridge_v2/` | 추적된 기준 geometry, 선형 배열, 측정량, manifests |
@@ -115,6 +120,44 @@ refinement = compare_sampling_refinement(fabric_spec, factors=(1, 2, 4))
 | `curve_basis` | 항상 `polyline` |
 
 Fiber 좌표와 radius 배열은 immutable bytes를 backing storage로 사용한다. Parent dictionary와 spec까지 암호학적 불변 객체인 것은 아니다. Optical scene을 만들거나 저장할 때 그 시점의 데이터를 명시적으로 snapshot한다.
+
+### 3.5 Material-coordinate transport
+
+v3의 재생성은 현재 parent 호길이에서 twist를 다시 평가한다. v4의 새 경로는 최초 reference의 fiber labels와 parent correspondence를 고정하고, 같은 지점의 3차원 local offset을 지정한 새 parent frame으로 운반한다.
+
+```python
+reference = bind_material_reference(
+    geometry,
+    yarn_initial_normals={yarn_id: prescribed_director for yarn_id in geometry.yarns},
+    correspondence="shared_vertex_indices",
+)
+state = transport_material_reference(
+    reference,
+    prescribed_yarn_points,
+    yarn_initial_normals=target_directors,
+    deformed_parent_coordinates_mm=original_parent_labels,
+    radius_mode="constant_reference",
+)
+save_material_transport(output_directory, state)
+transported_geometry = state.to_hierarchy()
+new_clearance = audit_clearance(transported_geometry)
+```
+
+`prescribed_director`, `target_directors`와 `original_parent_labels`는 호출자가 공급해야 한다. 같은 점 개수만으로 물리적 대응을 추론하지 않는다. Reference binding은 부모와 자식이 동일한 생성 vertex index를 공유하는 계층에 한정된다. 새 parent sampling을 늘릴 수 있지만 원래 material-coordinate domain과 명시적 labels를 유지해야 한다.
+
+| 객체 / 항목 | 계약 |
+| --- | --- |
+| `FramedCurve` | 열린 polyline, 엄격히 증가하는 material coordinates, 명시적 시작 director; 위치는 선형, frame은 RMF sample 사이 SO(3) 보간 |
+| `MaterialReference` | reference fiber·ply·yarn, 고정 material labels, 부모 연결, 정규화한 spec과 source metadata; 수치 배열은 immutable |
+| `TransportedFiber` | reference/target 위치, 원래 fiber/parent labels, 현재 호길이, 선분 stretch·strain·radius·cylinder volume |
+| `MaterialTransportState` | reference와 연결된 ID·부모·모드·기하 대응을 생성 시 검증; 일치하지 않는 교체 또는 혼합 state 거부 |
+| `constant_reference` | 원래 원형 radius 유지. 기존 광학 adapter 사용 가능; 국소·전체 부피 proxy 변화는 그대로 보고 |
+| `incompressible_segments` | `r_e = r_0 / sqrt(lambda_e)`로 각 선분 cylinder proxy 유지. 현재 constant-radius adapter로의 export 거부 |
+| `save_material_transport()` | non-pickle NPZ, raw array layout와 byte SHA, reference/state SHA. 기존 파일 덮어쓰기 거부 |
+
+이 운반은 선언한 no-slip kinematics다. 자유로운 material twist field, fiber stress, 마찰·sliding·접촉 평형, 3D incompressibility를 풀지 않는다. 변형 후 labels가 유지되는 것과 fiber가 비신장인 것은 별개다. 실제 초기 형상에서 정의한 strain은 stress-free natural length 기준의 탄성 strain이 아니다. Radius 보정은 선분 원기둥 부피 proxy만 보존하고, 접합부·곡률·중첩·단면 변형을 포함한 전체 fiber 부피 또는 질량의 물리적 보존을 인증하지 않는다.
+
+기존 reference 또는 v3 평형의 clearance 진단은 운반된 기하에 상속하지 않는다. 새 polyline audit와 optical B-spline/float32 변위 한계를 다시 계산한 뒤에만 렌더한다. v4의 세 파장 비교는 단색 radiance 진단이며, 세 파장으로 색 재현을 완료했다고 해석하지 않는다.
 
 ## 4. OpticalScene API
 

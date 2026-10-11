@@ -5,7 +5,7 @@ message: >-
   is research software, not a published validation study of measured fabrics.
 type: software
 title: Multiscale Textile Appearance Modeling and Meta-Optical Sensing
-version: 0.3.0
+version: 0.4.0
 authors:
   - name: Phill-lms
 repository-code: https://github.com/Phill-lms/textile-appearance-research
@@ -17,9 +17,12 @@ abstract: >-
   versioned geometry, constituent optical spectra, validated local 2D wave
   and ray adapters, reduced quasi-static yarn-height equilibrium, hierarchical
   projected-area and SGGX diagnostics, and multi-material explicit-fiber spectral
-  path tracing with CIE observation. Developed under user direction with AI
-  assistance. Current examples use synthetic materials and regenerate fibers on
-  selected yarn tracks; full rod/contact mechanics, aggregate fabric BSDFs,
+  path tracing with CIE observation, and fixed-reference yarn-to-ply-to-fiber
+  material-coordinate transport with local strain and segment cylinder-volume
+  diagnostics. Developed under user direction with AI assistance. Current
+  examples use synthetic materials and prescribed kinematic correspondence;
+  variable-radius states are not silently exported to constant-radius optics.
+  Full rod/contact mechanics, aggregate fabric BSDFs,
   measured-fabric fidelity, and metasurface sensing remain separate research tasks.
 keywords:
   - computational imaging
@@ -28,6 +31,7 @@ keywords:
   - fiber scattering
   - optical simulation
   - reduced yarn mechanics
+  - material coordinates
   - spectral rendering
   - reproducible simulation
   - research software

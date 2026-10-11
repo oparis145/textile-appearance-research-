@@ -150,3 +150,57 @@ GitHub 앱으로 업로드한 각 단계의 tree가 로컬 commit의 tree와 정
 대화의 M1–M9와 v0.1 PDF의 M1–M9가 서로 다른 역할에 쓰였음을 확인했다. 현재 연구 모듈은 R-M, 구현 모듈은 H/K/O/V/C/Q로 구분하고, 역할이 보존되지 않은 M3은 임의 추정하지 않았다. IR 보조 경로는 R-IR 신규 확장으로 표시했다. 고해상도 RGB 비교군, VIS 외관 검증, IR·메타광학의 추가 가치 입증, 원단별 실측 물성, 촉감의 별도 기준 측정, 염색·퇴색 보류를 명시했다.
 
 이 변경은 과거 tag·commit·첨부 논문·보고서·배포 hash를 수정하지 않는다. 과거 버전의 이름은 당시 기록으로 유지하고, v0.3 테스트 수치의 링크는 해당 tag에 고정했다. 로컬 작업 경로도 기존 산출물 링크를 위해 유지한다. [저장소 identity 확인](../data/repository_identity_2026_10_11.json)은 이름 변경 당시의 원격 head와 private 상태를 기록한다. 이 문서 변경만으로 추가 시뮬레이션이나 실제 원단 검증을 완료했다고 표시하지 않는다.
+
+## 2026-10-11 — v0.4 물질좌표 운반·광학 연결·독립 검증
+
+### 연구 질문과 구현
+
+기존 v3는 평형 원사 곡선의 현재 호길이에서 fiber를 재생성했다. 같은 fiber ID가 있어도 같은 물질점의 이동은 아니었다. 이번 작업은 reference fiber·ply·yarn 좌표와 부모 대응을 고정하고, 명시적 director와 frame을 통해 동일한 지점을 운반한다. 이 과정에서 불필요한 재생성 차이를 구분하고 국소적인 길이·반지름·부피 변화와 광학 입력을 추적할 수 있게 했다.
+
+`material_transport.py`는 yarn→ply→fiber의 full 3-component offset map, RMF/SO(3) 보간, immutable reference/state와 semantic hash를 구현한다. Reference는 저장한 초기 형상이며 stress-free 물질 상태가 아니다. `constant_reference`는 원래 radius를 유지해 현재 광학 adapter로 전달한다. `incompressible_segments`는 선분마다 `r_e=r_0/sqrt(lambda_e)`로 원기둥 부피 proxy를 보존하지만, 가변 radius adapter가 없는 현재 renderer로의 export는 거부한다.
+
+수학·API는 [물질좌표 설계](../notes/material_transport_v4.md), 전체 실험은 [실험 설명](../notes/material_transport_v4_experiment.md), 발견한 실패와 수정 이유는 [독립 리뷰](../notes/review_material_transport_v4.md)에 있다. 이번 구현은 물질좌표의 대응을 선언한 운동학이며 full fiber stress·material twist·contact/sliding·3D 질량 보존을 풀지 않는다.
+
+### 실제 발견하고 고친 결함
+
+- 새 ply normal을 각 pose의 yarn normal에서 독립 투영하면 gauge 선택에 따라 회전이 섞였다. 해석 반례의 인위적 차이는 8.6993385°였다. Reference ply director를 parent 상대 회전으로 운반한 후 최소 tangent alignment를 적용했다.
+- Material reference hash에서 부모 대응 일부가 빠져 있었고, public state에 다른 reference/radius mode 또는 길이가 같은 다른 pose를 섞을 수 있었다. Parent maps를 digest에 포함하고 constructor에서 실제 map·ID·모드의 일치를 검사했다.
+- Driver 그래프의 seed 수 하드코딩, 고정 strain histogram 범위, 상대비율 CI로 읽힐 수 있는 표기를 수정했다. 현재 구간은 절대 radiance 차이의 paired t 구간이며, 관측 baseline으로 나눈 그림은 모집단 비율의 CI가 아니다.
+- Runner의 verify-only에서도 producer의 source SHA를 현재 코드와 대조하도록 보완했다. 저장 원시 파일과 기록을 검산하며, 과거 외부 입력의 절대 경로를 재탐색하지는 않는다.
+
+### 실행 결과
+
+| 항목 | 실제 결과 | 해석 |
+| --- | --- | --- |
+| 물질점 추적 | 42 fibers, 8,106 vertices, 8,064 segments | 원래 labels·부모·ID 유지, reference에서 같은 점 평가 |
+| 길이 변화 | 전체 +0.0442244%, 경사 −0.5733227%, 위사 +0.6617715% | 서로 반대인 변화가 전체 합계에서 상쇄 |
+| 국소 strain | −14.032~+14.120%, reference-length 가중 RMS 1.7282% | 실제 원단의 탄성 strain이 아닌 prescribed map 진단 |
+| 선분 부피 proxy | 일정 radius 전체 +0.0442244%; 보존 모드 최대 상대 잔차 6.66e−16 | 굽은 전체 섬유의 실제 체적·질량 보존과 구분 |
+| 재생성 대비 위치 | RMS 0.077344 μm, 최대 0.208708 μm | 같은 parent parameter index에서의 기하 비교 |
+| 새로운 간격 검산 | Tracked polyline 2.945386 μm, spline/float32 차감 후 2.597543 μm 하한 | 다른 fiber 사이만 인증; self-contact·접촉력 제외 |
+| 최종 광학 실험 | 108회, 64×64·32 spp·4 seeds, 450/550/650 nm, R0/R90/T45 | 세 상태 공통 rig와 합성 스펙트럼의 단색 진단 |
+| 재생성 대비 광학 차이 | 9조건 중 8개의 pointwise 95% 구간이 0 포함 | 실물 외관 정확도 개선의 근거로 해석하지 않음 |
+
+최종 driver는 **2026-10-11 13:36:24.185987–13:36:43.867250 UTC**, 총 **19.681288638초**에 완료했다. [최종 manifest](../data/material_transport_v4/experiment_manifest.json)의 source/input은 시작·종료 시 동일하다. [최종 radiance](../data/material_transport_v4/optics/spectral_radiance.npz)는 SHA-256 `7ad3703951ca475ac733a33cbf3354f2437cc589b88bbb7b605dee5df63269ea`다.
+
+이전 108회 pilot은 표시·일반 입력 범위 리뷰 후 최종 108회와 분리해 보존했다. 두 run의 raw radiance는 **byte까지 동일**하므로 서로 독립적인 8개 seed나 216개 고유 측정으로 합치지 않는다. [Pilot checkpoint](../data/validation_v4/pilot_checkpoint/checkpoint.json)는 최종과 동일한 29개 파일을 content hash로 공유하고, 달라진 3개 파일·원래 manifest·원래 driver source를 보존한다. 원래 source는 당시 기록된 SHA와 정확히 일치한다.
+
+### 전체 테스트와 통합 경로
+
+`OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -u validate_all.py`를 최종 source에서 실행했다. **297 tests, failures/errors/skips 모두 0**, 실행 시간 **19.256124534초**다. [전체 summary](../data/final_test_summary.json), [전체 log](../data/final_tests.log)에 검사 대상 source별 SHA가 있다. 새 58개 검사는 구현 17개, 독립 수학 18개, runner 16개, 산출물 검산 7개다. 기존 239개와 새 코드를 함께 실행한 결과이며 과거 v3 summary를 재사용하지 않았다.
+
+산출물 검산의 손상 테스트 5개는 checksum과 producer ledger까지 다시 계산한 후 허위 strain, determinant −1 frame, NaN radiance, 허위 paired mean, 누락된 원래 label을 거부했다. 두 정상 검사는 rendered/skipped 모드를 다룬다. 이런 검사는 실제 물성·실물 재현의 검증과 별개다.
+
+[최종 runner artifact audit](../data/validation_v4/final_artifact_audit/run_manifest.json)는 저장된 108회 결과의 raw arrays·6개 paired comparisons·두 radius modes·세 geometry/scene/curve·투영량·새 간격을 재검산해 통과했다. 새 실험 렌더는 0회, 검산한 저장 렌더는 108회이며 source/input 변화가 없다. [독립 reviewer의 결과 사본](../data/validation_v4/independent_review/verification_summary.json)도 원본 bytes 그대로 보존했다.
+
+[별도 no-render 통합 실행](../data/validation_v4/no_render_integration/run_manifest.json)은 저장소 밖 cwd에서 새 experiment→verify를 실행했다. 10.877307962초에 통과했고 새/저장 렌더 모두 0회인 skipped 모드다. 34개 실제 출력 파일을 모두 보존했으며 source 62개와 입력 7개의 시작·종료 hash 변화가 없다. 이 결과를 108회 재렌더 또는 전체 tests를 다시 실행한 횟수로 세지 않는다.
+
+### Git 이력 구성
+
+| 단계 | 로컬 commit | GitHub commit | 일치 확인한 tree |
+| --- | --- | --- | --- |
+| 연구 제목·README·연구헌장 | `2ea17f91ec7228a887c98235013ece1f9f289a9e` | `6a2fdc08a5066eb65748df62c3507016843e77c0` | `b246a3ee355b5e76eb1bf1f07fc5196fbd16d899` |
+| 물질좌표·runner·독립 검산 코드 | `2a2b7189044f401bbf39510c63b0f086ec5e8821` | `955bddc8fdb3d85cb85118d33408056cb29f32a1` | `939d8471a595644915d87b82ac9711effc83602a` |
+| 최종 실험·297 tests·검산·pilot 기록 | `8d819a0a29c543e3237c3a94eeddafcd737a4cb1` | `ae62d9afe19eba52d085dafc8d20306061eb0964` | `b99d0b80f89a86031d701a21c7ba004f5f7512a6` |
+
+문서·실험을 완성한 tree를 확인한 뒤 main에 반영한다. 실제 v0.4.0 tag·release의 commit과 private 상태는 게시 후 별도 확인 기록으로 추가한다. 저장소 [연구 제목 반영 화면](github_research_identity_v4.jpg)도 함께 보존한다. 과거 태그와 보고서는 해당 버전의 원래 상태로 유지한다.

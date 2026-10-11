@@ -2,7 +2,7 @@
 
 **Multiscale Textile Appearance Modeling and Meta-Optical Sensing**
 
-연구 설계 갱신: 2026-10-11. 검증된 구현 기준은 [v0.3.0](https://github.com/Phill-lms/textile-appearance-research/releases/tag/v0.3.0)이며, v0.4의 물질좌표 연결은 별도 개발·검증 단계다. 연구 의도와 대화의 요구사항은 [연구헌장](RESEARCH_CHARTER_KO.md), 실행 결과는 [README](../README.md), 인터페이스·단위·수학은 [아키텍처](ARCHITECTURE.md), 원문 확인과 선행연구의 관계는 [v3 문헌 검토](../notes/literature_engine_v3.md)에 있다. 이 문서는 **전체 연구 목표**, **실제로 구현·실행한 범위**, **다음에 검증할 가설**을 구분한다. 염색·퇴색은 후속 과제로 미뤘다.
+연구 설계 갱신: 2026-10-11. 구현은 v0.3의 원사 평형·분광 관측에서 **v0.4의 물질좌표 운반과 광학 비교**로 확장했다. 각 버전의 실제 검증 범위는 [v0.3](RELEASE_V0_3.md), [v0.4](RELEASE_V0_4.md)에 분리한다. 연구 의도와 대화의 요구사항은 [연구헌장](RESEARCH_CHARTER_KO.md), 실행 결과는 [README](../README.md), 인터페이스·단위·수학은 [아키텍처](ARCHITECTURE.md), 원문 확인과 선행연구의 관계는 [v3 문헌 검토](../notes/literature_engine_v3.md)에 있다. 이 문서는 **전체 연구 목표**, **실제로 구현·실행한 범위**, **다음에 검증할 가설**을 구분한다. 염색·퇴색은 후속 과제로 미뤘다.
 
 ## 1. 연구 목적을 다시 고정한다
 
@@ -225,11 +225,13 @@ VIS는 사용자에게 보여 줄 외관의 기준 대역이다. IR은 기존 �
 
 ### A. 구조·역학의 유효범위를 먼저 측정한다
 
-원형 fiber와 합성 index를 유지한 상태에서 `EA`, `B`, `r`, pitch, draft를 별도 축으로 바꾼다. 동일 시편의 small-slope 해와 finite-rotation rod 해를 비교하고, boundary와 volume/length 변화의 기여를 분리한다. Material-coordinate 기반 fiber 운반을 추가하면 동일 질량 조건과 기존 재구성 조건을 분리해 렌더링한다.
+원형 fiber와 합성 index를 유지한 상태에서 `EA`, `B`, `r`, pitch, draft를 별도 축으로 바꾼다. 동일 시편의 small-slope 해와 finite-rotation rod 해를 비교하고, boundary와 volume/length 변화의 기여를 분리한다. V4는 같은 reference 물질좌표를 운반하는 일정 반지름 상태와 기존 재생성을 비교했다. 선분 부피 proxy 보존 상태는 별도 가변 반지름 adapter가 없어 아직 렌더하지 않는다. 이를 같은 실제 질량을 갖는 변형의 광학 비교라고 표시하지 않는다.
 
 **v0.4 물질좌표 연결의 검증 기준:** 기준 geometry와 material labels를 고정하고 변형 map의 입력·출력을 구분한다. Identity map, rigid motion, 단순 stretch 등의 독립 기준을 먼저 검사한다. 새로운 위치만 얻었다고 길이·질량·twist가 모두 보존됐다고 표시하지 않고, 선택한 constitutive response가 어떤 양을 보존하고 어떤 strain·단면 변화를 허용하는지 기록한다. Fiber/ply/yarn ID와 기준 sampling의 대응, round-trip 오차, 재생성 대조군, 서로 다른 섬유 사이의 간격과 광학 exporter의 형상 근사를 함께 평가한다.
 
 이 연결은 원사 부모 곡선에서 자식 섬유로 상태를 전달하는 모듈이다. 그것만으로 fiber 내부 응력·마찰·접촉압·단면 압착을 풀었다고 취급하지 않는다. Renderer가 허용하는 원형 또는 원뿔형 단면으로 변환할 때는 변형 geometry와 전달 geometry의 차이도 별도 오차로 남긴다.
+
+V4 실행에서 42개 fiber의 전체 길이 변화는 +0.044224%였지만 국소 선분 strain은 약 −14~+14%, reference-length 가중 RMS는 1.7282%였다. 이 값은 stress-free 기준의 실물 탄성 strain이 아니라 선언한 map의 진단이다. 세 파장 광학 비교의 9개 pointwise 구간 중 8개가 0을 포함하므로 재생성보다 외관 정확도가 개선됐다는 결론을 내리지 않는다. 다음 검증은 material correspondence 유지에 더해 국소 신장·단면·물리적 twist와 sampling의 오차를 줄이는 것이다.
 
 계속 진행할 근거는 KKT 하나가 아니라 높이·접선·간격·경계 민감도와 optical response의 수렴이다. 현재 8→16 mesh 차이가 광학 효과보다 작은지 아직 paired rendering으로 확인하지 않았으므로, 작은 외관 차이를 추론할 때는 이 gate를 먼저 통과해야 한다.
 

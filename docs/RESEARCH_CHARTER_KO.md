@@ -179,9 +179,9 @@ flowchart TD
 
 **검증된 v0.3.0**에는 명시적 계층 기하, 유효 원사 높이 평형, optical scene, 제한된 국소 2D wave/ray, 개별 fiber 3D path tracing, 계층 투영 통계, CIE 관측과 runner가 있다. 전체 239개 테스트와 536회 실제 분광 렌더링은 [해당 릴리스](https://github.com/Phill-lms/textile-appearance-research/releases/tag/v0.3.0), [보고서](../report/fabric_engine_v3_report_ko.pdf), [태그에 고정한 검증](https://github.com/Phill-lms/textile-appearance-research/blob/v0.3.0/data/final_test_summary.json)에서 확인한다.
 
-v0.3의 평형 후 fiber는 새 부모 곡선 위에 재생성된다. 따라서 source ID가 같더라도 같은 material point가 이동한 결과가 아니다. **v0.4의 우선 작업은 기준 물질좌표·변형 map·단면 응답·twist 운반을 선언하고, 동일 섬유를 따라 구조와 광학 정보를 전달하는 연결**이다. 보존할 수 있는 양과 가정한 constitutive response를 분리해서 보고하고, 기존 재생성 결과와 구분한다.
+v0.3의 평형 후 fiber는 새 부모 곡선 위에 재생성된다. 따라서 source ID가 같더라도 같은 material point가 이동한 결과가 아니다. **v0.4는 기준 물질좌표·부모 대응·frame 운반을 명시하고 동일 섬유를 따라 구조와 광학 정보를 전달하는 연결을 구현했다.** 일정 반지름과 선분 부피 proxy 보존 모드를 구분하며, 후자는 현재 광학 adapter로의 export를 거부한다. 자유로운 material twist나 constituent stress의 평형을 푼 것으로 표시하지 않는다.
 
-이 추가 작업의 완료 수치·테스트·실험은 실제 실행 후 별도 버전 증거로 기록한다. 기존 v0.3의 239개 테스트와 536회 렌더링을 새 코드를 검증한 횟수로 재사용하지 않는다. Material-coordinate 운반이 구현되더라도 full 3D contact mechanics, 실측 물성의 정확성, fabric ray–wave BSDF, RGB 대비 관측 이득까지 자동으로 완료되는 것은 아니다.
+42개 fiber의 8,106개 지점을 추적했으며, 전체 길이 +0.044224% 속에 선분 strain 약 −14~+14%가 상쇄됨을 진단했다. 세 상태·세 조명·세 파장·네 seed의 108회 렌더링을 수행했으나 추적 방식이 기존 재생성보다 실물 외관에 정확하다는 증거는 얻지 않았다. 상세 검증과 최종 전체 테스트는 [v0.4 실행 기록](RELEASE_V0_4.md)에 연결한다. 기존 v0.3의 239개 테스트와 536회 렌더링을 새 코드를 검증한 횟수로 재사용하지 않는다. 이 연결이 full 3D contact mechanics, 실측 물성의 정확성, fabric ray–wave BSDF, RGB 대비 관측 이득까지 자동으로 완료하는 것은 아니다.
 
 ## 9. 문헌·실험·버전 기록 규칙
 
