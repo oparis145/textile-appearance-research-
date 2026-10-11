@@ -1,0 +1,59 @@
+{
+  "schema": "textile.github_release_publication/5.1",
+  "repository": {
+    "full_name": "Phill-lms/textile-appearance-research",
+    "id": 1414149528,
+    "private": true
+  },
+  "release": {
+    "id": 409816754,
+    "tag": "v0.5.1",
+    "name": "v0.5.1 | 직물 외관 연구 · 구조맵과 논문용 figure",
+    "url": "https://github.com/Phill-lms/textile-appearance-research/releases/tag/v0.5.1",
+    "published_at": "2026-10-11T17:32:56Z",
+    "draft": false
+  },
+  "source": {
+    "local_commit": "b30c53df6e3967bd166ceef52ef154fa769888c4",
+    "remote_commit": "4bb51b2b89e7cb98fddf8152c3012ca48d3822ef",
+    "matching_tree": "c453be81bf3cce275af7957dcd98957fdf6be344",
+    "tag_object": {
+      "sha": "4bb51b2b89e7cb98fddf8152c3012ca48d3822ef",
+      "type": "commit",
+      "url": "https://api.github.com/repos/Phill-lms/textile-appearance-research/git/commits/4bb51b2b89e7cb98fddf8152c3012ca48d3822ef"
+    }
+  },
+  "data": {
+    "local_commit": "68d054f8cb0aca929a0e4d0dc140407bff623842",
+    "remote_commit": "38835c84694ede5f64801f86d81da5a39afceac3",
+    "matching_tree": "7dda82d2d9931f20f76a171648caaabd3c5899e9",
+    "files": 81,
+    "bytes": 266012978
+  },
+  "checks": {
+    "tests": 425,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "source_files_unchanged": 87,
+    "delivery_source_hashes_match": 87,
+    "structure_maps": 8,
+    "arrays": 208,
+    "npz_archives": 24,
+    "accepted_figure_files": 18,
+    "delivery_figure_hashes_match": 18,
+    "pdf_pages_parsed_and_rasterized": 6,
+    "documentation_local_links": 252,
+    "documentation_missing_links": 0
+  },
+  "screenshot": {
+    "path": "docs/github_v0_5_1_release_verified.jpg",
+    "bytes": 139245,
+    "sha256": "634d60cdb6ed9fcab1c5436303ae4e92ce3fa107b3a2cdbc7a3d9991c5af58a1"
+  },
+  "published_release_body": "## 연구\r\n\r\n**직물 외관 재현을 위한 다중 규모 광학 모델링과 메타광학 계측**\r\n\r\n온라인 의류 사진에서 예상한 시각적 재질감과 실제 원단을 보는 경험의 차이를 줄이는 연구입니다. Fiber → ply → yarn → weave → fabric 구조를 광학 반응과 연결하고, 미관측 조명·각도·역광 외관을 검증한 뒤 VIS/IR·각도·분광·편광 관측과 메타광학 계측의 추가 가치를 평가합니다. 염색·퇴색은 현재 범위에서 보류합니다.\r\n\r\n## v0.5.1: 실제 구조에서 계산한 논문용 figure\r\n\r\nFabricGen Fig. 5의 normal/orientation/height 구성을 참고하여, 현재 엔진의 명시적 3D 삼각형과 실제 nearest-hit에서 구조맵을 생성했습니다. 동일 영역의 ply 외피와 개별 fiber를 함께 보여주고, 재료 ID·공극·확대 위치·물리 스케일과 검산 가능한 원본 배열을 보존합니다.\r\n\r\n| 산출물·검증 | 실제 결과 |\r\n| --- | --- |\r\n| 두 입력 사례 | 기존 3×2 basket: 10 yarns / 30 plies / 210 fibers; 별도 compact 2×2 basket: 16 / 48 / 336 |\r\n| 구조맵 | 전체·확대 × ply·fiber × 두 사례 = 8 maps |\r\n| 원자료·독립 검산 | 208 arrays / 24 NPZ의 CRC·수치·좌표·색상·해시 검산 통과 |\r\n| 논문용 그림 | 6종 × PNG·PDF·SVG = 18개 accepted files |\r\n| 전체 테스트 | 425 tests, failures/errors/skips 0; 87개 source hashes 전후 동일 |\r\n| 파일·화면 확인 | PNG 6개 full decode·직접 확인, PDF 6개 1-page parse·raster, SVG 6개 XML parse |\r\n| 기하 계산 | 저장 지도에 대응하는 15,321,600 primary-ray queries; 독립 analytic oracle 594회 별도 |\r\n\r\n지도 producer의 새 radiance light-transport 호출은 0회입니다. 기존 v0.5.0의 216/32/72회 광학 실험 및 당시 391-test 결과는 별도 기록으로 보존합니다. 테스트·광선·출력 파일·독립 물리 표본 수를 서로 합산하지 않습니다.\r\n\r\n## 저장과 재현\r\n\r\n원시 world normal·계층별 centerline tangent·world-Z 높이·integer ID·miss mask와 표시용 supersample/RGBA를 분리했습니다. Height 범위는 각 사례 안에서 공유하고, 방향은 180° 주기 축으로 표시합니다. 두 final manifest가 spec·source·camera·crop·단위·배열·파일 해시를 연결합니다.\r\n\r\n출력 검산에서 발견한 PDF/SVG 잘림을 기록하고, BytesIO 완성 → container 검사 → atomic 저장 → exact-byte readback을 수행하는 publication adapter를 추가했습니다. 거부 파일은 감사 자료이며 accepted 18개 그림과 구분합니다.\r\n\r\n- 연구 목적·전체 모듈·현재 상태: `README.md`, `docs/STATUS_KO.md`\r\n- 구현·수학·실험·재현 CLI: `docs/RELEASE_V0_5_1.md`, `docs/VISUALIZATION_DESIGN_KO.md`, `visualization/README.md`\r\n- 원자료와 그림: `data/structure_maps_v5_1/`, `figures/structure_v5_1/`\r\n- 독립 검산·최종 suite·파일 QA: `data/validation_v5_1/`\r\n- 작업 이력: `docs/WORK_LOG.md`, `CHANGELOG.md`, 두 구조맵 구현·리뷰 노트\r\n\r\n## 결과의 해석 범위\r\n\r\n이번 결과는 생성한 기하와 구조맵의 일관성을 검증합니다. 논문의 동일 파라미터·UV 모델 재현이나 실물 실크·코튼·린넨의 외관 검증으로 표시하지 않습니다. Ply 외피는 섬유 사이 공극을 생략하는 표현용 proxy입니다. 화면의 normal/orientation/material 색은 데이터 인코딩이며 실제 염료 색이 아닙니다.\r\n\r\n원단 광택의 수치 수렴, 실측 물성·카메라 교정, 강한 다중조명 RGB 대비 추가 관측의 정보 이득, 제작 메타표면의 시스템 이점은 다음 연구 판정 항목으로 유지합니다. 전체 의류 역학·촉감의 포괄적 예측은 아직 입증하지 않았습니다.\r\n",
+  "scope": "The published v0.5.1 tag points to the verified research code/data/documentation tree. This post-publication audit, screenshot and work-log confirmation are added in a subsequent documentation-only commit; the tag is not moved.",
+  "verified_utc": "2026-10-11T17:35:54.460583+00:00",
+  "published_release_body_sha256_utf8": "d4efd711ab2e09541d127b8b554410b9ec09f949604110c4efa41b032e1b3020",
+  "published_body_matches_reviewed_text_after_newline_normalization": true
+}

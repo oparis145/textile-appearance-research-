@@ -426,3 +426,14 @@ Publication 보강 코드의 로컬·원격 commit은 같은 Git tree로 반영�
 서로 같은 basename을 가진 여섯 파일은 작업 브랜치의 전송 단계에서만 구별 가능한 임시 파일명을 사용했다. 원본 크기와 Git blob SHA를 모두 확인한 후 manifest의 원래 경로로 tree를 구성했다. **최종 데이터 tree에는 전송용 임시 경로가 없으며 수치 배열·정밀도·파일 바이트도 바뀌지 않았다.** 원격 metadata에서 repository ID 1414149528·private=true와 현재 연구 설명을 재확인했다. [전송 및 대조 감사](../data/repository_data_v51_upload_audit.json).
 
 연구 보고서에 실제 PDF 페이지 QA, 독립 육안 검토, 게시 전 해시 대조의 직접 링크도 추가했다. 로컬 Git origin은 변경된 저장소 이름 `Phill-lms/textile-appearance-research`에 맞췄다. 이 시점의 main은 publication 보강 코드 commit까지이며, 최종 문서를 작업 브랜치에 반영한 후 main·tag·release를 확정한다.
+
+
+### v0.5.1 최종 게시 확인 — 2026-10-12 02:32:56 KST
+
+**[v0.5.1 릴리스](https://github.com/Phill-lms/textile-appearance-research/releases/tag/v0.5.1)를 2026-10-11 17:32:56 UTC / 2026-10-12 02:32:56 KST에 게시했다.** Release ID는 `409816754`이며 draft가 아니다. 연구 제목·구조맵·18개 그림·425개 테스트와 미검증 범위를 게시 화면에서 확인했다. 저장소는 ID `1414149528`, `Phill-lms/textile-appearance-research`, **private=true**다.
+
+최종 문서까지 포함한 로컬 commit `b30c53df6e3967bd166ceef52ef154fa769888c4`와 원격 commit **`4bb51b2b89e7cb98fddf8152c3012ca48d3822ef`**의 tree는 **`c453be81bf3cce275af7957dcd98957fdf6be344`로 정확히 일치**했다. 작업 브랜치의 완성 snapshot을 기존 main head에 대한 expected-SHA 조건으로 반영했다. GitHub API에서 main의 commit·tree, `refs/tags/v0.5.1`의 commit target, 실제 release 게시 시간을 각각 확인했다.
+
+확정 문서 9개의 로컬 링크·이미지 링크 **252회에서 누락 0개**, 짝이 맞지 않는 code fence 0개를 확인했다. 검사는 [문서 링크 감사](../data/validation_v5_1/documentation_links.json)에 기록했다. 게시 후에도 최종 suite의87개 source hash와 accepted18개 figure hash가 원본과 일치했다. 이를 위해 전체 테스트나 과학 실험을 추가 실행하지 않았다.
+
+[게시 화면](github_v0_5_1_release_verified.jpg)에는 연구 이름, private 저장소 표시, v0.5.1·commit, 구조맵8개·그림18개·425개 테스트가 함께 보인다. [게시 감사 JSON](../data/repository_release_v51_audit.json)에 source/data commit·동일 tree, 실제 release body, 화면 해시와 확인 범위를 보존했다. 이 게시 확인과 증거는 후속 문서 commit으로 추가하며, **v0.5.1 태그는 위의 확정 코드·자료·문서 commit에 고정한다.**
