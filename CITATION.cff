@@ -5,23 +5,28 @@ message: >-
   is research software, not a published validation study of measured fabrics.
 type: software
 title: Textile Optics Engine
-version: 0.2.0
+version: 0.3.0
 authors:
   - name: Phill-lms
 repository-code: https://github.com/Phill-lms/textile-optics-engine
 abstract: >-
   An explicit fiber-to-ply-to-yarn-to-woven-fabric research engine with
   versioned geometry, constituent optical spectra, validated local 2D wave
-  and ray adapters, and multi-material 3D fiber path tracing. Developed under
-  user direction with AI assistance. Current examples use synthetic materials
-  and prescribed geometry; manufacturing mechanics and measured-fabric
-  fidelity remain separate validation tasks.
+  and ray adapters, reduced quasi-static yarn-height equilibrium, hierarchical
+  projected-area and SGGX diagnostics, and multi-material explicit-fiber spectral
+  path tracing with CIE observation. Developed under user direction with AI
+  assistance. Current examples use synthetic materials and regenerate fibers on
+  selected yarn tracks; full rod/contact mechanics, aggregate fabric BSDFs,
+  measured-fabric fidelity, and metasurface sensing remain separate research tasks.
 keywords:
   - computational imaging
   - textile microgeometry
   - woven fabric
   - fiber scattering
   - optical simulation
+  - reduced yarn mechanics
+  - spectral rendering
+  - reproducible simulation
   - research software
 # No software DOI, release date, or blanket open-source license is asserted.
 # Third-party reference files retain their own notices and licenses.

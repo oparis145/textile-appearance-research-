@@ -1,169 +1,241 @@
-# 연구 설계: 미시구조에서 관찰 가능한 원단 외관까지
+# 연구 설계: 계층적 직물 구조와 실제 관측을 연결하는 엔진
 
-버전: 0.2.0 연구 설계. 작성일: 2026-10-11. 구현과 실제 결과는 [README](../README.md), 수식·코드의 세부 계약은 [아키텍처](ARCHITECTURE.md), 근거 문헌은 [문헌 검토](../notes/literature_engine_v2.md)에 연결한다.
+버전: 0.3.0. 작성일: 2026-10-11. 실행 결과는 [README](../README.md), 인터페이스·단위·수학은 [아키텍처](ARCHITECTURE.md), 원문 확인과 선행연구의 관계는 [v3 문헌 검토](../notes/literature_engine_v3.md)에 있다. 이 문서는 **실제로 구현·실행한 범위**와 **다음에 검증할 연구 가설**을 구분한다. 염색·퇴색은 후속 과제로 미뤘다.
 
-## 1. 사용자가 해결하려는 문제
+## 1. 연구 목적을 다시 고정한다
 
-원래 목표는 **온라인 제품 사진을 보고 예상한 옷의 재질감과 실제 원단을 봤을 때의 차이를 줄이는 것**이다. 최종적으로는 확대했을 때의 직조, 조명을 움직였을 때의 광택, 역광의 비침, 관찰 방향에 따른 변화가 실제와 일치하는 표현을 원한다. 제품의 현재 상태를 설명하고 다른 조건에서의 외관을 예측할 수 있어야 한다.
+사용자가 해결하려는 문제는 **온라인 제품 사진에서 예상한 옷의 재질감과 실제 원단을 보았을 때의 차이**다. 최종 출력은 단지 실처럼 보이는 고해상도 이미지가 아니라, 확대 scale·조명·시점·역광을 바꾸었을 때 실제 시편의 반응과 맞는 원단 표현이다. 그 표현은 현재 제품을 재현하면서 어떤 구조·광학 변수가 외관을 결정하는지 설명할 수 있어야 한다.
 
-4K 촬영은 유효한 방법이다. 공간적으로 작은 실·무늬를 분해하지 못하는 문제가 지배적이라면, 광학계와 sampling을 개선하는 것이 직접적인 해결책이다. 다만 같은 고해상도 사진도 하나의 조명·관찰 조건에서 얻은 샘플이다. 그 사진만으로 다른 방향의 하이라이트, 얇은 천의 투과, 조명 스펙트럼 변화에 대한 반응이 모두 정해지는 것은 아니다.
+4K 또는 더 높은 해상도로 촬영하는 것은 유효한 해결 수단이다. 실·잔털·직조를 분해하지 못하는 것이 주된 원인이면 광학 MTF, sampling, 조명 및 noise를 개선하는 것이 직접적이다. 다만 고해상도 정지 사진도 한 조건의 관측이다. 이 연구에서는 해상도의 이득과 다른 조명·시점의 반응을 알아내는 이득을 각각 평가한다.
 
-따라서 연구에서는 두 오차를 나누어 측정한다.
+| 오차 | 질문 | 공정한 비교 기준 |
+| --- | --- | --- |
+| 공간 표현 오차 | 실제 미세 구조를 렌즈·pixel·noise 때문에 놓치는가? | 잘 교정된 고해상도 RGB, 같은 피사체 scale·MTF·노출 |
+| 조건 변화 예측 오차 | 현재 사진에 맞는 표현이 다른 조명·역광에서도 맞는가? | 강한 다중조명 RGB, 미관측 조명·각도에서의 선형 영상 |
+| 모델 축약 오차 | fiber를 yarn·fabric 표현으로 줄일 때 어떤 반응을 잃는가? | 같은 명시적 기하·재료·관측계의 기준 계산 |
+| 실물 전달 오차 | 시뮬레이션이 맞아도 화면·상호작용이 사람의 판단을 바꾸는가? | 동일 display·노출·조작 방식, 실제 시편과의 비교 |
 
-- **공간 표현 오차:** 실제 미시구조를 해상도, MTF, 픽셀 적분, noise 때문에 구별하지 못하는 정도.
-- **조건 변화 예측 오차:** 한 조건에서 비슷하게 보이는 다른 구조·재료가 미관측 조명·각도·역광에서 달라지는 정도.
+현재 연구 목적은 다음과 같다.
 
-이 구분은 고해상도 촬영과 추가 광학 채널을 공정하게 비교하기 위한 것이다. 첫 비교군은 좋은 RGB 촬영이며, 단순히 pixel 수가 적은 약한 비교군을 이기는 것으로 연구의 가치를 판단하지 않는다.
+> **Fiber–ply–yarn–weave–fabric 계층과 선언된 역학·광학 근사를 보존하는 forward engine을 구축한다. 이를 통해 외관을 잘못 예측하는 구조·재료 모호성을 찾고, 강한 RGB 기준이 남기는 오차를 줄이는 관측을 검증한 뒤 그 관측에 맞는 외부 메타광학을 설계한다.**
 
-## 2. 업데이트한 연구 목적
+v0.3의 직접 성과는 이 목적의 기반인 **원사 높이 평형 → 섬유 재구성 → 광학 축약 오차 및 실제 분광 관측**의 실행 가능한 연결이다. 실측 원단 inverse fitting, 다중조명 RGB 대비 정보 이득, 제작한 메타표면의 성능 및 사용자 지각 개선은 이번 결과에 포함하지 않는다.
 
-> **실제 섬유·원사 계층을 보존하는 forward model을 만들고, 원단 외관의 예측 오차를 일으키는 구조·광학 변수와 필요한 관측을 규명한다. 검증된 추가 관측을 효율적으로 얻는 경우에 메타광학을 설계한다.**
+## 2. 왜 형상 생성과 역학·광학을 나누는가
 
-현재 v0.2.0의 직접 목표는 이 전체 연구의 기반인 **기하와 광학 엔진 사이의 검증 가능한 연결**이다. 가능한 미시기하를 만들고, 같은 입력이 광선·파동·렌더링에 어떤 의미로 전달되는지 명확히 했다. 합성 원단을 실측 원단처럼 보이게 만드는 inverse fitting이나 사용자 지각 개선은 아직 검증 단계에 도달하지 않았다.
+직조 draft는 어떤 원사가 위에 있는지 정하지만, 원사가 어디까지 휘는지 유일하게 정하지 않는다. 같은 draft에서도 장력·굽힘 강성·끝 경계가 바뀌면 경사와 위사의 crimp 배분이 바뀔 수 있다. 그 결과 fiber 방향·가림·투과 경로가 달라질 수 있다. [Weavecraft](https://www.antequ.net/assets/projects/weavecraft/weavecraft.pdf)와 [Leaf의 periodic yarn-level cloth](https://graphics.stanford.edu/projects/yarnsim/assets/interactive_design_of_periodic_yarn_level_cloth_patterns.pdf)가 이 구분의 근거다.
 
-현 단계의 결과를 논문 기여로 표현하려면 “metasurface를 사용한 원단 완전 재현”이 아니라, **계층적 미시구조와 광학 모델 간의 근사 오차·유효범위를 드러내는 실험 체계**로 좁혀야 한다. 기존 연구와 겹치는 단순 구성 자체를 독창성으로 주장하지 않는다.
+또한 기하가 상세하다는 이유만으로 광학이 정확해지지는 않는다. 실제 단면·광학 상수·표면 산란이 잘못되면 개별 fiber를 렌더링해도 실측을 놓칠 수 있다. 반대로 검증된 aggregate 모델이면 모든 fiber를 그릴 필요가 없는 관측 조건도 있을 수 있다. [SGGX](https://research.nvidia.com/sites/default/files/pubs/2015-08_The-SGGX-microflake/sggx.pdf), [SpongeCake](https://wangningbei.github.io/2022/SpongeCake_files/paper_SpongeCake.pdf), [Yang의 SGGX fitting](https://doi.org/10.26599/CVM.2025.9450445)은 축약 표현의 선행연구다.
 
-## 3. 계층별로 무엇을 설명하는가
+따라서 하나의 거대한 모델에서 모든 오차를 흡수하게 하기보다, 각 계층에서 보존하는 물리량·버리는 정보·검증 기준을 정한다. 현재 구현은 원 논문의 완전 재현이 아니며, 논문의 실제 사용 범위와 공식 코드 확인 여부는 [문헌 ledger](../notes/literature_engine_v3.md)에 남겼다.
 
-| 수준 | 상태 변수 | 외관과 연결될 가능성이 있는 정보 | 현재 상태 |
+## 3. Low → high 계층 설계
+
+Ply라는 용어는 방적 단사 하나 또는 여러 섬유의 묶음을 뜻하는 등 문맥에 따라 달라질 수 있다. 이 엔진에서는 **fiber 묶음의 부모가 ply이고, 하나 이상의 ply를 꼬아 배치하는 부모가 yarn**이라는 계산용 정의를 고정했다. 일반 직물 제조의 모든 구조가 이 tree와 일치한다고 가정하지 않는다.
+
+| 수준 | 설계·상태 변수 | 자식에게 전달하는 정보 | 현재 구현과 다음 확장 |
 | --- | --- | --- | --- |
-| Constituent material | 복소 굴절률, 흡수, 분산, 이방성 | 파장별 흡수·표면 반사·편광 반응 | 합성 scalar `n+iκ` 스펙트럼 |
-| Fiber | 중심선, 반지름, 단면, 표면·재료 ID | 개별 산란·반사·굴절, 파동 간섭의 구조 | 원형·일정 반지름 polyline |
-| Ply | fiber packing, fiber twist, migration | 섬유 방향 분포, 내부 다중 경로 | 명시적 fiber 묶음, bounded 변화 |
-| Yarn | ply 수·배치·twist, envelope | 원사 수준의 방향성·차폐·공극 | 명시적 multi-ply |
-| Crossing / repeat | warp/weft 순서, pitch, crimp | float 길이, 상·하층 가시성, 비침 | 직사각형 single-layer binary draft |
-| Fabric patch | 반복 범위, 불균일성, 조명/시점 | 반사·투과 영상, 위치별 직조 대비 | 유한 평면 패치, 실제 path tracing |
-| Garment / observation | 거시적 곡률·주름, 조명, camera/display | 제품 전체의 입체감과 사용자 판단 | 후속 계층; 기존 카메라 모형만 별도 구현 |
+| Constituent material | `n(λ)+iκ(λ)`, source/status; 역학 `EA`, `B`는 별도 | 광학 spectrum 및 역학 입력의 출처 | 합성 scalar index·흡수. 이방성·실측 constitutive law는 후속 |
+| Fiber | 중심선·반지름·재료·부모 ID | 위치·접선·실제 호길이·단면 | 일정 반지름 원형 polyline. 단면 비원형·표면 잔털 통계는 후속 |
+| Ply | fiber packing·offset·fiber twist·migration | local frame과 fiber 배치 | 명시적 fiber 묶음. ply 자체의 응력·fiber sliding은 미계산 |
+| Yarn | ply 수·배치·ply twist·envelope | 부모 중심선과 호길이 twist | 명시적 multi-ply. v3에서 유효 yarn 높이 평형을 계산 |
+| Crossing / draft | 경·위사 위아래 순서·pitch·float | crossing 제약과 track index | 직사각형 single-layer binary draft. multilayer stack·knit connectivity는 후속 |
+| Yarn network | 경계·rest length·강성·clearance | 초기 또는 축소 평형 원사 트랙 | 고정 평면 경로·높이 DOF. 3D rod·압착·접촉마찰은 후속 |
+| Fabric patch | 유한 범위·위치별 물질·microgeometry | `OpticalScene`과 관측 영역 | 실제 explicit-fiber path tracing, 투영 통계, 분광 관측 |
+| Fabric surface / garment | 거시 곡률·주름·경계·seams·중력 | 표면과 미시구조 사이 변형 map | 전체 의류 drape와 material-coordinate 운반은 후속 |
+| Observation / display | 광원 스펙트럼·방향·크기, sensor/display 응답 | 관측 영상·추정값·사용자 표현 | 합성 rig와 CIE 적분. 실물 camera/display calibration은 후속 |
 
-이 표는 물리적으로 필요한 계층과 현재의 구현 수준을 함께 보여준다. Polymer chemistry나 제조 공정을 현재 `material_id` 하나가 대신 해결하지는 않는다. Blend는 각 fiber의 재료 라벨을 보존하며, 임의 평균 굴절률을 숨겨 넣지 않는다.
+실크·코튼·큐프라·린넨은 버튼 하나에 대응하는 고정 appearance가 아니다. 섬유의 단면·직경·표면, 원사의 꼬임·잔털, 직조, 가공 상태가 함께 입력되어야 한다. 현재 엔진은 이런 변수를 분리할 구조를 제공하지만 실제 재료별 정확도는 측정하지 않았다. Blend를 넣을 때는 fiber별 material ID를 유지하며, 근거 없이 평균 굴절률로 바꾸지 않는다.
 
-실크·코튼·큐프라·린넨에 따른 외관을 다루려면 실제 단면·직경·꼬임·잔털·광학 상수와 가공 상태를 확보해야 한다. 재료명과 직조명은 다르다. 같은 섬유라도 원사 구조와 직조가 달라질 수 있고, 같은 직조라도 구성 물질과 마감이 달라질 수 있다. 현재 예제는 이 변수들을 분리해 넣을 수 있는 데이터 구조를 준비한 단계다.
+### Weavecraft와의 호환 경계
 
-## 4. 모듈화한 연구 흐름
+현재 draft는 `row = weft`, `column = warp`, **1 = warp over**다. 검토한 Weavecraft/Leaf card 표현은 **1 = weft over**여서 importer에 명시적 bit 반전이 필요하다. 축 이름만 교환하면 같은 위상을 얻지 못한다. 현재 `transposed()`의 family 교환은 `1 - matrix.T`다. [문헌의 호환성 검토](../notes/literature_engine_v3.md#41-weavecraft-provides-a-topology-lesson-not-a-ready-optical-solver).
+
+Weavecraft의 3D blocks는 여러 원사의 ordered stack, 빈 위치, 연결·경계 규칙을 갖는다. 이를 확장하려면 별도 topology schema가 필요하다. Binary matrix의 z값 하나를 더하는 방식으로 3D block 지원을 주장하지 않는다.
+
+## 4. 모듈별 실행 관계
 
 ```mermaid
 flowchart TD
-    P["구조·물질의 실험 변수"] --> G["H1–H4 계층 기하"]
-    G --> V["V1 기하 검증"]
-    G --> O["O1 공통 optical scene"]
-    P --> O
-    O --> R["O2–O4 광학 기준 계산"]
-    R --> C["C1 camera·관측 채널"]
-    C --> F["F1 역추정·오차 분석"]
-    V --> F
-    F --> A["A1 추가 관측 선택"]
-    A --> M["M1 메타광학 구현 비교"]
-    F --> U["U1 실물·지각 검증"]
+    I["직조·원사·재료 입력"] --> H["H1 계층 기하 생성"]
+    I --> K["K1 원사 높이 평형"]
+    K --> H
+    H --> V["V1 sampling·간격·identity"]
+    V --> O["O1 OpticalScene"]
+    O --> W["O2 local Maxwell / ray"]
+    O --> R["O3 explicit-fiber rendering"]
+    O --> A["O4 계층 투영 축약"]
+    R --> C["C1 분광·관측 적분"]
+    A --> Q["Q1 근사 오차·조건 분석"]
+    W --> Q
+    C --> Q
 ```
 
-| 모듈 | 연구 역할 | 구현 여부 / 다음 입력 |
-| --- | --- | --- |
-| H1 Fiber/Ply | 최소 기하 단위와 내부 배열 | 구현; 실측 단면·migration 통계는 후속 |
-| H2 Yarn | multi-ply와 두 수준의 twist | 구현; 장력·압착 모델은 후속 |
-| H3 Draft | 직조 위상과 반복 구조 | 구현; 3D weave blocks·knitting은 후속 |
-| H4 Fabric | crossing 위치와 finite patch | 구현; 실제 거시 곡면·옷 drape는 후속 |
-| V1 Geometry validation | sampling과 충돌·기하 전송 검사 | 구현; 자기접촉·힘 평형은 후속 |
-| O1 OpticalScene | geometry/material/units/provenance 경계 | 구현 |
-| O2 Wave reference | eligible local 평행 원통의 Maxwell 해 | 구현; full 3D Maxwell은 후속 |
-| O3 Ray reference | 같은 local 원통의 incoherent transport | 구현; 약흡수 real-Fresnel 근사 명시 |
-| O4 3D rendering | 명시적 fiber의 반사/투과 path tracing | 구현; spectral color 통합은 후속 |
-| C1 Camera | MTF·pixel·noise와 측정 채널 | v0.1 모듈; 새 inverse task와 결합은 후속 |
-| F1 Inference | 미관측 조건 외관 예측과 모호성 분석 | 후속; 현재는 forward 결과·통계 |
-| A1 Measurement | 각도·파장·편광 정보의 추가 가치 | v0.1에 두 고정 모형의 이상적 검출 실험; 실제 원단 식별은 후속 |
-| M1 Metaoptics | 정보 선택을 광학 소자로 구현 | 이상적 pupil baseline만 구현; 실제 소자 성능 검증은 후속 |
-| U1 Validation | 실물 시편과 사람이 보는 이득 | 후속 |
+| 모듈 | 입력 → 출력 | v0.3의 실제 상태 | 다음 gate |
+| --- | --- | --- | --- |
+| H1 계층 기하 | fiber/ply/yarn/draft → explicit fibers | 5개 v2 예제와 v3 평형 연결; 부모 호길이 twist·RMF·bounded irregularity | 실측 기하 분포·비원형 단면·material-coordinate 운반 |
+| K1 원사 평형 | 유효 `EA,B,r`, 경계·draft → yarn heights | convex 인장·작은 기울기 굽힘, analytic derivatives, 보수적 envelope 제약 | finite-rotation rod와 비교 후 3D·contact 확장 |
+| V1 검증 | geometry·equilibrium → diagnostics | 다른 fiber clearance, sampling, 결과 문제/height hash와 재계산 KKT | self-contact, 실제 변형 보존량, optical 민감도 |
+| O1 공통 scene | geometry + spectrum → scene identity | mm/nm·복소 index·재료 ID·source/status | 새 단면·anisotropy의 엄격한 schema/adapter |
+| O2 local 기준 | 유효 단면 → 2D wave/ray | 평행 원형 bundle만 허용; 같은 geometry의 실제 계산 유지 | twisted 3D fiber의 wave-validity model |
+| O3 3D 광학 | explicit fibers + rig → scalar radiance | 실제 fiber hair path tracing, 파장별 material 갱신 | 실측 scattering·편광·wave correction과 기준 비교 |
+| O4 계층 축약 | 같은 scene + 공통 V → `g(ω)`, SGGX fits | 1/2/6/6 그룹의 held-out projected-area 오차 | aggregate BSDF·다중 산란·공간 density와 실제 영상 비교 |
+| C1 분광 관측 | 파장별 radiance + SPD·CIE → XYZ | 536회 fiber 렌더, 4 seed pairing, 25/12.5 nm 일부 수렴 | 실제 source/camera/display, 그리드·noise 예산 수렴 |
+| Q1 근사 분석 | 공통 입력의 여러 표현 → 오차 분해 | geometry·통계·MC·일부 파장 차이를 별도 보고 | model mismatch·독립 원단·미관측 조건 |
 
-이 문서의 H/O/C/F/A/M/U 번호는 연구 개발 흐름을 설명하기 위한 것이다. 이전 대화의 RGB 측정, 메타광학 측정, 교정·정합, 특성 추정, 사용자 표현이라는 목표는 그대로 유지하되, 이번 구현에서는 **측정 이전에 필요한 forward simulation**을 독립 모듈로 구체화했다.
+다음 개발 흐름은 관측을 선택하고 실제 원단으로 검증하는 것이다. 이 부분은 아직 구현·입증되지 않은 연구 단계다.
 
-## 5. 수학적으로 분리할 세 층
+```mermaid
+flowchart TD
+    F["검증된 forward models"] --> B["강한 다중조명 RGB 기준"]
+    F --> P["구조·재료 모호성 탐색"]
+    B --> J["Nuisance를 고려한 정보 비교"]
+    P --> J
+    J --> A["각도·파장·편광 관측 선택"]
+    A --> M["기존 광학 / 메타광학 구현 비교"]
+    M --> D["독립 실물·미관측 조건 검증"]
+    D --> U["동일 화면에서 지각 평가"]
+```
 
-### 5.1 구조 생성
+## 5. 현재 구현의 수학적 수준
 
-기하 변수 \(\theta_G\)를 받아 `G(θG)`가 fiber 경로·반지름·부모 라벨을 생성한다. 현재의 `G`는 C2 crossing interpolation과 local-frame sweep이다. 힘·마찰·장력으로부터 equilibrium을 구하는 모델은 아니다. 현재 생성기의 수식과 sampling 조건은 [hierarchy_design.md](../notes/hierarchy_design.md)에 있다.
+### 5.1 기하 생성과 평형 계산
 
-가장 중요한 설계 선택은 twist를 전역 z좌표가 아니라 **각 부모 경로의 실제 호길이**에 적용하는 것이다. 같은 signed turns/mm라도 ply가 꼬여 길어지면 fiber의 누적 회전 수가 바뀐다. geometry→optics에서 이런 계층 정보를 평균내 없애지 않는다.
+v2의 `G(θ_G)`는 prescribed crossing crimp와 local-frame sweep으로 fiber를 생성한다. v3는 선택적으로 원사 높이 `z*`를 다음 문제에서 계산한다.
 
-### 5.2 광학 forward model
+\[
+z^* = \arg\min_{Az\ge b}
+\left[\sum_k\frac{EA_k}{2\ell_{0,k}}(\ell_k-\ell_{0,k})^2
++\sum_{yarn}\frac{B}{2h^3}\|D_2z\|^2\right],
+\]
 
-물질 변수 \(\theta_M\), geometry \(G\), illumination \(L_i\)에 대한 관측 가능한 출사 광량을
+\[
+\ell_k=\sqrt{h^2+(\Delta z_k)^2},\qquad \ell_{0,k}=rh,\quad 0<r\le1.
+\]
+
+저장 에너지는 같은 flat grid의 상수 stretching energy를 뺀 값이다. 제약은 crossing 순서, 최대 기울기, 원사 envelope 간격이다. 유한 패치 끝은 높이 고정·회전 자유다. [유도와 algorithm](../notes/weave_mechanics_v3.md).
+
+이 모델은 **reduced quasi-static yarn-height equilibrium**이다. [DER](https://www.cs.columbia.edu/cg/pdfs/143-rods.pdf)의 full 3D framed rod, twisting energy, 접촉압·마찰, 단면 압착, transverse sliding, garment drape를 구현한 것은 아니다. 작은 기울기 bending 근사의 크기는 따로 기록한다. Optical pair에서 edge slope 기반 `(1+L²)^(5/2)-1`은 약 18.06%로, 더 정교한 기하 모델과 비교할 이유가 남는다. 이 수치는 해의 위치나 실제 원단 전체에 대한 error bound가 아니다.
+
+Fiber는 평형 yarn 위에 새로 생성한다. ID를 유지하더라도 material-coordinate 변형이 아니다. 광학 pair의 전체 cylinder-volume proxy는 +0.04424%, warp/weft fiber 길이는 각각 −0.57358%/+0.66206% 변한다. 따라서 전후 optical 차이를 접선 하나의 변화로 귀속하지 않는다.
+
+### 5.2 광학 축약의 기준
+
+공통 부피 `V`에서 계산하는 방향 통계는
+
+\[
+g(\omega)=\frac1V\sum_j2r_jL_j\sqrt{1-(t_j\cdot\omega)^2}.
+\]
+
+이를 `sqrt(ωᵀSω)`로 맞추며, 그룹별 예측을 더한다. `g`는 비차폐 원통 옆면의 투영 면적 밀도이고 끝면·joint 중복·공간 상관·가림·multiple scattering이 없다. 따라서 낮은 fitting error를 낮은 BSDF/영상 error로 해석할 수 없다.
+
+실제로 같은 접선 이차 모멘트 `diag(1/2,1/2,0)`를 가진 두 분포 `{e_x,e_y}`와 `{(e_x+e_y)/√2,(e_x−e_y)/√2}`는 x 방향 정규화 투영이 **0.5와 1/√2**로 다르다. 이 반례는 표현을 고를 때 버린 고차 방향 정보를 확인하는 기준이다. 두 원단이 고해상도 RGB에서 구별되지 않는다는 실험은 아니다. [수치 반례·독립 리뷰](../notes/review_engine_v3.md).
+
+### 5.3 Optical transport와 관측
+
+계층 기하 `G`, 물질 `θ_M`, 광원 `L_i`가 주어지면 공통 forward 표기는
 
 \[
 L_o=\mathcal T_{G,\theta_M}[L_i]
 \]
 
-로 표시할 수 있다. 이 표기는 앞으로 비교할 transport model의 공통 입출력을 뜻한다. 현재 실제 backend는 3D incoherent path tracing, local 2D coherent Maxwell, local 2D power-ray로 나뉘며, 서로의 물리량을 자동으로 동치 취급하지 않는다.
+다. 현재 실제 backend는 3D incoherent fiber path tracing, 유효 단면의 2D Maxwell, 2D power-ray다. 같은 scene에서 시작하지만 서로 다른 물리량·정규화·유효범위를 갖는다. Local wave cross-section을 정규화 없이 fabric BRDF로 옮기거나 직접광·회절·ray power를 중복해서 더하지 않는다. [Yu ray–wave의 실제 역할 분리](https://blaire9989.github.io/assets/3_RayWaveFabric/project.html)도 이 경계를 없애 주는 단순 합산식은 아니다.
 
-국소 파동 계산에서 얻는 길이 단위 산란 단면적, 유한 beam의 power fraction, 특정 camera의 radiance는 서로 다른 양이다. aggregate scattering model을 추가할 때는 어떤 양을 어떤 정규화로 연결했는지 식과 단위로 보여야 한다. 파동과 광선 결과를 단순히 더해 전체 에너지가 보존되는 것처럼 만드는 방식은 허용하지 않는다.
+v3에서는 실제 파장별 scalar radiance를 공식 CIE observer와 Planck source로 적분한다. 6500 K Planck를 D65라고 부르지 않으며 절대 휘도·실물 화면 교정을 주장하지 않는다. 새 광학 모듈은 raw spectra와 선형 XYZ를 남겨 관측자·표시를 바꾸어도 원래 정보를 보존한다.
 
-### 5.3 측정 모델과 추정 목표
+## 6. 이번 실험이 실제로 보여 준 것
 
-미래의 radiometrically calibrated 측정에서는 기대 전자 수를 개념적으로
+| 항목 | 실제 결과 | 가능한 해석 | 금지할 확대 해석 |
+| --- | --- | --- | --- |
+| 42-fiber 평직의 원사 평형 | excess energy −70.05%; warp crimp 0.7000→0.1225%, weft 0.7000→1.3667% | 선언한 유효 강성·경계에서 crimp 배분 변화 | 실물 장력/굽힘을 측정 없이 예측 |
+| Multi-ply 연결 | 84 fibers, 2 plies/yarn, 10,752 segments | 부모 평형을 multi-ply 기하에 전달 가능 | ply/fiber 내부 응력 전달이나 slipping 해결 |
+| Mechanical mesh | 4→8 RMS 0.6200 μm, 8→16 RMS 0.1768 μm | 관찰된 높이 수렴 | 실제 원단·광학 영상의 절대 오차 상한 |
+| SGGX 1→2 family | 초기 RMSE 3.5727→0.2198%; 평형 3.5788→0.2984% | 이 기하의 경·위 방향 통계 구분이 유용 | 같은 수치의 BSDF·사진 정확도 개선 |
+| Yarn/ply 세분화 | 2→6 그룹에서 추가 개선 없음 | 더 복잡한 계층이 이 fixture에는 불필요할 수 있음 | 모든 원단에서 ply가 불필요함; fixture는 1 ply/yarn |
+| 6500 K 반사 azimuth 0/90° | 평균 Y +37.04%/−32.37%; paired 구간 각각 0 제외 | 이 관측계에서 상태 변화가 방향별로 반대 부호 | 구조를 유일하게 복원하거나 실제 RGB 대비 이득 확인 |
+| 같은 source의 투과 45° | +0.64%, paired 95% 구간이 0 포함 | 현재 MC 예산에서 변화 미분리 | 투과 정보가 원래 쓸모없음 |
+| 실제 25/12.5 nm 비교 | 한 반사 방향에서 XYZ 0.170–0.363% 차이 | 해당 설정의 추가 파장 검산 | 모든 source·direction의 분광 수렴 인증 |
+
+역학·광학 결과는 각각 [mechanics manifest](../data/mechanics_v3/experiment_manifest.json), [optical metrics](../data/optical_v3/optical_scale_metrics.json)와 원래 arrays에 대응한다. 표의 광학 구간은 **4개 seed의 Monte Carlo uncertainty**다. 픽셀·파장을 독립 표본으로 늘리지 않았고, 실물·모델·교정 uncertainty는 포함하지 않는다. 현재 최종 suite의 test 수와 pass/fail은 [통합 기록](../data/final_test_summary.json)을 기준으로 한다.
+
+## 7. 가장 유망한 다음 연구 질문
+
+> **강한 다중조명 RGB에서 남는 ‘원사 crimp·방향 변화’와 ‘섬유 고유 산란·흡수 변화’의 모호성을, 적은 각도·분광 관측으로 줄일 수 있는가? 그리고 그 이득이 다른 기하·광학 근사를 써도 유지되는가?**
+
+이 질문은 제품 외관 예측과 메타광학 연구를 연결한다. 목표를 실크/코튼 이름 분류 하나로 두면 구조·가공·조명의 confound가 숨을 수 있다. 우선 미관측 조건의 하이라이트·비침·선형 색 오차를 줄이는 데 충분한 상태를 추정한다.
+
+현재 반사 두 방향의 opposite-sign 변화는 후보 관측을 정할 실마리다. 다만 두 상태만 비교했으므로 다른 roughness·흡수·조명 강도 변화가 같은 관측을 만들 수 있는지는 아직 계산하지 않았다. 이를 확인해야 채널의 정보 가치를 주장할 수 있다.
+
+### 7.1 큰 민감도보다 모호성을 제거한 정보가 중요하다
+
+구조 파라미터를 `θ_g`, nuisance를 `θ_n`이라 하고, noise로 whiten한 local Jacobian을 `J_g,J_n`이라 하자. Nuisance가 모방할 수 있는 변화 방향을 제거한 정보는
 
 \[
-\mu_{kc}=t\int QE_{kc}(\lambda)\frac{\lambda}{hc}
-\,\mathcal H_{k,\lambda}[L_o]\,d\lambda
+F_{g\mid n}=J_g^T(I-J_nJ_n^+)J_g
 \]
 
-로 둘 수 있다. \(\mathcal H\)에는 pupil, 광학 전달, pixel 면적·입체각, 검출 채널이 포함된다. \(k\)는 측정 조건, \(c\)는 채널이며, \(t\)는 노출 시간이다. 이 식 전체의 실제 장비 교정은 아직 구현되지 않았고, 기존 camera/meta 모듈은 지정된 광자 예산과 이상적 전달 모형을 다룬다.
+로 진단할 수 있다. 이는 가정한 local Gaussian noise 모델의 선형 근사이며 global uniqueness를 보장하지 않는다. Rank가 부족한 경우 pseudo-inverse를 사용하고, parameter scaling·prior와 noise covariance를 함께 명시해야 한다.
 
-역추정은 모든 미시 fiber를 유일하게 알아내는 것을 기본 목표로 잡지 않는다. 제한된 관측에서 **미관측 조건의 외관을 충분히 정확하게 예측하는 상태 변수 또는 분포**를 구하는 문제로 정의한다. 추정값뿐 아니라 다른 구조가 비슷한 측정을 만드는 모호성도 평가해야 한다.
+추가 관측은 raw derivative가 큰 채널보다, nuisance를 제거한 뒤 관심 구조 또는 미관측 외관의 uncertainty를 줄이는 채널이어야 한다. 이 식과 channel optimization은 **v3의 미구현 연구 설계**다. 실제 sensor response·shot/read noise로 검증한 후 사용할 예정이다.
 
-## 6. 검증할 가설과 반증 조건
+### 7.2 메타표면의 역할
 
-| 가설 | 비교할 것 | 지지하는 결과 | 반증되면 바꿀 방향 |
-| --- | --- | --- | --- |
-| H-A: 사진 해상도 외의 관측이 필요하다 | 고해상도 RGB와 multi-angle / R-T / spectral 추가 | 독립 원단·미관측 조건 외관 오차 감소 | RGB만으로 충분한 대상은 추가 광학 개발 범위에서 제외 |
-| H-B: 미시구조를 더 세분화할 가치가 있다 | 평균 ply/yarn 모델과 explicit fiber reference | 특정 tilt·packing·광원 조건에서 오차와 원인을 설명 | coarse 모델이 충분한 영역에서는 계산을 단순화 |
-| H-C: 정보 효율적 채널을 찾을 수 있다 | 균일 채널, 최적화 채널, 강한 RGB 기준 | 같은 시간·pixel·photon 예산에서 오차 감소 | 채널 최적화 대신 획득 예산이나 장비 제약을 재정의 |
-| H-D: 메타광학이 구현상 이득을 준다 | 실제 metaelement와 렌즈·격자·편광자 대조군 | 전체 시스템 부피·시간·효율·정확도의 설득력 있는 개선 | 기존 광학 구현을 기준 장치로 유지 |
+외부 광학계의 구현 가능한 응답을 `h_m(λ,ω)`라 하면 이상화 관측은
 
-이 표는 앞으로의 판정 기준이다. 현재 v0.2.0이 H-A~H-D를 실측으로 입증했다는 의미는 아니다.
+\[
+y_m=\iint h_m(\lambda,\omega)L(\lambda,\omega;\theta)\,d\lambda\,d\omega+\epsilon_m
+\]
 
-## 7. 다음 실험의 권장 범위
+로 쓸 수 있다. 실제 설계에서는 수광 étendue, 효율, 검출 QE·pixel·광자 에너지, 공간 정합, stray light·crosstalk를 포함해야 한다. 부호가 있는 계산 가중치와 수동 광학 intensity channel을 혼동하지 않는다. 편광까지 포함할 때는 scalar kernel 대신 Jones/Mueller 및 검출 계약이 필요하다.
 
-### 단계 A — 같은 구조에서 근사의 유효범위를 찾는다
+VIS는 사용자에게 보여 줄 외관의 기준 대역이다. IR은 기존 연구 공정·검출기를 활용할 수 있는 보조 후보지만, IR 채널이 줄이는 불확실성이 VIS 외관 예측에 도움이 되는지 확인해야 한다. IR 재료 분류만 성공했다고 VIS 광택·색이나 촉감 전체를 알아냈다고 결론내리지 않는다.
 
-먼저 원형 scalar dielectric fiber를 유지하고, radius, packing, fiber/ply twist, illumination angular width를 바꾼다. Geometry perturbation, 광원 평균, 편광을 한 번에 섞지 않고 각 축을 분리한다. 기준 geometry와 material은 모두 저장하고, 단순화한 모델이 동일한 입력으로 무엇을 보존하는지 기록한다.
+## 8. 실험을 확장할 순서와 판정 기준
 
-관심 값은 파장·각도별 산란 분포, backward/forward power, 흡수, 하이라이트 폭과 위치, 직조 대비다. Coherent wave와 incoherent ray 비교에서는 forward interference와 직접광의 정의를 먼저 고정한다. 작은 에너지 residual만으로 multipole truncation이나 angular sampling 수렴이 충분하다고 결론내리지 않는다.
+### A. 구조·역학의 유효범위를 먼저 측정한다
 
-현재 7-fiber calibration, strict/local slice 진단, 기존 geometry-matched wave/ray 계산이 이 단계의 출발점이다. 2D reduction에서 탈락하는 twisted yarn은 geometry를 조용히 평평하게 만드는 대신, 어느 tilt/curvature 범위에서 근사 kernel을 검증해야 하는지 알려주는 사례로 사용한다.
+원형 fiber와 합성 index를 유지한 상태에서 `EA`, `B`, `r`, pitch, draft를 별도 축으로 바꾼다. 동일 시편의 small-slope 해와 finite-rotation rod 해를 비교하고, boundary와 volume/length 변화의 기여를 분리한다. Material-coordinate 기반 fiber 운반을 추가하면 동일 질량 조건과 기존 재구성 조건을 분리해 렌더링한다.
 
-### 단계 B — 실제 원단의 소규모 기준 데이터를 만든다
+계속 진행할 근거는 KKT 하나가 아니라 높이·접선·간격·경계 민감도와 optical response의 수렴이다. 현재 8→16 mesh 차이가 광학 효과보다 작은지 아직 paired rendering으로 확인하지 않았으므로, 작은 외관 차이를 추론할 때는 이 gate를 먼저 통과해야 한다.
 
-섬유·원사 종류를 좁힌 패치부터 시작한다. 교정된 확대 RGB, 조명 방향별 반사, 역광·투과, 필요한 경우 분광 데이터를 확보한다. 픽셀당 실제 길이, illumination 위치/크기/스펙트럼, 노출·white balance·카메라 응답을 기록한다. 알려진 데이터 범위 안에서 먼저 geometry와 optical fitting을 나누어 평가한다.
+### B. 계층 축약을 실제 외관으로 검증한다
 
-학습/추정용 패치와 평가용 패치는 실물 원단 단위로 분리한다. 같은 원단의 인접 패치가 양쪽에 섞여 원단 일반화처럼 보이지 않게 한다. 측정에 사용하지 않은 광원 방향·관찰각·파장 조건을 평가에 남긴다.
+두 plies 이상의 광학 fixture와 서로 다른 ply twist·packing을 추가한다. 전체/family/yarn/ply 방향 mixture의 geometry 통계뿐 아니라, albedo·phase·spatial density·가림을 포함한 aggregate transport를 구현한 뒤 **같은 명시적 fiber reference**와 비교한다. 동일 budget과 held-out 조명·footprint를 사용한다.
 
-### 단계 C — 측정과 metaelement를 공동 설계한다
+직접 비교할 것은 projected-area 오차, 방향별 radiance, 하이라이트 위치·폭·강도, 역광 대비 및 시간/메모리다. Aggregate 모델의 parameter fitting에는 쓰지 않은 방향·구조를 남긴다. 더 많은 parameter가 training fit만 개선하면 계층을 확장할 이유가 충분하지 않다. Yang 등의 prior art와 비교할 구체적 역할도 이 단계에서 정한다.
 
-각도·파장·편광 중 어떤 정보가 남은 오차를 줄였는지 분리한다. 여러 채널을 추가해 좋아졌다는 결과만으로 각 채널의 필요성을 판단하지 않는다. 센서 pixel 수, 노출/입사광량, 수집 효율, scan 횟수를 포함한 acquisition budget을 맞춘다.
+### C. 관측 선택은 강한 RGB와 nuisance 대조군을 둔다
 
-메타표면은 필요한 채널이 확인된 뒤 그 관측 연산자를 구현하는 후보로 둔다. 실제 효율, stray light, wavelength/angle crosstalk, 제작 오차, relay와 mount까지 포함해 기존 광학과 비교한다. 현재 `meta_optics.py`의 이상적 pupil과 가정 효율은 이 장비 비교를 대신하지 못한다.
+초기 parameter family는 crimp·warp/weft 배분, roughness, 흡수, source scale처럼 서로 optical response를 모방할 수 있는 축으로 제한한다. 후보 채널은 기존 고해상도 다중조명 RGB, 추가 출사각, 반사/투과, 소수 파장 순으로 ablation한다. 편광은 그 자체의 forward/측정 교정이 생겼을 때 추가한다.
 
-VIS는 보여줄 외관을 직접 검증하는 기준 대역으로 둔다. IR은 보유 공정·검출기와 맞는 장점이 있지만, 추가 파장 측정이 어떤 불확실성을 줄이는지 먼저 확인한다. IR로 구분되는 물질 특성이 VIS의 광택·색이나 사람이 느끼는 모든 촉감으로 자동 연결된다고 가정하지 않는다.
+같은 촬영 시간, 총 입사/검출 광자, 공간해상도·pixel 수를 어떤 방식으로 맞췄는지 명시한다. 한 channel의 SNR을 그대로 유지하면서 전체 광량만 늘려 놓은 비교는 분리 보고한다. Kinematic model에서 최적화한 채널을 relaxed model 또는 다른 roughness model에서 평가하여 model artifact를 선택한 것은 아닌지 검사한다.
 
-### 단계 D — 사용자에게 전달되는 이득을 평가한다
+### D. 실물의 작은 패치에서 외관 목표를 검증한다
 
-새 측정의 결과와 baseline을 같은 display·노출·interaction 방식으로 보여준다. 조명을 회전시키는 짧은 영상, front/backlight 전환, 확대 scale 표시처럼 실제 검증할 단서를 일관되게 제공한다. 하이라이트/비침 판단 또는 실물 시편 매칭이 개선되는지 본다.
+처음에는 섬유 한 종류와 제한된 원사·직조 범위로 시작한다. 확대 구조, 실제 조명 geometry/spectrum, front/back lighting, 선형 camera response를 기록한다. 역학을 fitting할 경우 별도 yarn 굽힘·장력 데이터와 경계조건이 필요하다. Optical index와 유효 stiffness를 서로 대신 추정하지 않는다.
 
-촉감은 별도 property를 정한 후 확장한다. 굽힘·압축·마찰·접촉 냉감은 서로 다른 기준 측정과 모델이 필요하다. 현재의 optical pipeline에서 “보송하게 보인다”는 평가가 모든 촉각 물성을 예측한다는 뜻이 되지 않도록 한다.
+추정용·평가용 split은 원단 시편 단위로 한다. 같은 원단의 인접 패치가 양쪽에 들어간 결과를 새로운 원단 일반화라고 쓰지 않는다. 실제로 측정에 사용하지 않은 조명·시점·source SPD를 평가에 남긴다. 목표별 metric은 분광/선형 radiance, 하이라이트·비침, 교정된 색차이며, 각 metric의 noise floor를 같이 보고한다.
 
-## 8. v0.2.0에서 확인한 것과 아직 주장할 수 없는 것
+### E. 메타광학과 사용자 표현을 각각 검증한다
 
-현재 확인한 것은 명시적 multi-ply 생성, bounded irregularity, continuous different-fiber clearance, sampling refinement, ID·단위·material 보존, eligible slice의 실제 Maxwell/ray 실행, 3D multi-material path tracing이다. 구체적 5-case 수치, 98-fiber export, 독립 similarity 검사는 [README](../README.md)와 [리뷰](../notes/review_engine_v2.md)에 기록되어 있다.
+선택된 측정은 먼저 렌즈·격자·편광자 등 기존 광학으로 구현한다. 그 결과에서 메타표면의 설계 목표를 정한다. 비교 항목은 전체 시스템 부피·부품 수, 효율·crosstalk, 획득 시간, 동일 예산의 외관 예측 오차다. Relay·mount·detector를 제외한 소자 두께만으로 system advantage를 주장하지 않는다.
 
-현재 주장할 수 없는 것은 실제 원단의 완전 재현, 실물 material 식별 정확도, 방적/제직 공정 예측, metaelement의 필요성과 성능 우위, 사람의 촉감 예측이다. 이것들은 명시적인 입력·비교군·held-out 조건·판정 metric이 있는 다음 단계의 연구 질문으로 남겼다.
+사람에게 보여 줄 때는 baseline과 새 측정 결과의 display·노출·상호작용을 같게 한다. 조명 회전, 역광 전환, 실제 scale의 확대를 제공하고 시편 매칭 또는 광택·비침 판단을 비교한다. 현재 optics가 직접 설명할 수 있는 외관을 먼저 다룬다. 마찰·압축·접촉 냉감 등 촉감은 각 property의 기준 측정이 생긴 후 별도 과제로 확장한다.
 
-## 9. 실험 기록 규칙
+## 9. 기여를 어떻게 정직하게 표현할 것인가
 
-각 결과는 다음 항목을 함께 남긴다.
+현재는 연구용 엔진과 검증 가능한 합성 실험 체계를 구축했다. 다음과 같은 문장은 현재 근거에 맞는다.
 
-1. 소스 commit/tag와 실행 환경.
-2. `FabricSpec`, 재료 spectrum의 source/status, illumination·camera 조건.
-3. 입력/출력 hash, seed, 실제 채택된 sampling, solver truncation·quadrature·ray/spp budget.
-4. 에너지·수렴·기하 유효성 결과와 실패한 경우의 diagnostics.
-5. 정량 비교용 선형 배열 및 표시용 그림.
-6. 비교군과 통제한 변수, 새로 바꾼 변수, 아직 검증하지 않은 외삽 조건.
+- 선언된 축소 역학 모델에서 원사 crimp가 바뀌고, 같은 관측계의 실제 fiber 반사 영상이 방향별로 다르게 변했다.
+- 한 SGGX로 합치는 것과 경·위사 분포를 남기는 것의 projected-area 오차를 같은 기하에서 비교했다.
+- 구조·광학 연결의 단위, identity, geometric clearance, MC·파장 오차를 추적할 수 있다.
 
-실험 설계를 바꾸었으면 이전 결과를 같은 이름의 성과로 이어 붙이지 않는다. 버전별 입력과 source를 함께 보존하고, 변경 이유를 [작업 로그](WORK_LOG.md)에 남긴다.
+“SGGX textile rendering 최초”, “Weavecraft/DER 완전 재현”, “실크·코튼을 완벽 재현”, “메타표면으로 RGB의 한계를 해결”은 현재 증거로 뒷받침하지 않는다. 선행연구에는 강한 direct overlap이 있고, 실물·관측 가치·소자 장점은 각각 독립적인 성공 조건이다.
+
+새 논문으로 좁힐 후보는 **구조·광학 모델 오차를 견디는 관측 선택** 또는 **물리적으로 선언된 기하 변화에서 외관 축약의 유효범위를 정량화하는 것**이다. 어느 쪽이 강한 결과를 내는지 다음 실험으로 판단한다. 두 방향을 무조건 한 논문에 합치기보다 실험의 반증 가능성을 유지한다.
+
+## 10. 작업 log·버전·재현 규칙
+
+각 run에는 source commit/hash, config, material/elasticity source/status, spectrum·rig, seed, 실제 mesh/spp/wavelength budget, diagnostics, raw linear arrays, 표시용 그림을 함께 저장한다. `run_engine_v3.py`는 실행한 stage와 생략한 render를 구분하고 새 출력 폴더를 사용한다. 기존 evidence를 읽어 검산하는 `verify`와 실제 새 시뮬레이션은 로그에서 구별한다.
+
+독립 리뷰에서 발견한 결함·실패도 [review](../notes/review_engine_v3.md)와 [작업 로그](WORK_LOG.md)에 기록한다. v0.1/v0.2의 결과는 해당 버전의 역사적 증거로 보존하고, 새 source에 의해 자동으로 다시 실행된 것처럼 표시하지 않는다. 현재 최종 test summary는 현재 통합 실행의 결과이고, 각 재현 run의 summary는 그 run의 증거다.

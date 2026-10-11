@@ -10,7 +10,7 @@
 | 로컬 baseline commit | `27462377e72c8134502e5978895b11a134614f0e` |
 | 로컬 baseline tag | `v0.1.0-baseline` |
 | Baseline 원본 설명 | [baseline_v0.1.md](baseline_v0.1.md): 교체 전 README를 그대로 복사 |
-| 현재 개발 버전 | `0.2.0`: 계층 기하·광학 연결·재현 runner·문서 |
+| 현재 개발 버전 | `0.3.0`: 축소 원사 평형·계층 광학 축약·실제 분광 관측·검증 |
 | 확인된 GitHub 저장소 | [Phill-lms/textile-optics-engine](https://github.com/Phill-lms/textile-optics-engine), private |
 | 초기 원격 README commit | `cad54984c6aca4f5751b08e834417e40b55c052f` |
 
@@ -64,9 +64,9 @@ Adaptive sampler가 서로 다른 nominal 요청을 같은 최종 mesh로 올릴
 
 Polyline을 B-spline으로 넘기면 곡선이 변하므로 smoothing을 계산했다. Pinned renderer의 float32 입력 때문에 control과 radius 반올림도 더했다. Source polyline 간격에서 이 변위 예산을 차감해 예제의 exported geometry가 분리되는지 확인했다.
 
-### 현재 미완료로 유지하는 연구 항목
+### v0.2 종료 시 미완료였던 연구 항목
 
-Mechanical equilibrium, same-fiber self-contact, 비원형/복굴절 fiber, 실제 물질 상수 fitting, local→3D scattering aggregation, 실제 metasurface 성능, 실물·지각 검증은 각각의 모델·실험이 필요하다. 별도의 완료 근거 없이 현재 feature 목록에 포함하지 않는다.
+v0.2 시점에는 mechanical equilibrium, same-fiber self-contact, 비원형/복굴절 fiber, 실제 물질 상수 fitting, local→3D scattering aggregation, 실제 metasurface 성능, 실물·지각 검증은 각각의 모델·실험이 필요하다. 별도의 완료 근거 없이 현재 feature 목록에 포함하지 않는다.
 
 ## 4. 원격 배포 기록
 
@@ -85,3 +85,50 @@ GitHub 앱으로 업로드한 각 단계의 tree가 로컬 commit의 tree와 정
 ## 5. 이후 로그 작성 형식
 
 새 작업은 날짜, 질문/변경 이유, source commit, 입력 config/hash, 실제 명령, 검증 결과, 수치/그림 경로, 알려진 한계를 한 묶음으로 기록한다. 실패한 실험도 삭제 대신 실패 이유와 후속 수정에 연결한다. 큰 재현 결과는 `run_manifest.json`을 링크하고, 모든 stdout을 이 문서에 복사하지 않는다.
+
+## 6. v0.3 역학-광학 연결 작업 기록 (2026-10-11)
+
+### 질문과 범위
+
+원단의 모습을 충분히 설명하려면 직조 순서뿐 아니라 원사의 굴곡과 섬유 방향, 재료의 분광 응답을 유지해야 한다. 이번 버전은 **유효 원사 역학이 바꾼 기하를 개별 섬유 광학 관측까지 전달하고, 계층을 축약할 때 잃는 방향 정보를 측정하는 것**을 목표로 했다. 염색·퇴색과 촉감 예측은 계속 제외했다. 실크·코튼 같은 이름을 임의의 물성 상수로 치환하지 않았다.
+
+| 작업 | 실제 구현·확인 결과 | 근거 |
+| --- | --- | --- |
+| 문헌 확장 | Weavecraft, Leaf periodic yarn, DER, SGGX, SpongeCake 저자 원문 기술 절 검토; Yang 2026의 SGGX 직접 중복을 확인; 확인된 인용 관계와 미확인 후속 논문을 구분 | [문헌 ledger](../notes/literature_engine_v3.md) |
+| 역학 | 고정된 평면 원사 트랙의 높이 자유도에 대해 축 인장과 small-slope 굽힘을 최소화; 해석 gradient/Hessian과 독립 KKT 검사 | [역학 계약](../notes/weave_mechanics_v3.md) |
+| 간격 제약 | 교차점 높이와 slope의 Lipschitz bound를 결합; 실제 3D 원사 envelope 간격을 보수적으로 제한 | 같은 문서 §4 및 테스트 |
+| 계층 연결 | 42-fiber plain optical pair와 84-fiber 2-ply twill의 초기·평형 기하 생성; ID/material/radius와 source hash 보존 | [mechanics data](../data/mechanics_v3) |
+| 수치 실험 | 굽힘 강성·prestrain 각각의 sweep, plain/twill/basket, 4/8/16 mesh, beam 2차 수렴 | [실험 manifest](../data/mechanics_v3/experiment_manifest.json) |
+| 광학 축약 | 개별 선분 투영 면적을 공통 부피로 평균하고 SGGX 1개/2-family/6-yarn/6-ply fitting; 96 학습·1,200 별도 방향 평가 | [광학 계약](../notes/optical_scale_v3.md) |
+| 분광 관측 | 536회 실제 explicit-fiber rendering, 64×64, 32 spp, 4 seeds; CIE 1931과 Planck 3000/6500 K 적분 | [원본 metrics](../data/optical_v3/optical_scale_metrics.json) |
+| 결과 재검산 | 실제 raw radiance에서 paired XYZ 통계 재계산, finite-source Lambertian 검사, 입력·source hash 및 export 간격 확인 | [독립 review](../notes/review_engine_v3.md) |
+| 독립 리뷰 수정 | 각도 fitting rank 미검사, stale equilibrium 진단/문제 재사용, slope premise를 위반한 간격 bound를 수정 | review §2-4 |
+| 통합 테스트 보완 | default solve의 가족 교환 좌표 차이 4.77 pm를 진단; E/gradient/Hessian 순열 검사 추가, solver 수렴 조건 강화; 좌표 assertion 허용 오차는 유지 | [실패 기록](../data/validation_v3/initial_full_suite_failure.json), [후속 검사](../data/validation_v3/family_exchange_followup.json) |
+| 과학 suite | 230 tests, failures/errors/skips 모두 0; 19.932 s. Runner 통합 테스트를 추가한 배포 최종 수치는 아래 최신 summary를 사용 | [최종 summary](../data/final_test_summary.json) |
+
+### 결과를 해석하는 경계
+
+유효 원사 평형 이후 섬유를 새 부모 곡선 위에 재생성했다. 전체 부피 proxy +0.04424%, 경사 섬유 길이 -0.57358%, 위사 +0.66206%가 나타났다. 이는 섬유 material coordinate를 보존한 변형이 아니며, 광학 변화 전체를 접선 분포 하나의 효과로 귀속시키지 않는다.
+
+6500 K Planck 조명에서 영상 평균 Y는 반사 방위각 0°에서 +37.04%, 90°에서 -32.37%였다. 투과 45°의 +0.64%는 현재 4-seed Monte Carlo 구간이 0을 포함하여 구분되지 않았다. 이 구간은 렌더링 반복 불확실성만 나타낸다. SGGX 1개에서 경·위사 2개로 바꾸면 초기 기하 투영량 오차가 3.5727%에서 0.2198%로 감소했지만, 이 수치는 외관 영상 오차나 실제 fabric BSDF의 정확도가 아니다.
+
+현재 구현의 역학은 마찰·단면 압축·ply 응력 전달·3D drape를 풀지 않는다. 광학은 본 v3에서 coherent 3D scattering, 편광, fluorescence 또는 보정된 실제 원단 물성을 포함하지 않는다. 메타표면의 추가 측정 이득과 강한 다중조명 RGB 대비 우위는 아직 측정 설계와 실제 원단 실험으로 검증해야 한다.
+
+### 최종 runner와 배포 gate
+
+`run_engine_v3.py`는 mechanics → optics → verify → tests의 실제 명령을 연결한다. 새 출력 디렉터리만 허용하며, 생략된 upstream은 지정한 기존 입력으로 연결한다. 실행 당시 source/입력/출력 해시와 종료 코드를 보존한다. `--no-render`는 광학 실험에만 적용되고 작은 renderer unit test의 생략을 뜻하지 않는다. 실패한 부분 렌더의 정확한 횟수를 모르면 `null`을 남기도록 수정했으며, 0회로 잘못 보고하지 않는 회귀 검사를 추가했다.
+
+과학 모듈 230개와 runner 9개를 합친 **최종 239 tests가 모두 통과**했다. `OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -u validate_all.py`의 실행 시간은 19.734876초, failures/errors/skips는 모두 0이다. [최종 test summary](../data/final_test_summary.json)에 체크한 각 source의 SHA-256이 있다.
+
+[최종 artifact audit](../data/engine_v3_final_artifact_audit/run_manifest.json)은 저장된 536회의 radiance 배열, 역학 상태, 재구성 fiber, export, CIE 통계를 현재 소스로 다시 검산했다. 이 audit의 새 광학 실험 렌더 횟수는 0이다. [앞선 unified verify+tests 실행](../data/engine_v3_verification/run_manifest.json)은 당시 238개 전체 테스트가 성공한 역사적 snapshot이다. 이후 추가한 실패-렌더 회귀 검사까지 포함한 최신 수치는 239개다. [새 역학부터 no-render로 실행한 기록](../data/validation_v3/no_render_integration/README.md)은 원본 manifest/log/summary의 부분 보존이며 geometry 산출물 전체를 옮긴 것으로 주장하지 않는다.
+
+### v0.3 원격 구성 기록
+
+코드 및 실험의 Git tree를 GitHub에 만든 뒤 로컬 tree와 대조했다. 아래 객체는 기존 `main` 이후의 순서로 연결하며, 최종 문서·보고서까지 완료한 뒤 한 번에 `main`에 반영한다.
+
+| 단계 | 로컬 commit | GitHub commit | 일치 확인한 tree |
+| --- | --- | --- | --- |
+| 역학·광학·runner·회귀 코드 | `386ca80e0991e0644e7c811068151f8bd83ea35d` | `ef48484ceb13e0e818e5d935b8ee796f71a7cca0` | `d7c62abd7b9c03b31dcedbe8c5d2f5f56b8ac7f9` |
+| 실제 실험·원본 배열·239-test 증거 | `1067ff6d49d7547d63c31ae5952b1189572872ab` | `36ed3c3a59a15295737cc93a4a10d668959bab2e` | `29977d71c7d23c509d4f066df11cff61a9066202` |
+
+공식 CIE CSV와 metadata의 원래 CRLF를 유지하기 위해 해당 경로를 `-text`로 지정했다. 일반 소스는 LF를 사용하고 curve 텍스트의 마지막 구분 빈 줄은 데이터 형식으로 보존한다. 원본 데이터나 렌더 입력을 whitespace 정리로 수정하지 않았다. PDF 생성기의 ReportLab 버전과 외부 글꼴 identity는 [report/README.md](../report/README.md)에 기록했다.

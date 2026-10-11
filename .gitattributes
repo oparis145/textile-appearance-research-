@@ -1,0 +1,12 @@
+# Keep source and generated-text hashes stable across checkout platforms.
+* text=auto eol=lf
+*.pdf binary
+*.png binary
+*.npz binary
+
+# Official observer originals are byte-exact, including their published CRLF.
+data/optical_v3/cie/CIE_xyz_1931_2deg.csv -text whitespace=cr-at-eol
+data/optical_v3/cie/CIE_xyz_1931_2deg.csv_metadata.json -text whitespace=cr-at-eol
+
+# Blank lines delimit the final curve in the renderer's text format.
+*.curves whitespace=-blank-at-eof
