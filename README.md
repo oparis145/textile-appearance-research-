@@ -4,7 +4,7 @@
 
 연구 목적은 제품 사진에서 잘 드러나지 않는 원단의 방향성 광택, 미세 구조, 비침을 설명하고, 다른 조명·관찰각에서 어떻게 보일지 예측하는 것입니다. 고해상도 RGB를 출발점으로 삼고, 이후 각도·분광·편광 측정과 메타광학이 어떤 추가 정보를 주는지 검증할 수 있는 forward model을 만듭니다. **염색·퇴색은 현재 범위에서 제외했습니다.**
 
-현재 배포 버전은 **[0.2.0](https://github.com/Phill-lms/textile-optics-engine/releases/tag/v0.2.0)**입니다. 이전 시뮬레이션과 수치 결과는 [v0.1.0-baseline](https://github.com/Phill-lms/textile-optics-engine/releases/tag/v0.1.0-baseline)으로 보존했고, 새 계층·광학 연결 모듈을 추가했습니다. 이 코드는 통제된 합성 입력의 연구 프로토타입이며, 실크·코튼·큐프라·린넨의 실측 외관을 검증한 제품은 아닙니다. 저장소: [Phill-lms/textile-optics-engine](https://github.com/Phill-lms/textile-optics-engine).
+현재 배포 버전은 [**0.2.0**](https://github.com/Phill-lms/textile-optics-engine/releases/tag/v0.2.0)입니다. 이전 시뮬레이션과 수치 결과는 [v0.1.0-baseline](https://github.com/Phill-lms/textile-optics-engine/releases/tag/v0.1.0-baseline)으로 보존했고, 새 계층·광학 연결 모듈을 추가했습니다. 이 코드는 통제된 합성 입력의 연구 프로토타입이며, 실크·코튼·큐프라·린넨의 실측 외관을 검증한 제품은 아닙니다. 저장소: [Phill-lms/textile-optics-engine](https://github.com/Phill-lms/textile-optics-engine).
 
 ## 먼저 볼 문서
 
@@ -166,7 +166,7 @@ python run_all.py --stages fabric render-checks
 
 ## 검증 상태와 물리 계약
 
-최종 통합 검증은 **181 tests, failures/errors/skips 모두 0**입니다. 2026-10-11 실행의 **권위 있는 기록은 [data/final_test_summary.json](data/final_test_summary.json)**이며, 테스트 수, 실제 Python 버전과 소스 hash를 포함합니다. 별도 리뷰 시점의 새 모듈 59개 테스트도 모두 통과했으며, 여기에는 analytic helix, 프레임, 충돌 반례, 단위 변환, 실제 solver 실행, 1.7배 길이/파장 similarity 등이 포함됩니다.
+최종 통합 검증은 **181 tests, failures/errors/skips 모두 0**입니다. 2026-10-11 실행의 **권위 있는 기록**은 [data/final_test_summary.json](data/final_test_summary.json)이며, 테스트 수, 실제 Python 버전과 소스 hash를 포함합니다. 별도 리뷰 시점의 새 모듈 59개 테스트도 모두 통과했으며, 여기에는 analytic helix, 프레임, 충돌 반례, 단위 변환, 실제 solver 실행, 1.7배 길이/파장 similarity 등이 포함됩니다.
 
 새 runner로 geometry/refinement/optics를 재현한 11개 명령과 52개 artifact hash는 [재현 manifest](data/engine_v2_reproduction/run_manifest.json), 별도 전체 tests 실행은 [test reproduction summary](data/engine_v2_test_reproduction/tests/test_summary.json)에 있습니다. 이 재현 run은 optical experiment render를 생략했고, 위의 4개 기준 렌더는 optical driver에서 별도로 실행했습니다. GitHub Actions workflow는 수동 실행용으로 준비했으며 원격 실행 성공을 주장하지 않습니다.
 
