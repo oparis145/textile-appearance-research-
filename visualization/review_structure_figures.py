@@ -309,6 +309,44 @@ def _source_identity_assignments(metadata, spec, *, label):
             "source_material_names": sorted(set(observed.values()))}
 
 
+def _publication_provenance(manifest, ledger):
+    """Audit output finalization separately from original geometry generation."""
+    publication = manifest.get("publication_finalization")
+    if publication is None:
+        return {"status": "not_applied"}
+    _check(publication["schema"] == "textile.structure_figure_publication/5.1", "publication schema")
+    required_sources = {"visualization/finalize_structure_figures.py", "visualization/render_structure_figures.py",
+                        "visualization/render_compact_structure_figure.py"}
+    _check(required_sources <= set(publication["source_files_sha256"]), "publication source provenance is incomplete")
+    for relative, digest in publication["source_files_sha256"].items():
+        _check(_sha(_path(relative)) == digest, "publication source changed: "+relative)
+        ledger[relative] = digest
+    generation_path = _descriptor_file(publication["input_generation_manifest"], ledger,
+                                       label="preserved generation manifest")
+    original = json.loads(generation_path.read_text())
+    # Old figure files may have been rejected or replaced. Preserve their
+    # historical descriptors, without pretending they remain current outputs.
+    for key, value in original.items():
+        if key not in ("figures", "publication_finalization"):
+            _check(manifest.get(key) == value, "publication changed original generation field: "+key)
+    for key in ("original_producer_sources_preserved", "input_map_descriptors_preserved",
+                "all_cases_post_write_byte_check_passed"):
+        _check(publication[key] is True, "publication provenance flag: "+key)
+    _check(publication["geometry_retraced"] is False and publication["display_fields_recomputed"] is False and
+           publication["light_transport_render_calls"] == 0, "publication must preserve saved structure fields")
+    count = sum(len(figure["files"]) for figure in manifest["figures"])
+    _check(publication["actual_accepted_files"] == count == 9, "publication accepted-file count")
+    for change in publication["layout_adjustments"]:
+        _check(change["map_data_or_camera_changed"] is False, "publication layout changed raw data or camera")
+        for key in ("from_figure_xy", "to_figure_xy"):
+            xy = np.asarray(change[key], dtype=float)
+            _check(xy.shape == (2,) and np.isfinite(xy).all(), "invalid publication layout position")
+    return {"status": "verified", "input_generation_manifest_sha256": _sha(generation_path),
+        "original_generation_fields_unchanged": True, "accepted_figure_files": count,
+        "layout_adjustments": publication["layout_adjustments"],
+        "new_geometry_queries": 0, "new_lighting_render_calls": 0}
+
+
 def check_display_arrays(center, samples, display, encoding, supersample, *, label):
     """Independently sum color contributions over each sample lattice offset.
 
@@ -436,6 +474,7 @@ def verify_saved_figures(manifest_path):
     for relative, expected in manifest["producer_sources_sha256"].items():
         _check(_sha(_path(relative)) == expected, f"producer source changed: {relative}")
         ledger[relative] = expected
+    publication = _publication_provenance(manifest, ledger)
     spec_path = _descriptor_file(manifest["input_spec"], ledger, label="copied input spec")
     original = {"path": manifest["input_spec"]["original_path"],
                 "sha256": manifest["input_spec"]["original_sha256"]}
@@ -584,6 +623,7 @@ def verify_saved_figures(manifest_path):
         "verified_headless_glyphs": glyph_count, "maps": rows,
         "recorded_source_geometry_sha256": next(iter(geometry_hashes)),
         "recorded_source_geometry_hash_was_regenerated": False,
+        "publication_finalization": publication,
         "recorded_saved_map_primary_ray_queries": saved_query_count,
         "new_primary_ray_queries_for_saved_array_review": 0, "new_lighting_render_calls": 0,
         "shared_height_limits_um": enc["height"]["shared_limits_um"],
