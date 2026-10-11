@@ -1,0 +1,32 @@
+test_axial_ray_enters_and_exits_with_opposite_oriented_caps (test_variable_radius_review.IndependentVariableRadiusReviewTests.test_axial_ray_enters_and_exits_with_opposite_oriented_caps) ... ok
+test_circle_arc_axial_refinement_converges_to_continuous_tube_volume (test_variable_radius_review.IndependentVariableRadiusReviewTests.test_circle_arc_axial_refinement_converges_to_continuous_tube_volume) ... ok
+test_closed_mesh_has_consistent_orientations_and_sphere_topology (test_variable_radius_review.IndependentVariableRadiusReviewTests.test_closed_mesh_has_consistent_orientations_and_sphere_topology) ... ok
+test_explicit_frame_makes_sweep_rigid_motion_covariant (test_variable_radius_review.IndependentVariableRadiusReviewTests.test_explicit_frame_makes_sweep_rigid_motion_covariant) ... ok
+test_invalid_units_and_nonfinite_geometry_are_rejected (test_variable_radius_review.IndependentVariableRadiusReviewTests.test_invalid_units_and_nonfinite_geometry_are_rejected) ... ok
+test_length_unit_scaling_changes_area_and_volume_consistently (test_variable_radius_review.IndependentVariableRadiusReviewTests.test_length_unit_scaling_changes_area_and_volume_consistently) ... ok
+test_nonaxis_seed_mesh_roundtrip_preserves_exact_arrays (test_variable_radius_review.IndependentVariableRadiusReviewTests.test_nonaxis_seed_mesh_roundtrip_preserves_exact_arrays) ... 
+  test_nonaxis_seed_mesh_roundtrip_preserves_exact_arrays (test_variable_radius_review.IndependentVariableRadiusReviewTests.test_nonaxis_seed_mesh_roundtrip_preserves_exact_arrays) (seed=None) ... ERROR
+test_profile_arrays_do_not_alias_mutable_caller_storage (test_variable_radius_review.IndependentVariableRadiusReviewTests.test_profile_arrays_do_not_alias_mutable_caller_storage) ... ok
+test_straight_cylinder_polygon_volume_matches_closed_form (test_variable_radius_review.IndependentVariableRadiusReviewTests.test_straight_cylinder_polygon_volume_matches_closed_form) ... ok
+test_straight_taper_frustum_volume_matches_closed_form (test_variable_radius_review.IndependentVariableRadiusReviewTests.test_straight_taper_frustum_volume_matches_closed_form) ... ok
+test_tapered_side_normals_include_axial_slope (test_variable_radius_review.IndependentVariableRadiusReviewTests.test_tapered_side_normals_include_axial_slope) ... ok
+test_unequal_lengths_and_radii_preserve_only_fiber_total (test_variable_radius_review.IndependentVariableRadiusReviewTests.test_unequal_lengths_and_radii_preserve_only_fiber_total) ... ok
+test_uniform_radius_is_an_exact_fixed_point (test_variable_radius_review.IndependentVariableRadiusReviewTests.test_uniform_radius_is_an_exact_fixed_point) ... ok
+
+======================================================================
+ERROR: test_nonaxis_seed_mesh_roundtrip_preserves_exact_arrays (test_variable_radius_review.IndependentVariableRadiusReviewTests.test_nonaxis_seed_mesh_roundtrip_preserves_exact_arrays) (seed=None)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/2b957533e88d/textile_optics_engine/tests/test_variable_radius_review.py", line 233, in test_nonaxis_seed_mesh_roundtrip_preserves_exact_arrays
+    restored = load_tapered_tube(tmp)
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2b957533e88d/textile_optics_engine/textile_sim/variable_radius.py", line 543, in load_tapered_tube
+    _same_arrays(arrays, expected, "tube mesh")
+  File "/workspace/scratch/2b957533e88d/textile_optics_engine/textile_sim/variable_radius.py", line 455, in _same_arrays
+    raise ValueError(f"{context}: saved {key} disagrees with recomputed geometry")
+ValueError: tube mesh: saved mesh/vertices_mm disagrees with recomputed geometry
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.125s
+
+FAILED (errors=1)

@@ -1,0 +1,54 @@
+"""Read-only runtime probes of audited Mitsuba 3.9.1 curve API contract."""
+import hashlib
+import json
+from pathlib import Path
+import sys
+import numpy as np
+
+ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT))
+from textile_sim.render import get_mitsuba
+
+mi = get_mitsuba()
+here = Path(__file__).resolve().parent
+path = here / 'two_tapered.curves'
+controls = []
+with path.open('w') as f:
+    for x, r0 in [(0., .2), (3., .4)]:
+        p = np.array([[x, 0., z, r0 + .1*z] for z in [-1., 0., 1., 2.]])
+        controls.append(p)
+        np.savetxt(f, p, fmt='%.17g')
+        f.write('\n')
+scene = mi.load_dict({'type':'scene', 'fiber':{'type':'bsplinecurve', 'filename':str(path)}})
+zs = np.array([.05, .25, .5, .75, .95])
+queries = []
+for idx, (center_x, r0) in enumerate([(0.,.2), (3.,.4)]):
+    for z in zs:
+        ray = mi.Ray3f(mi.Point3f(center_x+1, 0, float(z)), mi.Vector3f(-1,0,0))
+        si = scene.ray_intersect(ray)
+        assert bool(np.asarray(si.is_valid())[0])
+        observed = np.asarray(si.p).ravel()
+        uv = np.asarray(si.uv).ravel()
+        expected_r = r0 + .1*z
+        expected_v = (idx+z)/2
+        queries.append({'curve':idx, 'z':float(z), 'expected_radius':float(expected_r),
+                        'observed_radius':float(observed[0]-center_x),
+                        'expected_global_v':float(expected_v), 'observed_global_v':float(uv[1]),
+                        'primitive_index':int(np.asarray(si.prim_index)[0]),
+                        'surface_normal':np.asarray(si.n).ravel().tolist()})
+inside = mi.Ray3f(mi.Point3f(0.,0.,.5), mi.Vector3f(0.,1.,0.))
+inside_hit = bool(np.asarray(scene.ray_test(inside))[0])
+cube = mi.load_dict({'type':'scene', 'volume_boundary':{'type':'cube'}})
+cube_hit = bool(np.asarray(cube.ray_test(mi.Ray3f(mi.Point3f(0,0,0), mi.Vector3f(0,1,0))))[0])
+result = {'runtime_version':mi.__version__, 'variant':mi.variant(),
+          'probe_source_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+          'curve_file_sha256':hashlib.sha256(path.read_bytes()).hexdigest(),
+          'queries':queries, 'inside_curve_reports_boundary':inside_hit,
+          'inside_cube_reports_boundary':cube_hit,
+          'max_radius_error':max(abs(x['observed_radius']-x['expected_radius']) for x in queries),
+          'max_global_v_error':max(abs(x['observed_global_v']-x['expected_global_v']) for x in queries)}
+assert not inside_hit and cube_hit
+assert result['max_radius_error'] < 1e-6
+assert result['max_global_v_error'] < 1e-6
+(here/'backend_probe.json').write_text(json.dumps(result, indent=2)+'\n')
+print(json.dumps(result, indent=2))

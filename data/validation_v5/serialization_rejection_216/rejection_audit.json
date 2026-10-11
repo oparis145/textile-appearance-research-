@@ -1,0 +1,26 @@
+{
+  "schema_version": "variable_radius_serialization_rejection/5.0",
+  "decision": "rejected_saved_artifact_integrity; not accepted canonical evidence",
+  "recorded_utc": "2026-10-11T15:52:30.700709+00:00",
+  "original_producer_status": "passed",
+  "original_actual_render_count": 216,
+  "accepted_render_count_for_release": 0,
+  "observed_error": "BadZipFile: File is not a zip file",
+  "expected_nested_sha256": "5af52cf7b53689c5c708f10edda75754ddc7c779587358b1c094222473681717",
+  "actual_sha256": "868abe02a802a8daad552126dd712496d972846d100706c2231d75819ce7950f",
+  "original_outer_ledger_matches_bad_file": true,
+  "byte_count": 2933949,
+  "zip_local_header_offset": 0,
+  "zip_end_of_central_directory_offset": -1,
+  "cause": "unresolved; no evidence of intentional mutation; incomplete stored ZIP observed despite earlier nested hash",
+  "action": "preserve rejected evidence; assemble archive in memory, flush and fsync atomic write, verify readback and all nested array references; rerun all 216 after source change",
+  "original_scene_metadata_references": "recorded optical metrics retains paths in rejected full output; not a complete self-contained optical replay package",
+  "source_and_evidence_sha256": {
+    "original_driver.py.txt": "82bdfcfccdf13df3a01c2415cd50721a4d004104dbcec7978179e9ecb9d1d250",
+    "original_experiment_manifest.json": "6d9f52503b78ee61930b5d590a18e0ce62b5234c216f6693ae800bfd44cf733d",
+    "original_mesh_manifest.json": "6964eafd384f4e2bc0ba8751f195c5b632f909325b6d53eee058735df59e5b7a",
+    "original_optical_metrics.json": "ff858b58bad7b0cf45f7db7e910a3064c6211c70884187d9a896983b83a1b592",
+    "original_scalar_radiance.npz": "7e677abb8d777bab68044033de22d114a279be11b79cc239af8afe18cf4f1728",
+    "truncated_renderer_buffers.npz": "868abe02a802a8daad552126dd712496d972846d100706c2231d75819ce7950f"
+  }
+}

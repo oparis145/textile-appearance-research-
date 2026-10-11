@@ -1,0 +1,1826 @@
+{
+  "schema": "textile.volume_optics_physics_validation/5.0",
+  "case_count": 8,
+  "seeds": [
+    1187,
+    9781,
+    23417,
+    45751
+  ],
+  "actual_render_calls": 32,
+  "resolution": 16,
+  "spp": 2048,
+  "image_axes": [
+    "case",
+    "seed",
+    "y",
+    "x",
+    "replicated_scalar_channel"
+  ],
+  "spectral_mode": "550 nm scalar material parameters in gray RGB backend; not wavelength-integrated color",
+  "raw_file": "scalar_radiance.npz",
+  "raw_file_sha256": "37655778302494fa866abde59522f75fe2d1846d7ab0139de4efb1e2fa9de159",
+  "cases": [
+    {
+      "case": "beer_tau_000",
+      "fixture": "cylinder",
+      "axial_length_mm": 1.0,
+      "optical_depth": 0.0,
+      "n_real": 1.0,
+      "absorption_per_mm": 0.0,
+      "expected_radiance": 1.0,
+      "mean": 1.0,
+      "seed_count": 4,
+      "seed_standard_error": 0.0,
+      "pointwise_95pct_seed_mean_interval": [
+        1.0,
+        1.0
+      ],
+      "interval_interpretation": "Student-t seed means, Monte Carlo noise only; no family correction",
+      "seed_means": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "error_from_analytic_mean": 0.0,
+      "relative_error_from_analytic_mean": 0.0,
+      "pointwise_95pct_interval_contains_analytic": true,
+      "oracle_guard_absolute_tolerance": 0.0001,
+      "oracle_guard_passed": true,
+      "guard_definition": "6 analytic Bernoulli standard errors of all camera paths plus 1e-4 numerical allowance; not a reported confidence interval",
+      "scalar_camera_path_count": 2097152,
+      "camera_max_radius_mm": 0.08485281374238571,
+      "minimum_cross_section_inradius_mm": 0.19903694533443936,
+      "internal_exit_position_mm": [
+        0.029999997466802597,
+        0.019999997690320015,
+        0.0
+      ],
+      "internal_exit_normal": [
+        0.0,
+        0.0,
+        -0.9999999403953552
+      ],
+      "scene": {
+        "schema_version": "textile.closed_mesh_volume_optics/5.0",
+        "model": "closed triangle mesh; geometric face normals; real dielectric Fresnel; pure absorption; volpath",
+        "mitsuba_version": "3.9.1",
+        "variant": "llvm_ad_rgb",
+        "scene_length_unit": "mm",
+        "wavelength_unit": "vacuum_nm",
+        "wavelength_nm": 550.0,
+        "materials": {
+          "oracle": {
+            "material": {
+              "material_id": "oracle",
+              "wavelength_nm": [
+                450.0,
+                550.0,
+                650.0
+              ],
+              "n_real": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "kappa": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "source": "synthetic known-coefficient analytic physics oracle",
+              "data_status": "synthetic",
+              "provenance_json": "{\"axial_length_mm\":1.0,\"optical_depth\":0.0}"
+            },
+            "wavelength_nm": 550.0,
+            "n_real": 1.0,
+            "kappa": 0.0,
+            "background_n": 1.0,
+            "absorption_per_mm": 0.0,
+            "sigma_t_per_scene_unit": 0.0,
+            "albedo": 0.0,
+            "kappa_over_n": 0.0,
+            "max_kappa_ratio": 0.01,
+            "absorbing_medium_installed": false,
+            "absorption_mapping": "sigma_t = mu_a_per_mm; no radius multiplier"
+          }
+        },
+        "meshes": [
+          {
+            "fiber_id": "analytic_cylinder",
+            "material_id": "oracle",
+            "profile_sha256": "7b02fb041b3ea9502937c89cf23aab27a06b59a35e7cacc5ed89374c778711b4",
+            "mesh_sha256": "ec0cac416a6aa98460d3681c429bd7ef740fe8ea95c93e19ec7e6c866a54503c",
+            "radial_segments": 32,
+            "buffer_audit": {
+              "vertex_count": 66,
+              "face_count": 128,
+              "closed_oriented_edge_incidence": true,
+              "self_intersection_certified_absent": false,
+              "max_float32_displacement_mm": 9.221200367763597e-09,
+              "source_signed_volume_mm3": 0.12485780609032204,
+              "float32_signed_volume_mm3": 0.12485780545861846,
+              "float32_relative_volume_change": -5.059383911820703e-09,
+              "minimum_source_triangle_area_mm2": 0.00390180644032255,
+              "minimum_float32_triangle_area_mm2": 0.0039018062261222397,
+              "vertices_float32_sha256": "f9dbeb78a75dc2d1fc63b2af1b78d2a7188404d7fbd1be4b102facbc1423ba77",
+              "faces_uint32_sha256": "ba98e7cb26e4d87d8fc08ff37e23d3494ab94c97957051a58f5652e9d68ab8db"
+            }
+          }
+        ],
+        "rig": {
+          "bounds_mm": [
+            [
+              -0.19999999999999998,
+              -0.19999999999999998,
+              0.0
+            ],
+            [
+              0.19999999999999998,
+              0.19999999999999998,
+              1.0
+            ]
+          ],
+          "center_mm": [
+            0.0,
+            0.0,
+            0.5
+          ],
+          "span_mm": 1.0,
+          "film_width_mm": 0.12,
+          "view_direction": [
+            3.749399456654644e-33,
+            -6.123233995736766e-17,
+            1.0
+          ],
+          "camera_distance_mm": 10.0,
+          "source": {
+            "mode": "furnace"
+          }
+        },
+        "render_config": {
+          "resolution": 16,
+          "spp": 2048,
+          "seed": 53,
+          "mode": "furnace",
+          "light_elevation_deg": 45.0,
+          "light_azimuth_deg": 0.0,
+          "light_halfwidth_deg": 7.0,
+          "view_elevation_deg": 90.0,
+          "view_azimuth_deg": -90.0,
+          "ior": 1.55,
+          "absorption_per_mm": 2.0,
+          "longitudinal_roughness": 0.18,
+          "azimuthal_roughness": 0.2,
+          "max_depth": 64,
+          "rr_depth": 128,
+          "exposure": 1.0,
+          "ambient": 0.0,
+          "width_fraction": 0.3
+        },
+        "ignored_legacy_config_fields": [
+          "ior",
+          "absorption_per_mm",
+          "longitudinal_roughness",
+          "azimuthal_roughness",
+          "exposure"
+        ],
+        "triangle_geometric_normals_only": true,
+        "surface_roughness_model": "none; smooth dielectric on each flat triangle",
+        "coherence": "incoherent scalar intensities",
+        "caller_preconditions": "disjoint embedded closed material volumes; self-intersection is not certified by this adapter",
+        "scene_sha256": "532bcd8a1f1d636c4a220a34a3bea7ad06ba749915042155a4b7d3162d624807",
+        "scene_build_seconds": 0.07546971999545349
+      },
+      "renders": [
+        {
+          "scene_sha256": "532bcd8a1f1d636c4a220a34a3bea7ad06ba749915042155a4b7d3162d624807",
+          "seed": 1187,
+          "spp": 2048,
+          "render_seconds": 0.254332049000368,
+          "mean_radiance": 1.0,
+          "max_radiance": 1.0,
+          "minimum_radiance": 1.0,
+          "max_channel_disagreement": 0.0,
+          "raw_float32_sha256": "ce52c28156857a4d1d4df75af334aa01864c81e2ae9cb92bf640ea2e18edf311"
+        },
+        {
+          "scene_sha256": "532bcd8a1f1d636c4a220a34a3bea7ad06ba749915042155a4b7d3162d624807",
+          "seed": 9781,
+          "spp": 2048,
+          "render_seconds": 0.04944301099749282,
+          "mean_radiance": 1.0,
+          "max_radiance": 1.0,
+          "minimum_radiance": 1.0,
+          "max_channel_disagreement": 0.0,
+          "raw_float32_sha256": "ce52c28156857a4d1d4df75af334aa01864c81e2ae9cb92bf640ea2e18edf311"
+        },
+        {
+          "scene_sha256": "532bcd8a1f1d636c4a220a34a3bea7ad06ba749915042155a4b7d3162d624807",
+          "seed": 23417,
+          "spp": 2048,
+          "render_seconds": 0.06153265699686017,
+          "mean_radiance": 1.0,
+          "max_radiance": 1.0,
+          "minimum_radiance": 1.0,
+          "max_channel_disagreement": 0.0,
+          "raw_float32_sha256": "ce52c28156857a4d1d4df75af334aa01864c81e2ae9cb92bf640ea2e18edf311"
+        },
+        {
+          "scene_sha256": "532bcd8a1f1d636c4a220a34a3bea7ad06ba749915042155a4b7d3162d624807",
+          "seed": 45751,
+          "spp": 2048,
+          "render_seconds": 0.06726713000534801,
+          "mean_radiance": 1.0,
+          "max_radiance": 1.0,
+          "minimum_radiance": 1.0,
+          "max_channel_disagreement": 0.0,
+          "raw_float32_sha256": "ce52c28156857a4d1d4df75af334aa01864c81e2ae9cb92bf640ea2e18edf311"
+        }
+      ]
+    },
+    {
+      "case": "beer_tau_025",
+      "fixture": "cylinder",
+      "axial_length_mm": 1.0,
+      "optical_depth": 0.25,
+      "n_real": 1.0,
+      "absorption_per_mm": 0.25,
+      "expected_radiance": 0.7788007830714049,
+      "mean": 0.778383195400238,
+      "seed_count": 4,
+      "seed_standard_error": 0.00021349670443323768,
+      "pointwise_95pct_seed_mean_interval": [
+        0.7777037536020243,
+        0.7790626371984518
+      ],
+      "interval_interpretation": "Student-t seed means, Monte Carlo noise only; no family correction",
+      "seed_means": [
+        0.7787379622459412,
+        0.7781867384910583,
+        0.7787341475486755,
+        0.7778739333152771
+      ],
+      "error_from_analytic_mean": -0.00041758767116684137,
+      "relative_error_from_analytic_mean": -0.000536193183473667,
+      "pointwise_95pct_interval_contains_analytic": true,
+      "oracle_guard_absolute_tolerance": 0.0018196548079091749,
+      "oracle_guard_passed": true,
+      "guard_definition": "6 analytic Bernoulli standard errors of all camera paths plus 1e-4 numerical allowance; not a reported confidence interval",
+      "scalar_camera_path_count": 2097152,
+      "camera_max_radius_mm": 0.08485281374238571,
+      "minimum_cross_section_inradius_mm": 0.19903694533443936,
+      "internal_exit_position_mm": [
+        0.029999997466802597,
+        0.019999997690320015,
+        0.0
+      ],
+      "internal_exit_normal": [
+        0.0,
+        0.0,
+        -0.9999999403953552
+      ],
+      "scene": {
+        "schema_version": "textile.closed_mesh_volume_optics/5.0",
+        "model": "closed triangle mesh; geometric face normals; real dielectric Fresnel; pure absorption; volpath",
+        "mitsuba_version": "3.9.1",
+        "variant": "llvm_ad_rgb",
+        "scene_length_unit": "mm",
+        "wavelength_unit": "vacuum_nm",
+        "wavelength_nm": 550.0,
+        "materials": {
+          "oracle": {
+            "material": {
+              "material_id": "oracle",
+              "wavelength_nm": [
+                450.0,
+                550.0,
+                650.0
+              ],
+              "n_real": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "kappa": [
+                8.952465548919112e-06,
+                1.0941902337567803e-05,
+                1.2931339126216496e-05
+              ],
+              "source": "synthetic known-coefficient analytic physics oracle",
+              "data_status": "synthetic",
+              "provenance_json": "{\"axial_length_mm\":1.0,\"optical_depth\":0.25}"
+            },
+            "wavelength_nm": 550.0,
+            "n_real": 1.0,
+            "kappa": 1.0941902337567803e-05,
+            "background_n": 1.0,
+            "absorption_per_mm": 0.25,
+            "sigma_t_per_scene_unit": 0.25,
+            "albedo": 0.0,
+            "kappa_over_n": 1.0941902337567803e-05,
+            "max_kappa_ratio": 0.01,
+            "absorbing_medium_installed": true,
+            "absorption_mapping": "sigma_t = mu_a_per_mm; no radius multiplier"
+          }
+        },
+        "meshes": [
+          {
+            "fiber_id": "analytic_cylinder",
+            "material_id": "oracle",
+            "profile_sha256": "7b02fb041b3ea9502937c89cf23aab27a06b59a35e7cacc5ed89374c778711b4",
+            "mesh_sha256": "ec0cac416a6aa98460d3681c429bd7ef740fe8ea95c93e19ec7e6c866a54503c",
+            "radial_segments": 32,
+            "buffer_audit": {
+              "vertex_count": 66,
+              "face_count": 128,
+              "closed_oriented_edge_incidence": true,
+              "self_intersection_certified_absent": false,
+              "max_float32_displacement_mm": 9.221200367763597e-09,
+              "source_signed_volume_mm3": 0.12485780609032204,
+              "float32_signed_volume_mm3": 0.12485780545861846,
+              "float32_relative_volume_change": -5.059383911820703e-09,
+              "minimum_source_triangle_area_mm2": 0.00390180644032255,
+              "minimum_float32_triangle_area_mm2": 0.0039018062261222397,
+              "vertices_float32_sha256": "f9dbeb78a75dc2d1fc63b2af1b78d2a7188404d7fbd1be4b102facbc1423ba77",
+              "faces_uint32_sha256": "ba98e7cb26e4d87d8fc08ff37e23d3494ab94c97957051a58f5652e9d68ab8db"
+            }
+          }
+        ],
+        "rig": {
+          "bounds_mm": [
+            [
+              -0.19999999999999998,
+              -0.19999999999999998,
+              0.0
+            ],
+            [
+              0.19999999999999998,
+              0.19999999999999998,
+              1.0
+            ]
+          ],
+          "center_mm": [
+            0.0,
+            0.0,
+            0.5
+          ],
+          "span_mm": 1.0,
+          "film_width_mm": 0.12,
+          "view_direction": [
+            3.749399456654644e-33,
+            -6.123233995736766e-17,
+            1.0
+          ],
+          "camera_distance_mm": 10.0,
+          "source": {
+            "mode": "furnace"
+          }
+        },
+        "render_config": {
+          "resolution": 16,
+          "spp": 2048,
+          "seed": 53,
+          "mode": "furnace",
+          "light_elevation_deg": 45.0,
+          "light_azimuth_deg": 0.0,
+          "light_halfwidth_deg": 7.0,
+          "view_elevation_deg": 90.0,
+          "view_azimuth_deg": -90.0,
+          "ior": 1.55,
+          "absorption_per_mm": 2.0,
+          "longitudinal_roughness": 0.18,
+          "azimuthal_roughness": 0.2,
+          "max_depth": 64,
+          "rr_depth": 128,
+          "exposure": 1.0,
+          "ambient": 0.0,
+          "width_fraction": 0.3
+        },
+        "ignored_legacy_config_fields": [
+          "ior",
+          "absorption_per_mm",
+          "longitudinal_roughness",
+          "azimuthal_roughness",
+          "exposure"
+        ],
+        "triangle_geometric_normals_only": true,
+        "surface_roughness_model": "none; smooth dielectric on each flat triangle",
+        "coherence": "incoherent scalar intensities",
+        "caller_preconditions": "disjoint embedded closed material volumes; self-intersection is not certified by this adapter",
+        "scene_sha256": "345e201e40b59e049ff01771765aa39bccec7f0b1b292beedc14827263e1782e",
+        "scene_build_seconds": 0.036942499995348044
+      },
+      "renders": [
+        {
+          "scene_sha256": "345e201e40b59e049ff01771765aa39bccec7f0b1b292beedc14827263e1782e",
+          "seed": 1187,
+          "spp": 2048,
+          "render_seconds": 0.3478165009946679,
+          "mean_radiance": 0.7787379622459412,
+          "max_radiance": 0.8017577528953552,
+          "minimum_radiance": 0.7573241591453552,
+          "max_channel_disagreement": 0.0,
+          "raw_float32_sha256": "df253dd96dc044ee6b73967e2bca08d757c995db7f8d2e7d55b85ace609299f3"
+        },
+        {
+          "scene_sha256": "345e201e40b59e049ff01771765aa39bccec7f0b1b292beedc14827263e1782e",
+          "seed": 9781,
+          "spp": 2048,
+          "render_seconds": 0.04523740900185658,
+          "mean_radiance": 0.7781867384910583,
+          "max_radiance": 0.8061522841453552,
+          "minimum_radiance": 0.7529296278953552,
+          "max_channel_disagreement": 0.0,
+          "raw_float32_sha256": "ea510ad0016ce8f2a9b87d02b4cc8c0b73bc6accf25a62821ac63afcacf74717"
+        },
+        {
+          "scene_sha256": "345e201e40b59e049ff01771765aa39bccec7f0b1b292beedc14827263e1782e",
+          "seed": 23417,
+          "spp": 2048,
+          "render_seconds": 0.062209770003391895,
+          "mean_radiance": 0.7787341475486755,
+          "max_radiance": 0.8032225966453552,
+          "minimum_radiance": 0.7553710341453552,
+          "max_channel_disagreement": 0.0,
+          "raw_float32_sha256": "a987b6fb1476168e2882f76204ca596c2c9e1a491fc508e5e86740d65376567f"
+        },
+        {
+          "scene_sha256": "345e201e40b59e049ff01771765aa39bccec7f0b1b292beedc14827263e1782e",
+          "seed": 45751,
+          "spp": 2048,
+          "render_seconds": 0.04121504499926232,
+          "mean_radiance": 0.7778739333152771,
+          "max_radiance": 0.8056640028953552,
+          "minimum_radiance": 0.7470702528953552,
+          "max_channel_disagreement": 0.0,
+          "raw_float32_sha256": "5b40c838b45910992e6779c254edaa4ddce84f7ff22e39994241ef0bc865e732"
+        }
+      ]
+    },
+    {
+      "case": "beer_tau_075",
+      "fixture": "cylinder",
+      "axial_length_mm": 1.0,
+      "optical_depth": 0.75,
+      "n_real": 1.0,
+      "absorption_per_mm": 0.75,
+      "expected_radiance": 0.4723665527410147,
+      "mean": 0.4721412658691406,
+      "seed_count": 4,
+      "seed_standard_error": 0.0003677977845130384,
+      "pointwise_95pct_seed_mean_interval": [
+        0.4709707691687256,
+        0.47331176256955565
+      ],
+      "interval_interpretation": "Student-t seed means, Monte Carlo noise only; no family correction",
+      "seed_means": [
+        0.4728984832763672,
+        0.4720954895019531,
+        0.4724159240722656,
+        0.47115516662597656
+      ],
+      "error_from_analytic_mean": -0.00022528687187406415,
+      "relative_error_from_analytic_mean": -0.00047693231150001134,
+      "pointwise_95pct_interval_contains_analytic": true,
+      "oracle_guard_absolute_tolerance": 0.0021684356973150688,
+      "oracle_guard_passed": true,
+      "guard_definition": "6 analytic Bernoulli standard errors of all camera paths plus 1e-4 numerical allowance; not a reported confidence interval",
+      "scalar_camera_path_count": 2097152,
+      "camera_max_radius_mm": 0.08485281374238571,
+      "minimum_cross_section_inradius_mm": 0.19903694533443936,
+      "internal_exit_position_mm": [
+        0.029999997466802597,
+        0.019999997690320015,
+        0.0
+      ],
+      "internal_exit_normal": [
+        0.0,
+        0.0,
+        -0.9999999403953552
+      ],
+      "scene": {
+        "schema_version": "textile.closed_mesh_volume_optics/5.0",
+        "model": "closed triangle mesh; geometric face normals; real dielectric Fresnel; pure absorption; volpath",
+        "mitsuba_version": "3.9.1",
+        "variant": "llvm_ad_rgb",
+        "scene_length_unit": "mm",
+        "wavelength_unit": "vacuum_nm",
+        "wavelength_nm": 550.0,
+        "materials": {
+          "oracle": {
+            "material": {
+              "material_id": "oracle",
+              "wavelength_nm": [
+                450.0,
+                550.0,
+                650.0
+              ],
+              "n_real": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "kappa": [
+                2.685739664675734e-05,
+                3.282570701270341e-05,
+                3.8794017378649485e-05
+              ],
+              "source": "synthetic known-coefficient analytic physics oracle",
+              "data_status": "synthetic",
+              "provenance_json": "{\"axial_length_mm\":1.0,\"optical_depth\":0.75}"
+            },
+            "wavelength_nm": 550.0,
+            "n_real": 1.0,
+            "kappa": 3.282570701270341e-05,
+            "background_n": 1.0,
+            "absorption_per_mm": 0.7500000000000001,
+            "sigma_t_per_scene_unit": 0.7500000000000001,
+            "albedo": 0.0,
+            "kappa_over_n": 3.282570701270341e-05,
+            "max_kappa_ratio": 0.01,
+            "absorbing_medium_installed": true,
+            "absorption_mapping": "sigma_t = mu_a_per_mm; no radius multiplier"
+          }
+        },
+        "meshes": [
+          {
+            "fiber_id": "analytic_cylinder",
+            "material_id": "oracle",
+            "profile_sha256": "7b02fb041b3ea9502937c89cf23aab27a06b59a35e7cacc5ed89374c778711b4",
+            "mesh_sha256": "ec0cac416a6aa98460d3681c429bd7ef740fe8ea95c93e19ec7e6c866a54503c",
+            "radial_segments": 32,
+            "buffer_audit": {
+              "vertex_count": 66,
+              "face_count": 128,
+              "closed_oriented_edge_incidence": true,
+              "self_intersection_certified_absent": false,
+              "max_float32_displacement_mm": 9.221200367763597e-09,
+              "source_signed_volume_mm3": 0.12485780609032204,
+              "float32_signed_volume_mm3": 0.12485780545861846,
+              "float32_relative_volume_change": -5.059383911820703e-09,
+              "minimum_source_triangle_area_mm2": 0.00390180644032255,
+              "minimum_float32_triangle_area_mm2": 0.0039018062261222397,
+              "vertices_float32_sha256": "f9dbeb78a75dc2d1fc63b2af1b78d2a7188404d7fbd1be4b102facbc1423ba77",
+              "faces_uint32_sha256": "ba98e7cb26e4d87d8fc08ff37e23d3494ab94c97957051a58f5652e9d68ab8db"
+            }
+          }
+        ],
+        "rig": {
+          "bounds_mm": [
+            [
+              -0.19999999999999998,
+              -0.19999999999999998,
+              0.0
+            ],
+            [
+              0.19999999999999998,
+              0.19999999999999998,
+              1.0
+            ]
+          ],
+          "center_mm": [
+            0.0,
+            0.0,
+            0.5
+          ],
+          "span_mm": 1.0,
+          "film_width_mm": 0.12,
+          "view_direction": [
+            3.749399456654644e-33,
+            -6.123233995736766e-17,
+            1.0
+          ],
+          "camera_distance_mm": 10.0,
+          "source": {
+            "mode": "furnace"
+          }
+        },
+        "render_config": {
+          "resolution": 16,
+          "spp": 2048,
+          "seed": 53,
+          "mode": "furnace",
+          "light_elevation_deg": 45.0,
+          "light_azimuth_deg": 0.0,
+          "light_halfwidth_deg": 7.0,
+          "view_elevation_deg": 90.0,
+          "view_azimuth_deg": -90.0,
+          "ior": 1.55,
+          "absorption_per_mm": 2.0,
+          "longitudinal_roughness": 0.18,
+          "azimuthal_roughness": 0.2,
+          "max_depth": 64,
+          "rr_depth": 128,
+          "exposure": 1.0,
+          "ambient": 0.0,
+          "width_fraction": 0.3
+        },
+        "ignored_legacy_config_fields": [
+          "ior",
+          "absorption_per_mm",
+          "longitudinal_roughness",
+          "azimuthal_roughness",
+          "exposure"
+        ],
+        "triangle_geometric_normals_only": true,
+        "surface_roughness_model": "none; smooth dielectric on each flat triangle",
+        "coherence": "incoherent scalar intensities",
+        "caller_preconditions": "disjoint embedded closed material volumes; self-intersection is not certified by this adapter",
+        "scene_sha256": "584b460091add5790cc2788b807a2f693c7b5f80a880890515e44a9575418a73",
+        "scene_build_seconds": 0.007806114001141395
+      },
+      "renders": [
+        {
+          "scene_sha256": "584b460091add5790cc2788b807a2f693c7b5f80a880890515e44a9575418a73",
+          "seed": 1187,
+          "spp": 2048,
+          "render_seconds": 0.6277765709965024,
+          "mean_radiance": 0.4728984832763672,
+          "max_radiance": 0.4970703125,
+          "minimum_radiance": 0.42919921875,
+          "max_channel_disagreement": 0.0,
+          "raw_float32_sha256": "3cd4946e86f1faf953bb00bc52b6ebd6ae668a6aab1e7431690d979c6cf14fdf"
+        },
+        {
+          "scene_sha256": "584b460091add5790cc2788b807a2f693c7b5f80a880890515e44a9575418a73",
+          "seed": 9781,
+          "spp": 2048,
+          "render_seconds": 0.13042213199514663,
+          "mean_radiance": 0.4720954895019531,
+          "max_radiance": 0.5048828125,
+          "minimum_radiance": 0.4365234375,
+          "max_channel_disagreement": 0.0,
+          "raw_float32_sha256": "4c560a4db79656d9b5a3729a3f6382936ac75a1806bcac1ae7c45b1a325b12b0"
+        },
+        {
+          "scene_sha256": "584b460091add5790cc2788b807a2f693c7b5f80a880890515e44a9575418a73",
+          "seed": 23417,
+          "spp": 2048,
+          "render_seconds": 0.1234896129972185,
+          "mean_radiance": 0.4724159240722656,
+          "max_radiance": 0.50732421875,
+          "minimum_radiance": 0.43994140625,
+          "max_channel_disagreement": 0.0,
+          "raw_float32_sha256": "fc38ea3ab6336bbb4e245c97d6a03330d354b200e24c57d47f936a931d49d243"
+        },
+        {
+          "scene_sha256": "584b460091add5790cc2788b807a2f693c7b5f80a880890515e44a9575418a73",
+          "seed": 45751,
+          "spp": 2048,
+          "render_seconds": 0.12863276799907908,
+          "mean_radiance": 0.47115516662597656,
+          "max_radiance": 0.5009765625,
+          "minimum_radiance": 0.4443359375,
+          "max_channel_disagreement": 0.0,
+          "raw_float32_sha256": "da33988cfab9092cb01d67e3ab3544c6107239f07cfeddb5bcb04a599b048daa"
+        }
+      ]
+    },
+    {
+      "case": "beer_tau_150",
+      "fixture": "cylinder",
+      "axial_length_mm": 1.0,
+      "optical_depth": 1.5,
+      "n_real": 1.0,
+      "absorption_per_mm": 1.5,
+      "expected_radiance": 0.22313016014842982,
+      "mean": 0.22300004653516226,
+      "seed_count": 4,
+      "seed_standard_error": 0.00027873548060798517,
+      "pointwise_95pct_seed_mean_interval": [
+        0.2221129858347499,
+        0.22388710723557462
+      ],
+      "interval_interpretation": "Student-t seed means, Monte Carlo noise only; no family correction",
+      "seed_means": [
+        0.2233962983591482,
+        0.22292899765307084,
+        0.22343635227298364,
+        0.22223853785544634
+      ],
+      "error_from_analytic_mean": -0.00013011361326756288,
+      "relative_error_from_analytic_mean": -0.0005831287584834304,
+      "pointwise_95pct_interval_contains_analytic": true,
+      "oracle_guard_absolute_tolerance": 0.0018250018498646274,
+      "oracle_guard_passed": true,
+      "guard_definition": "6 analytic Bernoulli standard errors of all camera paths plus 1e-4 numerical allowance; not a reported confidence interval",
+      "scalar_camera_path_count": 2097152,
+      "camera_max_radius_mm": 0.08485281374238571,
+      "minimum_cross_section_inradius_mm": 0.19903694533443936,
+      "internal_exit_position_mm": [
+        0.029999997466802597,
+        0.019999997690320015,
+        0.0
+      ],
+      "internal_exit_normal": [
+        0.0,
+        0.0,
+        -0.9999999403953552
+      ],
+      "scene": {
+        "schema_version": "textile.closed_mesh_volume_optics/5.0",
+        "model": "closed triangle mesh; geometric face normals; real dielectric Fresnel; pure absorption; volpath",
+        "mitsuba_version": "3.9.1",
+        "variant": "llvm_ad_rgb",
+        "scene_length_unit": "mm",
+        "wavelength_unit": "vacuum_nm",
+        "wavelength_nm": 550.0,
+        "materials": {
+          "oracle": {
+            "material": {
+              "material_id": "oracle",
+              "wavelength_nm": [
+                450.0,
+                550.0,
+                650.0
+              ],
+              "n_real": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "kappa": [
+                5.371479329351468e-05,
+                6.565141402540683e-05,
+                7.758803475729897e-05
+              ],
+              "source": "synthetic known-coefficient analytic physics oracle",
+              "data_status": "synthetic",
+              "provenance_json": "{\"axial_length_mm\":1.0,\"optical_depth\":1.5}"
+            },
+            "wavelength_nm": 550.0,
+            "n_real": 1.0,
+            "kappa": 6.565141402540683e-05,
+            "background_n": 1.0,
+            "absorption_per_mm": 1.5000000000000002,
+            "sigma_t_per_scene_unit": 1.5000000000000002,
+            "albedo": 0.0,
+            "kappa_over_n": 6.565141402540683e-05,
+            "max_kappa_ratio": 0.01,
+            "absorbing_medium_installed": true,
+            "absorption_mapping": "sigma_t = mu_a_per_mm; no radius multiplier"
+          }
+        },
+        "meshes": [
+          {
+            "fiber_id": "analytic_cylinder",
+            "material_id": "oracle",
+            "profile_sha256": "7b02fb041b3ea9502937c89cf23aab27a06b59a35e7cacc5ed89374c778711b4",
+            "mesh_sha256": "ec0cac416a6aa98460d3681c429bd7ef740fe8ea95c93e19ec7e6c866a54503c",
+            "radial_segments": 32,
+            "buffer_audit": {
+              "vertex_count": 66,
+              "face_count": 128,
+              "closed_oriented_edge_incidence": true,
+              "self_intersection_certified_absent": false,
+              "max_float32_displacement_mm": 9.221200367763597e-09,
+              "source_signed_volume_mm3": 0.12485780609032204,
+              "float32_signed_volume_mm3": 0.12485780545861846,
+              "float32_relative_volume_change": -5.059383911820703e-09,
+              "minimum_source_triangle_area_mm2": 0.00390180644032255,
+              "minimum_float32_triangle_area_mm2": 0.0039018062261222397,
+              "vertices_float32_sha256": "f9dbeb78a75dc2d1fc63b2af1b78d2a7188404d7fbd1be4b102facbc1423ba77",
+              "faces_uint32_sha256": "ba98e7cb26e4d87d8fc08ff37e23d3494ab94c97957051a58f5652e9d68ab8db"
+            }
+          }
+        ],
+        "rig": {
+          "bounds_mm": [
+            [
+              -0.19999999999999998,
+              -0.19999999999999998,
+              0.0
+            ],
+            [
+              0.19999999999999998,
+              0.19999999999999998,
+              1.0
+            ]
+          ],
+          "center_mm": [
+            0.0,
+            0.0,
+            0.5
+          ],
+          "span_mm": 1.0,
+          "film_width_mm": 0.12,
+          "view_direction": [
+            3.749399456654644e-33,
+            -6.123233995736766e-17,
+            1.0
+          ],
+          "camera_distance_mm": 10.0,
+          "source": {
+            "mode": "furnace"
+          }
+        },
+        "render_config": {
+          "resolution": 16,
+          "spp": 2048,
+          "seed": 53,
+          "mode": "furnace",
+          "light_elevation_deg": 45.0,
+          "light_azimuth_deg": 0.0,
+          "light_halfwidth_deg": 7.0,
+          "view_elevation_deg": 90.0,
+          "view_azimuth_deg": -90.0,
+          "ior": 1.55,
+          "absorption_per_mm": 2.0,
+          "longitudinal_roughness": 0.18,
+          "azimuthal_roughness": 0.2,
+          "max_depth": 64,
+          "rr_depth": 128,
+          "exposure": 1.0,
+          "ambient": 0.0,
+          "width_fraction": 0.3
+        },
+        "ignored_legacy_config_fields": [
+          "ior",
+          "absorption_per_mm",
+          "longitudinal_roughness",
+          "azimuthal_roughness",
+          "exposure"
+        ],
+        "triangle_geometric_normals_only": true,
+        "surface_roughness_model": "none; smooth dielectric on each flat triangle",
+        "coherence": "incoherent scalar intensities",
+        "caller_preconditions": "disjoint embedded closed material volumes; self-intersection is not certified by this adapter",
+        "scene_sha256": "4b2ccf155bc24e768cb3cbe08ccef6b35288d9e2cdecc078f67d8bb33adfaa31",
+        "scene_build_seconds": 0.01168569899891736
+      },
+      "renders": [
+        {
+          "scene_sha256": "4b2ccf155bc24e768cb3cbe08ccef6b35288d9e2cdecc078f67d8bb33adfaa31",
+          "seed": 1187,
+          "spp": 2048,
+          "render_seconds": 0.08285265200538561,
+          "mean_radiance": 0.22339630126953125,
+          "max_radiance": 0.25390625,
+          "minimum_radiance": 0.19677734375,
+          "max_channel_disagreement": 0.0,
+          "raw_float32_sha256": "4107c5a8dc25826dbe6f7b5ccf0d3766f09ec1b01fc929aaaf9fde006a981442"
+        },
+        {
+          "scene_sha256": "4b2ccf155bc24e768cb3cbe08ccef6b35288d9e2cdecc078f67d8bb33adfaa31",
+          "seed": 9781,
+          "spp": 2048,
+          "render_seconds": 0.06369402199925389,
+          "mean_radiance": 0.2229290008544922,
+          "max_radiance": 0.2529296875,
+          "minimum_radiance": 0.1962890625,
+          "max_channel_disagreement": 0.0,
+          "raw_float32_sha256": "010ddd9025a655222448f37932eb1cc76fe3cd038e58e5d4a39026f03e2550e1"
+        },
+        {
+          "scene_sha256": "4b2ccf155bc24e768cb3cbe08ccef6b35288d9e2cdecc078f67d8bb33adfaa31",
+          "seed": 23417,
+          "spp": 2048,
+          "render_seconds": 0.0756835840002168,
+          "mean_radiance": 0.2234363555908203,
+          "max_radiance": 0.2509765326976776,
+          "minimum_radiance": 0.1953125,
+          "max_channel_disagreement": 0.0,
+          "raw_float32_sha256": "4284a2c9be83a9033262e77b051398e56cef8c3d1c46c4dddd38d3162d544095"
+        },
+        {
+          "scene_sha256": "4b2ccf155bc24e768cb3cbe08ccef6b35288d9e2cdecc078f67d8bb33adfaa31",
+          "seed": 45751,
+          "spp": 2048,
+          "render_seconds": 0.05942531600157963,
+          "mean_radiance": 0.22223854064941406,
+          "max_radiance": 0.24755859375,
+          "minimum_radiance": 0.1933593600988388,
+          "max_channel_disagreement": 0.0,
+          "raw_float32_sha256": "cafc269def7de252afdcca05b312dc664a20463ca47bcd915928801b433abe57"
+        }
+      ]
+    },
+    {
+      "case": "beer_tau_300",
+      "fixture": "cylinder",
+      "axial_length_mm": 1.0,
+      "optical_depth": 3.0,
+      "n_real": 1.0,
+      "absorption_per_mm": 3.0,
+      "expected_radiance": 0.049787068367863944,
+      "mean": 0.0495762825012207,
+      "seed_count": 4,
+      "seed_standard_error": 8.519742615610282e-05,
+      "pointwise_95pct_seed_mean_interval": [
+        0.049305146267130534,
+        0.04984741873531087
+      ],
+      "interval_interpretation": "Student-t seed means, Monte Carlo noise only; no family correction",
+      "seed_means": [
+        0.049602508544921875,
+        0.04946327209472656,
+        0.04943275451660156,
+        0.04980659484863281
+      ],
+      "error_from_analytic_mean": -0.00021078586664324134,
+      "relative_error_from_analytic_mean": -0.004233747307348936,
+      "pointwise_95pct_interval_contains_analytic": true,
+      "oracle_guard_absolute_tolerance": 0.0010011665050763258,
+      "oracle_guard_passed": true,
+      "guard_definition": "6 analytic Bernoulli standard errors of all camera paths plus 1e-4 numerical allowance; not a reported confidence interval",
+      "scalar_camera_path_count": 2097152,
+      "camera_max_radius_mm": 0.08485281374238571,
+      "minimum_cross_section_inradius_mm": 0.19903694533443936,
+      "internal_exit_position_mm": [
+        0.029999997466802597,
+        0.019999997690320015,
+        0.0
+      ],
+      "internal_exit_normal": [
+        0.0,
+        0.0,
+        -0.9999999403953552
+      ],
+      "scene": {
+        "schema_version": "textile.closed_mesh_volume_optics/5.0",
+        "model": "closed triangle mesh; geometric face normals; real dielectric Fresnel; pure absorption; volpath",
+        "mitsuba_version": "3.9.1",
+        "variant": "llvm_ad_rgb",
+        "scene_length_unit": "mm",
+        "wavelength_unit": "vacuum_nm",
+        "wavelength_nm": 550.0,
+        "materials": {
+          "oracle": {
+            "material": {
+              "material_id": "oracle",
+              "wavelength_nm": [
+                450.0,
+                550.0,
+                650.0
+              ],
+              "n_real": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "kappa": [
+                0.00010742958658702936,
+                0.00013130282805081365,
+                0.00015517606951459794
+              ],
+              "source": "synthetic known-coefficient analytic physics oracle",
+              "data_status": "synthetic",
+              "provenance_json": "{\"axial_length_mm\":1.0,\"optical_depth\":3.0}"
+            },
+            "wavelength_nm": 550.0,
+            "n_real": 1.0,
+            "kappa": 0.00013130282805081365,
+            "background_n": 1.0,
+            "absorption_per_mm": 3.0000000000000004,
+            "sigma_t_per_scene_unit": 3.0000000000000004,
+            "albedo": 0.0,
+            "kappa_over_n": 0.00013130282805081365,
+            "max_kappa_ratio": 0.01,
+            "absorbing_medium_installed": true,
+            "absorption_mapping": "sigma_t = mu_a_per_mm; no radius multiplier"
+          }
+        },
+        "meshes": [
+          {
+            "fiber_id": "analytic_cylinder",
+            "material_id": "oracle",
+            "profile_sha256": "7b02fb041b3ea9502937c89cf23aab27a06b59a35e7cacc5ed89374c778711b4",
+            "mesh_sha256": "ec0cac416a6aa98460d3681c429bd7ef740fe8ea95c93e19ec7e6c866a54503c",
+            "radial_segments": 32,
+            "buffer_audit": {
+              "vertex_count": 66,
+              "face_count": 128,
+              "closed_oriented_edge_incidence": true,
+              "self_intersection_certified_absent": false,
+              "max_float32_displacement_mm": 9.221200367763597e-09,
+              "source_signed_volume_mm3": 0.12485780609032204,
+              "float32_signed_volume_mm3": 0.12485780545861846,
+              "float32_relative_volume_change": -5.059383911820703e-09,
+              "minimum_source_triangle_area_mm2": 0.00390180644032255,
+              "minimum_float32_triangle_area_mm2": 0.0039018062261222397,
+              "vertices_float32_sha256": "f9dbeb78a75dc2d1fc63b2af1b78d2a7188404d7fbd1be4b102facbc1423ba77",
+              "faces_uint32_sha256": "ba98e7cb26e4d87d8fc08ff37e23d3494ab94c97957051a58f5652e9d68ab8db"
+            }
+          }
+        ],
+        "rig": {
+          "bounds_mm": [
+            [
+              -0.19999999999999998,
+              -0.19999999999999998,
+              0.0
+            ],
+            [
+              0.19999999999999998,
+              0.19999999999999998,
+              1.0
+            ]
+          ],
+          "center_mm": [
+            0.0,
+            0.0,
+            0.5
+          ],
+          "span_mm": 1.0,
+          "film_width_mm": 0.12,
+          "view_direction": [
+            3.749399456654644e-33,
+            -6.123233995736766e-17,
+            1.0
+          ],
+          "camera_distance_mm": 10.0,
+          "source": {
+            "mode": "furnace"
+          }
+        },
+        "render_config": {
+          "resolution": 16,
+          "spp": 2048,
+          "seed": 53,
+          "mode": "furnace",
+          "light_elevation_deg": 45.0,
+          "light_azimuth_deg": 0.0,
+          "light_halfwidth_deg": 7.0,
+          "view_elevation_deg": 90.0,
+          "view_azimuth_deg": -90.0,
+          "ior": 1.55,
+          "absorption_per_mm": 2.0,
+          "longitudinal_roughness": 0.18,
+          "azimuthal_roughness": 0.2,
+          "max_depth": 64,
+          "rr_depth": 128,
+          "exposure": 1.0,
+          "ambient": 0.0,
+          "width_fraction": 0.3
+        },
+        "ignored_legacy_config_fields": [
+          "ior",
+          "absorption_per_mm",
+          "longitudinal_roughness",
+          "azimuthal_roughness",
+          "exposure"
+        ],
+        "triangle_geometric_normals_only": true,
+        "surface_roughness_model": "none; smooth dielectric on each flat triangle",
+        "coherence": "incoherent scalar intensities",
+        "caller_preconditions": "disjoint embedded closed material volumes; self-intersection is not certified by this adapter",
+        "scene_sha256": "6e5dce790d0cd761570e97568e15d934b77ec153257379a346a78d132c673aa9",
+        "scene_build_seconds": 0.018884436001826543
+      },
+      "renders": [
+        {
+          "scene_sha256": "6e5dce790d0cd761570e97568e15d934b77ec153257379a346a78d132c673aa9",
+          "seed": 1187,
+          "spp": 2048,
+          "render_seconds": 0.10012157700111857,
+          "mean_radiance": 0.049602508544921875,
+          "max_radiance": 0.06201171875,
+          "minimum_radiance": 0.03759765625,
+          "max_channel_disagreement": 0.0,
+          "raw_float32_sha256": "4dd905dd4faa00170c431742f26062bcc39e2c0c29d40dd9899ebbc28876e7ee"
+        },
+        {
+          "scene_sha256": "6e5dce790d0cd761570e97568e15d934b77ec153257379a346a78d132c673aa9",
+          "seed": 9781,
+          "spp": 2048,
+          "render_seconds": 0.09428551800374407,
+          "mean_radiance": 0.04946327209472656,
+          "max_radiance": 0.06201171875,
+          "minimum_radiance": 0.03564453125,
+          "max_channel_disagreement": 0.0,
+          "raw_float32_sha256": "38ffe545a7bff1a66aebc6535ded4484554dd89eacff679b58da446a9ad32b8f"
+        },
+        {
+          "scene_sha256": "6e5dce790d0cd761570e97568e15d934b77ec153257379a346a78d132c673aa9",
+          "seed": 23417,
+          "spp": 2048,
+          "render_seconds": 0.10324539899738738,
+          "mean_radiance": 0.04943275451660156,
+          "max_radiance": 0.06298828125,
+          "minimum_radiance": 0.03564453125,
+          "max_channel_disagreement": 0.0,
+          "raw_float32_sha256": "2d8fa34dd5f3c72bec9b09b36ddc9d6bf660a1006f5f4cfff59a899614be84cc"
+        },
+        {
+          "scene_sha256": "6e5dce790d0cd761570e97568e15d934b77ec153257379a346a78d132c673aa9",
+          "seed": 45751,
+          "spp": 2048,
+          "render_seconds": 0.12757868399785366,
+          "mean_radiance": 0.04980659484863281,
+          "max_radiance": 0.06640625,
+          "minimum_radiance": 0.0361328125,
+          "max_channel_disagreement": 0.0,
+          "raw_float32_sha256": "5c4f0f8484a9d3d2da3e5e2671b5ecf9b09c95e7b96197708879bfdca9fc44d5"
+        }
+      ]
+    },
+    {
+      "case": "furnace_n155",
+      "fixture": "cylinder",
+      "axial_length_mm": 1.0,
+      "optical_depth": 0.0,
+      "n_real": 1.55,
+      "absorption_per_mm": 0.0,
+      "expected_radiance": 1.0,
+      "mean": 1.0000000735744834,
+      "seed_count": 4,
+      "seed_standard_error": 1.6681683296496574e-09,
+      "pointwise_95pct_seed_mean_interval": [
+        1.0000000682656272,
+        1.0000000788833396
+      ],
+      "interval_interpretation": "Student-t seed means, Monte Carlo noise only; no family correction",
+      "seed_means": [
+        1.0000000768341124,
+        1.000000069849193,
+        1.0000000759027898,
+        1.0000000717118382
+      ],
+      "error_from_analytic_mean": 7.35744833946228e-08,
+      "relative_error_from_analytic_mean": 7.35744833946228e-08,
+      "pointwise_95pct_interval_contains_analytic": false,
+      "oracle_guard_absolute_tolerance": 0.0001,
+      "oracle_guard_passed": true,
+      "guard_definition": "6 analytic Bernoulli standard errors of all camera paths plus 1e-4 numerical allowance; not a reported confidence interval",
+      "scalar_camera_path_count": 2097152,
+      "camera_max_radius_mm": 0.08485281374238571,
+      "minimum_cross_section_inradius_mm": 0.19903694533443936,
+      "internal_exit_position_mm": [
+        0.029999997466802597,
+        0.019999997690320015,
+        0.0
+      ],
+      "internal_exit_normal": [
+        0.0,
+        0.0,
+        -0.9999999403953552
+      ],
+      "scene": {
+        "schema_version": "textile.closed_mesh_volume_optics/5.0",
+        "model": "closed triangle mesh; geometric face normals; real dielectric Fresnel; pure absorption; volpath",
+        "mitsuba_version": "3.9.1",
+        "variant": "llvm_ad_rgb",
+        "scene_length_unit": "mm",
+        "wavelength_unit": "vacuum_nm",
+        "wavelength_nm": 550.0,
+        "materials": {
+          "oracle": {
+            "material": {
+              "material_id": "oracle",
+              "wavelength_nm": [
+                450.0,
+                550.0,
+                650.0
+              ],
+              "n_real": [
+                1.55,
+                1.55,
+                1.55
+              ],
+              "kappa": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "source": "synthetic known-coefficient analytic physics oracle",
+              "data_status": "synthetic",
+              "provenance_json": "{\"axial_length_mm\":1.0,\"optical_depth\":0.0}"
+            },
+            "wavelength_nm": 550.0,
+            "n_real": 1.55,
+            "kappa": 0.0,
+            "background_n": 1.0,
+            "absorption_per_mm": 0.0,
+            "sigma_t_per_scene_unit": 0.0,
+            "albedo": 0.0,
+            "kappa_over_n": 0.0,
+            "max_kappa_ratio": 0.01,
+            "absorbing_medium_installed": false,
+            "absorption_mapping": "sigma_t = mu_a_per_mm; no radius multiplier"
+          }
+        },
+        "meshes": [
+          {
+            "fiber_id": "analytic_cylinder",
+            "material_id": "oracle",
+            "profile_sha256": "7b02fb041b3ea9502937c89cf23aab27a06b59a35e7cacc5ed89374c778711b4",
+            "mesh_sha256": "ec0cac416a6aa98460d3681c429bd7ef740fe8ea95c93e19ec7e6c866a54503c",
+            "radial_segments": 32,
+            "buffer_audit": {
+              "vertex_count": 66,
+              "face_count": 128,
+              "closed_oriented_edge_incidence": true,
+              "self_intersection_certified_absent": false,
+              "max_float32_displacement_mm": 9.221200367763597e-09,
+              "source_signed_volume_mm3": 0.12485780609032204,
+              "float32_signed_volume_mm3": 0.12485780545861846,
+              "float32_relative_volume_change": -5.059383911820703e-09,
+              "minimum_source_triangle_area_mm2": 0.00390180644032255,
+              "minimum_float32_triangle_area_mm2": 0.0039018062261222397,
+              "vertices_float32_sha256": "f9dbeb78a75dc2d1fc63b2af1b78d2a7188404d7fbd1be4b102facbc1423ba77",
+              "faces_uint32_sha256": "ba98e7cb26e4d87d8fc08ff37e23d3494ab94c97957051a58f5652e9d68ab8db"
+            }
+          }
+        ],
+        "rig": {
+          "bounds_mm": [
+            [
+              -0.19999999999999998,
+              -0.19999999999999998,
+              0.0
+            ],
+            [
+              0.19999999999999998,
+              0.19999999999999998,
+              1.0
+            ]
+          ],
+          "center_mm": [
+            0.0,
+            0.0,
+            0.5
+          ],
+          "span_mm": 1.0,
+          "film_width_mm": 0.12,
+          "view_direction": [
+            3.749399456654644e-33,
+            -6.123233995736766e-17,
+            1.0
+          ],
+          "camera_distance_mm": 10.0,
+          "source": {
+            "mode": "furnace"
+          }
+        },
+        "render_config": {
+          "resolution": 16,
+          "spp": 2048,
+          "seed": 53,
+          "mode": "furnace",
+          "light_elevation_deg": 45.0,
+          "light_azimuth_deg": 0.0,
+          "light_halfwidth_deg": 7.0,
+          "view_elevation_deg": 90.0,
+          "view_azimuth_deg": -90.0,
+          "ior": 1.55,
+          "absorption_per_mm": 2.0,
+          "longitudinal_roughness": 0.18,
+          "azimuthal_roughness": 0.2,
+          "max_depth": 64,
+          "rr_depth": 128,
+          "exposure": 1.0,
+          "ambient": 0.0,
+          "width_fraction": 0.3
+        },
+        "ignored_legacy_config_fields": [
+          "ior",
+          "absorption_per_mm",
+          "longitudinal_roughness",
+          "azimuthal_roughness",
+          "exposure"
+        ],
+        "triangle_geometric_normals_only": true,
+        "surface_roughness_model": "none; smooth dielectric on each flat triangle",
+        "coherence": "incoherent scalar intensities",
+        "caller_preconditions": "disjoint embedded closed material volumes; self-intersection is not certified by this adapter",
+        "scene_sha256": "38e0a3f9153b68dceed7db49e3ba7694d60b01c93a6f6f723840ba27bf52c546",
+        "scene_build_seconds": 0.03111853300652001
+      },
+      "renders": [
+        {
+          "scene_sha256": "38e0a3f9153b68dceed7db49e3ba7694d60b01c93a6f6f723840ba27bf52c546",
+          "seed": 1187,
+          "spp": 2048,
+          "render_seconds": 0.38978186099848244,
+          "mean_radiance": 1.0,
+          "max_radiance": 1.0000001192092896,
+          "minimum_radiance": 1.0,
+          "max_channel_disagreement": 0.0,
+          "raw_float32_sha256": "081a2787903b58d996b8eb767237f40544eb2418bcc561901ee6777d7681837a"
+        },
+        {
+          "scene_sha256": "38e0a3f9153b68dceed7db49e3ba7694d60b01c93a6f6f723840ba27bf52c546",
+          "seed": 9781,
+          "spp": 2048,
+          "render_seconds": 0.10005107799952384,
+          "mean_radiance": 1.0,
+          "max_radiance": 1.0000001192092896,
+          "minimum_radiance": 1.0,
+          "max_channel_disagreement": 0.0,
+          "raw_float32_sha256": "a825909830aec595856911584a09427f79c92d6d3e61b3c55a09013ba2d5fd33"
+        },
+        {
+          "scene_sha256": "38e0a3f9153b68dceed7db49e3ba7694d60b01c93a6f6f723840ba27bf52c546",
+          "seed": 23417,
+          "spp": 2048,
+          "render_seconds": 0.14688646900322055,
+          "mean_radiance": 1.0,
+          "max_radiance": 1.0000001192092896,
+          "minimum_radiance": 1.0,
+          "max_channel_disagreement": 0.0,
+          "raw_float32_sha256": "7ed737da186981725b1c49645d793e95f1c0793bd079f3f212c624d9bf60456e"
+        },
+        {
+          "scene_sha256": "38e0a3f9153b68dceed7db49e3ba7694d60b01c93a6f6f723840ba27bf52c546",
+          "seed": 45751,
+          "spp": 2048,
+          "render_seconds": 0.07399750000331551,
+          "mean_radiance": 1.0,
+          "max_radiance": 1.0000001192092896,
+          "minimum_radiance": 1.0,
+          "max_channel_disagreement": 0.0,
+          "raw_float32_sha256": "30bdaf6217b1b10e854004feffc6dd526f139baf5411fadfa4fba838acc58b9f"
+        }
+      ]
+    },
+    {
+      "case": "scaled_tau_075",
+      "fixture": "scaled_cylinder",
+      "axial_length_mm": 8.0,
+      "optical_depth": 0.75,
+      "n_real": 1.0,
+      "absorption_per_mm": 0.09375,
+      "expected_radiance": 0.4723665527410147,
+      "mean": 0.4721193258301355,
+      "seed_count": 4,
+      "seed_standard_error": 0.0003673830531042303,
+      "pointwise_95pct_seed_mean_interval": [
+        0.4709501489901601,
+        0.4732885026701109
+      ],
+      "interval_interpretation": "Student-t seed means, Monte Carlo noise only; no family correction",
+      "seed_means": [
+        0.47287940338719636,
+        0.47206496715079993,
+        0.4723949373001233,
+        0.4711379954824224
+      ],
+      "error_from_analytic_mean": -0.0002472269108791947,
+      "relative_error_from_analytic_mean": -0.0005233793744383554,
+      "pointwise_95pct_interval_contains_analytic": true,
+      "oracle_guard_absolute_tolerance": 0.0021684356973150688,
+      "oracle_guard_passed": true,
+      "guard_definition": "6 analytic Bernoulli standard errors of all camera paths plus 1e-4 numerical allowance; not a reported confidence interval",
+      "scalar_camera_path_count": 2097152,
+      "camera_max_radius_mm": 0.6788225099390857,
+      "minimum_cross_section_inradius_mm": 1.5922955626755149,
+      "internal_exit_position_mm": [
+        0.23999997973442078,
+        0.15999998152256012,
+        0.0
+      ],
+      "internal_exit_normal": [
+        0.0,
+        0.0,
+        -0.9999999403953552
+      ],
+      "scene": {
+        "schema_version": "textile.closed_mesh_volume_optics/5.0",
+        "model": "closed triangle mesh; geometric face normals; real dielectric Fresnel; pure absorption; volpath",
+        "mitsuba_version": "3.9.1",
+        "variant": "llvm_ad_rgb",
+        "scene_length_unit": "mm",
+        "wavelength_unit": "vacuum_nm",
+        "wavelength_nm": 550.0,
+        "materials": {
+          "oracle": {
+            "material": {
+              "material_id": "oracle",
+              "wavelength_nm": [
+                450.0,
+                550.0,
+                650.0
+              ],
+              "n_real": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "kappa": [
+                3.3571745808446675e-06,
+                4.103213376587927e-06,
+                4.849252172331186e-06
+              ],
+              "source": "synthetic known-coefficient analytic physics oracle",
+              "data_status": "synthetic",
+              "provenance_json": "{\"axial_length_mm\":8.0,\"optical_depth\":0.75}"
+            },
+            "wavelength_nm": 550.0,
+            "n_real": 1.0,
+            "kappa": 4.103213376587927e-06,
+            "background_n": 1.0,
+            "absorption_per_mm": 0.09375000000000001,
+            "sigma_t_per_scene_unit": 0.09375000000000001,
+            "albedo": 0.0,
+            "kappa_over_n": 4.103213376587927e-06,
+            "max_kappa_ratio": 0.01,
+            "absorbing_medium_installed": true,
+            "absorption_mapping": "sigma_t = mu_a_per_mm; no radius multiplier"
+          }
+        },
+        "meshes": [
+          {
+            "fiber_id": "analytic_scaled_cylinder",
+            "material_id": "oracle",
+            "profile_sha256": "b9d0d2eb4a4a9d51cfe9b4f58adc65318a89769debf7431030d22e153b5edca5",
+            "mesh_sha256": "c9577546d14a717ab0ff51b1203e3df840b361e01a4e8809edfa3345c072e78a",
+            "radial_segments": 32,
+            "buffer_audit": {
+              "vertex_count": 66,
+              "face_count": 128,
+              "closed_oriented_edge_incidence": true,
+              "self_intersection_certified_absent": false,
+              "max_float32_displacement_mm": 7.376960294210877e-08,
+              "source_signed_volume_mm3": 63.927196718244886,
+              "float32_signed_volume_mm3": 63.927196394812654,
+              "float32_relative_volume_change": -5.059383911820703e-09,
+              "minimum_source_triangle_area_mm2": 0.2497156121806432,
+              "minimum_float32_triangle_area_mm2": 0.24971559847182334,
+              "vertices_float32_sha256": "63385c808a2227252511ac4abea23a2f453aab366a736a6b534946dde2aaffef",
+              "faces_uint32_sha256": "ba98e7cb26e4d87d8fc08ff37e23d3494ab94c97957051a58f5652e9d68ab8db"
+            }
+          }
+        ],
+        "rig": {
+          "bounds_mm": [
+            [
+              -1.5999999999999999,
+              -1.5999999999999999,
+              0.0
+            ],
+            [
+              1.5999999999999999,
+              1.5999999999999999,
+              8.0
+            ]
+          ],
+          "center_mm": [
+            0.0,
+            0.0,
+            4.0
+          ],
+          "span_mm": 8.0,
+          "film_width_mm": 0.96,
+          "view_direction": [
+            3.749399456654644e-33,
+            -6.123233995736766e-17,
+            1.0
+          ],
+          "camera_distance_mm": 80.0,
+          "source": {
+            "mode": "furnace"
+          }
+        },
+        "render_config": {
+          "resolution": 16,
+          "spp": 2048,
+          "seed": 53,
+          "mode": "furnace",
+          "light_elevation_deg": 45.0,
+          "light_azimuth_deg": 0.0,
+          "light_halfwidth_deg": 7.0,
+          "view_elevation_deg": 90.0,
+          "view_azimuth_deg": -90.0,
+          "ior": 1.55,
+          "absorption_per_mm": 2.0,
+          "longitudinal_roughness": 0.18,
+          "azimuthal_roughness": 0.2,
+          "max_depth": 64,
+          "rr_depth": 128,
+          "exposure": 1.0,
+          "ambient": 0.0,
+          "width_fraction": 0.3
+        },
+        "ignored_legacy_config_fields": [
+          "ior",
+          "absorption_per_mm",
+          "longitudinal_roughness",
+          "azimuthal_roughness",
+          "exposure"
+        ],
+        "triangle_geometric_normals_only": true,
+        "surface_roughness_model": "none; smooth dielectric on each flat triangle",
+        "coherence": "incoherent scalar intensities",
+        "caller_preconditions": "disjoint embedded closed material volumes; self-intersection is not certified by this adapter",
+        "scene_sha256": "b41e5bce0cb26c189a95545d60a55bd77072992416bd2c88c93d76fbc363213b",
+        "scene_build_seconds": 0.027893957994820084
+      },
+      "renders": [
+        {
+          "scene_sha256": "b41e5bce0cb26c189a95545d60a55bd77072992416bd2c88c93d76fbc363213b",
+          "seed": 1187,
+          "spp": 2048,
+          "render_seconds": 0.7700261039935867,
+          "mean_radiance": 0.47287940979003906,
+          "max_radiance": 0.4970703125,
+          "minimum_radiance": 0.4291991889476776,
+          "max_channel_disagreement": 0.0,
+          "raw_float32_sha256": "af9001fd71c4b3c9e784d6937b672185f517bf3be525f68d425f0a28e474fb91"
+        },
+        {
+          "scene_sha256": "b41e5bce0cb26c189a95545d60a55bd77072992416bd2c88c93d76fbc363213b",
+          "seed": 9781,
+          "spp": 2048,
+          "render_seconds": 0.06785462200059555,
+          "mean_radiance": 0.4720649719238281,
+          "max_radiance": 0.5048828125,
+          "minimum_radiance": 0.4365234375,
+          "max_channel_disagreement": 0.0,
+          "raw_float32_sha256": "0fef04875abecdee842a6d687e86d679ce2260bd723b019878db13426c7bab08"
+        },
+        {
+          "scene_sha256": "b41e5bce0cb26c189a95545d60a55bd77072992416bd2c88c93d76fbc363213b",
+          "seed": 23417,
+          "spp": 2048,
+          "render_seconds": 0.06551605499407742,
+          "mean_radiance": 0.4723949432373047,
+          "max_radiance": 0.50732421875,
+          "minimum_radiance": 0.43994140625,
+          "max_channel_disagreement": 0.0,
+          "raw_float32_sha256": "3c4e5791303141c043a8dfe71bad81cfa3ac84acef5f69d02b495326c8585b2b"
+        },
+        {
+          "scene_sha256": "b41e5bce0cb26c189a95545d60a55bd77072992416bd2c88c93d76fbc363213b",
+          "seed": 45751,
+          "spp": 2048,
+          "render_seconds": 0.04961656799423508,
+          "mean_radiance": 0.47113800048828125,
+          "max_radiance": 0.5009765625,
+          "minimum_radiance": 0.44384765625,
+          "max_channel_disagreement": 0.0,
+          "raw_float32_sha256": "74f574bf45d1cdfcc9056dfd077d29de89353f01d63ae31af26dcf16c6eef5e5"
+        }
+      ]
+    },
+    {
+      "case": "tapered_tau_075",
+      "fixture": "tapered",
+      "axial_length_mm": 1.0,
+      "optical_depth": 0.75,
+      "n_real": 1.0,
+      "absorption_per_mm": 0.75,
+      "expected_radiance": 0.4723665527410147,
+      "mean": 0.4721412658691406,
+      "seed_count": 4,
+      "seed_standard_error": 0.0003677977845130384,
+      "pointwise_95pct_seed_mean_interval": [
+        0.4709707691687256,
+        0.47331176256955565
+      ],
+      "interval_interpretation": "Student-t seed means, Monte Carlo noise only; no family correction",
+      "seed_means": [
+        0.4728984832763672,
+        0.4720954895019531,
+        0.4724159240722656,
+        0.47115516662597656
+      ],
+      "error_from_analytic_mean": -0.00022528687187406415,
+      "relative_error_from_analytic_mean": -0.00047693231150001134,
+      "pointwise_95pct_interval_contains_analytic": true,
+      "oracle_guard_absolute_tolerance": 0.0021684356973150688,
+      "oracle_guard_passed": true,
+      "guard_definition": "6 analytic Bernoulli standard errors of all camera paths plus 1e-4 numerical allowance; not a reported confidence interval",
+      "scalar_camera_path_count": 2097152,
+      "camera_max_radius_mm": 0.11262073658391204,
+      "minimum_cross_section_inradius_mm": 0.19591476061226779,
+      "internal_exit_position_mm": [
+        0.030000001192092896,
+        0.019999999552965164,
+        0.0
+      ],
+      "internal_exit_normal": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "scene": {
+        "schema_version": "textile.closed_mesh_volume_optics/5.0",
+        "model": "closed triangle mesh; geometric face normals; real dielectric Fresnel; pure absorption; volpath",
+        "mitsuba_version": "3.9.1",
+        "variant": "llvm_ad_rgb",
+        "scene_length_unit": "mm",
+        "wavelength_unit": "vacuum_nm",
+        "wavelength_nm": 550.0,
+        "materials": {
+          "oracle": {
+            "material": {
+              "material_id": "oracle",
+              "wavelength_nm": [
+                450.0,
+                550.0,
+                650.0
+              ],
+              "n_real": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "kappa": [
+                2.685739664675734e-05,
+                3.282570701270341e-05,
+                3.8794017378649485e-05
+              ],
+              "source": "synthetic known-coefficient analytic physics oracle",
+              "data_status": "synthetic",
+              "provenance_json": "{\"axial_length_mm\":1.0,\"optical_depth\":0.75}"
+            },
+            "wavelength_nm": 550.0,
+            "n_real": 1.0,
+            "kappa": 3.282570701270341e-05,
+            "background_n": 1.0,
+            "absorption_per_mm": 0.7500000000000001,
+            "sigma_t_per_scene_unit": 0.7500000000000001,
+            "albedo": 0.0,
+            "kappa_over_n": 3.282570701270341e-05,
+            "max_kappa_ratio": 0.01,
+            "absorbing_medium_installed": true,
+            "absorption_mapping": "sigma_t = mu_a_per_mm; no radius multiplier"
+          }
+        },
+        "meshes": [
+          {
+            "fiber_id": "analytic_tapered",
+            "material_id": "oracle",
+            "profile_sha256": "58e8c497d406f653fa9893ab607bbc0d15267cb56794c5f44250e6e527ffaca7",
+            "mesh_sha256": "d7b99cf0e791bd5db48b463585dc67860626b22f5e14bd2344eaf779557a4395",
+            "radial_segments": 32,
+            "buffer_audit": {
+              "vertex_count": 162,
+              "face_count": 320,
+              "closed_oriented_edge_incidence": true,
+              "self_intersection_certified_absent": false,
+              "max_float32_displacement_mm": 1.4077024283235665e-08,
+              "source_signed_volume_mm3": 0.169338399509999,
+              "float32_signed_volume_mm3": 0.16933840238712392,
+              "float32_relative_volume_change": 1.6990386875193053e-08,
+              "minimum_source_triangle_area_mm2": 0.0039276420685618405,
+              "minimum_float32_triangle_area_mm2": 0.003927641844515328,
+              "vertices_float32_sha256": "2b9691e072535717dada2a8039c06919157118ef178693a981faf3a4eff97d2d",
+              "faces_uint32_sha256": "0d0979fb83c4ba5d27a3241e78c4154508478960c337daf4cca76fe46af63ab1"
+            }
+          }
+        ],
+        "rig": {
+          "bounds_mm": [
+            [
+              -0.26544962180236026,
+              -0.26544962180236026,
+              0.0
+            ],
+            [
+              0.26544962180236026,
+              0.26544962180236026,
+              1.0
+            ]
+          ],
+          "center_mm": [
+            0.0,
+            0.0,
+            0.5
+          ],
+          "span_mm": 1.0,
+          "film_width_mm": 0.15926977308141618,
+          "view_direction": [
+            3.749399456654644e-33,
+            -6.123233995736766e-17,
+            1.0
+          ],
+          "camera_distance_mm": 10.0,
+          "source": {
+            "mode": "furnace"
+          }
+        },
+        "render_config": {
+          "resolution": 16,
+          "spp": 2048,
+          "seed": 53,
+          "mode": "furnace",
+          "light_elevation_deg": 45.0,
+          "light_azimuth_deg": 0.0,
+          "light_halfwidth_deg": 7.0,
+          "view_elevation_deg": 90.0,
+          "view_azimuth_deg": -90.0,
+          "ior": 1.55,
+          "absorption_per_mm": 2.0,
+          "longitudinal_roughness": 0.18,
+          "azimuthal_roughness": 0.2,
+          "max_depth": 64,
+          "rr_depth": 128,
+          "exposure": 1.0,
+          "ambient": 0.0,
+          "width_fraction": 0.3
+        },
+        "ignored_legacy_config_fields": [
+          "ior",
+          "absorption_per_mm",
+          "longitudinal_roughness",
+          "azimuthal_roughness",
+          "exposure"
+        ],
+        "triangle_geometric_normals_only": true,
+        "surface_roughness_model": "none; smooth dielectric on each flat triangle",
+        "coherence": "incoherent scalar intensities",
+        "caller_preconditions": "disjoint embedded closed material volumes; self-intersection is not certified by this adapter",
+        "scene_sha256": "abc75ab8942a5fbcc521a1af2d3b5a162ea91688c98a5f7ee5beca3ce518d07a",
+        "scene_build_seconds": 0.008866842996212654
+      },
+      "renders": [
+        {
+          "scene_sha256": "abc75ab8942a5fbcc521a1af2d3b5a162ea91688c98a5f7ee5beca3ce518d07a",
+          "seed": 1187,
+          "spp": 2048,
+          "render_seconds": 0.3353510320011992,
+          "mean_radiance": 0.4728984832763672,
+          "max_radiance": 0.4970703125,
+          "minimum_radiance": 0.42919921875,
+          "max_channel_disagreement": 0.0,
+          "raw_float32_sha256": "3cd4946e86f1faf953bb00bc52b6ebd6ae668a6aab1e7431690d979c6cf14fdf"
+        },
+        {
+          "scene_sha256": "abc75ab8942a5fbcc521a1af2d3b5a162ea91688c98a5f7ee5beca3ce518d07a",
+          "seed": 9781,
+          "spp": 2048,
+          "render_seconds": 0.06895711100514745,
+          "mean_radiance": 0.4720954895019531,
+          "max_radiance": 0.5048828125,
+          "minimum_radiance": 0.4365234375,
+          "max_channel_disagreement": 0.0,
+          "raw_float32_sha256": "4c560a4db79656d9b5a3729a3f6382936ac75a1806bcac1ae7c45b1a325b12b0"
+        },
+        {
+          "scene_sha256": "abc75ab8942a5fbcc521a1af2d3b5a162ea91688c98a5f7ee5beca3ce518d07a",
+          "seed": 23417,
+          "spp": 2048,
+          "render_seconds": 0.061353864999546204,
+          "mean_radiance": 0.4724159240722656,
+          "max_radiance": 0.50732421875,
+          "minimum_radiance": 0.43994140625,
+          "max_channel_disagreement": 0.0,
+          "raw_float32_sha256": "fc38ea3ab6336bbb4e245c97d6a03330d354b200e24c57d47f936a931d49d243"
+        },
+        {
+          "scene_sha256": "abc75ab8942a5fbcc521a1af2d3b5a162ea91688c98a5f7ee5beca3ce518d07a",
+          "seed": 45751,
+          "spp": 2048,
+          "render_seconds": 0.11811358799604932,
+          "mean_radiance": 0.47115516662597656,
+          "max_radiance": 0.5009765625,
+          "minimum_radiance": 0.4443359375,
+          "max_channel_disagreement": 0.0,
+          "raw_float32_sha256": "da33988cfab9092cb01d67e3ab3544c6107239f07cfeddb5bcb04a599b048daa"
+        }
+      ]
+    }
+  ],
+  "paired_controls": {
+    "scaled_tau_075_minus_beer_tau_075": {
+      "mean": -2.194003900513053e-05,
+      "seed_count": 4,
+      "seed_standard_error": 2.9649005100724625e-06,
+      "pointwise_95pct_seed_mean_interval": [
+        -3.137567567894442e-05,
+        -1.250440233131664e-05
+      ],
+      "interval_interpretation": "Student-t seed means, Monte Carlo noise only; no family correction",
+      "seed_paired_differences": [
+        -1.907988917082548e-05,
+        -3.0522351153194904e-05,
+        -2.0986772142350674e-05,
+        -1.7171143554151058e-05
+      ],
+      "expected_difference": 0.0,
+      "scope": "same optical depth in index-matched straight geometry; not general textile radius invariance"
+    },
+    "tapered_tau_075_minus_beer_tau_075": {
+      "mean": 0.0,
+      "seed_count": 4,
+      "seed_standard_error": 0.0,
+      "pointwise_95pct_seed_mean_interval": [
+        0.0,
+        0.0
+      ],
+      "interval_interpretation": "Student-t seed means, Monte Carlo noise only; no family correction",
+      "seed_paired_differences": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "expected_difference": 0.0,
+      "scope": "same optical depth in index-matched straight geometry; not general textile radius invariance"
+    }
+  },
+  "all_oracle_guards_passed": true,
+  "all_internal_exit_checks_passed": true,
+  "geometry_scale_ratio": 512.0,
+  "geometry_scale_ratio_expected": 512.0,
+  "limitations": [
+    "known synthetic coefficients, not real textile validation",
+    "camera footprint stays inside every straight cross-section",
+    "these Beer tests isolate medium units and boundary exit; they do not validate general refracting caustics",
+    "pointwise seed intervals cover only render noise and are not adjusted for multiple cases",
+    "closed manifold topology does not alone certify arbitrary mesh self-intersection absence"
+  ]
+}

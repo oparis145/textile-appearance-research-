@@ -1,0 +1,164 @@
+{
+  "schema": "textile.independent_saved_physics_review/5.0",
+  "status": "passed",
+  "review_script_sha256": "b496e8c5a6694a7b31a9bd25b05ad1ba62541597b226812167e9668c1d718f63",
+  "input_manifest_sha256": "1dd3309ca598e2e9b0b4677e91fcf3de8f34ca37529cf158d978f4c7f8edbd6c",
+  "raw_file_sha256": "37655778302494fa866abde59522f75fe2d1846d7ab0139de4efb1e2fa9de159",
+  "input_output_files_hash_verified": 9,
+  "npz_crc_verified": 4,
+  "raw_shape": [
+    8,
+    4,
+    16,
+    16,
+    3
+  ],
+  "saved_render_records_verified": 32,
+  "actual_new_render_calls": 0,
+  "independent_seeds_per_case": 4,
+  "cases": [
+    {
+      "case": "beer_tau_000",
+      "mean": 1.0,
+      "expected": 1.0,
+      "pointwise_95_seed_interval": [
+        1.0,
+        1.0
+      ],
+      "analytic_covered_by_seed_interval": true,
+      "absolute_oracle_guard": 0.0001,
+      "guard_passed": true
+    },
+    {
+      "case": "beer_tau_025",
+      "mean": 0.778383195400238,
+      "expected": 0.7788007830714049,
+      "pointwise_95_seed_interval": [
+        0.7777037536020243,
+        0.7790626371984518
+      ],
+      "analytic_covered_by_seed_interval": true,
+      "absolute_oracle_guard": 0.0018196548079091749,
+      "guard_passed": true
+    },
+    {
+      "case": "beer_tau_075",
+      "mean": 0.4721412658691406,
+      "expected": 0.4723665527410147,
+      "pointwise_95_seed_interval": [
+        0.4709707691687256,
+        0.47331176256955565
+      ],
+      "analytic_covered_by_seed_interval": true,
+      "absolute_oracle_guard": 0.0021684356973150688,
+      "guard_passed": true
+    },
+    {
+      "case": "beer_tau_150",
+      "mean": 0.22300004653516226,
+      "expected": 0.22313016014842982,
+      "pointwise_95_seed_interval": [
+        0.2221129858347499,
+        0.22388710723557462
+      ],
+      "analytic_covered_by_seed_interval": true,
+      "absolute_oracle_guard": 0.0018250018498646274,
+      "guard_passed": true
+    },
+    {
+      "case": "beer_tau_300",
+      "mean": 0.0495762825012207,
+      "expected": 0.049787068367863944,
+      "pointwise_95_seed_interval": [
+        0.049305146267130534,
+        0.04984741873531087
+      ],
+      "analytic_covered_by_seed_interval": true,
+      "absolute_oracle_guard": 0.0010011665050763258,
+      "guard_passed": true
+    },
+    {
+      "case": "furnace_n155",
+      "mean": 1.0000000735744834,
+      "expected": 1.0,
+      "pointwise_95_seed_interval": [
+        1.0000000682656272,
+        1.0000000788833396
+      ],
+      "analytic_covered_by_seed_interval": false,
+      "absolute_oracle_guard": 0.0001,
+      "guard_passed": true
+    },
+    {
+      "case": "scaled_tau_075",
+      "mean": 0.4721193258301355,
+      "expected": 0.4723665527410147,
+      "pointwise_95_seed_interval": [
+        0.4709501489901601,
+        0.4732885026701109
+      ],
+      "analytic_covered_by_seed_interval": true,
+      "absolute_oracle_guard": 0.0021684356973150688,
+      "guard_passed": true
+    },
+    {
+      "case": "tapered_tau_075",
+      "mean": 0.4721412658691406,
+      "expected": 0.4723665527410147,
+      "pointwise_95_seed_interval": [
+        0.4709707691687256,
+        0.47331176256955565
+      ],
+      "analytic_covered_by_seed_interval": true,
+      "absolute_oracle_guard": 0.0021684356973150688,
+      "guard_passed": true
+    }
+  ],
+  "paired_controls": {
+    "scaled_tau_075_minus_beer_tau_075": {
+      "mean_difference": -2.194003900513053e-05,
+      "pointwise_95_seed_interval": [
+        -3.137567567894442e-05,
+        -1.250440233131664e-05
+      ],
+      "zero_in_interval": false
+    },
+    "tapered_tau_075_minus_beer_tau_075": {
+      "mean_difference": 0.0,
+      "pointwise_95_seed_interval": [
+        0.0,
+        0.0
+      ],
+      "zero_in_interval": true
+    }
+  },
+  "ray_offset": {
+    "recorded_audit_sha256": "2cb1d043ead46f7f2d4ce4a9b88c597a96034894c5a4fe16c5229b6212b4281a",
+    "predicted_scaled_minus_baseline_from_recorded_paths": -2.772877919171579e-05,
+    "prediction_inside_paired_interval": true,
+    "scope": "Independent arithmetic on recorded path lengths; original intersection queries were not re-executed."
+  },
+  "installed_header_evidence": [
+    {
+      "relative_path": "render/interaction.h",
+      "installed_file_sha256": "77a5a8b50f586a388b940642046696ae012fc9606b8bb6bc5f308e817ebac60b",
+      "source_audit_declared_pinned_url": "https://github.com/mitsuba-renderer/mitsuba3/blob/478e193a183c21723f4a8251afc3ad29a8da4c5e/include/mitsuba/render/interaction.h",
+      "remote_commit_independently_fetched_in_this_check": false
+    },
+    {
+      "relative_path": "core/math.h",
+      "installed_file_sha256": "297f0ca1dbbdf21171de0eca978647d422fe9fc739e48c54aac757fb6e730cb0",
+      "source_audit_declared_pinned_url": "https://github.com/mitsuba-renderer/mitsuba3/blob/478e193a183c21723f4a8251afc3ad29a8da4c5e/include/mitsuba/core/math.h",
+      "remote_commit_independently_fetched_in_this_check": false
+    }
+  ],
+  "limits": [
+    "Hash and array consistency is not independent execution attestation.",
+    "Scalar RGB channels are identical and are not independent samples.",
+    "Pointwise t intervals use four seed means; they cover Monte Carlo noise only.",
+    "The analytic six-SE plus 1e-4 guard is not a confidence interval.",
+    "Both unit-scale cases pass their oracle guard, but their paired interval excludes zero: exact numerical unit invariance is not established.",
+    "The recorded ray-offset prediction is consistent with the simple cap comparison; it does not attribute every textile-image discrepancy.",
+    "Current producer source hashes and remote pinned source contents were not separately fetched or checked in this review."
+  ]
+}

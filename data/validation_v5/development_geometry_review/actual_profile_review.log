@@ -1,0 +1,59 @@
+{
+  "source_module_sha256_before": "19232bcce890588a73708de8dc0b6fa9ce8ce37f62286a9dfa17b3302c0ec377",
+  "source_module_sha256_after": "19232bcce890588a73708de8dc0b6fa9ce8ce37f62286a9dfa17b3302c0ec377",
+  "review_source_sha256": "3ab6445ec9689bc5c68329dd9ad54bb0ef5a94590a1a5c6cd7fccf97865b698c",
+  "source_npz_sha256": "01486190ff597d426a50ca7e573e833c7f2f5eff7ac456d27751d83181724d02",
+  "profile_count": 42,
+  "actual_roundtrip_count": 42,
+  "roundtrip_failures": [],
+  "node_radius_range_um": [
+    2.8083227943819096,
+    3.2355334993369835
+  ],
+  "per_fiber_radius_scale_range": [
+    1.00000004112688,
+    1.0000056896270477
+  ],
+  "per_fiber_total_frustum_volume_relative_error_max_abs": 4.440892098500626e-16,
+  "local_segment_volume_relative_error_range": [
+    -0.03963808872164443,
+    0.038000107711760656
+  ],
+  "local_segment_volume_relative_error_abs_p99": 0.017438253688389083,
+  "different_fiber_mesh_clearance_lower_bound_um_before_float32": 2.4743192470028306,
+  "largest_discrete_curvature_fiber_index": 32,
+  "radial_refinement_selected_fiber": [
+    {
+      "radial_segments": 16,
+      "fiber_id": "weft:0001:weft_yarn/p/f0004",
+      "mesh_to_frustum_relative_volume_difference": -0.025586427976347914,
+      "polygon_factor_removed_relative_volume_difference": -8.392690644987155e-05,
+      "mesh_volume_mm3": 2.6645712030258566e-05,
+      "frustum_integral_mm3": 2.7345382695071687e-05,
+      "all_edges_two_faces": true,
+      "mesh_sha256": "26e98f4811e885f22d9322f5a12aa99e9bf0e0f947bf259f3f64b71cabf9baf0"
+    },
+    {
+      "radial_segments": 32,
+      "fiber_id": "weft:0001:weft_yarn/p/f0004",
+      "mesh_to_frustum_relative_volume_difference": -0.006496626161855201,
+      "polygon_factor_removed_relative_volume_difference": -8.401611390562724e-05,
+      "mesh_volume_mm3": 2.7167729966448943e-05,
+      "frustum_integral_mm3": 2.7345382695071687e-05,
+      "all_edges_two_faces": true,
+      "mesh_sha256": "704c1ebd2dada7c421570232611937ac3b354922b061700194694bfe19604131"
+    },
+    {
+      "radial_segments": 64,
+      "fiber_id": "weft:0001:weft_yarn/p/f0004",
+      "mesh_to_frustum_relative_volume_difference": -0.0016895319632825867,
+      "polygon_factor_removed_relative_volume_difference": -8.405996616811517e-05,
+      "mesh_volume_mm3": 2.729918179696017e-05,
+      "frustum_integral_mm3": 2.7345382695071687e-05,
+      "all_edges_two_faces": true,
+      "mesh_sha256": "f7ded95e80e73e8f88eebe1b7c32de5f1e2b2243407966de37613da87795aafe"
+    }
+  ],
+  "elapsed_seconds": 3.239538993999304,
+  "scope": "Profile-total frustum integral and closed triangle mesh diagnostics. Not per-material-segment mass conservation, same-fiber intersection certificate, real-material validation, or optical radiance convergence."
+}

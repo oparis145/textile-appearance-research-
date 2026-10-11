@@ -1,0 +1,73 @@
+{
+  "schema_version": "variable_radius_experiment_v5.0",
+  "status": "passed",
+  "started_utc": "2026-10-11T15:58:02.055548+00:00",
+  "input_pair_directory": "/workspace/scratch/2b957533e88d/textile_optics_engine/data/mechanics_v3/optical_pair",
+  "source_sha256": {
+    "textile_sim/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "textile_sim/angular_measurement.py": "ad641d1691ff4ed50313f4ff007fef7ba72f0aa27f1c4bce992752bc2affac79",
+    "textile_sim/angular_surrogate.py": "188341f88b89a7462c95f43aed577e78f2486c5ec179bdfc88701e27c979de2b",
+    "textile_sim/aperture_wave.py": "cd8c4147573ada0acccc32ed16434067dbc761e708f329aef8f2b6d80312f986",
+    "textile_sim/camera.py": "e59614eab1fc89c50d52c8441bae15dbba3187dfa2a1b22d2cfbf53215ef5336",
+    "textile_sim/fiber_wave.py": "315d35f57cd0748b05a1d941d44ceee8324dacc6ae15822a23c0b85ea3951bac",
+    "textile_sim/fiber_wave_beam.py": "ccbb7fb3993755dec46b1eadbd80b833eb619a14b915bcd4944e85b578f76360",
+    "textile_sim/geometry.py": "9a84cef0b62ee9702074b908eff3105e303a6371c650c51c98f919212fa980fc",
+    "textile_sim/hierarchy.py": "0ccea74ef08c735cbcf9c22682bd7a51a59423efb9599e743d23f1cb08ca3a73",
+    "textile_sim/material_transport.py": "f71e2e8cb232945d1d16919e803a1832bfdbf5cfa51012e540e038147653eb10",
+    "textile_sim/meta_optics.py": "b8542e688934dea1e16bb07556869a7db4f6583ed64f932a66abab69ab36a3da",
+    "textile_sim/optical_lod.py": "17b84759aa734e07e4d9c9ef3108cf537c69305a3836674a044e033160fc0519",
+    "textile_sim/optical_scene.py": "8575c32cba21d784c1b6d19d3fa66723e0331d4a1be99756322efd488044e061",
+    "textile_sim/ply_ray.py": "d78b7e6270770161945481ecd7c303b22a870db825fffa5fed748b5d7af8d91a",
+    "textile_sim/render.py": "704c6052f0e22e0b0644137d1960fd175126ad7ed801f396163056aa6ade5ac9",
+    "textile_sim/variable_radius.py": "811d72412723f1b4dbd51644aaf0e7ff0cb96a9e6500f3b022424161c44fb9e4",
+    "textile_sim/volume_optics.py": "7df5e6dec3167f519e5cfcda576b3c96f03034f7969e32dcb35f51316d32053e",
+    "textile_sim/weave_draft.py": "13704a2ade4f6ea7c9f43de0c23e077861c2094fbcd937ec13ca3b2d52efc540",
+    "textile_sim/weave_mechanics.py": "cf362e8106c6d2ec3af552d8ab399fe87dd20ac291bee50633b30e0b8fdeb94a",
+    "run_variable_radius_experiments.py": "6964cb0dc0368308008880029193ba6599cf347108c63474600d55500b101500",
+    "run_material_transport_experiments.py": "516fcd1363e8cc78a1e5e02060daf8f095d2144884913186f664fb362dc45659",
+    "run_multiscale_optics_v3.py": "2fe34e8a5c98b64c3697a07e96bd847dfcd28e2199f5a50a9f35bb4cbbee9bdd"
+  },
+  "input_sha256": {
+    "initial/hierarchy_geometry.json": "4c09dbc1ea194f5923a1fb6034f0ef1c0c469be3fe8e21a556449d8922f05ee3",
+    "initial/hierarchy_geometry.npz": "e786bb176e805d717a12643ce14f051f66e233d2361c7a82c1b83bd8d853b894",
+    "relaxed/hierarchy_geometry.json": "bb63e5321dcf549e155eb0a39b2b6daffcd75268d5e2ac63f40fe0c0ff76e303",
+    "relaxed/hierarchy_geometry.npz": "daafa27826048d32e14e3c5f947409cfb1001b1690e725b9436044bc6b14bd66"
+  },
+  "requested_render": false,
+  "planned_render_count": 0,
+  "actual_render_count": 0,
+  "resolution": 64,
+  "spp": 64,
+  "replicates": 4,
+  "radial_segments": [
+    16
+  ],
+  "wavelengths_nm": [
+    550.0
+  ],
+  "completed_batches": [],
+  "array_integrity": {
+    "status": "passed",
+    "npz_count": 4,
+    "nested_array_reference_count": 4,
+    "zip_crc_verified": true
+  },
+  "finished_utc": "2026-10-11T15:58:16.689691+00:00",
+  "elapsed_seconds": 14.63417480300268,
+  "input_hashes_unchanged": true,
+  "source_hashes_unchanged": true,
+  "output_sha256": {
+    "figures/radius_geometry_diagnostics.png": "d97b4c0136ae0a4ec7b23b0c84e79cf95bee5363157c1de2241600b31a53db50",
+    "geometry_metrics.json": "33b3b2b1365b415ab0134763c14302a6d760c6a513f971834ae36b4b26c5e4f0",
+    "meshes/radial_016/constant_reference/mesh_manifest.json": "09b4b0475af8954e8d71f47e1767e9fb7b29eb044613a1a63a90a8739b86e03d",
+    "meshes/radial_016/constant_reference/renderer_buffers.npz": "14badb57c1ca0bdf329013c1866c2a87ed69ddac9227eeda5aa84b5395d81de5",
+    "meshes/radial_016/incompressible_segments/mesh_manifest.json": "5bd2e191f64ba86d250b977c816ae5f402f613ee737202ffa585c45bccbf02b9",
+    "meshes/radial_016/incompressible_segments/renderer_buffers.npz": "b5e069ce62764cdc5068e9e0fde7123480ee593ab618814ec3dbeeb496df053c",
+    "optics/optical_metrics.json": "a4ef3dadde417d854d9f35fb0130a477b0f3a0fe1c7304dfa1d833076c336632",
+    "optics/synthetic_material_spectra.json": "a819eab70a15ee3314c947ce9db3b1dcc41a4bc4c00e12b12cdb57cd11dac0cf",
+    "profiles/constant_reference/variable_radius_profiles.json": "a387f09f61c8fc5be02580a666e4e0303715d848c21b54d166cc8bce5c4b8cba",
+    "profiles/constant_reference/variable_radius_profiles.npz": "64f72da771c234970e65f36056ce71c610b9ebacf494c12e39daa7c1bc63c9cf",
+    "profiles/incompressible_segments/variable_radius_profiles.json": "00d7d66d868f0720af7c805b8742a8d660dd4bae6a204bac3be376ab9b06e488",
+    "profiles/incompressible_segments/variable_radius_profiles.npz": "4febe40b58a05fdd0410c394114a6e7b56e0a506f9e69a4957be82812a69ffb1"
+  }
+}

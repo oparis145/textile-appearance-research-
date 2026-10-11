@@ -1,0 +1,111 @@
+"""Independent read-only v4 input -> v5 profile/mesh diagnostic pilot."""
+from __future__ import annotations
+import hashlib
+import json
+from pathlib import Path
+import sys
+import tempfile
+import time
+import numpy as np
+
+ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT))
+from textile_sim.variable_radius import (VariableRadiusFiber, build_tapered_tube,
+                                        save_tapered_tube, load_tapered_tube)
+
+
+def digest(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def independent_volume(mesh):
+    v = mesh.vertices_mm-mesh.vertices_mm.mean(axis=0)
+    t = v[mesh.faces]
+    return float(np.einsum('ij,ij->i', t[:, 0], np.cross(t[:, 1], t[:, 2])).sum()/6)
+
+
+def main():
+    started = time.perf_counter()
+    output = Path(__file__).resolve().parent
+    source = ROOT/'textile_sim/variable_radius.py'
+    source_before = digest(source)
+    folder = ROOT/'data/material_transport_v4/tracking/incompressible_segments'
+    metadata = json.loads((folder/'material_transport.json').read_text())
+    raw_path = folder/'material_transport.npz'
+    profiles, curvature = [], []
+    with np.load(raw_path, allow_pickle=False) as raw:
+        for entry in metadata['array_layout']['fibers']:
+            prefix = entry['array_prefix']
+            profile = VariableRadiusFiber(
+                **{key: raw[prefix+'/'+key] for key in ('points_mm', 'material_coordinates_mm',
+                    'parent_material_coordinates_mm', 'segment_radius_mm')},
+                **{key: entry[key] for key in ('fiber_id', 'yarn_id', 'ply_id', 'material_id',
+                    'family', 'yarn_index', 'ply_index', 'fiber_index', 'kind', 'cross_section')},
+                provenance_json=json.dumps({'source_npz_sha256': digest(raw_path),
+                                           'source_state_sha256': metadata['summary']['state_sha256']}))
+            profiles.append(profile)
+            d = np.diff(profile.points_mm, axis=0)
+            h = np.linalg.norm(d, axis=1)
+            t = d/h[:, None]
+            theta = np.arccos(np.clip(np.einsum('ij,ij->i', t[:-1], t[1:]), -1, 1))
+            curvature.append(float(np.max(theta/(.5*(h[:-1]+h[1:])))))
+    roundtrip_failures = []
+    roundtrips = 0
+    for p in profiles:
+        mesh = build_tapered_tube(p, radial_segments=8, initial_normal=(.3, .2, .7))
+        with tempfile.TemporaryDirectory(dir=output) as temporary:
+            save_tapered_tube(temporary, mesh)
+            try:
+                loaded = load_tapered_tube(temporary)
+                if loaded.sha256 != mesh.sha256:
+                    raise ValueError('semantic mesh digest changed')
+            except Exception as exc:
+                roundtrip_failures.append({'fiber_id': p.fiber_id, 'error': str(exc)})
+        roundtrips += 1
+    selected = int(np.argmax(curvature))
+    convergence = []
+    target = float(profiles[selected].segment_volume_proxy_mm3.sum())
+    for radial in (16, 32, 64):
+        mesh = build_tapered_tube(profiles[selected], radial_segments=radial)
+        actual = independent_volume(mesh)
+        if not np.isclose(actual, mesh.signed_volume_mm3, rtol=1e-14, atol=0):
+            raise ValueError('independent volume differs')
+        polygon_factor = radial*np.sin(2*np.pi/radial)/(2*np.pi)
+        convergence.append({'radial_segments': radial, 'fiber_id': mesh.fiber_id,
+                            'mesh_to_frustum_relative_volume_difference': actual/target-1,
+                            'polygon_factor_removed_relative_volume_difference': actual/(target*polygon_factor)-1,
+                            'mesh_volume_mm3': actual, 'frustum_integral_mm3': target,
+                            'all_edges_two_faces': mesh.summary()['every_edge_has_two_faces'],
+                            'mesh_sha256': mesh.sha256})
+    node_radii = np.concatenate([p.node_radius_mm for p in profiles])
+    local_error = np.concatenate([p.segment_relative_volume_error for p in profiles])
+    total_relative_errors = np.array([p.segment_frustum_volume_mm3.sum()/p.segment_volume_proxy_mm3.sum()-1
+                                      for p in profiles])
+    original_clearance = json.loads((ROOT/'data/material_transport_v4/geometry_metrics.json').read_text())[
+        'clearance_audits']['transported']['minimum_clearance_lower_bound_mm']
+    summary = {
+        'source_module_sha256_before': source_before, 'source_module_sha256_after': digest(source),
+        'review_source_sha256': digest(Path(__file__)), 'source_npz_sha256': digest(raw_path),
+        'profile_count': len(profiles), 'actual_roundtrip_count': roundtrips,
+        'roundtrip_failures': roundtrip_failures,
+        'node_radius_range_um': [float(node_radii.min()*1000), float(node_radii.max()*1000)],
+        'per_fiber_radius_scale_range': [min(p.radius_scale for p in profiles), max(p.radius_scale for p in profiles)],
+        'per_fiber_total_frustum_volume_relative_error_max_abs': float(np.max(np.abs(total_relative_errors))),
+        'local_segment_volume_relative_error_range': [float(local_error.min()), float(local_error.max())],
+        'local_segment_volume_relative_error_abs_p99': float(np.percentile(np.abs(local_error), 99)),
+        'different_fiber_mesh_clearance_lower_bound_um_before_float32': float(
+            (original_clearance-2*max(0., node_radii.max()-.003))*1000),
+        'largest_discrete_curvature_fiber_index': selected,
+        'radial_refinement_selected_fiber': convergence,
+        'elapsed_seconds': time.perf_counter()-started,
+        'scope': ('Profile-total frustum integral and closed triangle mesh diagnostics. '
+                  'Not per-material-segment mass conservation, same-fiber intersection certificate, '
+                  'real-material validation, or optical radiance convergence.')}
+    (output/'actual_profile_review.json').write_text(json.dumps(summary, indent=2)+'\n')
+    print(json.dumps(summary, indent=2))
+    if roundtrip_failures or source_before != digest(source):
+        raise RuntimeError('review failed or source drifted')
+
+
+if __name__ == '__main__':
+    main()

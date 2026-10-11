@@ -1,0 +1,479 @@
+{
+  "source": "data/material_transport_v4/tracking/incompressible_segments",
+  "source_npz_sha256": "01486190ff597d426a50ca7e573e833c7f2f5eff7ac456d27751d83181724d02",
+  "fiber_count": 42,
+  "quantiles": {
+    "radius_um": {
+      "0": 2.8082781943832607,
+      "1": 2.9218013150006548,
+      "5": 2.961102738590773,
+      "50": 2.9997916699138947,
+      "95": 3.0357667514488234,
+      "99": 3.080036782862555,
+      "100": 3.235584760864901
+    },
+    "length_um": {
+      "0": 4.175960501204371,
+      "1": 4.776307176743647,
+      "5": 4.96269123985682,
+      "50": 5.015638627954933,
+      "95": 5.161481570120298,
+      "99": 5.297079903713584,
+      "100": 5.8729757668386515
+    },
+    "length_over_radius": {
+      "0": 1.2906354831786573,
+      "1": 1.577940115076877,
+      "5": 1.6469029164739395,
+      "50": 1.6704903124616841,
+      "95": 1.7301891559355893,
+      "99": 1.785672697139777,
+      "100": 2.09130839622121
+    },
+    "stretch": {
+      "0": 0.8596802447529622,
+      "1": 0.9487040019769365,
+      "5": 0.9765752402799813,
+      "50": 1.0001389011925514,
+      "95": 1.0264447027720818,
+      "99": 1.054244027647543,
+      "100": 1.1412012899206438
+    },
+    "turn_deg": {
+      "0": 0.0,
+      "1": 0.0,
+      "5": 0.0,
+      "50": 0.01648440848708891,
+      "95": 1.2356975640205345,
+      "99": 5.296733801878776,
+      "100": 12.06783104507569
+    },
+    "curvature_per_mm": {
+      "0": 0.0,
+      "1": 0.0,
+      "5": 0.0,
+      "50": 0.057225532528073914,
+      "95": 4.2775564808610005,
+      "99": 18.161038658316674,
+      "100": 50.341718571297406
+    },
+    "radius_curvature": {
+      "0": 0.0,
+      "1": 0.0,
+      "5": 0.0,
+      "50": 0.00017193073323147336,
+      "95": 0.012785680675029507,
+      "99": 0.0541406825595747,
+      "100": 0.16288489744503948
+    },
+    "radius_adjacent_jump_um": {
+      "0": 0.0,
+      "1": 0.0,
+      "5": 0.0,
+      "50": 3.2959746043559335e-14,
+      "95": 0.0545977440996612,
+      "99": 0.09010394904214111,
+      "100": 0.24226552629596576
+    },
+    "radius_slope": {
+      "0": 0.0,
+      "1": 0.0,
+      "5": 0.0,
+      "50": 6.526748686885457e-15,
+      "95": 0.010911315880313433,
+      "99": 0.0178437233985781,
+      "100": 0.05266496351453605
+    }
+  },
+  "rmf_max_abs_orthogonality_error": 4.440892098500626e-16,
+  "rmf_min_determinant": 0.9999999999999997,
+  "constant_radius_clearance_um": 2.9453862456767976,
+  "conservative_variable_segment_capsule_clearance_um": 2.474216723946996,
+  "radial_polygon_volume_relative_deficit": {
+    "8": 0.09968368384289394,
+    "16": 0.025504641595567312,
+    "32": 0.006413148855794248,
+    "64": 0.0016056069643816118
+  },
+  "fiber_details": [
+    {
+      "fiber_id": "warp:0000:warp_yarn/p/f0000",
+      "max_radius_um": 3.067265439808952,
+      "min_radius_um": 2.92980991613386,
+      "min_length_over_radius": 1.6265312532075613,
+      "max_turn_deg": 1.5456971063174323,
+      "max_radius_curvature": 0.016058821875618665,
+      "max_radius_slope": 0.014977434192527131
+    },
+    {
+      "fiber_id": "warp:0000:warp_yarn/p/f0001",
+      "max_radius_um": 3.1115171954299456,
+      "min_radius_um": 2.905640128530725,
+      "min_length_over_radius": 1.6300083299944435,
+      "max_turn_deg": 1.5437661990640628,
+      "max_radius_curvature": 0.015820631548263756,
+      "max_radius_slope": 0.019841914484969973
+    },
+    {
+      "fiber_id": "warp:0000:warp_yarn/p/f0002",
+      "max_radius_um": 3.11015507279035,
+      "min_radius_um": 2.9341485855497433,
+      "min_length_over_radius": 1.6222464957171896,
+      "max_turn_deg": 1.5480327555410347,
+      "max_radius_curvature": 0.01643329129260831,
+      "max_radius_slope": 0.01792268456976952
+    },
+    {
+      "fiber_id": "warp:0000:warp_yarn/p/f0003",
+      "max_radius_um": 3.0357667514488234,
+      "min_radius_um": 2.9977667688808323,
+      "min_length_over_radius": 1.6496933436761396,
+      "max_turn_deg": 1.5465317947826787,
+      "max_radius_curvature": 0.016193611319111754,
+      "max_radius_slope": 0.003173593504182956
+    },
+    {
+      "fiber_id": "warp:0000:warp_yarn/p/f0004",
+      "max_radius_um": 3.088967674651753,
+      "min_radius_um": 2.9104266703241057,
+      "min_length_over_radius": 1.6267513859758507,
+      "max_turn_deg": 1.5448601932038242,
+      "max_radius_curvature": 0.015950454871278528,
+      "max_radius_slope": 0.01888970299634809
+    },
+    {
+      "fiber_id": "warp:0000:warp_yarn/p/f0005",
+      "max_radius_um": 3.11453987689848,
+      "min_radius_um": 2.9093831135030293,
+      "min_length_over_radius": 1.6205365170283417,
+      "max_turn_deg": 1.548649600099026,
+      "max_radius_curvature": 0.016567267577549213,
+      "max_radius_slope": 0.019321498821112098
+    },
+    {
+      "fiber_id": "warp:0000:warp_yarn/p/f0006",
+      "max_radius_um": 3.092179885536437,
+      "min_radius_um": 2.9364201713034057,
+      "min_length_over_radius": 1.6293055630354352,
+      "max_turn_deg": 1.5474357457222776,
+      "max_radius_curvature": 0.016322818325582966,
+      "max_radius_slope": 0.014357688660393074
+    },
+    {
+      "fiber_id": "warp:0001:warp_yarn/p/f0000",
+      "max_radius_um": 3.0853803730127365,
+      "min_radius_um": 2.9321132985772222,
+      "min_length_over_radius": 1.6371494428776512,
+      "max_turn_deg": 2.3225210798396536,
+      "max_radius_curvature": 0.024649809196499724,
+      "max_radius_slope": 0.013576812207045092
+    },
+    {
+      "fiber_id": "warp:0001:warp_yarn/p/f0001",
+      "max_radius_um": 3.1065452729897003,
+      "min_radius_um": 2.9177869111576227,
+      "min_length_over_radius": 1.6020339750526729,
+      "max_turn_deg": 2.339159001582736,
+      "max_radius_curvature": 0.025482063307766374,
+      "max_radius_slope": 0.017753505960568846
+    },
+    {
+      "fiber_id": "warp:0001:warp_yarn/p/f0002",
+      "max_radius_um": 3.0794763727539185,
+      "min_radius_um": 2.912568155637132,
+      "min_length_over_radius": 1.619462507947836,
+      "max_turn_deg": 2.2972356556053577,
+      "max_radius_curvature": 0.023447547841149063,
+      "max_radius_slope": 0.01798250686235365
+    },
+    {
+      "fiber_id": "warp:0001:warp_yarn/p/f0003",
+      "max_radius_um": 3.0327178172774607,
+      "min_radius_um": 2.995749865896648,
+      "min_length_over_radius": 1.6546738909349379,
+      "max_turn_deg": 2.3134626853312388,
+      "max_radius_curvature": 0.024219077658429605,
+      "max_radius_slope": 0.0030255499245956524
+    },
+    {
+      "fiber_id": "warp:0001:warp_yarn/p/f0004",
+      "max_radius_um": 3.1023957530726167,
+      "min_radius_um": 2.932480326125455,
+      "min_length_over_radius": 1.6251572260249714,
+      "max_turn_deg": 2.3300356928871913,
+      "max_radius_curvature": 0.02502146755773791,
+      "max_radius_slope": 0.016935478609003806
+    },
+    {
+      "fiber_id": "warp:0001:warp_yarn/p/f0005",
+      "max_radius_um": 3.099516996007902,
+      "min_radius_um": 2.9079957066641673,
+      "min_length_over_radius": 1.6224593572276302,
+      "max_turn_deg": 2.288433930534161,
+      "max_radius_curvature": 0.023045496607538955,
+      "max_radius_slope": 0.01889221914717533
+    },
+    {
+      "fiber_id": "warp:0001:warp_yarn/p/f0006",
+      "max_radius_um": 3.067229910340274,
+      "min_radius_um": 2.9310685920194133,
+      "min_length_over_radius": 1.6247975839018234,
+      "max_turn_deg": 2.3045880705775588,
+      "max_radius_curvature": 0.023789735518398233,
+      "max_radius_slope": 0.014247290284779572
+    },
+    {
+      "fiber_id": "warp:0002:warp_yarn/p/f0000",
+      "max_radius_um": 3.067265439808936,
+      "min_radius_um": 2.929809916133877,
+      "min_length_over_radius": 1.6265312532075613,
+      "max_turn_deg": 1.5456971063174323,
+      "max_radius_curvature": 0.016058821875618665,
+      "max_radius_slope": 0.014977434192530604
+    },
+    {
+      "fiber_id": "warp:0002:warp_yarn/p/f0001",
+      "max_radius_um": 3.1115171954299456,
+      "min_radius_um": 2.905640128530725,
+      "min_length_over_radius": 1.6300083299944435,
+      "max_turn_deg": 1.5437661990640628,
+      "max_radius_curvature": 0.015820631548263756,
+      "max_radius_slope": 0.019841914484970028
+    },
+    {
+      "fiber_id": "warp:0002:warp_yarn/p/f0002",
+      "max_radius_um": 3.11015507279035,
+      "min_radius_um": 2.9341485855497433,
+      "min_length_over_radius": 1.6222464957171896,
+      "max_turn_deg": 1.5480327555410347,
+      "max_radius_curvature": 0.016433291292608305,
+      "max_radius_slope": 0.017922684569769524
+    },
+    {
+      "fiber_id": "warp:0002:warp_yarn/p/f0003",
+      "max_radius_um": 3.0357667514488234,
+      "min_radius_um": 2.9977667688808323,
+      "min_length_over_radius": 1.6496933436761396,
+      "max_turn_deg": 1.5465317947826787,
+      "max_radius_curvature": 0.016193611319111754,
+      "max_radius_slope": 0.003173593504182957
+    },
+    {
+      "fiber_id": "warp:0002:warp_yarn/p/f0004",
+      "max_radius_um": 3.088967674651753,
+      "min_radius_um": 2.9104266703241057,
+      "min_length_over_radius": 1.6267513859758507,
+      "max_turn_deg": 1.5448601932040602,
+      "max_radius_curvature": 0.015950454871280963,
+      "max_radius_slope": 0.01888970299634809
+    },
+    {
+      "fiber_id": "warp:0002:warp_yarn/p/f0005",
+      "max_radius_um": 3.11453987689848,
+      "min_radius_um": 2.9093831135030293,
+      "min_length_over_radius": 1.6205365170283506,
+      "max_turn_deg": 1.548649600099026,
+      "max_radius_curvature": 0.01656726757754921,
+      "max_radius_slope": 0.01932149882111541
+    },
+    {
+      "fiber_id": "warp:0002:warp_yarn/p/f0006",
+      "max_radius_um": 3.0921798855364533,
+      "min_radius_um": 2.9364201713034057,
+      "min_length_over_radius": 1.6293055630354263,
+      "max_turn_deg": 1.5474357457222776,
+      "max_radius_curvature": 0.016322818325582966,
+      "max_radius_slope": 0.014357688660396354
+    },
+    {
+      "fiber_id": "weft:0000:weft_yarn/p/f0000",
+      "max_radius_um": 3.054422500745188,
+      "min_radius_um": 2.904573645416485,
+      "min_length_over_radius": 1.5636509019728626,
+      "max_turn_deg": 8.982073812288476,
+      "max_radius_curvature": 0.10014997808640386,
+      "max_radius_slope": 0.015445072195432645
+    },
+    {
+      "fiber_id": "weft:0000:weft_yarn/p/f0001",
+      "max_radius_um": 3.105860627282209,
+      "min_radius_um": 2.8989521162611736,
+      "min_length_over_radius": 1.4706288932545188,
+      "max_turn_deg": 8.424291792166018,
+      "max_radius_curvature": 0.07809254416844359,
+      "max_radius_slope": 0.022403475442523173
+    },
+    {
+      "fiber_id": "weft:0000:weft_yarn/p/f0002",
+      "max_radius_um": 3.1746628503925707,
+      "min_radius_um": 2.897132822408368,
+      "min_length_over_radius": 1.3663725069894912,
+      "max_turn_deg": 9.432642314281866,
+      "max_radius_curvature": 0.12034824179544382,
+      "max_radius_slope": 0.03824244129407538
+    },
+    {
+      "fiber_id": "weft:0000:weft_yarn/p/f0003",
+      "max_radius_um": 3.001542849728516,
+      "min_radius_um": 2.9771820885942564,
+      "min_length_over_radius": 1.667078253518599,
+      "max_turn_deg": 8.768167722375885,
+      "max_radius_curvature": 0.09133420580525883,
+      "max_radius_slope": 0.0028396645354152065
+    },
+    {
+      "fiber_id": "weft:0000:weft_yarn/p/f0004",
+      "max_radius_um": 3.0987504064727958,
+      "min_radius_um": 2.8520033008373593,
+      "min_length_over_radius": 1.4827686005234528,
+      "max_turn_deg": 8.258066902211757,
+      "max_radius_curvature": 0.07212804448644491,
+      "max_radius_slope": 0.026853782215565683
+    },
+    {
+      "fiber_id": "weft:0000:weft_yarn/p/f0005",
+      "max_radius_um": 3.1066997284641666,
+      "min_radius_um": 2.8917546280256095,
+      "min_length_over_radius": 1.4733352472831334,
+      "max_turn_deg": 9.17591221321865,
+      "max_radius_curvature": 0.10857516575581538,
+      "max_radius_slope": 0.023118856743359884
+    },
+    {
+      "fiber_id": "weft:0000:weft_yarn/p/f0006",
+      "max_radius_um": 3.0890969329073155,
+      "min_radius_um": 2.9152287479315486,
+      "min_length_over_radius": 1.4994393848718495,
+      "max_turn_deg": 8.573271355622815,
+      "max_radius_curvature": 0.08367180127631141,
+      "max_radius_slope": 0.018775225333981668
+    },
+    {
+      "fiber_id": "weft:0001:weft_yarn/p/f0000",
+      "max_radius_um": 3.1173049271249345,
+      "min_radius_um": 2.9054485147324387,
+      "min_length_over_radius": 1.4591020407069588,
+      "max_turn_deg": 10.670770268542109,
+      "max_radius_curvature": 0.10208712643900203,
+      "max_radius_slope": 0.024890351958184134
+    },
+    {
+      "fiber_id": "weft:0001:weft_yarn/p/f0001",
+      "max_radius_um": 3.14185159676308,
+      "min_radius_um": 2.8598075655182367,
+      "min_length_over_radius": 1.424434272519968,
+      "max_turn_deg": 11.63508845376733,
+      "max_radius_curvature": 0.1423011755174421,
+      "max_radius_slope": 0.031271107255024154
+    },
+    {
+      "fiber_id": "weft:0001:weft_yarn/p/f0002",
+      "max_radius_um": 3.1302104506941415,
+      "min_radius_um": 2.8082781943832607,
+      "min_length_over_radius": 1.4385089217139027,
+      "max_turn_deg": 10.19321694289313,
+      "max_radius_curvature": 0.09064219037831094,
+      "max_radius_slope": 0.033960991880285306
+    },
+    {
+      "fiber_id": "weft:0001:weft_yarn/p/f0003",
+      "max_radius_um": 3.000067151844315,
+      "min_radius_um": 2.9667923040088304,
+      "min_length_over_radius": 1.6681920373052244,
+      "max_turn_deg": 10.975057603314372,
+      "max_radius_curvature": 0.11397448067517503,
+      "max_radius_slope": 0.00404573631352421
+    },
+    {
+      "fiber_id": "weft:0001:weft_yarn/p/f0004",
+      "max_radius_um": 3.235584760864901,
+      "min_radius_um": 2.86657947445071,
+      "min_length_over_radius": 1.2906354831786573,
+      "max_turn_deg": 12.06783104507569,
+      "max_radius_curvature": 0.16288489744503948,
+      "max_radius_slope": 0.05266496351453605
+    },
+    {
+      "fiber_id": "weft:0001:weft_yarn/p/f0005",
+      "max_radius_um": 3.1397093591720067,
+      "min_radius_um": 2.8684673246748393,
+      "min_length_over_radius": 1.4235759463221482,
+      "max_turn_deg": 10.442860707089885,
+      "max_radius_curvature": 0.09369075655934632,
+      "max_radius_slope": 0.029825908094252604
+    },
+    {
+      "fiber_id": "weft:0001:weft_yarn/p/f0006",
+      "max_radius_um": 3.0711630640962104,
+      "min_radius_um": 2.875987283207952,
+      "min_length_over_radius": 1.538220173184452,
+      "max_turn_deg": 11.317253098588905,
+      "max_radius_curvature": 0.12819290866126307,
+      "max_radius_slope": 0.019632586987115723
+    },
+    {
+      "fiber_id": "weft:0002:weft_yarn/p/f0000",
+      "max_radius_um": 3.054422500745188,
+      "min_radius_um": 2.904573645416471,
+      "min_length_over_radius": 1.5636509019728633,
+      "max_turn_deg": 8.982073812288476,
+      "max_radius_curvature": 0.1001499780864038,
+      "max_radius_slope": 0.015445072195429805
+    },
+    {
+      "fiber_id": "weft:0002:weft_yarn/p/f0001",
+      "max_radius_um": 3.1058606272822464,
+      "min_radius_um": 2.8989521162612055,
+      "min_length_over_radius": 1.4706288932544924,
+      "max_turn_deg": 8.424291792166104,
+      "max_radius_curvature": 0.07809254416844436,
+      "max_radius_slope": 0.022403475442531025
+    },
+    {
+      "fiber_id": "weft:0002:weft_yarn/p/f0002",
+      "max_radius_um": 3.1746628503925707,
+      "min_radius_um": 2.897132822408376,
+      "min_length_over_radius": 1.3663725069894905,
+      "max_turn_deg": 9.432642314281829,
+      "max_radius_curvature": 0.12034824179544337,
+      "max_radius_slope": 0.038242441294078895
+    },
+    {
+      "fiber_id": "weft:0002:weft_yarn/p/f0003",
+      "max_radius_um": 3.001542849728516,
+      "min_radius_um": 2.9771820885942564,
+      "min_length_over_radius": 1.667078253518599,
+      "max_turn_deg": 8.76816772237593,
+      "max_radius_curvature": 0.09133420580525928,
+      "max_radius_slope": 0.0028396645354152065
+    },
+    {
+      "fiber_id": "weft:0002:weft_yarn/p/f0004",
+      "max_radius_um": 3.098750406472805,
+      "min_radius_um": 2.8520033008373593,
+      "min_length_over_radius": 1.4827686005234395,
+      "max_turn_deg": 8.258066902211757,
+      "max_radius_curvature": 0.07212804448644489,
+      "max_radius_slope": 0.026853782215565676
+    },
+    {
+      "fiber_id": "weft:0002:weft_yarn/p/f0005",
+      "max_radius_um": 3.1066997284641666,
+      "min_radius_um": 2.8917546280256095,
+      "min_length_over_radius": 1.4733352472831323,
+      "max_turn_deg": 9.17591221321873,
+      "max_radius_curvature": 0.1085751657558164,
+      "max_radius_slope": 0.023118856743359898
+    },
+    {
+      "fiber_id": "weft:0002:weft_yarn/p/f0006",
+      "max_radius_um": 3.089096932907297,
+      "min_radius_um": 2.915228747931531,
+      "min_length_over_radius": 1.4994393848718766,
+      "max_turn_deg": 8.5732713556229,
+      "max_radius_curvature": 0.08367180127631224,
+      "max_radius_slope": 0.01877522533397769
+    }
+  ],
+  "scope": "Discrete curvature and global maximum segment-radius bounds; nodal projection/ring geometry not yet evaluated. Different-fiber capsule clearance only, no same-fiber self intersection or physical stress claim."
+}

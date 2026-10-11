@@ -1,0 +1,239 @@
+{
+  "schema": "textile.volume_optics_scene_scale_sensitivity/5.0",
+  "status": "passed",
+  "started_utc": "2026-10-11T15:55:08.595818+00:00",
+  "producer_source_sha256": {
+    "textile_sim/volume_optics.py": "7df5e6dec3167f519e5cfcda576b3c96f03034f7969e32dcb35f51316d32053e",
+    "textile_sim/variable_radius.py": "811d72412723f1b4dbd51644aaf0e7ff0cb96a9e6500f3b022424161c44fb9e4",
+    "textile_sim/hierarchy.py": "0ccea74ef08c735cbcf9c22682bd7a51a59423efb9599e743d23f1cb08ca3a73",
+    "textile_sim/weave_draft.py": "13704a2ade4f6ea7c9f43de0c23e077861c2094fbcd937ec13ca3b2d52efc540",
+    "textile_sim/optical_scene.py": "8575c32cba21d784c1b6d19d3fa66723e0331d4a1be99756322efd488044e061",
+    "textile_sim/render.py": "704c6052f0e22e0b0644137d1960fd175126ad7ed801f396163056aa6ade5ac9",
+    "run_volume_scale_sensitivity_v5.py": "230cdece4455d2013648d534d45e16cc8bca51c66bdd5fc86237fac7abe3da6c"
+  },
+  "input_snapshot_sha256": {
+    "profiles/constant_reference/variable_radius_profiles.json": "a387f09f61c8fc5be02580a666e4e0303715d848c21b54d166cc8bce5c4b8cba",
+    "profiles/constant_reference/variable_radius_profiles.npz": "64f72da771c234970e65f36056ce71c610b9ebacf494c12e39daa7c1bc63c9cf",
+    "profiles/incompressible_segments/variable_radius_profiles.json": "00d7d66d868f0720af7c805b8742a8d660dd4bae6a204bac3be376ab9b06e488",
+    "profiles/incompressible_segments/variable_radius_profiles.npz": "4febe40b58a05fdd0410c394114a6e7b56e0a506f9e69a4957be82812a69ffb1",
+    "optics/synthetic_material_spectra.json": "a819eab70a15ee3314c947ce9db3b1dcc41a4bc4c00e12b12cdb57cd11dac0cf",
+    "optics/optical_metrics.json": "ff858b58bad7b0cf45f7db7e910a3064c6211c70884187d9a896983b83a1b592"
+  },
+  "input_source_directory": "/workspace/scratch/2b957533e88d/textile_optics_engine/scratch_runs/v5_scale_sensitivity_input_snapshot",
+  "actual_render_calls": 72,
+  "planned_actual_render_calls": 72,
+  "scales": [
+    1.0,
+    10.0,
+    100.0
+  ],
+  "resolution": 64,
+  "spp": 64,
+  "seeds": [
+    5723,
+    22840,
+    39957,
+    57074
+  ],
+  "command": [
+    "run_volume_scale_sensitivity_v5.py",
+    "--input-run",
+    "scratch_runs/v5_scale_sensitivity_input_snapshot",
+    "--output",
+    "data/validation_v5/volume_scale_sensitivity",
+    "--resolution",
+    "64",
+    "--spp",
+    "64"
+  ],
+  "finished_utc": "2026-10-11T15:58:24.778887+00:00",
+  "elapsed_seconds": 196.18367135899462,
+  "producer_source_sha256_after": {
+    "textile_sim/volume_optics.py": "7df5e6dec3167f519e5cfcda576b3c96f03034f7969e32dcb35f51316d32053e",
+    "textile_sim/variable_radius.py": "811d72412723f1b4dbd51644aaf0e7ff0cb96a9e6500f3b022424161c44fb9e4",
+    "textile_sim/hierarchy.py": "0ccea74ef08c735cbcf9c22682bd7a51a59423efb9599e743d23f1cb08ca3a73",
+    "textile_sim/weave_draft.py": "13704a2ade4f6ea7c9f43de0c23e077861c2094fbcd937ec13ca3b2d52efc540",
+    "textile_sim/optical_scene.py": "8575c32cba21d784c1b6d19d3fa66723e0331d4a1be99756322efd488044e061",
+    "textile_sim/render.py": "704c6052f0e22e0b0644137d1960fd175126ad7ed801f396163056aa6ade5ac9",
+    "run_volume_scale_sensitivity_v5.py": "230cdece4455d2013648d534d45e16cc8bca51c66bdd5fc86237fac7abe3da6c"
+  },
+  "source_drift": [],
+  "input_hashes_unchanged": true,
+  "all_saved_npz_crc_passed": true,
+  "output_files": {
+    "geometry/scale_1/constant_reference/geometry_mapping.json": {
+      "sha256": "6f493bb71d233f93de1b4c2d76f77a87cf46a5119d98df69687bb476b18bc53f",
+      "bytes": 53104
+    },
+    "geometry/scale_1/constant_reference/renderer_buffers.npz": {
+      "sha256": "207f9e0e712cda6be38433ba2b22d8555d2cc9222402d4f43cae334289b65c54",
+      "bytes": 8744033
+    },
+    "geometry/scale_1/incompressible_segments/geometry_mapping.json": {
+      "sha256": "b8da8612d9b975f58012e4513305ba79e1072c170495c7854dc4a0ad54b1aa0c",
+      "bytes": 53132
+    },
+    "geometry/scale_1/incompressible_segments/renderer_buffers.npz": {
+      "sha256": "31bd22cdb927fbbca1779f1481c6a6d6cf787008de0aefed2ffb11030a7dcf26",
+      "bytes": 8756089
+    },
+    "geometry/scale_10/constant_reference/geometry_mapping.json": {
+      "sha256": "0714c30d1286376428073904306c202b552561121faa1d2b00ee6de1c551dd23",
+      "bytes": 54428
+    },
+    "geometry/scale_10/constant_reference/renderer_buffers.npz": {
+      "sha256": "67ddc32684ac870a5739bed70ace05959285da4fd5e81e65172b384018f92a0e",
+      "bytes": 8720914
+    },
+    "geometry/scale_10/incompressible_segments/geometry_mapping.json": {
+      "sha256": "6ca33d37a65b88be5bcfd70a6d76de42b33e05f722ee131651cbb9e6c588f44d",
+      "bytes": 54446
+    },
+    "geometry/scale_10/incompressible_segments/renderer_buffers.npz": {
+      "sha256": "350331dc625b51a80f9857db8b67694a8984c3c88e974cb1ee2d231b85a9643b",
+      "bytes": 8733491
+    },
+    "geometry/scale_100/constant_reference/geometry_mapping.json": {
+      "sha256": "e131133b5a38f180be0e838a9f72b71ce80a26bf670e5f6465f3a3fb2f8e7c1b",
+      "bytes": 54170
+    },
+    "geometry/scale_100/constant_reference/renderer_buffers.npz": {
+      "sha256": "70b0531e249d0d8e3a42c482a569b008369c0140c74994de42bc2c1c662e0e73",
+      "bytes": 8694970
+    },
+    "geometry/scale_100/incompressible_segments/geometry_mapping.json": {
+      "sha256": "b1f0584dcbd2ba2ba77e3a803adde7718d6c0449e316ba0335f1e7b0e67b9fd5",
+      "bytes": 54181
+    },
+    "geometry/scale_100/incompressible_segments/renderer_buffers.npz": {
+      "sha256": "26ef1bd8f9f631ddf34e00532d758fbf0b84365484d6e2215fe447714d7f5339",
+      "bytes": 8710559
+    },
+    "inputs/optics/optical_metrics.json": {
+      "sha256": "ff858b58bad7b0cf45f7db7e910a3064c6211c70884187d9a896983b83a1b592",
+      "bytes": 241713
+    },
+    "inputs/optics/synthetic_material_spectra.json": {
+      "sha256": "a819eab70a15ee3314c947ce9db3b1dcc41a4bc4c00e12b12cdb57cd11dac0cf",
+      "bytes": 13337
+    },
+    "inputs/profiles/constant_reference/variable_radius_profiles.json": {
+      "sha256": "a387f09f61c8fc5be02580a666e4e0303715d848c21b54d166cc8bce5c4b8cba",
+      "bytes": 131942
+    },
+    "inputs/profiles/constant_reference/variable_radius_profiles.npz": {
+      "sha256": "64f72da771c234970e65f36056ce71c610b9ebacf494c12e39daa7c1bc63c9cf",
+      "bytes": 497384
+    },
+    "inputs/profiles/incompressible_segments/variable_radius_profiles.json": {
+      "sha256": "00d7d66d868f0720af7c805b8742a8d660dd4bae6a204bac3be376ab9b06e488",
+      "bytes": 134503
+    },
+    "inputs/profiles/incompressible_segments/variable_radius_profiles.npz": {
+      "sha256": "4febe40b58a05fdd0410c394114a6e7b56e0a506f9e69a4957be82812a69ffb1",
+      "bytes": 647393
+    },
+    "materials/scale_1.json": {
+      "sha256": "d4dc1a33fe5e474466bf69198bf597550fc383c58da83d71182be943e06b1c15",
+      "bytes": 22923
+    },
+    "materials/scale_10.json": {
+      "sha256": "d3c576a54eaf8c72eee3c519e73609e1eeb3a4590e5f3b08dcb45ea30660c6ff",
+      "bytes": 22980
+    },
+    "materials/scale_100.json": {
+      "sha256": "0ff6b22ac1fcd1b33c7d21d6cafbded029f908a4246866be703f1f3e761e1e0d",
+      "bytes": 22979
+    },
+    "scalar_radiance.npz": {
+      "sha256": "d00c0c8ea87d9b6d66f78d47fe08e1a44ea53504cb2332af02abbea267d39eea",
+      "bytes": 14083
+    },
+    "scene_scale_sensitivity.png": {
+      "sha256": "0d4013da1b410694640232863b9e98e7aa1548fc137246810084a044a0a8c24c",
+      "bytes": 137701
+    },
+    "scenes/scale_100__constant_reference__R0.json": {
+      "sha256": "bf110d00c17406f52b0b9f13650bd596474f73565f1d4946002a521f02f12165",
+      "bytes": 73845
+    },
+    "scenes/scale_100__constant_reference__R90.json": {
+      "sha256": "5ad229e3de81ab85d69bc2b859107ef28b5ef1cd1132028c0aa8a14367be1211",
+      "bytes": 73864
+    },
+    "scenes/scale_100__constant_reference__T45.json": {
+      "sha256": "230beefeda28417e13c895d57d192b6cfa6a2fbb5a29690b250666c8a4dbc3be",
+      "bytes": 73867
+    },
+    "scenes/scale_100__incompressible_segments__R0.json": {
+      "sha256": "0e5c4d6505676454adaa1bf9408cf0793c33429837325e394a1aeb5be75ee028",
+      "bytes": 73852
+    },
+    "scenes/scale_100__incompressible_segments__R90.json": {
+      "sha256": "55d37946e073cd301bc10e31fe2bc4c082bbcee94a4485320cc3329880db37dd",
+      "bytes": 73872
+    },
+    "scenes/scale_100__incompressible_segments__T45.json": {
+      "sha256": "d7f6af7d4137379620c98af13b16eff3107624fa1843636496007c76b0f59d84",
+      "bytes": 73875
+    },
+    "scenes/scale_10__constant_reference__R0.json": {
+      "sha256": "a9cc300bc56d2d9c896a2ad3ee3060a8baad9358c4da3a6d07d2b302dc4e5680",
+      "bytes": 74114
+    },
+    "scenes/scale_10__constant_reference__R90.json": {
+      "sha256": "f89a0e9d5adae4c067f21ecb8ac1d7900eb9ef70f533adfa014cc43e16dd6007",
+      "bytes": 74134
+    },
+    "scenes/scale_10__constant_reference__T45.json": {
+      "sha256": "d186731e90192e1e663597d47cc6433875e765d5ebfd66f75740c7de308be17d",
+      "bytes": 74137
+    },
+    "scenes/scale_10__incompressible_segments__R0.json": {
+      "sha256": "606cdfffd58cacc9f7af4dfbfacf4e56b3f0f77bef6ae0e63cf1219948f99b5a",
+      "bytes": 74114
+    },
+    "scenes/scale_10__incompressible_segments__R90.json": {
+      "sha256": "9e1866562cb32a7f6416f3472ec2a167e6fb24d6b174c25282d38bdb31d587c0",
+      "bytes": 74134
+    },
+    "scenes/scale_10__incompressible_segments__T45.json": {
+      "sha256": "26ee15c4c64fae1334e2b944534ad17fa19edb857f8ce7c57fdecdef91e022bd",
+      "bytes": 74136
+    },
+    "scenes/scale_1__constant_reference__R0.json": {
+      "sha256": "74cb327eb5b8cc72927f861d884ed3e3b4d7f775fa5a9bbb2673fdf455bdaf24",
+      "bytes": 74255
+    },
+    "scenes/scale_1__constant_reference__R90.json": {
+      "sha256": "8c3f3081fba466e610e6cdace7396ad9150467aff45aa420a51447f775230ae4",
+      "bytes": 74275
+    },
+    "scenes/scale_1__constant_reference__T45.json": {
+      "sha256": "44a2c3e296d8341e41650941cc8169b7aa916799ef955dc0ff2978a663bc7ab5",
+      "bytes": 74278
+    },
+    "scenes/scale_1__incompressible_segments__R0.json": {
+      "sha256": "e28a1c0f3dfaa2b3bfb11f6ee49f1a3b706de60863eb740b1e12e29a2f401801",
+      "bytes": 74277
+    },
+    "scenes/scale_1__incompressible_segments__R90.json": {
+      "sha256": "bdb3883b2498cd6c08a7ff455dbdb266ac290b6ac199dfcc2291510f41efa445",
+      "bytes": 74298
+    },
+    "scenes/scale_1__incompressible_segments__T45.json": {
+      "sha256": "be5aed2ae3b7635ff8a7e6beac06428230fefed40dd377e990e59da2107e0ebe",
+      "bytes": 74302
+    },
+    "sensitivity_metrics.json": {
+      "sha256": "beca38474e9e1eb2bbdb70124d8f5cf3a4c903f782d8e36f40adff3dc0d7939f",
+      "bytes": 86437
+    }
+  },
+  "runtime": {
+    "mitsuba": "3.9.1",
+    "variant": "llvm_ad_rgb",
+    "numpy": "2.3.5",
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]"
+  }
+}

@@ -1,0 +1,3 @@
+{"stage": "geometry", "radial_segments": 16, "state": "constant_reference", "faces": 259392, "mesh_volume_error": -0.025538886520504733}
+{"stage": "geometry", "radial_segments": 16, "state": "incompressible_segments", "faces": 259392, "mesh_volume_error": -0.025538830650733924}
+{"status": "passed", "actual_render_count": 0, "elapsed_seconds": 14.63417480300268, "output": "/workspace/scratch/2b957533e88d/textile_optics_engine/data/validation_v5/no_render_integration/experiment"}

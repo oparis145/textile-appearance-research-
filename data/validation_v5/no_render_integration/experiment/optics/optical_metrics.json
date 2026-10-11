@@ -1,0 +1,124 @@
+{
+  "schema_version": "variable_radius_optics_experiment_v5.0",
+  "status": "skipped",
+  "model": "closed triangle mesh; geometric face normals; real dielectric Fresnel; pure absorption; volpath",
+  "states": [
+    "constant_reference",
+    "incompressible_segments"
+  ],
+  "radial_segments": [
+    16
+  ],
+  "lights": [
+    "R0",
+    "R90",
+    "T45"
+  ],
+  "wavelengths_nm": [
+    550.0
+  ],
+  "seeds": [
+    5723,
+    22840,
+    39957,
+    57074
+  ],
+  "resolution": 64,
+  "spp": 64,
+  "radiance_axes": [
+    "radial_segments",
+    "state",
+    "light",
+    "wavelength_nm",
+    "seed",
+    "row",
+    "column"
+  ],
+  "radiance_channel": "RGB channel 0; channel agreement checked before saving",
+  "union_bounds_mm": [
+    [
+      -0.4845497802136374,
+      -0.4836807149425356,
+      -0.036217686551478
+    ],
+    [
+      0.48446350688805906,
+      0.48364282083255367,
+      0.040511065838361726
+    ]
+  ],
+  "lighting_configs": {
+    "R0": {
+      "resolution": 64,
+      "spp": 64,
+      "seed": 53,
+      "mode": "reflection",
+      "light_elevation_deg": 40,
+      "light_azimuth_deg": 0,
+      "light_halfwidth_deg": 7.0,
+      "view_elevation_deg": 90.0,
+      "view_azimuth_deg": -90.0,
+      "ior": 1.55,
+      "absorption_per_mm": 2.0,
+      "longitudinal_roughness": 0.18,
+      "azimuthal_roughness": 0.2,
+      "max_depth": -1,
+      "rr_depth": 8,
+      "exposure": 1.0,
+      "ambient": 0.0,
+      "width_fraction": 0.68
+    },
+    "R90": {
+      "resolution": 64,
+      "spp": 64,
+      "seed": 53,
+      "mode": "reflection",
+      "light_elevation_deg": 40,
+      "light_azimuth_deg": 90,
+      "light_halfwidth_deg": 7.0,
+      "view_elevation_deg": 90.0,
+      "view_azimuth_deg": -90.0,
+      "ior": 1.55,
+      "absorption_per_mm": 2.0,
+      "longitudinal_roughness": 0.18,
+      "azimuthal_roughness": 0.2,
+      "max_depth": -1,
+      "rr_depth": 8,
+      "exposure": 1.0,
+      "ambient": 0.0,
+      "width_fraction": 0.68
+    },
+    "T45": {
+      "resolution": 64,
+      "spp": 64,
+      "seed": 53,
+      "mode": "transmission",
+      "light_elevation_deg": 55,
+      "light_azimuth_deg": 45,
+      "light_halfwidth_deg": 7.0,
+      "view_elevation_deg": 90.0,
+      "view_azimuth_deg": -90.0,
+      "ior": 1.55,
+      "absorption_per_mm": 2.0,
+      "longitudinal_roughness": 0.18,
+      "azimuthal_roughness": 0.2,
+      "max_depth": -1,
+      "rr_depth": 8,
+      "exposure": 1.0,
+      "ambient": 0.0,
+      "width_fraction": 0.68
+    }
+  },
+  "actual_render_count": 0,
+  "records": [],
+  "comparisons": [],
+  "spectral_radiance_sha256": null,
+  "primary_radius_family_size": 3,
+  "primary_radius_radial_segments": 16,
+  "refinement_family_size": 0,
+  "uncertainty_scope": "paired seed means; pointwise t intervals and declared-family Bonferroni t intervals; conditional rendering noise only",
+  "scope": "synthetic closed-mesh ray optics; no real textile, CIE color, material calibration or full wave validation",
+  "volume_scope": "per-fiber frustum integral preserved; local proxy redistribution and actual mesh volume measured separately",
+  "surface_scope": "same-fiber self-intersection not certified; different fibers have positive conservative capsule separation",
+  "v4_hair_comparison_performed": false
+}

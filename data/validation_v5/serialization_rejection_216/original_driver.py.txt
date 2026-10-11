@@ -1,0 +1,448 @@
+#!/usr/bin/env python3
+"""Compare radius reconstruction and radial tessellation on one fixed pose.
+
+The source is the v4 prescribed material map, not measured mechanical strain.
+Both radius states use the same new closed-mesh dielectric/absorption model.
+Their difference is not confounded with a switch from the v4 hair shader.
+"""
+from __future__ import annotations
+
+import argparse
+from dataclasses import asdict, replace
+from datetime import datetime, timezone
+import hashlib
+import json
+from pathlib import Path
+import time
+
+import numpy as np
+
+from textile_sim.hierarchy import HierarchyGeometry, audit_clearance, load_hierarchy
+from textile_sim.material_transport import bind_material_reference, transport_material_reference
+from textile_sim.variable_radius import (profiles_from_transport, build_tapered_tube,
+                                         save_variable_radius_profiles)
+from textile_sim.volume_optics import (MODEL, triangle_buffer_audit, build_volume_scene,
+                                       render_volume_scene, _array_digest)
+from textile_sim.optical_lod import paired_mean_interval
+from textile_sim.render import RenderConfig
+from run_material_transport_experiments import matched_parent_indices
+from run_multiscale_optics_v3 import synthetic_materials
+
+ROOT = Path(__file__).resolve().parent
+STATES = ("constant_reference", "incompressible_segments")
+LIGHTS = ("R0", "R90", "T45")
+AXES = ("radial_segments", "state", "light", "wavelength_nm", "seed", "row", "column")
+
+
+def write_json(path, value):
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(value, indent=2, ensure_ascii=False, allow_nan=False)+"\n", encoding="utf-8")
+
+
+def sha256(path):
+    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+
+def utc_now():
+    return datetime.now(timezone.utc).isoformat()
+
+
+def source_hashes():
+    files = sorted((ROOT/"textile_sim").glob("*.py"))
+    files += [Path(__file__).resolve(), ROOT/"run_material_transport_experiments.py",
+              ROOT/"run_multiscale_optics_v3.py"]
+    return {str(p.relative_to(ROOT)): sha256(p) for p in files}
+
+
+def input_hashes(pair):
+    paths = [pair/pose/name for pose in ("initial", "relaxed")
+             for name in ("hierarchy_geometry.json", "hierarchy_geometry.npz")]
+    return {str(p.relative_to(pair)): sha256(p) for p in paths}
+
+
+def positive_int(value):
+    result = int(value)
+    if result <= 0 or str(result) != str(value):
+        raise argparse.ArgumentTypeError("positive integer required")
+    return result
+
+
+def _settings(radials, wavelengths, resolution, spp, replicates, max_render_count, render):
+    for name, x in (("resolution", resolution), ("spp", spp), ("replicates", replicates),
+                    ("max_render_count", max_render_count)):
+        if isinstance(x, bool) or not isinstance(x, int) or x <= 0:
+            raise ValueError(f"{name} must be a positive integer")
+    if replicates < 2:
+        raise ValueError("at least two independent seeds required")
+    if (not radials or any(isinstance(n, bool) or not isinstance(n, int) or n < 8 for n in radials)
+            or list(radials) != sorted(set(radials))):
+        raise ValueError("radial_segments must be strictly increasing integers >= 8")
+    wave = np.asarray(wavelengths, dtype=float)
+    if (wave.ndim != 1 or not len(wave) or not np.isfinite(wave).all()
+            or np.any(wave <= 0) or np.any(np.diff(wave) <= 0)):
+        raise ValueError("wavelengths must be finite positive strictly increasing values")
+    for material in synthetic_materials():
+        for wavelength in wave:
+            material.at(wavelength)
+    planned = 2*len(radials)*len(LIGHTS)*len(wave)*replicates if render else 0
+    if planned > max_render_count:
+        raise ValueError(f"planned {planned} renders exceed explicit budget {max_render_count}")
+    if planned*resolution*resolution > 50_000_000:
+        raise ValueError("raw scalar-image budget exceeds 50,000,000 samples; reduce the explicit run scope")
+    return tuple(radials), wave, planned
+
+
+def _profile_totals(profiles):
+    rows = [p.summary() for p in profiles]
+    errors = np.concatenate([p.segment_relative_volume_error for p in profiles])
+    proxy = float(sum(p.segment_volume_proxy_mm3.sum() for p in profiles))
+    frustum = float(sum(p.segment_frustum_volume_mm3.sum() for p in profiles))
+    return {"fiber_count": len(profiles), "vertex_count": sum(len(p.points_mm) for p in profiles),
+            "segment_count": sum(len(p.segment_length_mm) for p in profiles),
+            "source_cylinder_volume_proxy_mm3": proxy,
+            "total_frustum_integral_mm3": frustum,
+            "frustum_total_relative_error": frustum/proxy-1,
+            "node_radius_min_mm": float(min(p.node_radius_mm.min() for p in profiles)),
+            "node_radius_max_mm": float(max(p.node_radius_mm.max() for p in profiles)),
+            "local_segment_volume_relative_error_min": float(errors.min()),
+            "local_segment_volume_relative_error_max": float(errors.max()),
+            "local_absolute_error_percentile_99": float(np.quantile(np.abs(errors), .99)),
+            "profiles": rows}
+
+
+def _clearance(profiles, constant_geometry):
+    # Every triangle between two node rings lies in the convex hull of their
+    # endpoint balls. A constant max-radius capsule around the chord contains
+    # that hull, regardless of ring orientation. This excludes self-contact.
+    sleeves = tuple(replace(base, points_mm=p.points_mm,
+                            radii_mm=np.full(len(p.points_mm), float(p.node_radius_mm.max())))
+                    for p, base in zip(profiles, constant_geometry.fiber_records))
+    geometry = HierarchyGeometry(sleeves, dict(constant_geometry.yarns),
+                    dict(constant_geometry.plies), constant_geometry.spec,
+                    {"role": "conservative max-node-radius enclosing capsules; not optical geometry"})
+    result = audit_clearance(geometry)
+    if not result["certified_separated"]:
+        raise RuntimeError("different-fiber max-node-radius capsules overlap")
+    result["interpretation"] = "contains all unquantized side/cap triangles; same-fiber self-intersection remains unchecked"
+    return result
+
+
+def _mesh_export(out, meshes, clearance):
+    out.mkdir(parents=True)
+    arrays, rows = {}, []
+    for i, mesh in enumerate(meshes):
+        prefix = f"fiber_{i:04d}"
+        vertices, faces, audit = triangle_buffer_audit(mesh.vertices_mm, mesh.faces)
+        arrays[prefix+"/vertices_mm"], arrays[prefix+"/faces"] = vertices, faces
+        rows.append({"array_prefix": prefix, "fiber_id": mesh.profile.fiber_id,
+                     "material_id": mesh.profile.material_id, "profile_sha256": mesh.profile.sha256,
+                     "mesh_sha256": mesh.sha256, "radial_segments": mesh.radial_segments,
+                     "buffer_audit": audit, "geometry_summary": mesh.summary()})
+    np.savez_compressed(out/"renderer_buffers.npz", **arrays)
+    quantization = max(r["buffer_audit"]["max_float32_displacement_mm"] for r in rows)
+    remaining = clearance["minimum_clearance_lower_bound_mm"]-2*quantization
+    if remaining <= 0:
+        raise RuntimeError("float32 quantization exhausted different-fiber mesh clearance")
+    source = sum(m.profile.segment_volume_proxy_mm3.sum() for m in meshes)
+    frustum = sum(m.profile.segment_frustum_volume_mm3.sum() for m in meshes)
+    volume = sum(m.signed_volume_mm3 for m in meshes)
+    qvolume = sum(r["buffer_audit"]["float32_signed_volume_mm3"] for r in rows)
+    radial = meshes[0].radial_segments
+    polygon_factor = radial*np.sin(2*np.pi/radial)/(2*np.pi)
+    summary = {"fiber_count": len(meshes), "radial_segments": radial,
+               "vertex_count": sum(len(m.vertices_mm) for m in meshes),
+               "face_count": sum(len(m.faces) for m in meshes),
+               "source_cylinder_volume_proxy_mm3": float(source),
+               "total_frustum_integral_mm3": float(frustum),
+               "total_signed_volume_mm3": float(volume),
+               "float32_total_signed_volume_mm3": float(qvolume),
+               "mesh_to_source_proxy_relative_error": float(volume/source-1),
+               "mesh_to_frustum_relative_error": float(volume/frustum-1),
+               "straight_regular_polygon_volume_factor": float(polygon_factor),
+               "residual_after_polygon_factor": float(volume/(frustum*polygon_factor)-1),
+               "max_float32_displacement_mm": quantization,
+               "different_fiber_clearance_lower_bound_mm": remaining,
+               "same_fiber_self_intersection_certified_absent": False,
+               "smooth_circle_normal_half_bin_deg": float(180/radial)}
+    record = {"schema_version": "variable_radius_mesh_buffers_v5.0", "length_unit": "mm",
+              "initial_normal": [0., 0., 1.], "vertices_dtype": "float32", "faces_dtype": "uint32",
+              "render_shading_normals": "flat geometric triangle normals",
+              "arrays_sha256": sha256(out/"renderer_buffers.npz"), "fibers": rows,
+              "summary": summary, "clearance_source": clearance}
+    write_json(out/"mesh_manifest.json", record)
+    return summary
+
+
+def _contrast(before, after, family_size=None):
+    # Independent sample index is seed, not wavelength, pixel, RGB channel or
+    # a second execution with the same seeds.
+    a, b = before.mean(axis=0), after.mean(axis=0)
+    relative = [float(100*(y-x)/x) if x != 0 else None for x, y in zip(a, b)]
+    return {"mean_before": a.tolist(), "mean_after": b.tolist(),
+            "relative_mean_change_percent": relative,
+            "paired_95": paired_mean_interval(before, after),
+            "paired_bonferroni": (paired_mean_interval(before, after, confidence=1-.05/family_size)
+                                    if family_size else None),
+            "bonferroni_family_size": family_size}
+
+
+def comparisons(radiance, radials, wavelengths):
+    values = np.asarray(radiance, dtype=np.float64)
+    if not np.isfinite(values).all() or np.any(values < 0):
+        raise ValueError("finite nonnegative raw radiance required")
+    rows = []
+    for ni, n in enumerate(radials):
+        for li, light in enumerate(LIGHTS):
+            a = values[ni, 0, li].mean(axis=(-1, -2)).T
+            b = values[ni, 1, li].mean(axis=(-1, -2)).T
+            family = len(LIGHTS)*len(wavelengths) if ni == len(radials)-1 else None
+            rows.append({"kind": "radius", "radial_segments": n, "light": light,
+                         "reference_state": STATES[0], "state": STATES[1],
+                         **_contrast(a, b, family)})
+    family = (len(radials)-1)*len(STATES)*len(LIGHTS)*len(wavelengths)
+    for ni in range(1, len(radials)):
+        for si, state in enumerate(STATES):
+            for li, light in enumerate(LIGHTS):
+                a = values[ni-1, si, li].mean(axis=(-1, -2)).T
+                b = values[ni, si, li].mean(axis=(-1, -2)).T
+                rows.append({"kind": "radial_refinement", "coarse_radial_segments": radials[ni-1],
+                             "fine_radial_segments": radials[ni], "state": state, "light": light,
+                             **_contrast(a, b, family)})
+    return rows
+
+
+def figures(out, profile_sets, geometry, metrics, raw=None):
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+    out.mkdir(exist_ok=True)
+    fig, axes = plt.subplots(1, 3, figsize=(14, 4.4), constrained_layout=True)
+    ps = profile_sets[STATES[1]]
+    errors = np.concatenate([p.segment_relative_volume_error for p in ps])*100
+    axes[0].hist(errors, bins=70, color="#1c7b83")
+    axes[0].set(xlabel="Local frustum minus cylinder proxy (%)", ylabel="Material segments",
+                title="Total agreement can hide local redistribution")
+    chosen = max(ps, key=lambda p: np.ptp(p.node_radius_mm))
+    axes[1].plot(chosen.material_coordinates_mm*1000, chosen.node_radius_mm*1000, lw=1.5)
+    axes[1].set(xlabel="Reference fiber coordinate (µm)", ylabel="Node radius (µm)",
+                title="One diagnostic fiber, fixed reference labels")
+    for state, color in zip(STATES, ("#626a7c", "#1c7b83")):
+        ns = metrics["radial_segments"]
+        y = [100*geometry["mesh_levels"][str(n)][state]["mesh_to_frustum_relative_error"] for n in ns]
+        axes[2].plot(ns, y, "o-", color=color, label=state)
+    axes[2].set(xlabel="Radial polygon sides", ylabel="Mesh minus frustum volume (%)",
+                title="Geometry convergence, not radiance accuracy")
+    axes[2].legend(fontsize=8)
+    fig.suptitle("Variable-radius geometry: distinct volume definitions", fontsize=14)
+    fig.savefig(out/"radius_geometry_diagnostics.png", dpi=160); plt.close(fig)
+    if raw is None:
+        return
+    finest = len(metrics["radial_segments"])-1
+    wave_index = int(np.argmin(np.abs(np.asarray(metrics["wavelengths_nm"])-550)))
+    fig, axes = plt.subplots(2, 3, figsize=(11, 7.3), constrained_layout=True)
+    for li, light in enumerate(LIGHTS):
+        images = raw[finest, :, li, wave_index].mean(axis=1)
+        scale = max(float(images.max()), 1e-15)
+        for si, state in enumerate(STATES):
+            axes[si, li].imshow(np.log1p(20*images[si]/scale)/np.log(21), cmap="gray", vmin=0, vmax=1)
+            axes[si, li].set_title(f"{light} · {state}", fontsize=10)
+            axes[si, li].axis("off")
+    fig.suptitle(f"{metrics['wavelengths_nm'][wave_index]:g} nm · {metrics['radial_segments'][-1]} radial sides · "
+                 f"{len(metrics['seeds'])} seeds\nShared per-column log display; raw linear radiance is saved", fontsize=12)
+    fig.savefig(out/"radius_optical_comparison.png", dpi=160); plt.close(fig)
+    fig, axes = plt.subplots(1, 3, figsize=(13.5, 4.3), constrained_layout=True)
+    for li, light in enumerate(LIGHTS):
+        ax = axes[li]
+        for ni, n in enumerate(metrics["radial_segments"]):
+            row = next(r for r in metrics["comparisons"] if r["kind"] == "radius"
+                       and r["radial_segments"] == n and r["light"] == light)
+            c = row["paired_95"]
+            y, lo, hi = map(np.asarray, (c["mean_delta"], c["interval_low"], c["interval_high"]))
+            x = np.asarray(metrics["wavelengths_nm"])+(ni-(len(metrics["radial_segments"])-1)/2)*7
+            ax.errorbar(x, y, yerr=[y-lo, hi-y], fmt="o-", capsize=3, label=f"{n} sides")
+        ax.axhline(0, color="black", lw=.8)
+        ax.set(title=light, xlabel="Vacuum wavelength (nm)", ylabel="Variable minus constant radiance")
+        ax.legend(fontsize=8)
+    fig.suptitle("Absolute paired 95% intervals over seeds; pointwise, conditional on the simulator", fontsize=12)
+    fig.savefig(out/"radius_paired_radiance.png", dpi=160); plt.close(fig)
+
+
+def run_experiments(input_pair, output, *, radial_segments=(16, 32, 64), wavelengths=(450., 550., 650.),
+                    resolution=64, spp=64, replicates=4, max_render_count=216, render=True):
+    radials, wave, planned = _settings(radial_segments, wavelengths, resolution, spp,
+                                      replicates, max_render_count, render)
+    pair, out = Path(input_pair).resolve(), Path(output).resolve()
+    if pair == out or pair in out.parents or out in pair.parents or out == ROOT or out in ROOT.parents:
+        raise ValueError("output must not overlap inputs or contain source root")
+    if out.exists() and (not out.is_dir() or any(out.iterdir())):
+        raise FileExistsError("output must be a new or empty directory")
+    inputs, sources = input_hashes(pair), source_hashes()
+    seeds = (5723+17117*np.arange(replicates)).astype(int)
+    out.mkdir(parents=True, exist_ok=True)
+    started = time.perf_counter()
+    manifest = {"schema_version": "variable_radius_experiment_v5.0", "status": "running",
+                "started_utc": utc_now(), "input_pair_directory": str(pair),
+                "source_sha256": sources, "input_sha256": inputs,
+                "requested_render": bool(render), "planned_render_count": planned,
+                "actual_render_count": 0, "resolution": resolution, "spp": spp,
+                "replicates": replicates, "radial_segments": list(radials),
+                "wavelengths_nm": wave.tolist(), "completed_batches": []}
+    write_json(out/"experiment_manifest.json", manifest)
+    try:
+        initial, target = load_hierarchy(pair/"initial"), load_hierarchy(pair/"relaxed")
+        correspondence = matched_parent_indices(initial, target)
+        normals = {key: np.array([0., 0., 1.]) for key in initial.yarns}
+        ref = bind_material_reference(initial, yarn_initial_normals=normals,
+                                      correspondence="shared_vertex_indices")
+        labels = {key: c.material_coordinates_mm for key, c in ref.yarns.items()}
+        states = {mode: transport_material_reference(ref, target.yarns, yarn_initial_normals=normals,
+                  deformed_parent_coordinates_mm=labels, radius_mode=mode) for mode in STATES}
+        profile_sets = {mode: profiles_from_transport(state) for mode, state in states.items()}
+        for a, b in zip(profile_sets[STATES[0]], profile_sets[STATES[1]]):
+            if (a.fiber_id != b.fiber_id or not np.array_equal(a.points_mm, b.points_mm)
+                    or not np.array_equal(a.material_coordinates_mm, b.material_coordinates_mm)):
+                raise RuntimeError("radius-only comparison changed centerlines or material correspondence")
+        base = states[STATES[0]].to_hierarchy()
+        geometry = {"schema_version": "variable_radius_geometry_v5.0", "length_unit": "mm",
+                    "correspondence": correspondence, "same_centerlines_for_both_states": True,
+                    "states": {}, "mesh_levels": {str(n): {} for n in radials}}
+        clearances = {}
+        all_profiles = []
+        for mode in STATES:
+            ps = profile_sets[mode]
+            save_variable_radius_profiles(out/"profiles"/mode, ps)
+            clearances[mode] = _clearance(ps, base)
+            geometry["states"][mode] = {**_profile_totals(ps), "clearance": clearances[mode],
+                                        "transport_state_sha256": states[mode].sha256,
+                                        "reference_sha256": ref.sha256}
+            all_profiles.extend(ps)
+        # The same enclosing bounds are reused at every tessellation and radius.
+        union = np.stack((np.min([np.min(p.points_mm-p.node_radius_mm[:, None], axis=0)
+                                  for p in all_profiles], axis=0),
+                          np.max([np.max(p.points_mm+p.node_radius_mm[:, None], axis=0)
+                                  for p in all_profiles], axis=0)))
+        configs = {
+            "R0": RenderConfig(resolution=resolution, spp=spp, light_elevation_deg=40,
+                                light_azimuth_deg=0, width_fraction=.68),
+            "R90": RenderConfig(resolution=resolution, spp=spp, light_elevation_deg=40,
+                                 light_azimuth_deg=90, width_fraction=.68),
+            "T45": RenderConfig(resolution=resolution, spp=spp, mode="transmission",
+                                 light_elevation_deg=55, light_azimuth_deg=45, width_fraction=.68)}
+        optics = out/"optics"; optics.mkdir()
+        materials = synthetic_materials()
+        write_json(optics/"synthetic_material_spectra.json", [m.to_dict() for m in materials])
+        metrics = {"schema_version": "variable_radius_optics_experiment_v5.0",
+                   "status": "running" if render else "skipped", "model": MODEL,
+                   "states": list(STATES), "radial_segments": list(radials), "lights": list(LIGHTS),
+                   "wavelengths_nm": wave.tolist(), "seeds": seeds.tolist(),
+                   "resolution": resolution, "spp": spp, "radiance_axes": list(AXES),
+                   "radiance_channel": "RGB channel 0; channel agreement checked before saving",
+                   "union_bounds_mm": union.tolist(), "lighting_configs": {k: asdict(v) for k,v in configs.items()},
+                   "actual_render_count": 0, "records": [], "comparisons": [],
+                   "spectral_radiance_sha256": None,
+                   "primary_radius_family_size": len(LIGHTS)*len(wave),
+                   "primary_radius_radial_segments": radials[-1],
+                   "refinement_family_size": (len(radials)-1)*len(STATES)*len(LIGHTS)*len(wave),
+                   "uncertainty_scope": "paired seed means; pointwise t intervals and declared-family Bonferroni t intervals; conditional rendering noise only",
+                   "scope": "synthetic closed-mesh ray optics; no real textile, CIE color, material calibration or full wave validation",
+                   "volume_scope": "per-fiber frustum integral preserved; local proxy redistribution and actual mesh volume measured separately",
+                   "surface_scope": "same-fiber self-intersection not certified; different fibers have positive conservative capsule separation",
+                   "v4_hair_comparison_performed": False}
+        write_json(optics/"optical_metrics.json", metrics)
+        raw = (np.zeros((len(radials), 2, len(LIGHTS), len(wave), replicates, resolution, resolution),
+                         dtype=np.float32) if render else None)
+        for ni, n in enumerate(radials):
+            for si, mode in enumerate(STATES):
+                expected_faces = sum(2*len(p.points_mm)*n for p in profile_sets[mode])
+                if expected_faces > 3_000_000:
+                    raise ValueError("per-state mesh face budget exceeds 3,000,000")
+                meshes = tuple(build_tapered_tube(p, radial_segments=n, initial_normal=[0., 0., 1.])
+                               for p in profile_sets[mode])
+                mesh_dir = out/"meshes"/f"radial_{n:03d}"/mode
+                summary = _mesh_export(mesh_dir, meshes, clearances[mode])
+                summary["mesh_manifest"] = str((mesh_dir/"mesh_manifest.json").relative_to(out))
+                geometry["mesh_levels"][str(n)][mode] = summary
+                write_json(out/"geometry_metrics.json", geometry)
+                print(json.dumps({"stage": "geometry", "radial_segments": n, "state": mode,
+                                  "faces": summary["face_count"], "mesh_volume_error": summary["mesh_to_frustum_relative_error"]}), flush=True)
+                if not render:
+                    continue
+                for li, light in enumerate(LIGHTS):
+                    for wi, wavelength in enumerate(wave):
+                        scene, info = build_volume_scene(meshes, materials, float(wavelength),
+                                                       configs[light], bounds_mm=union)
+                        rel = f"scenes/radial_{n:03d}__{mode}__{light}__w{wi:03d}_{wavelength:.12g}nm.json"
+                        write_json(optics/rel, info)
+                        for ki, seed in enumerate(seeds):
+                            image, row = render_volume_scene(scene, info, seed=int(seed), spp=spp)
+                            scalar = np.ascontiguousarray(image[..., 0], dtype=np.float32)
+                            raw[ni, si, li, wi, ki] = scalar
+                            row.update({"radial_segments": n, "state": mode, "light": light,
+                                        "wavelength_nm": float(wavelength), "array_index": [ni, si, li, wi, ki],
+                                        "actual_render_count": 1, "scene_metadata_file": rel,
+                                        "saved_scalar_sha256": _array_digest(scalar),
+                                        "saved_scalar_mean_radiance": float(scalar.astype(np.float64).mean())})
+                            metrics["records"].append(row)
+                            metrics["actual_render_count"] += 1
+                            manifest["actual_render_count"] += 1
+                        manifest["completed_batches"].append({"radial_segments": n, "state": mode,
+                                  "light": light, "wavelength_nm": float(wavelength), "actual_render_count": replicates})
+                        write_json(optics/"optical_metrics.json", metrics)
+                        write_json(out/"experiment_manifest.json", manifest)
+                        print(json.dumps({"stage": "optics", "radial_segments": n, "state": mode,
+                                          "light": light, "wavelength_nm": float(wavelength),
+                                          "completed_renders": manifest["actual_render_count"]}), flush=True)
+        if render:
+            np.savez_compressed(optics/"spectral_radiance.npz", radiance=raw)
+            metrics["spectral_radiance_sha256"] = sha256(optics/"spectral_radiance.npz")
+            metrics["comparisons"] = comparisons(raw, radials, wave)
+            metrics["status"] = "rendered"
+        if manifest["actual_render_count"] != planned:
+            raise RuntimeError("actual render count differs from the declared plan")
+        write_json(optics/"optical_metrics.json", metrics)
+        figures(out/"figures", profile_sets, geometry, metrics, raw)
+        manifest.update({"status": "passed", "finished_utc": utc_now(),
+                         "elapsed_seconds": time.perf_counter()-started,
+                         "input_hashes_unchanged": inputs == input_hashes(pair),
+                         "source_hashes_unchanged": sources == source_hashes()})
+        if not manifest["input_hashes_unchanged"] or not manifest["source_hashes_unchanged"]:
+            raise RuntimeError("input or source changed during the experiment")
+        manifest["output_sha256"] = {str(p.relative_to(out)): sha256(p) for p in sorted(out.rglob("*"))
+                                     if p.is_file() and p.name != "experiment_manifest.json"}
+        write_json(out/"experiment_manifest.json", manifest)
+        print(json.dumps({"status": "passed", "actual_render_count": manifest["actual_render_count"],
+                          "elapsed_seconds": manifest["elapsed_seconds"], "output": str(out)}), flush=True)
+        return manifest
+    except Exception as exc:
+        manifest.update({"status": "failed", "finished_utc": utc_now(),
+                         "elapsed_seconds": time.perf_counter()-started,
+                         "error_type": type(exc).__name__, "error": str(exc)})
+        if "raw" in locals() and raw is not None and manifest["actual_render_count"] > 0:
+            # Completion indices in records distinguish saved partial data from
+            # untouched zero-filled cells. A failed run is never canonical data.
+            np.savez_compressed(out/"optics"/"partial_radiance.npz", radiance=raw)
+        write_json(out/"experiment_manifest.json", manifest)
+        raise
+
+
+def main(argv=None):
+    p = argparse.ArgumentParser(description=__doc__)
+    p.add_argument("--input-pair", type=Path, default=ROOT/"data/mechanics_v3/optical_pair")
+    p.add_argument("--output", type=Path, default=ROOT/"data/variable_radius_v5")
+    p.add_argument("--radial-segments", nargs="+", type=positive_int, default=[16, 32, 64])
+    p.add_argument("--wavelengths", nargs="+", type=float, default=[450., 550., 650.])
+    p.add_argument("--resolution", type=positive_int, default=64)
+    p.add_argument("--spp", type=positive_int, default=64)
+    p.add_argument("--replicates", type=positive_int, default=4)
+    p.add_argument("--max-render-count", type=positive_int, default=216)
+    p.add_argument("--no-render", action="store_true")
+    args = p.parse_args(argv)
+    run_experiments(args.input_pair, args.output, radial_segments=args.radial_segments,
+                    wavelengths=args.wavelengths, resolution=args.resolution, spp=args.spp,
+                    replicates=args.replicates, max_render_count=args.max_render_count,
+                    render=not args.no_render)
+
+
+if __name__ == "__main__":
+    main()

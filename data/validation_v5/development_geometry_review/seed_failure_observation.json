@@ -1,0 +1,14 @@
+{
+  "pre_fix_source_sha256_observed_after_run": "f75c797ef7b31f768b34587379e363db8ac7e32e73b8b473fc8d61a860b2da3a",
+  "post_fix_source_sha256_observed_after_run": "19232bcce890588a73708de8dc0b6fa9ce8ce37f62286a9dfa17b3302c0ec377",
+  "test_file": "../../tests/test_variable_radius_review.py",
+  "test_file_sha256": "f73bf2270d8c688fc235f04f9d0f31c568497af4754a6ac994feaa170944bdf7",
+  "pre_fix_log_file": "independent_tests_pre_fix.log",
+  "pre_fix_log_sha256": "c263e05779c0a216a6d2d17513a210c6d27aa01f6379b3b2846f453178bb7471",
+  "post_fix_log_file": "independent_tests_post_seed_fix.log",
+  "post_fix_log_sha256": "483ee2168ca7e1e06a3ffd2365810d3080549c2438b666962f2a510625c58896",
+  "tests_per_run": 13,
+  "pre_fix_test_errors": 1,
+  "source_snapshot_saved": false,
+  "scope": "Observed seed-normalization roundtrip failure on analytic helix. Separate earlier actual42fiber pilot had39 failures with explicit seed(.3,.2,.7)."
+}

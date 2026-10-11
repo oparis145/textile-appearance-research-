@@ -1,0 +1,521 @@
+{
+  "schema_version": "variable_radius_experiment_v5.0",
+  "status": "passed",
+  "started_utc": "2026-10-11T15:53:29.178158+00:00",
+  "input_pair_directory": "/workspace/scratch/2b957533e88d/textile_optics_engine/data/mechanics_v3/optical_pair",
+  "source_sha256": {
+    "textile_sim/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "textile_sim/angular_measurement.py": "ad641d1691ff4ed50313f4ff007fef7ba72f0aa27f1c4bce992752bc2affac79",
+    "textile_sim/angular_surrogate.py": "188341f88b89a7462c95f43aed577e78f2486c5ec179bdfc88701e27c979de2b",
+    "textile_sim/aperture_wave.py": "cd8c4147573ada0acccc32ed16434067dbc761e708f329aef8f2b6d80312f986",
+    "textile_sim/camera.py": "e59614eab1fc89c50d52c8441bae15dbba3187dfa2a1b22d2cfbf53215ef5336",
+    "textile_sim/fiber_wave.py": "315d35f57cd0748b05a1d941d44ceee8324dacc6ae15822a23c0b85ea3951bac",
+    "textile_sim/fiber_wave_beam.py": "ccbb7fb3993755dec46b1eadbd80b833eb619a14b915bcd4944e85b578f76360",
+    "textile_sim/geometry.py": "9a84cef0b62ee9702074b908eff3105e303a6371c650c51c98f919212fa980fc",
+    "textile_sim/hierarchy.py": "0ccea74ef08c735cbcf9c22682bd7a51a59423efb9599e743d23f1cb08ca3a73",
+    "textile_sim/material_transport.py": "f71e2e8cb232945d1d16919e803a1832bfdbf5cfa51012e540e038147653eb10",
+    "textile_sim/meta_optics.py": "b8542e688934dea1e16bb07556869a7db4f6583ed64f932a66abab69ab36a3da",
+    "textile_sim/optical_lod.py": "17b84759aa734e07e4d9c9ef3108cf537c69305a3836674a044e033160fc0519",
+    "textile_sim/optical_scene.py": "8575c32cba21d784c1b6d19d3fa66723e0331d4a1be99756322efd488044e061",
+    "textile_sim/ply_ray.py": "d78b7e6270770161945481ecd7c303b22a870db825fffa5fed748b5d7af8d91a",
+    "textile_sim/render.py": "704c6052f0e22e0b0644137d1960fd175126ad7ed801f396163056aa6ade5ac9",
+    "textile_sim/variable_radius.py": "811d72412723f1b4dbd51644aaf0e7ff0cb96a9e6500f3b022424161c44fb9e4",
+    "textile_sim/volume_optics.py": "7df5e6dec3167f519e5cfcda576b3c96f03034f7969e32dcb35f51316d32053e",
+    "textile_sim/weave_draft.py": "13704a2ade4f6ea7c9f43de0c23e077861c2094fbcd937ec13ca3b2d52efc540",
+    "textile_sim/weave_mechanics.py": "cf362e8106c6d2ec3af552d8ab399fe87dd20ac291bee50633b30e0b8fdeb94a",
+    "run_variable_radius_experiments.py": "6964cb0dc0368308008880029193ba6599cf347108c63474600d55500b101500",
+    "run_material_transport_experiments.py": "516fcd1363e8cc78a1e5e02060daf8f095d2144884913186f664fb362dc45659",
+    "run_multiscale_optics_v3.py": "2fe34e8a5c98b64c3697a07e96bd847dfcd28e2199f5a50a9f35bb4cbbee9bdd"
+  },
+  "input_sha256": {
+    "initial/hierarchy_geometry.json": "4c09dbc1ea194f5923a1fb6034f0ef1c0c469be3fe8e21a556449d8922f05ee3",
+    "initial/hierarchy_geometry.npz": "e786bb176e805d717a12643ce14f051f66e233d2361c7a82c1b83bd8d853b894",
+    "relaxed/hierarchy_geometry.json": "bb63e5321dcf549e155eb0a39b2b6daffcd75268d5e2ac63f40fe0c0ff76e303",
+    "relaxed/hierarchy_geometry.npz": "daafa27826048d32e14e3c5f947409cfb1001b1690e725b9436044bc6b14bd66"
+  },
+  "requested_render": true,
+  "planned_render_count": 216,
+  "actual_render_count": 216,
+  "resolution": 64,
+  "spp": 64,
+  "replicates": 4,
+  "radial_segments": [
+    16,
+    32,
+    64
+  ],
+  "wavelengths_nm": [
+    450.0,
+    550.0,
+    650.0
+  ],
+  "completed_batches": [
+    {
+      "radial_segments": 16,
+      "state": "constant_reference",
+      "light": "R0",
+      "wavelength_nm": 450.0,
+      "actual_render_count": 4
+    },
+    {
+      "radial_segments": 16,
+      "state": "constant_reference",
+      "light": "R0",
+      "wavelength_nm": 550.0,
+      "actual_render_count": 4
+    },
+    {
+      "radial_segments": 16,
+      "state": "constant_reference",
+      "light": "R0",
+      "wavelength_nm": 650.0,
+      "actual_render_count": 4
+    },
+    {
+      "radial_segments": 16,
+      "state": "constant_reference",
+      "light": "R90",
+      "wavelength_nm": 450.0,
+      "actual_render_count": 4
+    },
+    {
+      "radial_segments": 16,
+      "state": "constant_reference",
+      "light": "R90",
+      "wavelength_nm": 550.0,
+      "actual_render_count": 4
+    },
+    {
+      "radial_segments": 16,
+      "state": "constant_reference",
+      "light": "R90",
+      "wavelength_nm": 650.0,
+      "actual_render_count": 4
+    },
+    {
+      "radial_segments": 16,
+      "state": "constant_reference",
+      "light": "T45",
+      "wavelength_nm": 450.0,
+      "actual_render_count": 4
+    },
+    {
+      "radial_segments": 16,
+      "state": "constant_reference",
+      "light": "T45",
+      "wavelength_nm": 550.0,
+      "actual_render_count": 4
+    },
+    {
+      "radial_segments": 16,
+      "state": "constant_reference",
+      "light": "T45",
+      "wavelength_nm": 650.0,
+      "actual_render_count": 4
+    },
+    {
+      "radial_segments": 16,
+      "state": "incompressible_segments",
+      "light": "R0",
+      "wavelength_nm": 450.0,
+      "actual_render_count": 4
+    },
+    {
+      "radial_segments": 16,
+      "state": "incompressible_segments",
+      "light": "R0",
+      "wavelength_nm": 550.0,
+      "actual_render_count": 4
+    },
+    {
+      "radial_segments": 16,
+      "state": "incompressible_segments",
+      "light": "R0",
+      "wavelength_nm": 650.0,
+      "actual_render_count": 4
+    },
+    {
+      "radial_segments": 16,
+      "state": "incompressible_segments",
+      "light": "R90",
+      "wavelength_nm": 450.0,
+      "actual_render_count": 4
+    },
+    {
+      "radial_segments": 16,
+      "state": "incompressible_segments",
+      "light": "R90",
+      "wavelength_nm": 550.0,
+      "actual_render_count": 4
+    },
+    {
+      "radial_segments": 16,
+      "state": "incompressible_segments",
+      "light": "R90",
+      "wavelength_nm": 650.0,
+      "actual_render_count": 4
+    },
+    {
+      "radial_segments": 16,
+      "state": "incompressible_segments",
+      "light": "T45",
+      "wavelength_nm": 450.0,
+      "actual_render_count": 4
+    },
+    {
+      "radial_segments": 16,
+      "state": "incompressible_segments",
+      "light": "T45",
+      "wavelength_nm": 550.0,
+      "actual_render_count": 4
+    },
+    {
+      "radial_segments": 16,
+      "state": "incompressible_segments",
+      "light": "T45",
+      "wavelength_nm": 650.0,
+      "actual_render_count": 4
+    },
+    {
+      "radial_segments": 32,
+      "state": "constant_reference",
+      "light": "R0",
+      "wavelength_nm": 450.0,
+      "actual_render_count": 4
+    },
+    {
+      "radial_segments": 32,
+      "state": "constant_reference",
+      "light": "R0",
+      "wavelength_nm": 550.0,
+      "actual_render_count": 4
+    },
+    {
+      "radial_segments": 32,
+      "state": "constant_reference",
+      "light": "R0",
+      "wavelength_nm": 650.0,
+      "actual_render_count": 4
+    },
+    {
+      "radial_segments": 32,
+      "state": "constant_reference",
+      "light": "R90",
+      "wavelength_nm": 450.0,
+      "actual_render_count": 4
+    },
+    {
+      "radial_segments": 32,
+      "state": "constant_reference",
+      "light": "R90",
+      "wavelength_nm": 550.0,
+      "actual_render_count": 4
+    },
+    {
+      "radial_segments": 32,
+      "state": "constant_reference",
+      "light": "R90",
+      "wavelength_nm": 650.0,
+      "actual_render_count": 4
+    },
+    {
+      "radial_segments": 32,
+      "state": "constant_reference",
+      "light": "T45",
+      "wavelength_nm": 450.0,
+      "actual_render_count": 4
+    },
+    {
+      "radial_segments": 32,
+      "state": "constant_reference",
+      "light": "T45",
+      "wavelength_nm": 550.0,
+      "actual_render_count": 4
+    },
+    {
+      "radial_segments": 32,
+      "state": "constant_reference",
+      "light": "T45",
+      "wavelength_nm": 650.0,
+      "actual_render_count": 4
+    },
+    {
+      "radial_segments": 32,
+      "state": "incompressible_segments",
+      "light": "R0",
+      "wavelength_nm": 450.0,
+      "actual_render_count": 4
+    },
+    {
+      "radial_segments": 32,
+      "state": "incompressible_segments",
+      "light": "R0",
+      "wavelength_nm": 550.0,
+      "actual_render_count": 4
+    },
+    {
+      "radial_segments": 32,
+      "state": "incompressible_segments",
+      "light": "R0",
+      "wavelength_nm": 650.0,
+      "actual_render_count": 4
+    },
+    {
+      "radial_segments": 32,
+      "state": "incompressible_segments",
+      "light": "R90",
+      "wavelength_nm": 450.0,
+      "actual_render_count": 4
+    },
+    {
+      "radial_segments": 32,
+      "state": "incompressible_segments",
+      "light": "R90",
+      "wavelength_nm": 550.0,
+      "actual_render_count": 4
+    },
+    {
+      "radial_segments": 32,
+      "state": "incompressible_segments",
+      "light": "R90",
+      "wavelength_nm": 650.0,
+      "actual_render_count": 4
+    },
+    {
+      "radial_segments": 32,
+      "state": "incompressible_segments",
+      "light": "T45",
+      "wavelength_nm": 450.0,
+      "actual_render_count": 4
+    },
+    {
+      "radial_segments": 32,
+      "state": "incompressible_segments",
+      "light": "T45",
+      "wavelength_nm": 550.0,
+      "actual_render_count": 4
+    },
+    {
+      "radial_segments": 32,
+      "state": "incompressible_segments",
+      "light": "T45",
+      "wavelength_nm": 650.0,
+      "actual_render_count": 4
+    },
+    {
+      "radial_segments": 64,
+      "state": "constant_reference",
+      "light": "R0",
+      "wavelength_nm": 450.0,
+      "actual_render_count": 4
+    },
+    {
+      "radial_segments": 64,
+      "state": "constant_reference",
+      "light": "R0",
+      "wavelength_nm": 550.0,
+      "actual_render_count": 4
+    },
+    {
+      "radial_segments": 64,
+      "state": "constant_reference",
+      "light": "R0",
+      "wavelength_nm": 650.0,
+      "actual_render_count": 4
+    },
+    {
+      "radial_segments": 64,
+      "state": "constant_reference",
+      "light": "R90",
+      "wavelength_nm": 450.0,
+      "actual_render_count": 4
+    },
+    {
+      "radial_segments": 64,
+      "state": "constant_reference",
+      "light": "R90",
+      "wavelength_nm": 550.0,
+      "actual_render_count": 4
+    },
+    {
+      "radial_segments": 64,
+      "state": "constant_reference",
+      "light": "R90",
+      "wavelength_nm": 650.0,
+      "actual_render_count": 4
+    },
+    {
+      "radial_segments": 64,
+      "state": "constant_reference",
+      "light": "T45",
+      "wavelength_nm": 450.0,
+      "actual_render_count": 4
+    },
+    {
+      "radial_segments": 64,
+      "state": "constant_reference",
+      "light": "T45",
+      "wavelength_nm": 550.0,
+      "actual_render_count": 4
+    },
+    {
+      "radial_segments": 64,
+      "state": "constant_reference",
+      "light": "T45",
+      "wavelength_nm": 650.0,
+      "actual_render_count": 4
+    },
+    {
+      "radial_segments": 64,
+      "state": "incompressible_segments",
+      "light": "R0",
+      "wavelength_nm": 450.0,
+      "actual_render_count": 4
+    },
+    {
+      "radial_segments": 64,
+      "state": "incompressible_segments",
+      "light": "R0",
+      "wavelength_nm": 550.0,
+      "actual_render_count": 4
+    },
+    {
+      "radial_segments": 64,
+      "state": "incompressible_segments",
+      "light": "R0",
+      "wavelength_nm": 650.0,
+      "actual_render_count": 4
+    },
+    {
+      "radial_segments": 64,
+      "state": "incompressible_segments",
+      "light": "R90",
+      "wavelength_nm": 450.0,
+      "actual_render_count": 4
+    },
+    {
+      "radial_segments": 64,
+      "state": "incompressible_segments",
+      "light": "R90",
+      "wavelength_nm": 550.0,
+      "actual_render_count": 4
+    },
+    {
+      "radial_segments": 64,
+      "state": "incompressible_segments",
+      "light": "R90",
+      "wavelength_nm": 650.0,
+      "actual_render_count": 4
+    },
+    {
+      "radial_segments": 64,
+      "state": "incompressible_segments",
+      "light": "T45",
+      "wavelength_nm": 450.0,
+      "actual_render_count": 4
+    },
+    {
+      "radial_segments": 64,
+      "state": "incompressible_segments",
+      "light": "T45",
+      "wavelength_nm": 550.0,
+      "actual_render_count": 4
+    },
+    {
+      "radial_segments": 64,
+      "state": "incompressible_segments",
+      "light": "T45",
+      "wavelength_nm": 650.0,
+      "actual_render_count": 4
+    }
+  ],
+  "array_integrity": {
+    "status": "passed",
+    "npz_count": 9,
+    "nested_array_reference_count": 9,
+    "zip_crc_verified": true
+  },
+  "finished_utc": "2026-10-11T15:56:51.366451+00:00",
+  "elapsed_seconds": 202.18832335899788,
+  "input_hashes_unchanged": true,
+  "source_hashes_unchanged": true,
+  "output_sha256": {
+    "figures/radius_geometry_diagnostics.png": "0f3b25ce025e507a8d71113e42d52dd5314113314f2b9e0cb54f1c26aba08740",
+    "figures/radius_optical_comparison.png": "336a7c59a80b6ef87863d6fe3cb4183689251696dfc8185a8cecdad77fcf9347",
+    "figures/radius_paired_radiance.png": "fe1598aee80ab704d42792dfe4a7cc44834a1fa1818c0038f1d237a50330ee5d",
+    "geometry_metrics.json": "09374c5bf147fb88021e80e1148b12439235faf72d8f42c8f205fc95dbf4ed1b",
+    "meshes/radial_016/constant_reference/mesh_manifest.json": "09b4b0475af8954e8d71f47e1767e9fb7b29eb044613a1a63a90a8739b86e03d",
+    "meshes/radial_016/constant_reference/renderer_buffers.npz": "14badb57c1ca0bdf329013c1866c2a87ed69ddac9227eeda5aa84b5395d81de5",
+    "meshes/radial_016/incompressible_segments/mesh_manifest.json": "5bd2e191f64ba86d250b977c816ae5f402f613ee737202ffa585c45bccbf02b9",
+    "meshes/radial_016/incompressible_segments/renderer_buffers.npz": "b5e069ce62764cdc5068e9e0fde7123480ee593ab618814ec3dbeeb496df053c",
+    "meshes/radial_032/constant_reference/mesh_manifest.json": "c29390a95935905207f2e14825b205a920284a6238b6b9bee1f4d87d0415e03a",
+    "meshes/radial_032/constant_reference/renderer_buffers.npz": "1e201bbc603ebe4ab48690e927a2bc75d4cc25a9ee809f2775a739b21fee5731",
+    "meshes/radial_032/incompressible_segments/mesh_manifest.json": "6964eafd384f4e2bc0ba8751f195c5b632f909325b6d53eee058735df59e5b7a",
+    "meshes/radial_032/incompressible_segments/renderer_buffers.npz": "5af52cf7b53689c5c708f10edda75754ddc7c779587358b1c094222473681717",
+    "meshes/radial_064/constant_reference/mesh_manifest.json": "74e5252eaa04fdf77f53c106f10080fdc7b9fe1194f84fd30d6e66c94b40aa16",
+    "meshes/radial_064/constant_reference/renderer_buffers.npz": "951f4fc7ec707bcfb68cc363a0820f352c41573aaea4e94fc6248beb4f3f4994",
+    "meshes/radial_064/incompressible_segments/mesh_manifest.json": "76e675f6a9ddf459bd2c40bf68c50235dcf13575b5070035c65fc7f8c0551fd9",
+    "meshes/radial_064/incompressible_segments/renderer_buffers.npz": "fd42a9f8fbc256bc2888d33f8cb7d2f9ab3ab589fb7bc3afe02426e9e43fc49d",
+    "optics/optical_metrics.json": "4e033037360db43c48d0a8028a6e41c58646af19fea8ffbfbb38003fe3b7db62",
+    "optics/scenes/radial_016__constant_reference__R0__w000_450nm.json": "33a8450d4c5f530de6144c63803dec96e3914a5c71e59ed35fa779691b4c375a",
+    "optics/scenes/radial_016__constant_reference__R0__w001_550nm.json": "e9c115e4fbe4ffdae0663aeaacbe4ec1f557341b50c5bc157b630614e49bd285",
+    "optics/scenes/radial_016__constant_reference__R0__w002_650nm.json": "3555ae29f3337837a0e8cbe8f1e8ff416bbea3f0d770890c85ef08e1bb01c5b0",
+    "optics/scenes/radial_016__constant_reference__R90__w000_450nm.json": "9205f89c8768730de01fa6a3274e31c96672515586215a67b56c7104eb3f0a3b",
+    "optics/scenes/radial_016__constant_reference__R90__w001_550nm.json": "0c8991f1c9ea7397f5bd4b0ed33cd08f6d305f7e6a5a08b02631a7582d947e51",
+    "optics/scenes/radial_016__constant_reference__R90__w002_650nm.json": "b716561c17fc93367fb9c4dac6ba3959cb7a33102cfd8ed87fc759b253450062",
+    "optics/scenes/radial_016__constant_reference__T45__w000_450nm.json": "f9c2fa592c01344dfd9a67f7a54763ea9e451f4137f3f928a212106f8ba2047f",
+    "optics/scenes/radial_016__constant_reference__T45__w001_550nm.json": "6d497812e4f12db655d92758a637a40fae8e71d7f963170c4322c1cbf5da2130",
+    "optics/scenes/radial_016__constant_reference__T45__w002_650nm.json": "f1eaa38edf896856b0037425e102018d81090a00a2e1db0a424b83f559cb4146",
+    "optics/scenes/radial_016__incompressible_segments__R0__w000_450nm.json": "0590ce80f03bcf44a92bf1ab2661965d1ecd32b53f760b9bc7dec57fd6264fd8",
+    "optics/scenes/radial_016__incompressible_segments__R0__w001_550nm.json": "12336ecf73c4b7082f1e779b9156ba52fad1f9db3a1167d89e459bb3c49d6b9a",
+    "optics/scenes/radial_016__incompressible_segments__R0__w002_650nm.json": "ebc1214335a972205abddf61b9888e7ea8b812ebf8cd3e5943b06ae98507c533",
+    "optics/scenes/radial_016__incompressible_segments__R90__w000_450nm.json": "ca974fb555e6bac37f6b0c3240d9addf16ff6c504e6142f479e829813518ff45",
+    "optics/scenes/radial_016__incompressible_segments__R90__w001_550nm.json": "9b0a80c116f9c80874fde925f6e8b2b0b769e2ef2e03d0260c242c6e2b824568",
+    "optics/scenes/radial_016__incompressible_segments__R90__w002_650nm.json": "e190a49f61bd2a68a64a50f06a44ef7a4ac2c8a819ec5f505fb4aa62ed53e1c5",
+    "optics/scenes/radial_016__incompressible_segments__T45__w000_450nm.json": "59851ecd86c8c41310b202d24c8c7794956627d61374b043e8c9e0361c435bcb",
+    "optics/scenes/radial_016__incompressible_segments__T45__w001_550nm.json": "d122a8c102ec9212cc9669df9289cd223f61835674907db28f438020f507bab4",
+    "optics/scenes/radial_016__incompressible_segments__T45__w002_650nm.json": "3bc535abc81b001f0db851e47fed9e4372eab7d3586452b2ed740e5dded06061",
+    "optics/scenes/radial_032__constant_reference__R0__w000_450nm.json": "ca7a23990d032588dcbfb59ca23548b0b6e680863ea1b9b71c06363d58de4317",
+    "optics/scenes/radial_032__constant_reference__R0__w001_550nm.json": "6f9eb0650b81c09c88ae06daa2b52fe2b452f2e1302d72c865271dbb0056d56a",
+    "optics/scenes/radial_032__constant_reference__R0__w002_650nm.json": "b2a20f59f7f6b9dccfdb070ddf0ce41ca47f32fe71838612e43e6bd7c045a394",
+    "optics/scenes/radial_032__constant_reference__R90__w000_450nm.json": "acafa37f84bff53077db5d2a61858e2f638e576095f732c90365d614b308bfb7",
+    "optics/scenes/radial_032__constant_reference__R90__w001_550nm.json": "eaffd5408a0e45d0f9cbf67053220dde427cc76763f969be92e6ed4577d0d1db",
+    "optics/scenes/radial_032__constant_reference__R90__w002_650nm.json": "5104a0b93c7ef0d7486f512bf5363a52e5dc799b473b008d293df04365b17d76",
+    "optics/scenes/radial_032__constant_reference__T45__w000_450nm.json": "6ca8ce0e4387ef429c40caf2f5afd7f69b145bdd98d29ef3fb8c5ca0b2c3257e",
+    "optics/scenes/radial_032__constant_reference__T45__w001_550nm.json": "5e02592d441cf8ff014a5d0fa94d6c1e6d6c8c11056e90484c0fed4a01922950",
+    "optics/scenes/radial_032__constant_reference__T45__w002_650nm.json": "f57f6cd6753aee4215009c46c65739005ef1e0a681dae3e4b966c31bb9fa2f9e",
+    "optics/scenes/radial_032__incompressible_segments__R0__w000_450nm.json": "5bf8bc94782a00f1125e6b3815deaa2e5059f7ddd429e84aafffe7e8ebdf1060",
+    "optics/scenes/radial_032__incompressible_segments__R0__w001_550nm.json": "c00daa690a1bf0e2ce08dbbea3572760b36775436efd5ad76097a41d7fb11134",
+    "optics/scenes/radial_032__incompressible_segments__R0__w002_650nm.json": "8ad19979593c9c3462c52982aaf0c4e56380b2a90d9e728d2edc9210e5c17807",
+    "optics/scenes/radial_032__incompressible_segments__R90__w000_450nm.json": "6459f8cf3c5f619982c1068455df0c18677aa63b8ee9a5954c25e89ada0dcc5c",
+    "optics/scenes/radial_032__incompressible_segments__R90__w001_550nm.json": "4caccdb13c2c5973e1a90871767372a24b60c4e30b0b5e135e235aec17c8fc69",
+    "optics/scenes/radial_032__incompressible_segments__R90__w002_650nm.json": "eff4f084a4999dd897c192dde35a0d339110c5bbf4f8799a40b2c9e922b19cfe",
+    "optics/scenes/radial_032__incompressible_segments__T45__w000_450nm.json": "a54f88ee6e3306cd58ef4ce81e87c49a3d50399576525f8db651a964a2d1f2ae",
+    "optics/scenes/radial_032__incompressible_segments__T45__w001_550nm.json": "eed1d5e245549fa0447cfab7b7b1c3e9c54c210dac077481561480eea2c8f602",
+    "optics/scenes/radial_032__incompressible_segments__T45__w002_650nm.json": "edac47d28cdba02246db4194d756f549bcfc343e2ef5015d45a877b7007f41d8",
+    "optics/scenes/radial_064__constant_reference__R0__w000_450nm.json": "97afe46fc737a1bc027cd38a6b5179949b0a39c373e781adf1b79dc9b1de3def",
+    "optics/scenes/radial_064__constant_reference__R0__w001_550nm.json": "c14dcd4a05826cbf3b85808fbb66d92ff16f6f6270b785b16a588a1fece393f3",
+    "optics/scenes/radial_064__constant_reference__R0__w002_650nm.json": "ab610eadc866f52462b87b5ccaa42a0763bcc5baeb156d2cf2aaf164fad28e41",
+    "optics/scenes/radial_064__constant_reference__R90__w000_450nm.json": "553dc25700daa35ba411008a585599921b8dc8cf4d9eecfa2f0fe9ff390ab858",
+    "optics/scenes/radial_064__constant_reference__R90__w001_550nm.json": "fab5ec8b0738947ea19b927e1928f9efd32218902eea493ee9758b7c9ec3b8df",
+    "optics/scenes/radial_064__constant_reference__R90__w002_650nm.json": "3c2ba04142c45500ccfbe898ac1e962f4aaf851cd9d3b10381f7714cb4d3f0e4",
+    "optics/scenes/radial_064__constant_reference__T45__w000_450nm.json": "b2a84d4180a26459f74f8d9fea574b8b75fbe5383b1154a5137eac3b207c25e5",
+    "optics/scenes/radial_064__constant_reference__T45__w001_550nm.json": "33f20f1e245ed23e6154c28221081f7f0877479c98f413f0c92e96183746035d",
+    "optics/scenes/radial_064__constant_reference__T45__w002_650nm.json": "4b1b6259071876601fe14ad851cc0e16412bd4b575d7a132f70e56c919c9463f",
+    "optics/scenes/radial_064__incompressible_segments__R0__w000_450nm.json": "d09788f3cd68591332a8a772347469987b0fa9741b767002b987613f5c91c293",
+    "optics/scenes/radial_064__incompressible_segments__R0__w001_550nm.json": "cc037524c13639e3d159868e174a2f95b8bf458233c448443df225aeffa07be4",
+    "optics/scenes/radial_064__incompressible_segments__R0__w002_650nm.json": "a3752899d586407e853ef5058f71319c9f90fe815e1bf49b3f56e8f8d3c8403f",
+    "optics/scenes/radial_064__incompressible_segments__R90__w000_450nm.json": "64243d887b399635cacd3856541ed46dbcd33f7a68d0d0535ac067e6529d13cb",
+    "optics/scenes/radial_064__incompressible_segments__R90__w001_550nm.json": "7aae2d005d75a7b8c73cb2d419cffb0772c2f47a62c6b1182a7022409caa7cda",
+    "optics/scenes/radial_064__incompressible_segments__R90__w002_650nm.json": "c38b7523060b55de4bf10d913b2e0c37c1016b46e28a61a4ede5a97c58f383bd",
+    "optics/scenes/radial_064__incompressible_segments__T45__w000_450nm.json": "f6bdcca25aea1c7652f1558c7f358e4b515ea968554a3cdbe2e6ce29d81a8be0",
+    "optics/scenes/radial_064__incompressible_segments__T45__w001_550nm.json": "8a230a9249e53c2a05ed45c9987e96a60d57ca5222047a9f731e520879e48ba5",
+    "optics/scenes/radial_064__incompressible_segments__T45__w002_650nm.json": "23663b1d9f5a68803bde4eff46f1ba88b2e13795f4442a71872f4f8ed7da6836",
+    "optics/spectral_radiance.npz": "7e677abb8d777bab68044033de22d114a279be11b79cc239af8afe18cf4f1728",
+    "optics/synthetic_material_spectra.json": "a819eab70a15ee3314c947ce9db3b1dcc41a4bc4c00e12b12cdb57cd11dac0cf",
+    "profiles/constant_reference/variable_radius_profiles.json": "a387f09f61c8fc5be02580a666e4e0303715d848c21b54d166cc8bce5c4b8cba",
+    "profiles/constant_reference/variable_radius_profiles.npz": "64f72da771c234970e65f36056ce71c610b9ebacf494c12e39daa7c1bc63c9cf",
+    "profiles/incompressible_segments/variable_radius_profiles.json": "00d7d66d868f0720af7c805b8742a8d660dd4bae6a204bac3be376ab9b06e488",
+    "profiles/incompressible_segments/variable_radius_profiles.npz": "4febe40b58a05fdd0410c394114a6e7b56e0a506f9e69a4957be82812a69ffb1"
+  }
+}

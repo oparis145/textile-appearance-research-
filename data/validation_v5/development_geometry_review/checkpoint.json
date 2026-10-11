@@ -1,0 +1,14 @@
+{
+  "schema_version": "v5_development_evidence_checkpoint",
+  "origin": "scratch_runs/v5_review_pilot",
+  "copied_utc": "2026-10-11T15:59:20.549114+00:00",
+  "scope": "Original bytes preserved; old script path assumptions are historical. Use complete current source-audit appendix or final verifier for portable reproduction. Development tests are not additional final render replicas.",
+  "files_sha256": {
+    "actual_profile_review.json": "1f3185c0c79ff003a175fdac66767ca26552eb561b8e726497e395edd8d262eb",
+    "actual_profile_review.log": "1f3185c0c79ff003a175fdac66767ca26552eb561b8e726497e395edd8d262eb",
+    "independent_tests_post_seed_fix.log": "483ee2168ca7e1e06a3ffd2365810d3080549c2438b666962f2a510625c58896",
+    "independent_tests_pre_fix.log": "c263e05779c0a216a6d2d17513a210c6d27aa01f6379b3b2846f453178bb7471",
+    "original_review_script.py.txt": "3ab6445ec9689bc5c68329dd9ad54bb0ef5a94590a1a5c6cd7fccf97865b698c",
+    "seed_failure_observation.json": "dce39d575476777cb90a5c73c12547cdac16a38c0b8a4112f3021d254a6bf262"
+  }
+}

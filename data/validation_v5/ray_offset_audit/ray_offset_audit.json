@@ -1,0 +1,57 @@
+{
+  "schema": "textile.volume_optics_ray_offset_audit/5.0",
+  "created_utc": "2026-10-11T15:49:34.413732+00:00",
+  "runtime": {
+    "mitsuba": "3.9.1",
+    "variant": "llvm_ad_rgb"
+  },
+  "producer_source_sha256": {
+    "textile_sim/volume_optics.py": "7df5e6dec3167f519e5cfcda576b3c96f03034f7969e32dcb35f51316d32053e",
+    "textile_sim/variable_radius.py": "811d72412723f1b4dbd51644aaf0e7ff0cb96a9e6500f3b022424161c44fb9e4",
+    "textile_sim/hierarchy.py": "0ccea74ef08c735cbcf9c22682bd7a51a59423efb9599e743d23f1cb08ca3a73",
+    "textile_sim/weave_draft.py": "13704a2ade4f6ea7c9f43de0c23e077861c2094fbcd937ec13ca3b2d52efc540",
+    "textile_sim/optical_scene.py": "8575c32cba21d784c1b6d19d3fa66723e0331d4a1be99756322efd488044e061",
+    "textile_sim/render.py": "704c6052f0e22e0b0644137d1960fd175126ad7ed801f396163056aa6ade5ac9",
+    "run_volume_optics_validation_v5.py": "de27675c24748e17a80c2e364fbacdb59b707b7f5d0833719bdfd87f70984031"
+  },
+  "appendix_source_sha256": "c7385e45b6d3e909fd7d97a5d0f15c9841d01c435f9bbd9d553c302cdc7002ec",
+  "actual_render_calls": 0,
+  "actual_intersection_queries": 4,
+  "rows": [
+    {
+      "length_scale": 1.0,
+      "scene_sha256": "9cfc516af5f1018d16cc1a841d6b00339c99f96f7ed24e74ae0ba5b8434056b6",
+      "entry_position": [
+        0.029999997466802597,
+        0.019999999552965164,
+        1.0
+      ],
+      "spawned_ray_origin": [
+        0.029999997466802597,
+        0.019999999552965164,
+        0.9998211860656738
+      ],
+      "measured_internal_path_mm": 0.999821126461029,
+      "absorption_per_mm": 0.75,
+      "expected_using_measured_path": 0.47242992739967343
+    },
+    {
+      "length_scale": 8.0,
+      "scene_sha256": "8f5da1f2cfc31445e61313476742e929480cb3951845143e09e240602bd1388a",
+      "entry_position": [
+        0.23999997973442078,
+        0.1599999964237213,
+        8.0
+      ],
+      "spawned_ray_origin": [
+        0.23999997973442078,
+        0.1599999964237213,
+        7.999195575714111
+      ],
+      "measured_internal_path_mm": 7.999195098876953,
+      "absorption_per_mm": 0.09375,
+      "expected_using_measured_path": 0.4724021986204817
+    }
+  ],
+  "predicted_scaled_minus_baseline": -2.772877919171579e-05
+}

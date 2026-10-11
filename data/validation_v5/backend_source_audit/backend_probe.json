@@ -1,0 +1,152 @@
+{
+  "runtime_version": "3.9.1",
+  "variant": "llvm_ad_rgb",
+  "probe_source_sha256": "ecbb5de83f474c8856052436d90fdd3a95567e91df05cf486e75cc42d5ccb960",
+  "curve_file_sha256": "a45bb07529b7948c1367c6065c797d32c90caccebabcd3afa155a68ad23a9dbe",
+  "queries": [
+    {
+      "curve": 0,
+      "z": 0.05,
+      "expected_radius": 0.20500000000000002,
+      "observed_radius": 0.20500004291534424,
+      "expected_global_v": 0.025,
+      "observed_global_v": 0.024999992921948433,
+      "primitive_index": 0,
+      "surface_normal": [
+        0.9950372576713562,
+        0.0,
+        -0.09950369596481323
+      ]
+    },
+    {
+      "curve": 0,
+      "z": 0.25,
+      "expected_radius": 0.225,
+      "observed_radius": 0.2250000238418579,
+      "expected_global_v": 0.125,
+      "observed_global_v": 0.1249999925494194,
+      "primitive_index": 0,
+      "surface_normal": [
+        0.9950371980667114,
+        0.0,
+        -0.09950366616249084
+      ]
+    },
+    {
+      "curve": 0,
+      "z": 0.5,
+      "expected_radius": 0.25,
+      "observed_radius": 0.25,
+      "expected_global_v": 0.25,
+      "observed_global_v": 0.25,
+      "primitive_index": 0,
+      "surface_normal": [
+        0.9950371980667114,
+        0.0,
+        -0.09950372576713562
+      ]
+    },
+    {
+      "curve": 0,
+      "z": 0.75,
+      "expected_radius": 0.275,
+      "observed_radius": 0.27500003576278687,
+      "expected_global_v": 0.375,
+      "observed_global_v": 0.375,
+      "primitive_index": 0,
+      "surface_normal": [
+        0.9950371980667114,
+        0.0,
+        -0.09950372576713562
+      ]
+    },
+    {
+      "curve": 0,
+      "z": 0.95,
+      "expected_radius": 0.29500000000000004,
+      "observed_radius": 0.29499995708465576,
+      "expected_global_v": 0.475,
+      "observed_global_v": 0.4749999940395355,
+      "primitive_index": 0,
+      "surface_normal": [
+        0.9950371980667114,
+        0.0,
+        -0.0995037630200386
+      ]
+    },
+    {
+      "curve": 1,
+      "z": 0.05,
+      "expected_radius": 0.405,
+      "observed_radius": 0.4050002098083496,
+      "expected_global_v": 0.525,
+      "observed_global_v": 0.5249999761581421,
+      "primitive_index": 1,
+      "surface_normal": [
+        0.9950372576713562,
+        0.0,
+        -0.09950366616249084
+      ]
+    },
+    {
+      "curve": 1,
+      "z": 0.25,
+      "expected_radius": 0.42500000000000004,
+      "observed_radius": 0.4250001907348633,
+      "expected_global_v": 0.625,
+      "observed_global_v": 0.625,
+      "primitive_index": 1,
+      "surface_normal": [
+        0.9950371980667114,
+        0.0,
+        -0.09950364381074905
+      ]
+    },
+    {
+      "curve": 1,
+      "z": 0.5,
+      "expected_radius": 0.45,
+      "observed_radius": 0.4500000476837158,
+      "expected_global_v": 0.75,
+      "observed_global_v": 0.75,
+      "primitive_index": 1,
+      "surface_normal": [
+        0.9950371980667114,
+        0.0,
+        -0.09950372576713562
+      ]
+    },
+    {
+      "curve": 1,
+      "z": 0.75,
+      "expected_radius": 0.47500000000000003,
+      "observed_radius": 0.47499990463256836,
+      "expected_global_v": 0.875,
+      "observed_global_v": 0.875,
+      "primitive_index": 1,
+      "surface_normal": [
+        0.9950371384620667,
+        0.0,
+        -0.09950374066829681
+      ]
+    },
+    {
+      "curve": 1,
+      "z": 0.95,
+      "expected_radius": 0.495,
+      "observed_radius": 0.49499988555908203,
+      "expected_global_v": 0.975,
+      "observed_global_v": 0.9750000238418579,
+      "primitive_index": 1,
+      "surface_normal": [
+        0.9950371980667114,
+        0.0,
+        -0.09950374066829681
+      ]
+    }
+  ],
+  "inside_curve_reports_boundary": false,
+  "inside_cube_reports_boundary": true,
+  "max_radius_error": 2.0980834958272965e-07,
+  "max_global_v_error": 2.384185793236071e-08
+}

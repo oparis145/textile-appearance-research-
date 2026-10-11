@@ -1,0 +1,771 @@
+{
+  "schema_version": "variable_radius_artifact_verification_v5.0",
+  "status": "passed",
+  "producer": {
+    "status": "passed",
+    "output_files_hash_verified": 12,
+    "source_input_unchanged_during_production_declared": true,
+    "current_source_code_hashes_independently_rechecked": false
+  },
+  "source_input": {
+    "external_source_inputs_rechecked": true,
+    "input_files_hash_verified": 4,
+    "reference_sha256": "9a2f514db5435641a42ec414ca8b7ef32589d3cad354e784243372b00f692987",
+    "state_sha256": {
+      "constant_reference": "e5463d492e8a481a6de5f7be9e07ab91b074a7a27dd2b2f6c8aba1cb1d0aae0e",
+      "incompressible_segments": "b5ba5938cc040b13ef0eba3537d45127b37b8bc8e2f80620575a91a0d82cd7f0"
+    },
+    "scope": "Core v4 material map reapplied to explicitly supplied saved mechanics data; no experiment driver import."
+  },
+  "profiles": {
+    "constant_reference": {
+      "fiber_count": 42,
+      "fibers": [
+        {
+          "fiber_id": "warp:0000:warp_yarn/p/f0000",
+          "profile_sha256": "8633a7c9a65026a60335cd70a2cc7a21f23bdb88e3a95a9e7767737ba54cd77f",
+          "node_radius_min_mm": 0.0029999999999999996,
+          "node_radius_max_mm": 0.0030000000000000005,
+          "min_segment_relative_volume_error": -3.3306690738754696e-16,
+          "max_segment_relative_volume_error": 4.440892098500626e-16
+        },
+        {
+          "fiber_id": "warp:0000:warp_yarn/p/f0001",
+          "profile_sha256": "f049fe574e7d5971289e418d301582fda80c4dfef01e87b2af561954e52e59ae",
+          "node_radius_min_mm": 0.0029999999999999996,
+          "node_radius_max_mm": 0.0030000000000000005,
+          "min_segment_relative_volume_error": -2.220446049250313e-16,
+          "max_segment_relative_volume_error": 4.440892098500626e-16
+        },
+        {
+          "fiber_id": "warp:0000:warp_yarn/p/f0002",
+          "profile_sha256": "24b53db780942214164b6331b88e53296a798b76456d374935ca455eb5fd3efa",
+          "node_radius_min_mm": 0.0029999999999999996,
+          "node_radius_max_mm": 0.0030000000000000005,
+          "min_segment_relative_volume_error": -3.3306690738754696e-16,
+          "max_segment_relative_volume_error": 6.661338147750939e-16
+        },
+        {
+          "fiber_id": "warp:0000:warp_yarn/p/f0003",
+          "profile_sha256": "d720a54e9742158b0f1b7312a8ebb0438ca194e8e52f07ab563a1e0624de2ffa",
+          "node_radius_min_mm": 0.0029999999999999996,
+          "node_radius_max_mm": 0.0030000000000000005,
+          "min_segment_relative_volume_error": -2.220446049250313e-16,
+          "max_segment_relative_volume_error": 4.440892098500626e-16
+        },
+        {
+          "fiber_id": "warp:0000:warp_yarn/p/f0004",
+          "profile_sha256": "4cd1b51530c071d9dfdb918f451709e7013e92b1aee84991abc8f40f8ea18b5a",
+          "node_radius_min_mm": 0.0029999999999999996,
+          "node_radius_max_mm": 0.0030000000000000005,
+          "min_segment_relative_volume_error": -3.3306690738754696e-16,
+          "max_segment_relative_volume_error": 4.440892098500626e-16
+        },
+        {
+          "fiber_id": "warp:0000:warp_yarn/p/f0005",
+          "profile_sha256": "cb03ab522e19c710d050335ff18be5f87ed9e43021e9a99270fb78d80eaae41e",
+          "node_radius_min_mm": 0.0029999999999999996,
+          "node_radius_max_mm": 0.0030000000000000005,
+          "min_segment_relative_volume_error": -3.3306690738754696e-16,
+          "max_segment_relative_volume_error": 4.440892098500626e-16
+        },
+        {
+          "fiber_id": "warp:0000:warp_yarn/p/f0006",
+          "profile_sha256": "74403f27e55deba47571a8953ae3ad48fc7f2a829e6c49e4da1fdebadce5e200",
+          "node_radius_min_mm": 0.0029999999999999996,
+          "node_radius_max_mm": 0.0030000000000000005,
+          "min_segment_relative_volume_error": -3.3306690738754696e-16,
+          "max_segment_relative_volume_error": 4.440892098500626e-16
+        },
+        {
+          "fiber_id": "warp:0001:warp_yarn/p/f0000",
+          "profile_sha256": "1b3fe5c52537cb5fceb9336de0801a1d2f6f2ca0d466542cb330d6d90d84e8f6",
+          "node_radius_min_mm": 0.002999999999999999,
+          "node_radius_max_mm": 0.003,
+          "min_segment_relative_volume_error": -5.551115123125783e-16,
+          "max_segment_relative_volume_error": 0.0
+        },
+        {
+          "fiber_id": "warp:0001:warp_yarn/p/f0001",
+          "profile_sha256": "8f01cc649a274c682317337afc252f3ae40d624d1379799336532184bc079cb3",
+          "node_radius_min_mm": 0.0029999999999999996,
+          "node_radius_max_mm": 0.0030000000000000005,
+          "min_segment_relative_volume_error": -2.220446049250313e-16,
+          "max_segment_relative_volume_error": 6.661338147750939e-16
+        },
+        {
+          "fiber_id": "warp:0001:warp_yarn/p/f0002",
+          "profile_sha256": "3f40c68058b99bed4a1276adfe7871bb0a61c537690367bd06b2f1a0f1520a1f",
+          "node_radius_min_mm": 0.0029999999999999996,
+          "node_radius_max_mm": 0.0030000000000000005,
+          "min_segment_relative_volume_error": -2.220446049250313e-16,
+          "max_segment_relative_volume_error": 4.440892098500626e-16
+        },
+        {
+          "fiber_id": "warp:0001:warp_yarn/p/f0003",
+          "profile_sha256": "5a5256dce13035a67702c4f7432beadf9924ff29daee861f61a9d417909c5e42",
+          "node_radius_min_mm": 0.0029999999999999996,
+          "node_radius_max_mm": 0.0030000000000000005,
+          "min_segment_relative_volume_error": -2.220446049250313e-16,
+          "max_segment_relative_volume_error": 4.440892098500626e-16
+        },
+        {
+          "fiber_id": "warp:0001:warp_yarn/p/f0004",
+          "profile_sha256": "e729d29a5c063fccfaf3e73b0959330d587e3c80d1ca43728f237884465ccce7",
+          "node_radius_min_mm": 0.002999999999999999,
+          "node_radius_max_mm": 0.003,
+          "min_segment_relative_volume_error": -3.3306690738754696e-16,
+          "max_segment_relative_volume_error": 2.220446049250313e-16
+        },
+        {
+          "fiber_id": "warp:0001:warp_yarn/p/f0005",
+          "profile_sha256": "9516f886a3ddb1613324c11283329aba04ac1014cb3d5e6b2668ec621dbfec4e",
+          "node_radius_min_mm": 0.0029999999999999996,
+          "node_radius_max_mm": 0.0030000000000000005,
+          "min_segment_relative_volume_error": -3.3306690738754696e-16,
+          "max_segment_relative_volume_error": 6.661338147750939e-16
+        },
+        {
+          "fiber_id": "warp:0001:warp_yarn/p/f0006",
+          "profile_sha256": "fecda5f6f499652ec4f1038d75e2c2bf74292376402e9de37db55161244a9c52",
+          "node_radius_min_mm": 0.0029999999999999996,
+          "node_radius_max_mm": 0.0030000000000000005,
+          "min_segment_relative_volume_error": -2.220446049250313e-16,
+          "max_segment_relative_volume_error": 4.440892098500626e-16
+        },
+        {
+          "fiber_id": "warp:0002:warp_yarn/p/f0000",
+          "profile_sha256": "0ae92607b3c5d61f46e376a25b4399854dddaa977f08b65ffe29ab982f91ea48",
+          "node_radius_min_mm": 0.0029999999999999996,
+          "node_radius_max_mm": 0.0030000000000000005,
+          "min_segment_relative_volume_error": -3.3306690738754696e-16,
+          "max_segment_relative_volume_error": 4.440892098500626e-16
+        },
+        {
+          "fiber_id": "warp:0002:warp_yarn/p/f0001",
+          "profile_sha256": "f3bf490641593ee31778a0e14a8d5be895ed54dde7996358679d0c2712efa3fe",
+          "node_radius_min_mm": 0.0029999999999999996,
+          "node_radius_max_mm": 0.0030000000000000005,
+          "min_segment_relative_volume_error": -2.220446049250313e-16,
+          "max_segment_relative_volume_error": 4.440892098500626e-16
+        },
+        {
+          "fiber_id": "warp:0002:warp_yarn/p/f0002",
+          "profile_sha256": "f6400293fe661914d6c4d4c5197f4ad86784021546dc94b05a1f5256d5605ebe",
+          "node_radius_min_mm": 0.0029999999999999996,
+          "node_radius_max_mm": 0.0030000000000000005,
+          "min_segment_relative_volume_error": -2.220446049250313e-16,
+          "max_segment_relative_volume_error": 6.661338147750939e-16
+        },
+        {
+          "fiber_id": "warp:0002:warp_yarn/p/f0003",
+          "profile_sha256": "4ad919c6cdf0a66fa42af965a1fe090f865704d5b202ebbf2d54bbfa98901bcb",
+          "node_radius_min_mm": 0.0029999999999999996,
+          "node_radius_max_mm": 0.0030000000000000005,
+          "min_segment_relative_volume_error": -2.220446049250313e-16,
+          "max_segment_relative_volume_error": 4.440892098500626e-16
+        },
+        {
+          "fiber_id": "warp:0002:warp_yarn/p/f0004",
+          "profile_sha256": "a3a8b04d36d52858c935188ac2d5d202c392a37ebef0c5c34aef200d1bb691c8",
+          "node_radius_min_mm": 0.0029999999999999996,
+          "node_radius_max_mm": 0.0030000000000000005,
+          "min_segment_relative_volume_error": -3.3306690738754696e-16,
+          "max_segment_relative_volume_error": 4.440892098500626e-16
+        },
+        {
+          "fiber_id": "warp:0002:warp_yarn/p/f0005",
+          "profile_sha256": "1c33b73a9c301144e5edefe16b1c465737304d31060604640a33338aabf0e5d7",
+          "node_radius_min_mm": 0.0029999999999999996,
+          "node_radius_max_mm": 0.0030000000000000005,
+          "min_segment_relative_volume_error": -3.3306690738754696e-16,
+          "max_segment_relative_volume_error": 4.440892098500626e-16
+        },
+        {
+          "fiber_id": "warp:0002:warp_yarn/p/f0006",
+          "profile_sha256": "202471dae991978ac668a3086d8fa25571ba3481453d5af5262a765fc8f40fc5",
+          "node_radius_min_mm": 0.0029999999999999996,
+          "node_radius_max_mm": 0.0030000000000000005,
+          "min_segment_relative_volume_error": -3.3306690738754696e-16,
+          "max_segment_relative_volume_error": 4.440892098500626e-16
+        },
+        {
+          "fiber_id": "weft:0000:weft_yarn/p/f0000",
+          "profile_sha256": "2138382b2903d29f3e5d1e659d1b7f181f2c66e26e483e8fda51a91bb9f2019a",
+          "node_radius_min_mm": 0.0029999999999999996,
+          "node_radius_max_mm": 0.0030000000000000005,
+          "min_segment_relative_volume_error": -2.220446049250313e-16,
+          "max_segment_relative_volume_error": 4.440892098500626e-16
+        },
+        {
+          "fiber_id": "weft:0000:weft_yarn/p/f0001",
+          "profile_sha256": "13f7ca9da248eb2d22c1d4cbc9f1a9c1546f5b241afa1cc3a2f0bb02568fb6ce",
+          "node_radius_min_mm": 0.0029999999999999996,
+          "node_radius_max_mm": 0.0030000000000000005,
+          "min_segment_relative_volume_error": -3.3306690738754696e-16,
+          "max_segment_relative_volume_error": 6.661338147750939e-16
+        },
+        {
+          "fiber_id": "weft:0000:weft_yarn/p/f0002",
+          "profile_sha256": "296506399f96b1506bac98840c86101383b68fae2a468b3bf09f138a0d4c9b13",
+          "node_radius_min_mm": 0.0029999999999999996,
+          "node_radius_max_mm": 0.0030000000000000005,
+          "min_segment_relative_volume_error": -2.220446049250313e-16,
+          "max_segment_relative_volume_error": 4.440892098500626e-16
+        },
+        {
+          "fiber_id": "weft:0000:weft_yarn/p/f0003",
+          "profile_sha256": "7eed95e7617fc526cbe6bd082e7fa041d81482516384a3b48efcf06e3acf1b54",
+          "node_radius_min_mm": 0.0029999999999999996,
+          "node_radius_max_mm": 0.0030000000000000005,
+          "min_segment_relative_volume_error": -2.220446049250313e-16,
+          "max_segment_relative_volume_error": 2.220446049250313e-16
+        },
+        {
+          "fiber_id": "weft:0000:weft_yarn/p/f0004",
+          "profile_sha256": "d70532ae1a15ce97a9a5e9c2a20721c3bc23fb05e57f805b85645171e641dc78",
+          "node_radius_min_mm": 0.0029999999999999996,
+          "node_radius_max_mm": 0.0030000000000000005,
+          "min_segment_relative_volume_error": -3.3306690738754696e-16,
+          "max_segment_relative_volume_error": 6.661338147750939e-16
+        },
+        {
+          "fiber_id": "weft:0000:weft_yarn/p/f0005",
+          "profile_sha256": "d3f1f365c8fbe6cd82e91f6d60981fbf0d87b8680ad54d851cc69872e6826106",
+          "node_radius_min_mm": 0.002999999999999999,
+          "node_radius_max_mm": 0.003,
+          "min_segment_relative_volume_error": -5.551115123125783e-16,
+          "max_segment_relative_volume_error": 2.220446049250313e-16
+        },
+        {
+          "fiber_id": "weft:0000:weft_yarn/p/f0006",
+          "profile_sha256": "184ff84aa6cc6b6047bd5544569e10e286082c4c3011e204902cbfc9a1124977",
+          "node_radius_min_mm": 0.0029999999999999996,
+          "node_radius_max_mm": 0.0030000000000000005,
+          "min_segment_relative_volume_error": -2.220446049250313e-16,
+          "max_segment_relative_volume_error": 4.440892098500626e-16
+        },
+        {
+          "fiber_id": "weft:0001:weft_yarn/p/f0000",
+          "profile_sha256": "8e796eb7974e3af410ec071928a55129d8a6c5ad5aaaf1de70ae33c8ff5903ee",
+          "node_radius_min_mm": 0.0029999999999999996,
+          "node_radius_max_mm": 0.0030000000000000005,
+          "min_segment_relative_volume_error": -2.220446049250313e-16,
+          "max_segment_relative_volume_error": 4.440892098500626e-16
+        },
+        {
+          "fiber_id": "weft:0001:weft_yarn/p/f0001",
+          "profile_sha256": "3c5e2323999093160a86f6f9b795c84e76ac67190e9ce6b2d00d6181c05ad66d",
+          "node_radius_min_mm": 0.0029999999999999996,
+          "node_radius_max_mm": 0.0030000000000000005,
+          "min_segment_relative_volume_error": -2.220446049250313e-16,
+          "max_segment_relative_volume_error": 4.440892098500626e-16
+        },
+        {
+          "fiber_id": "weft:0001:weft_yarn/p/f0002",
+          "profile_sha256": "813453d0a5304ecde99a2c08ddda8c4d58f20b31b07c0faf509f2c4f2bcfe5c6",
+          "node_radius_min_mm": 0.0029999999999999996,
+          "node_radius_max_mm": 0.0030000000000000005,
+          "min_segment_relative_volume_error": -2.220446049250313e-16,
+          "max_segment_relative_volume_error": 4.440892098500626e-16
+        },
+        {
+          "fiber_id": "weft:0001:weft_yarn/p/f0003",
+          "profile_sha256": "b36f7cdd524aca318590e61d91a91f89c23657872c41ccf06acbb3d34c8e0250",
+          "node_radius_min_mm": 0.0029999999999999996,
+          "node_radius_max_mm": 0.0030000000000000005,
+          "min_segment_relative_volume_error": -2.220446049250313e-16,
+          "max_segment_relative_volume_error": 6.661338147750939e-16
+        },
+        {
+          "fiber_id": "weft:0001:weft_yarn/p/f0004",
+          "profile_sha256": "1c3689f17bebb0ad0f9976d23752de9e619aa9d02e3e682c353c0dd9a25b77aa",
+          "node_radius_min_mm": 0.002999999999999999,
+          "node_radius_max_mm": 0.003,
+          "min_segment_relative_volume_error": -7.771561172376096e-16,
+          "max_segment_relative_volume_error": 2.220446049250313e-16
+        },
+        {
+          "fiber_id": "weft:0001:weft_yarn/p/f0005",
+          "profile_sha256": "04b9025a33d602de568e20ce8890d9fc599514f27544f94d0f062be79e3ec202",
+          "node_radius_min_mm": 0.0029999999999999996,
+          "node_radius_max_mm": 0.0030000000000000005,
+          "min_segment_relative_volume_error": -3.3306690738754696e-16,
+          "max_segment_relative_volume_error": 4.440892098500626e-16
+        },
+        {
+          "fiber_id": "weft:0001:weft_yarn/p/f0006",
+          "profile_sha256": "c0f60bec08654fbe847d6cdb4d09618297c565b9695082da43c759e479d61951",
+          "node_radius_min_mm": 0.0029999999999999996,
+          "node_radius_max_mm": 0.0030000000000000005,
+          "min_segment_relative_volume_error": -3.3306690738754696e-16,
+          "max_segment_relative_volume_error": 4.440892098500626e-16
+        },
+        {
+          "fiber_id": "weft:0002:weft_yarn/p/f0000",
+          "profile_sha256": "f34df71de6a618edf160874535dcb44526220d87c79db5d506cf03129fdb2f48",
+          "node_radius_min_mm": 0.0029999999999999996,
+          "node_radius_max_mm": 0.0030000000000000005,
+          "min_segment_relative_volume_error": -2.220446049250313e-16,
+          "max_segment_relative_volume_error": 4.440892098500626e-16
+        },
+        {
+          "fiber_id": "weft:0002:weft_yarn/p/f0001",
+          "profile_sha256": "277f1b658d3d8fa4b6e19efac437a8676e39e1acb4a5765d8cebacf0b3290726",
+          "node_radius_min_mm": 0.0029999999999999996,
+          "node_radius_max_mm": 0.0030000000000000005,
+          "min_segment_relative_volume_error": -2.220446049250313e-16,
+          "max_segment_relative_volume_error": 4.440892098500626e-16
+        },
+        {
+          "fiber_id": "weft:0002:weft_yarn/p/f0002",
+          "profile_sha256": "a092ded6b467eb8630f150f830e803ced7667cf2791a196a15686ec0d56461dc",
+          "node_radius_min_mm": 0.0029999999999999996,
+          "node_radius_max_mm": 0.0030000000000000005,
+          "min_segment_relative_volume_error": -2.220446049250313e-16,
+          "max_segment_relative_volume_error": 4.440892098500626e-16
+        },
+        {
+          "fiber_id": "weft:0002:weft_yarn/p/f0003",
+          "profile_sha256": "cae0cdcedfb199d00d29b203ad9b8579c4d447dac080db34e60254c5a99baf8a",
+          "node_radius_min_mm": 0.0029999999999999996,
+          "node_radius_max_mm": 0.0030000000000000005,
+          "min_segment_relative_volume_error": -2.220446049250313e-16,
+          "max_segment_relative_volume_error": 2.220446049250313e-16
+        },
+        {
+          "fiber_id": "weft:0002:weft_yarn/p/f0004",
+          "profile_sha256": "acfa42dbbfd26f10db12c921c82e16d6560f7182499d61df1144964a081fdf3c",
+          "node_radius_min_mm": 0.0029999999999999996,
+          "node_radius_max_mm": 0.0030000000000000005,
+          "min_segment_relative_volume_error": -2.220446049250313e-16,
+          "max_segment_relative_volume_error": 6.661338147750939e-16
+        },
+        {
+          "fiber_id": "weft:0002:weft_yarn/p/f0005",
+          "profile_sha256": "85bf0f2e12e63d14e29404d67a607c10c86eccb6a889a8d8379c8074a4b67750",
+          "node_radius_min_mm": 0.0029999999999999996,
+          "node_radius_max_mm": 0.0030000000000000005,
+          "min_segment_relative_volume_error": -3.3306690738754696e-16,
+          "max_segment_relative_volume_error": 4.440892098500626e-16
+        },
+        {
+          "fiber_id": "weft:0002:weft_yarn/p/f0006",
+          "profile_sha256": "83ac039c3bc5d31c2fa27f4116f058ce4fb899678eefdcd192c85b6657bfb029",
+          "node_radius_min_mm": 0.0029999999999999996,
+          "node_radius_max_mm": 0.0030000000000000005,
+          "min_segment_relative_volume_error": -2.220446049250313e-16,
+          "max_segment_relative_volume_error": 6.661338147750939e-16
+        }
+      ],
+      "source_cylinder_volume_proxy_mm3": 0.0011487614557629158,
+      "linear_radius_frustum_integral_mm3": 0.0011487614557629158
+    },
+    "incompressible_segments": {
+      "fiber_count": 42,
+      "fibers": [
+        {
+          "fiber_id": "warp:0000:warp_yarn/p/f0000",
+          "profile_sha256": "bd38cdbc36880a782845a36ec028c43b005094792e082419af288951c1ca2ce8",
+          "node_radius_min_mm": 0.002937541578652307,
+          "node_radius_max_mm": 0.0030638354349344313,
+          "min_segment_relative_volume_error": -0.012219067448191456,
+          "max_segment_relative_volume_error": 0.015515096989694888
+        },
+        {
+          "fiber_id": "warp:0000:warp_yarn/p/f0001",
+          "profile_sha256": "c22bc3bec42eb29c1c0fb6a497aca45bda124545cabffd1625b30888ce83fc36",
+          "node_radius_min_mm": 0.0029133586751499112,
+          "node_radius_max_mm": 0.0031034620346906457,
+          "min_segment_relative_volume_error": -0.016895144996146416,
+          "max_segment_relative_volume_error": 0.01993628882099885
+        },
+        {
+          "fiber_id": "warp:0000:warp_yarn/p/f0002",
+          "profile_sha256": "bd03df2c07c0768ac56efef090e15ee4148fb2140d8fc4f2c50dccfacf07fec5",
+          "node_radius_min_mm": 0.0029390005047044117,
+          "node_radius_max_mm": 0.0031020144173792524,
+          "min_segment_relative_volume_error": -0.016859071939407166,
+          "max_segment_relative_volume_error": 0.01516708304863279
+        },
+        {
+          "fiber_id": "warp:0000:warp_yarn/p/f0003",
+          "profile_sha256": "60bc02f33c5cc45f6e31c792564b17a79f27758c4d97a45c49840b947168b6bf",
+          "node_radius_min_mm": 0.0029977669250393977,
+          "node_radius_max_mm": 0.0030357669095868703,
+          "min_segment_relative_volume_error": -0.0026242090453064693,
+          "max_segment_relative_volume_error": 0.002651136604748805
+        },
+        {
+          "fiber_id": "warp:0000:warp_yarn/p/f0004",
+          "profile_sha256": "c85294fd076b7fe3b610b0de9350fe450a462e63bcb58344b707e8f9c0540cfa",
+          "node_radius_min_mm": 0.002918115687430203,
+          "node_radius_max_mm": 0.0030809443660306927,
+          "min_segment_relative_volume_error": -0.015345582352269127,
+          "max_segment_relative_volume_error": 0.019039867729732762
+        },
+        {
+          "fiber_id": "warp:0000:warp_yarn/p/f0005",
+          "profile_sha256": "3d87f137e8dadb6f159cf2263d4f9f8c8a947ecb779bef9ad3a632bab78ce4cb",
+          "node_radius_min_mm": 0.002916998802469042,
+          "node_radius_max_mm": 0.00310636117441849,
+          "min_segment_relative_volume_error": -0.017527188779830505,
+          "max_segment_relative_volume_error": 0.019404066242091567
+        },
+        {
+          "fiber_id": "warp:0000:warp_yarn/p/f0006",
+          "profile_sha256": "5ec04d6f674bad5e48e8bed62ade252c0a51337df1cdda8d8c394993dcfce8ee",
+          "node_radius_min_mm": 0.002938640168573596,
+          "node_radius_max_mm": 0.003084090873479642,
+          "min_segment_relative_volume_error": -0.014118407557799806,
+          "max_segment_relative_volume_error": 0.012105985250210338
+        },
+        {
+          "fiber_id": "warp:0001:warp_yarn/p/f0000",
+          "profile_sha256": "19aa18bcdc123381e1f99218953ca3c03d2661cc683d991ddd46734dc3690cf3",
+          "node_radius_min_mm": 0.002934489893645623,
+          "node_radius_max_mm": 0.003077714593374251,
+          "min_segment_relative_volume_error": -0.013413685876433878,
+          "max_segment_relative_volume_error": 0.012041328927935524
+        },
+        {
+          "fiber_id": "warp:0001:warp_yarn/p/f0001",
+          "profile_sha256": "2b09839071e4aee2fb0ff70508f404064c64dd6c6547c76d284d3ff7d30d04bb",
+          "node_radius_min_mm": 0.0029248863035448314,
+          "node_radius_max_mm": 0.0030987947819056884,
+          "min_segment_relative_volume_error": -0.016648282926262414,
+          "max_segment_relative_volume_error": 0.01753856099362361
+        },
+        {
+          "fiber_id": "warp:0001:warp_yarn/p/f0002",
+          "profile_sha256": "51049ecd4e1b88f3460572e9f7bc86cfaad10d3aca5b209bf68a92eeb8cf1668",
+          "node_radius_min_mm": 0.0029198766352758684,
+          "node_radius_max_mm": 0.0030720406757634476,
+          "min_segment_relative_volume_error": -0.014619094192536708,
+          "max_segment_relative_volume_error": 0.018133241533101696
+        },
+        {
+          "fiber_id": "warp:0001:warp_yarn/p/f0003",
+          "profile_sha256": "541210b37e958d511270280ab941c705ac22a3db45c3d9b0754189b4d36728cd",
+          "node_radius_min_mm": 0.002995750007420665,
+          "node_radius_max_mm": 0.003032717960547903,
+          "min_segment_relative_volume_error": -0.0024983571451637765,
+          "max_segment_relative_volume_error": 0.002522537713919748
+        },
+        {
+          "fiber_id": "warp:0001:warp_yarn/p/f0004",
+          "profile_sha256": "2f099500c58388d36279ff73b742d4a830fd796c5f7f32b86851b40b3c4c2b88",
+          "node_radius_min_mm": 0.002934863339945183,
+          "node_radius_max_mm": 0.003094682675599803,
+          "min_segment_relative_volume_error": -0.016013743832319238,
+          "max_segment_relative_volume_error": 0.014409129001305088
+        },
+        {
+          "fiber_id": "warp:0001:warp_yarn/p/f0005",
+          "profile_sha256": "f1a320d5a2f794f7e8a6dec9914927618865b6534f43bc10c453283c5e220415",
+          "node_radius_min_mm": 0.002915333648703161,
+          "node_radius_max_mm": 0.003092057648088325,
+          "min_segment_relative_volume_error": -0.015344551790047234,
+          "max_segment_relative_volume_error": 0.01898893727884232
+        },
+        {
+          "fiber_id": "warp:0001:warp_yarn/p/f0006",
+          "profile_sha256": "1b7b6df070152aa6887c2f10be8ae51985c22221e5ae086b20496402ab78cc51",
+          "node_radius_min_mm": 0.0029384154609502864,
+          "node_radius_max_mm": 0.0030647570548105484,
+          "min_segment_relative_volume_error": -0.011637250835124568,
+          "max_segment_relative_volume_error": 0.014770851229960691
+        },
+        {
+          "fiber_id": "warp:0002:warp_yarn/p/f0000",
+          "profile_sha256": "1be20283fbfab0bfdc70e58617d8138f2608a8c9c365878fd9dddd8a019f21bf",
+          "node_radius_min_mm": 0.002937541578652308,
+          "node_radius_max_mm": 0.003063835434934432,
+          "min_segment_relative_volume_error": -0.012219067448193677,
+          "max_segment_relative_volume_error": 0.01551509698968645
+        },
+        {
+          "fiber_id": "warp:0002:warp_yarn/p/f0001",
+          "profile_sha256": "c9773dfca8ea1989270b82c497891da3767a4a1b67074b16e38d1fe9913b9053",
+          "node_radius_min_mm": 0.0029133586751499112,
+          "node_radius_max_mm": 0.0031034620346906457,
+          "min_segment_relative_volume_error": -0.016895144996146416,
+          "max_segment_relative_volume_error": 0.01993628882099885
+        },
+        {
+          "fiber_id": "warp:0002:warp_yarn/p/f0002",
+          "profile_sha256": "1906ec9b49bcb2f948d99a0138064b8df99a6c642a834280a091cab40136abb9",
+          "node_radius_min_mm": 0.0029390005047044117,
+          "node_radius_max_mm": 0.0031020144173792524,
+          "min_segment_relative_volume_error": -0.016859071939407166,
+          "max_segment_relative_volume_error": 0.01516708304863279
+        },
+        {
+          "fiber_id": "warp:0002:warp_yarn/p/f0003",
+          "profile_sha256": "5dbb63364c203cfc51411414964417ce23742e301bb6079637f17a622bea2d22",
+          "node_radius_min_mm": 0.0029977669250393977,
+          "node_radius_max_mm": 0.0030357669095868703,
+          "min_segment_relative_volume_error": -0.0026242090453064693,
+          "max_segment_relative_volume_error": 0.002651136604748805
+        },
+        {
+          "fiber_id": "warp:0002:warp_yarn/p/f0004",
+          "profile_sha256": "3d69a7204a75cbb8d1422030f6f1445170c92a1a12eb4941525736709f59098d",
+          "node_radius_min_mm": 0.0029181156874302024,
+          "node_radius_max_mm": 0.0030809443660306923,
+          "min_segment_relative_volume_error": -0.015345582352269571,
+          "max_segment_relative_volume_error": 0.019039867729732318
+        },
+        {
+          "fiber_id": "warp:0002:warp_yarn/p/f0005",
+          "profile_sha256": "e5d9b97182cd7049561b94668429d6b68113f0f8181c5114c7d16ca10d584670",
+          "node_radius_min_mm": 0.0029169988024690336,
+          "node_radius_max_mm": 0.00310636117441849,
+          "min_segment_relative_volume_error": -0.017527188779830505,
+          "max_segment_relative_volume_error": 0.019404066242089124
+        },
+        {
+          "fiber_id": "warp:0002:warp_yarn/p/f0006",
+          "profile_sha256": "b4f5c5aac946c1c1899ca43d8a4a259e1d08c7e766f8238b46f65f4b8038e109",
+          "node_radius_min_mm": 0.002938640168573596,
+          "node_radius_max_mm": 0.003084090873479642,
+          "min_segment_relative_volume_error": -0.014118407557807688,
+          "max_segment_relative_volume_error": 0.01210598525020723
+        },
+        {
+          "fiber_id": "weft:0000:weft_yarn/p/f0000",
+          "profile_sha256": "6fd651d8ed79471afa67a67e76ecf2e96f844334526155c255ac0331e84a3b8e",
+          "node_radius_min_mm": 0.002911471409773046,
+          "node_radius_max_mm": 0.0030543653116508716,
+          "min_segment_relative_volume_error": -0.013699545730560425,
+          "max_segment_relative_volume_error": 0.01577857932627369
+        },
+        {
+          "fiber_id": "weft:0000:weft_yarn/p/f0001",
+          "profile_sha256": "06ad70b5c61617bbf6fffc39e6226497b798b7245ed9d02d03c64f57268ae2c7",
+          "node_radius_min_mm": 0.0028995538488464337,
+          "node_radius_max_mm": 0.003098473777915478,
+          "min_segment_relative_volume_error": -0.020156672270417397,
+          "max_segment_relative_volume_error": 0.01733110255559911
+        },
+        {
+          "fiber_id": "weft:0000:weft_yarn/p/f0002",
+          "profile_sha256": "1b2e057a3543792487c3af50cb5da295b7763b267eb17334dc5f71ef253bf29a",
+          "node_radius_min_mm": 0.0029040710055672817,
+          "node_radius_max_mm": 0.0031746354664208437,
+          "min_segment_relative_volume_error": -0.029513247826166156,
+          "max_segment_relative_volume_error": 0.02838928412647479
+        },
+        {
+          "fiber_id": "weft:0000:weft_yarn/p/f0003",
+          "profile_sha256": "6260e94907de9e33601341ddd57973ba5c7477081e4a9619fd7b0ef1bbc6877b",
+          "node_radius_min_mm": 0.0029771822110364666,
+          "node_radius_max_mm": 0.0030015429731726083,
+          "min_segment_relative_volume_error": -0.002387880797894981,
+          "max_segment_relative_volume_error": 0.002385909167105904
+        },
+        {
+          "fiber_id": "weft:0000:weft_yarn/p/f0004",
+          "profile_sha256": "f7475d9550a8876e95d5dd74213d8275186646af29bd966e67e4a66c51ad13cc",
+          "node_radius_min_mm": 0.0028520342186017537,
+          "node_radius_max_mm": 0.0030913254867670536,
+          "min_segment_relative_volume_error": -0.0250074376725844,
+          "max_segment_relative_volume_error": 0.02412922570971654
+        },
+        {
+          "fiber_id": "weft:0000:weft_yarn/p/f0005",
+          "profile_sha256": "107fe4e109e7328293bbfbda00be57a31d832a2fe72d7b84f48a40805d29d35a",
+          "node_radius_min_mm": 0.002898637268035076,
+          "node_radius_max_mm": 0.0031066030408618247,
+          "min_segment_relative_volume_error": -0.018415925656372067,
+          "max_segment_relative_volume_error": 0.017940144669224223
+        },
+        {
+          "fiber_id": "weft:0000:weft_yarn/p/f0006",
+          "profile_sha256": "3b08a4ec8e8c8298cc7670e90912971579b92a5fb1611473f9349fc42f63d3d5",
+          "node_radius_min_mm": 0.002919984918186497,
+          "node_radius_max_mm": 0.00308176589367976,
+          "min_segment_relative_volume_error": -0.01738602196801875,
+          "max_segment_relative_volume_error": 0.014701071986759517
+        },
+        {
+          "fiber_id": "weft:0001:weft_yarn/p/f0000",
+          "profile_sha256": "07101af677f8159ab6eb7f3119d0df3b335257d643d644c36e6f87948960451d",
+          "node_radius_min_mm": 0.0029095488433340693,
+          "node_radius_max_mm": 0.003106730567891708,
+          "min_segment_relative_volume_error": -0.02303648808225911,
+          "max_segment_relative_volume_error": 0.019218700249131748
+        },
+        {
+          "fiber_id": "weft:0001:weft_yarn/p/f0001",
+          "profile_sha256": "6a0e81c6b851689433dc155576ecb2932e0dbd8037efdff8dfdc6c936e1085c0",
+          "node_radius_min_mm": 0.0028695312764232725,
+          "node_radius_max_mm": 0.0031416865295649924,
+          "min_segment_relative_volume_error": -0.024563364860938575,
+          "max_segment_relative_volume_error": 0.023870258511997422
+        },
+        {
+          "fiber_id": "weft:0001:weft_yarn/p/f0002",
+          "profile_sha256": "eaf4d4e6620f3807afc0c2ec2d3b033c9cd678a4340d22831da57d0c83242aa7",
+          "node_radius_min_mm": 0.0028083227943819095,
+          "node_radius_max_mm": 0.0031194775350709076,
+          "min_segment_relative_volume_error": -0.032456004102834224,
+          "max_segment_relative_volume_error": 0.03124302925900624
+        },
+        {
+          "fiber_id": "weft:0001:weft_yarn/p/f0003",
+          "profile_sha256": "8e5550e8077f6f460885632ae4451293cad431578e37a71b9d3e30039df3516d",
+          "node_radius_min_mm": 0.0029667924833313105,
+          "node_radius_max_mm": 0.0030000673331780337,
+          "min_segment_relative_volume_error": -0.0034139330264134626,
+          "max_segment_relative_volume_error": 0.0034099554678062027
+        },
+        {
+          "fiber_id": "weft:0001:weft_yarn/p/f0004",
+          "profile_sha256": "998ef8dce1cbcbac7a28980400d825e4840cf79fa536d3eb17cd9bf81306d653",
+          "node_radius_min_mm": 0.002876389311806078,
+          "node_radius_max_mm": 0.0032355334993369837,
+          "min_segment_relative_volume_error": -0.03963808872164443,
+          "max_segment_relative_volume_error": 0.038000107711760656
+        },
+        {
+          "fiber_id": "weft:0001:weft_yarn/p/f0005",
+          "profile_sha256": "27228488818c2cb5cac9e31909bf34f39b7e52269f86da11b5fbc08469ef246b",
+          "node_radius_min_mm": 0.0028685790041382813,
+          "node_radius_max_mm": 0.0031290333493857406,
+          "min_segment_relative_volume_error": -0.02670498157371648,
+          "max_segment_relative_volume_error": 0.02268889512068628
+        },
+        {
+          "fiber_id": "weft:0001:weft_yarn/p/f0006",
+          "profile_sha256": "094e4be811f92be6ebfeda467e7f24645877f3e152102ecbfc31cbcfcf208606",
+          "node_radius_min_mm": 0.0028857430967550125,
+          "node_radius_max_mm": 0.003071067653755065,
+          "min_segment_relative_volume_error": -0.01763509168435662,
+          "max_segment_relative_volume_error": 0.020629495974382905
+        },
+        {
+          "fiber_id": "weft:0002:weft_yarn/p/f0000",
+          "profile_sha256": "5e6e1465502eb8daa6636b20ef2620aa1bfa28da7dbed6fc20c141fe19f50943",
+          "node_radius_min_mm": 0.002911471409773046,
+          "node_radius_max_mm": 0.0030543653116508716,
+          "min_segment_relative_volume_error": -0.01369954573055776,
+          "max_segment_relative_volume_error": 0.015778579326281017
+        },
+        {
+          "fiber_id": "weft:0002:weft_yarn/p/f0001",
+          "profile_sha256": "5d9838edb2cbf40ef929f87f385c3a20af344bb4e2174aeba3bd23cc22efff3f",
+          "node_radius_min_mm": 0.0028995538488464337,
+          "node_radius_max_mm": 0.0030984737779154964,
+          "min_segment_relative_volume_error": -0.020156672270429832,
+          "max_segment_relative_volume_error": 0.01733110255559911
+        },
+        {
+          "fiber_id": "weft:0002:weft_yarn/p/f0002",
+          "profile_sha256": "83c53d3ae5cfa89c0d1d241d04f69344417ec8fed1519b31b26787af125450b0",
+          "node_radius_min_mm": 0.0029040710055672817,
+          "node_radius_max_mm": 0.0031746354664208437,
+          "min_segment_relative_volume_error": -0.029513247826169264,
+          "max_segment_relative_volume_error": 0.028389284126483005
+        },
+        {
+          "fiber_id": "weft:0002:weft_yarn/p/f0003",
+          "profile_sha256": "fd14087edd0abb94b63b4032bbb79dc03b147252c542ad3a51e9d4bb69a90d22",
+          "node_radius_min_mm": 0.0029771822110364666,
+          "node_radius_max_mm": 0.0030015429731726083,
+          "min_segment_relative_volume_error": -0.002387880797894981,
+          "max_segment_relative_volume_error": 0.002385909167105904
+        },
+        {
+          "fiber_id": "weft:0002:weft_yarn/p/f0004",
+          "profile_sha256": "5fd7caf32435eb264f69bde16cab3723ccbc1be8ae6128334fcff8f7d30292dc",
+          "node_radius_min_mm": 0.0028520342186017537,
+          "node_radius_max_mm": 0.003091325486767053,
+          "min_segment_relative_volume_error": -0.025007437672587063,
+          "max_segment_relative_volume_error": 0.02412922570971654
+        },
+        {
+          "fiber_id": "weft:0002:weft_yarn/p/f0005",
+          "profile_sha256": "9ac955b742c92728b67ebdb59e7686dd2b85e4c3322807a5d4a6c80a1c4f5dae",
+          "node_radius_min_mm": 0.0028986372680350754,
+          "node_radius_max_mm": 0.003106603040861824,
+          "min_segment_relative_volume_error": -0.018415925656372845,
+          "max_segment_relative_volume_error": 0.017940144669224
+        },
+        {
+          "fiber_id": "weft:0002:weft_yarn/p/f0006",
+          "profile_sha256": "3b75b04cfcdc418214085a734cb3b7f5ff5ec7b1c615c0d49be587da912b5a26",
+          "node_radius_min_mm": 0.0029199849181864965,
+          "node_radius_max_mm": 0.003081765893679761,
+          "min_segment_relative_volume_error": -0.017386021968009202,
+          "max_segment_relative_volume_error": 0.014701071986762626
+        }
+      ],
+      "source_cylinder_volume_proxy_mm3": 0.0011482536474506722,
+      "linear_radius_frustum_integral_mm3": 0.0011482536474506722
+    }
+  },
+  "meshes": {
+    "16": {
+      "constant_reference": {
+        "fiber_count": 42,
+        "radial_segments": 16,
+        "vertex_count": 129780,
+        "face_count": 259392,
+        "source_cylinder_volume_proxy_mm3": 0.001148761455762916,
+        "total_frustum_integral_mm3": 0.0011487614557629158,
+        "total_signed_volume_mm3": 0.0011194233673050568,
+        "float32_total_signed_volume_mm3": 0.0011194233794750753,
+        "mesh_to_source_proxy_relative_error": -0.025538886520504955,
+        "mesh_to_frustum_relative_error": -0.025538886520504733,
+        "straight_regular_polygon_volume_factor": 0.9744953584044327,
+        "residual_after_polygon_factor": -3.514118835157287e-05,
+        "max_float32_displacement_mm": 2.0700746140350454e-08,
+        "different_fiber_clearance_lower_bound_mm": 0.002945344844184516,
+        "same_fiber_self_intersection_certified_absent": false,
+        "smooth_circle_normal_half_bin_deg": 11.25
+      },
+      "incompressible_segments": {
+        "fiber_count": 42,
+        "radial_segments": 16,
+        "vertex_count": 129780,
+        "face_count": 259392,
+        "source_cylinder_volume_proxy_mm3": 0.0011482536474506722,
+        "total_frustum_integral_mm3": 0.0011482536474506722,
+        "total_signed_volume_mm3": 0.001118928592004342,
+        "float32_total_signed_volume_mm3": 0.001118928588823354,
+        "mesh_to_source_proxy_relative_error": -0.025538830650733924,
+        "mesh_to_frustum_relative_error": -0.025538830650733924,
+        "straight_regular_polygon_volume_factor": 0.9744953584044327,
+        "residual_after_polygon_factor": -3.508385634842792e-05,
+        "max_float32_displacement_mm": 2.072431190434356e-08,
+        "different_fiber_clearance_lower_bound_mm": 0.0026028438531510195,
+        "same_fiber_self_intersection_certified_absent": false,
+        "smooth_circle_normal_half_bin_deg": 11.25
+      }
+    }
+  },
+  "optics": {
+    "status": "skipped",
+    "verified_saved_render_count": 0,
+    "paired_comparisons": []
+  },
+  "checks": {
+    "profile_hashes_and_derived_arrays": true,
+    "independent_frustum_integrals": true,
+    "same_labeled_pose_and_declared_radius_law": true,
+    "closed_oriented_triangle_buffers_and_positive_signed_volume": true,
+    "exact_source_to_float32_renderer_buffer_identity": true,
+    "different_fiber_capsule_clearance_after_quantization": true,
+    "saved_scalar_means_hashes_and_paired_intervals": false
+  },
+  "scope": [
+    "No new rendering is performed and no experiment-driver/renderer implementation is imported.",
+    "Core geometry construction is cross-checked by separate analytic/topological review tests.",
+    "Signed mesh volume, profile frustum integrals and source cylinder proxies have different meanings.",
+    "Different-fiber clearance excludes same-fiber self-intersection and physical contact response.",
+    "Scalar channel hashes and records do not independently prove original RGB buffers or execution history.",
+    "Seed intervals and Bonferroni families quantify conditional Monte Carlo noise, not real-material/model/perceptual uncertainty.",
+    "Current external code hashes are a separate runner gate; optional --source-input rechecks original data and its material map."
+  ]
+}
