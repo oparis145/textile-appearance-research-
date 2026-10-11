@@ -1,0 +1,25 @@
+test_invalid_geometry_and_inputs_rejected (tests.test_optical_lod.ProjectionTests.test_invalid_geometry_and_inputs_rejected) ... ok
+test_length_similarity_density_inverse_scale (tests.test_optical_lod.ProjectionTests.test_length_similarity_density_inverse_scale) ... ok
+test_line_refinement_invariant (tests.test_optical_lod.ProjectionTests.test_line_refinement_invariant) ... ok
+test_partition_additivity_with_common_volume (tests.test_optical_lod.ProjectionTests.test_partition_additivity_with_common_volume) ... ok
+test_projection_rigid_rotation_covariance (tests.test_optical_lod.ProjectionTests.test_projection_rigid_rotation_covariance) ... ok
+test_single_cylinder_analytical_angular_area (tests.test_optical_lod.ProjectionTests.test_single_cylinder_analytical_angular_area) ... ok
+test_parameter_sweep_matches_fresh_wavelength_export (tests.test_optical_lod.RendererWavelengthTransferTests.test_parameter_sweep_matches_fresh_wavelength_export) ... ok
+test_bad_spd_and_mutation_rejected (tests.test_optical_lod.SGGXTests.test_bad_spd_and_mutation_rejected) ... ok
+test_exact_spd_target_fit_and_rotated_recovery (tests.test_optical_lod.SGGXTests.test_exact_spd_target_fit_and_rotated_recovery) ... ok
+test_isotropic_normal_and_phase_normalization (tests.test_optical_lod.SGGXTests.test_isotropic_normal_and_phase_normalization) ... ok
+test_phase_invariant_to_density_scale (tests.test_optical_lod.SGGXTests.test_phase_invariant_to_density_scale) ... ok
+test_reciprocity_requires_directional_extinction_weight (tests.test_optical_lod.SGGXTests.test_reciprocity_requires_directional_extinction_weight) ... ok
+test_visible_and_phase_normalization_anisotropic (tests.test_optical_lod.SGGXTests.test_visible_and_phase_normalization_anisotropic) ... ok
+test_broad_spectrum_quadrature_convergence (tests.test_optical_lod.SpectralTests.test_broad_spectrum_quadrature_convergence) ... ok
+test_cie_original_checksum_and_reference_row (tests.test_optical_lod.SpectralTests.test_cie_original_checksum_and_reference_row) ... ok
+test_paired_seed_confidence_uses_replicates (tests.test_optical_lod.SpectralTests.test_paired_seed_confidence_uses_replicates) ... ok
+test_planck_law_peak_and_temperature (tests.test_optical_lod.SpectralTests.test_planck_law_peak_and_temperature) ... ok
+test_spectral_constant_response_and_linear_response_independent_knots (tests.test_optical_lod.SpectralTests.test_spectral_constant_response_and_linear_response_independent_knots) ... ok
+test_trapezoid_exact_constant_and_linear (tests.test_optical_lod.SpectralTests.test_trapezoid_exact_constant_and_linear) ... ok
+test_xyz_d65_white_and_linear_superposition (tests.test_optical_lod.SpectralTests.test_xyz_d65_white_and_linear_superposition) ... ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 2.952s
+
+OK

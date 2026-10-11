@@ -1,0 +1,141 @@
+{
+  "schema": "textile.mitsuba_export/2.0",
+  "scene_schema": "textile.optical_scene/2.0",
+  "scene_sha256": "4ca3a8c6f69d0f995b108dcffc6928a5b02260fbc4b656da8a52eed5a1198ec3",
+  "scene_units": "mm",
+  "wavelength_nm_vacuum": 380.0,
+  "background_n": 1.0,
+  "mitsuba_version": "3.9.1",
+  "shape": "bsplinecurve",
+  "groups": [
+    {
+      "filename": "group_0000.curves",
+      "file_sha256": "3332d693e968df4181e67d3f1f92f2395737052c76ca30f49fca4e79b814c070",
+      "material_id": "synthetic_A",
+      "radius_mm": 0.003,
+      "fiber_ids": [
+        "warp:0000:warp_yarn/p/f0000",
+        "warp:0000:warp_yarn/p/f0001",
+        "warp:0000:warp_yarn/p/f0002",
+        "warp:0000:warp_yarn/p/f0003",
+        "warp:0000:warp_yarn/p/f0004",
+        "warp:0000:warp_yarn/p/f0005",
+        "warp:0000:warp_yarn/p/f0006",
+        "warp:0001:warp_yarn/p/f0000",
+        "warp:0001:warp_yarn/p/f0001",
+        "warp:0001:warp_yarn/p/f0002",
+        "warp:0001:warp_yarn/p/f0003",
+        "warp:0001:warp_yarn/p/f0004",
+        "warp:0001:warp_yarn/p/f0005",
+        "warp:0001:warp_yarn/p/f0006",
+        "warp:0002:warp_yarn/p/f0000",
+        "warp:0002:warp_yarn/p/f0001",
+        "warp:0002:warp_yarn/p/f0002",
+        "warp:0002:warp_yarn/p/f0003",
+        "warp:0002:warp_yarn/p/f0004",
+        "warp:0002:warp_yarn/p/f0005",
+        "warp:0002:warp_yarn/p/f0006"
+      ],
+      "fiber_count": 21,
+      "bsdf": {
+        "type": "hair",
+        "int_ior": 1.540775623268698,
+        "ext_ior": 1.0,
+        "sigma_a": {
+          "type": "uniform",
+          "value": 0.049315201152694395
+        },
+        "longitudinal_roughness": 0.18,
+        "azimuthal_roughness": 0.2,
+        "scale_tilt": 0.0
+      },
+      "n_real": 1.540775623268698,
+      "kappa": 0.0004970880087580882,
+      "absorption_per_mm": 16.438400384231464,
+      "material_source": "Synthetic A: smooth illustrative dielectric/absorption spectrum, not a measured textile",
+      "data_status": "synthetic",
+      "max_centerline_smoothing_bound_mm": 7.411000912858582e-05,
+      "float32_centerline_quantization_bound_mm": 1.6383820369296973e-08,
+      "float32_radius_quantization_bound_mm": 2.6077032026783353e-11,
+      "source_bases": [
+        "polyline"
+      ]
+    },
+    {
+      "filename": "group_0001.curves",
+      "file_sha256": "d05fabfe53b9b2ed826a0222214ea3faf49f7fe119bc6f63e8783473f34a6129",
+      "material_id": "synthetic_B",
+      "radius_mm": 0.003,
+      "fiber_ids": [
+        "weft:0000:weft_yarn/p/f0000",
+        "weft:0000:weft_yarn/p/f0001",
+        "weft:0000:weft_yarn/p/f0002",
+        "weft:0000:weft_yarn/p/f0003",
+        "weft:0000:weft_yarn/p/f0004",
+        "weft:0000:weft_yarn/p/f0005",
+        "weft:0000:weft_yarn/p/f0006",
+        "weft:0001:weft_yarn/p/f0000",
+        "weft:0001:weft_yarn/p/f0001",
+        "weft:0001:weft_yarn/p/f0002",
+        "weft:0001:weft_yarn/p/f0003",
+        "weft:0001:weft_yarn/p/f0004",
+        "weft:0001:weft_yarn/p/f0005",
+        "weft:0001:weft_yarn/p/f0006",
+        "weft:0002:weft_yarn/p/f0000",
+        "weft:0002:weft_yarn/p/f0001",
+        "weft:0002:weft_yarn/p/f0002",
+        "weft:0002:weft_yarn/p/f0003",
+        "weft:0002:weft_yarn/p/f0004",
+        "weft:0002:weft_yarn/p/f0005",
+        "weft:0002:weft_yarn/p/f0006"
+      ],
+      "fiber_count": 21,
+      "bsdf": {
+        "type": "hair",
+        "int_ior": 1.6411634349030473,
+        "ext_ior": 1.0,
+        "sigma_a": {
+          "type": "uniform",
+          "value": 0.02400023401238045
+        },
+        "longitudinal_roughness": 0.18,
+        "azimuthal_roughness": 0.2,
+        "scale_tilt": 0.0
+      },
+      "n_real": 1.6411634349030473,
+      "kappa": 0.00024191787230073015,
+      "absorption_per_mm": 8.000078004126816,
+      "material_source": "Synthetic B: smooth illustrative dielectric/absorption spectrum, not a measured textile",
+      "data_status": "synthetic",
+      "max_centerline_smoothing_bound_mm": 7.411000912858582e-05,
+      "float32_centerline_quantization_bound_mm": 1.6383820369296973e-08,
+      "float32_radius_quantization_bound_mm": 2.6077032026783353e-11,
+      "source_bases": [
+        "polyline"
+      ]
+    }
+  ],
+  "bounds_mm": [
+    [
+      -0.4830732338261879,
+      -0.4830732338261879,
+      -0.027081755533244878
+    ],
+    [
+      0.48306915703796044,
+      0.48306915703796044,
+      0.027081755533244878
+    ]
+  ],
+  "max_smoothing_error_mm": 0.0004,
+  "max_kappa_over_n": 0.01,
+  "spectral_mode": "single-wavelength physical parameters in RGB scalar proxy",
+  "absorption_mapping": "sigma_a_shader = mu_a_per_mm * radius_mm",
+  "limitations": [
+    "real-index Fresnel with Beer absorption; no complex-index interface",
+    "centerline smoothing bound is not a tube-contact certificate",
+    "no polarization, wavelength integration, or wave-interference transport",
+    "no spectral extrapolation; no effective refractive index assigned to blends"
+  ],
+  "manifest_sha256": "e4569d228a94c9278866b293e6bb4f05736b405a7a17538b5a5a03428453b805"
+}

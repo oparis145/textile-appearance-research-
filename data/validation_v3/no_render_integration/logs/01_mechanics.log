@@ -1,0 +1,28 @@
+Optical pair ready
+Two-ply embedding ready
+Stiffness/prestrain sweeps ready
+Mesh refinements ready
+{
+  "schema_version": "textile.reduced_weave_mechanics/3.0",
+  "elapsed_seconds": 21.964585623998573,
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "optical_pair_reused": false,
+  "source_sha256": {
+    "run_weave_mechanics_experiments.py": "96c2513db9cd78e162d4f42c2563e72fa8da3f49f82e8a1bb24ee327eb99d36e",
+    "textile_sim/weave_mechanics.py": "cf362e8106c6d2ec3af552d8ab399fe87dd20ac291bee50633b30e0b8fdeb94a",
+    "tests/test_weave_mechanics.py": "59bc701082b87b648902cd942defdaed09cbb0aec8b3b896e9f0ba90936f64a8",
+    "examples/mechanics/optical_pair.json": "040ffc6759cb3914b99393e27ccc52bb69aab26a8f6535b2524ee475a577af0a",
+    "examples/mechanics/two_ply_relaxation.json": "bc156f2f205a9892a871be839e6ab9081e6ee00e9b09b414555ccedce297682e"
+  },
+  "cases": {
+    "optical_pair": 1,
+    "two_ply_embedding": 1,
+    "parameter_sweeps": 8,
+    "mesh_levels": 3,
+    "beam_mesh_levels": 4,
+    "drafts": 3
+  },
+  "all_experiments_synthetic": true,
+  "scope": "reduced equilibrium and numerical evidence; no measured textile parameters, constituent-fiber mechanics, friction, or real material validation"
+}

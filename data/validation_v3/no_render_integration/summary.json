@@ -1,0 +1,31 @@
+{
+  "schema": "textile-engine-v3-integration-evidence-excerpt/1.0",
+  "status": "passed",
+  "original_output_directory": "/workspace/scratch/2b957533e88d/textile_optics_engine/tmp/runner_v3_full_no_render",
+  "original_run_manifest_sha256": "b037da78b74f24f120ca5e3ca3dbb1e2e769e377ce2e87603857e78d26e302fd",
+  "source_runner_sha256_at_run": "1d89042d9e9ab79f0ba9ddd90b7f30efa97d248f52ebacaf6ae33344c33362e7",
+  "stages": [
+    {
+      "stage": "mechanics",
+      "status": "passed",
+      "elapsed_seconds": 25.31485610299933,
+      "exit_code": 0
+    },
+    {
+      "stage": "optics",
+      "status": "passed",
+      "elapsed_seconds": 3.6863167689989496,
+      "exit_code": 0
+    },
+    {
+      "stage": "verify",
+      "status": "passed",
+      "elapsed_seconds": 2.600604133000161,
+      "exit_code": 0
+    }
+  ],
+  "explicit_fiber_renders_executed": 0,
+  "past_explicit_fiber_renders_verified": 0,
+  "changed_source_files_during_run": [],
+  "archive_scope": "Verbatim manifest, logs and verification result only. Generated geometry, optical exports, fits and figures were NOT copied here. Original paths and hashes have NOT been rewritten."
+}

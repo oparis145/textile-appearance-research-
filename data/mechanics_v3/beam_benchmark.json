@@ -1,0 +1,28 @@
+{
+  "length_mm": 1.2,
+  "bending_N_mm2": 3e-06,
+  "uniform_load_N_per_mm": 2e-07,
+  "boundary": "simply supported; height zero, rotation free",
+  "cases": [
+    {
+      "segments": 12,
+      "max_deflection_error_mm": 1.0000000000101941e-05,
+      "force_balance_inf_N": 4.033332666808563e-21
+    },
+    {
+      "segments": 24,
+      "max_deflection_error_mm": 2.5000000024089954e-06,
+      "force_balance_inf_N": 6.321810549497769e-20
+    },
+    {
+      "segments": 48,
+      "max_deflection_error_mm": 6.250000316131415e-07,
+      "force_balance_inf_N": 4.091640628187426e-19
+    },
+    {
+      "segments": 96,
+      "max_deflection_error_mm": 1.562505425308034e-07,
+      "force_balance_inf_N": 5.1838408100157055e-18
+    }
+  ]
+}

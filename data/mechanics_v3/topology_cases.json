@@ -1,0 +1,2537 @@
+{
+  "plain": {
+    "spec": {
+      "draft": {
+        "name": "plain",
+        "matrix": [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "row_axis": "weft",
+        "column_axis": "warp",
+        "one_means": "warp_over"
+      },
+      "warp_envelope_radius_mm": 0.012,
+      "weft_envelope_radius_mm": 0.012,
+      "warp_elasticity": {
+        "axial_stiffness_N": 0.02,
+        "bending_stiffness_N_mm2": 2e-06,
+        "rest_fraction": 0.995,
+        "source": "synthetic reduced-mechanics verification fixture",
+        "data_status": "synthetic"
+      },
+      "weft_elasticity": {
+        "axial_stiffness_N": 0.02,
+        "bending_stiffness_N_mm2": 2e-06,
+        "rest_fraction": 0.995,
+        "source": "synthetic reduced-mechanics verification fixture",
+        "data_status": "synthetic"
+      },
+      "warp_count": 4,
+      "weft_count": 4,
+      "warp_pitch_mm": 0.24,
+      "weft_pitch_mm": 0.24,
+      "clearance_mm": 0.004,
+      "max_slope": 0.3,
+      "segments_per_crossing": 4,
+      "padding_crossings": 1,
+      "initial_warp_share": 0.5,
+      "schema_version": "textile.reduced_weave_mechanics/3.0",
+      "units": {
+        "length": "mm",
+        "force": "N",
+        "energy": "N*mm"
+      }
+    },
+    "elapsed_seconds": 1.5172101739990467,
+    "diagnostics": {
+      "schema_version": "textile.reduced_weave_mechanics/3.0",
+      "solver": "SLSQP; analytic gradient; Hessian preconditioning",
+      "solver_success": true,
+      "solver_message": "Optimization terminated successfully",
+      "iterations": 59,
+      "function_evaluations": 141,
+      "initial_energy_excess_N_mm": 4.452339952019008e-05,
+      "final_energy_excess_N_mm": 2.659493792984927e-05,
+      "energy_reduction_fraction": 0.40267503792496273,
+      "stationarity_tolerance": 1e-08,
+      "feasibility_tolerance_relative_length": 1e-09,
+      "independent_kkt_certified": true,
+      "kkt": {
+        "stationarity_inf_N": 3.2677853478713104e-16,
+        "stationarity_relative": 4.084448042613956e-16,
+        "stationarity_relative_to_gradient": 1.8109509343820705e-12,
+        "complementarity_N_mm": 3.1302360819287627e-21,
+        "complementarity_relative": 1.6302180830821276e-20,
+        "max_constraint_violation_mm": 1.734723475976807e-17,
+        "active_constraint_count": 16,
+        "active_tolerance_mm": 2.4e-09,
+        "multipliers_N": [
+          8.894826621963777e-05,
+          0.00012552877179161954,
+          0.00012552877179161973,
+          8.894826621963831e-05,
+          0.00012552877179161954,
+          0.00018044582466759723,
+          0.00018044582466759774,
+          0.0001255287717916191,
+          0.00012552877179161756,
+          0.00018044582466759818,
+          0.00018044582466759753,
+          0.00012552877179162008,
+          8.894826621963847e-05,
+          0.00012552877179161819,
+          0.00012552877179161857,
+          8.89482662196374e-05,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "multiplier_scope": "ideal reduced-model inequality reactions, not measured pressure or friction"
+      },
+      "initial": {
+        "energy_excess_N_mm": 4.452339952019008e-05,
+        "constraints": {
+          "max_violation_mm": 0.0,
+          "min_crossing_separation_mm": 0.0304157853753606,
+          "max_abs_slope": 0.2009897275780669,
+          "configured_slope_bound": 0.3,
+          "configured_slope_bound_satisfied": true,
+          "conservative_orthogonal_envelope_clearance_mm": 0.004,
+          "observed_slope_orthogonal_envelope_clearance_bound_mm": 0.005256854000916571,
+          "family_max_abs_slope": {
+            "warp": 0.2009897275780669,
+            "weft": 0.2009897275780669
+          },
+          "parallel_family_clearance_bound_mm": 0.216,
+          "small_slope_bending_integrand_overestimate_bound": 0.10407250083646669,
+          "small_slope_diagnostic_scope": "continuum graph integrand factor at observed edge slopes; not a discrete-curvature or real-material error certificate",
+          "bound_scope": "piecewise-linear yarn centerlines and specified circular envelopes; no same-yarn fiber contact certificate"
+        },
+        "families": {
+          "warp": {
+            "centerline_length_mm": 4.835944876554335,
+            "projected_length_mm": 4.799999999999995,
+            "crimp_ratio": 0.00748851594882094,
+            "height_rms_mm": 0.010978546397204856,
+            "tangent_second_moment": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.9852566426556818,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.01474335734431788
+              ]
+            ],
+            "axial_force_min_N": 0.00010742001929515687,
+            "axial_force_max_N": 0.0005024817281461491
+          },
+          "weft": {
+            "centerline_length_mm": 4.835944876554335,
+            "projected_length_mm": 4.799999999999995,
+            "crimp_ratio": 0.00748851594882094,
+            "height_rms_mm": 0.010978546397204856,
+            "tangent_second_moment": [
+              [
+                0.9852566426556818,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.01474335734431788
+              ]
+            ],
+            "axial_force_min_N": 0.00010742001929515687,
+            "axial_force_max_N": 0.0005024817281461491
+          }
+        }
+      },
+      "relaxed": {
+        "energy_excess_N_mm": 2.659493792984927e-05,
+        "constraints": {
+          "max_violation_mm": 1.734723475976807e-17,
+          "min_crossing_separation_mm": 0.030415785375360584,
+          "max_abs_slope": 0.1699863263879641,
+          "configured_slope_bound": 0.3,
+          "configured_slope_bound_satisfied": true,
+          "conservative_orthogonal_envelope_clearance_mm": 0.003999999999999983,
+          "observed_slope_orthogonal_envelope_clearance_bound_mm": 0.005573257331588824,
+          "family_max_abs_slope": {
+            "warp": 0.16998632638796302,
+            "weft": 0.1699863263879641
+          },
+          "parallel_family_clearance_bound_mm": 0.216,
+          "small_slope_bending_integrand_overestimate_bound": 0.0738114052220995,
+          "small_slope_diagnostic_scope": "continuum graph integrand factor at observed edge slopes; not a discrete-curvature or real-material error certificate",
+          "bound_scope": "piecewise-linear yarn centerlines and specified circular envelopes; no same-yarn fiber contact certificate"
+        },
+        "families": {
+          "warp": {
+            "centerline_length_mm": 4.829269411168193,
+            "projected_length_mm": 4.799999999999995,
+            "crimp_ratio": 0.006097793993374401,
+            "height_rms_mm": 0.011235881918612016,
+            "tangent_second_moment": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.9879307676277361,
+                -1.6164465009640683e-18
+              ],
+              [
+                0.0,
+                0.0,
+                0.012069232372263667
+              ]
+            ],
+            "axial_force_min_N": 0.00010052493950710062,
+            "axial_force_max_N": 0.0003888399817564814
+          },
+          "weft": {
+            "centerline_length_mm": 4.829269411168193,
+            "projected_length_mm": 4.799999999999995,
+            "crimp_ratio": 0.006097793993374401,
+            "height_rms_mm": 0.011235881918612054,
+            "tangent_second_moment": [
+              [
+                0.9879307676277361,
+                0.0,
+                -1.975656834511639e-18
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.012069232372263768
+              ]
+            ],
+            "axial_force_min_N": 0.00010052493950710062,
+            "axial_force_max_N": 0.0003888399817564858
+          }
+        }
+      },
+      "scope": "fixed-track, tension-domain axial energy plus small-slope bending; conservative envelope constraints; no friction/drape",
+      "problem_sha256": "0c3448404a23484e4f1e9f8cd84f08486e510c613f1b34da93d4bd2420aced4e",
+      "height_state_sha256": "f4f27caf9076f0371b9960754c0da5c69ccf4690b78a845223543efee72cece4"
+    },
+    "history": [
+      {
+        "iteration": 1,
+        "energy_excess_N_mm": 2.6761810020728664e-05,
+        "max_constraint_violation_mm": 2.42861286636753e-17
+      },
+      {
+        "iteration": 2,
+        "energy_excess_N_mm": 2.6613198108021393e-05,
+        "max_constraint_violation_mm": 8.673617379884035e-17
+      },
+      {
+        "iteration": 3,
+        "energy_excess_N_mm": 2.6595664118755918e-05,
+        "max_constraint_violation_mm": 6.938893903907228e-17
+      },
+      {
+        "iteration": 4,
+        "energy_excess_N_mm": 2.659495969775038e-05,
+        "max_constraint_violation_mm": 5.204170427930421e-17
+      },
+      {
+        "iteration": 5,
+        "energy_excess_N_mm": 2.6594938091629726e-05,
+        "max_constraint_violation_mm": 5.898059818321144e-17
+      },
+      {
+        "iteration": 6,
+        "energy_excess_N_mm": 2.659493793065197e-05,
+        "max_constraint_violation_mm": 4.85722573273506e-17
+      },
+      {
+        "iteration": 7,
+        "energy_excess_N_mm": 2.6594937929862066e-05,
+        "max_constraint_violation_mm": 6.245004513516506e-17
+      },
+      {
+        "iteration": 8,
+        "energy_excess_N_mm": 2.6594937929849584e-05,
+        "max_constraint_violation_mm": 7.28583859910259e-17
+      },
+      {
+        "iteration": 9,
+        "energy_excess_N_mm": 2.659493792984926e-05,
+        "max_constraint_violation_mm": 3.8163916471489756e-17
+      },
+      {
+        "iteration": 10,
+        "energy_excess_N_mm": 2.6594937929849283e-05,
+        "max_constraint_violation_mm": 5.204170427930421e-17
+      },
+      {
+        "iteration": 11,
+        "energy_excess_N_mm": 2.6594937929849306e-05,
+        "max_constraint_violation_mm": 3.8163916471489756e-17
+      },
+      {
+        "iteration": 12,
+        "energy_excess_N_mm": 2.6594937929849266e-05,
+        "max_constraint_violation_mm": 5.898059818321144e-17
+      },
+      {
+        "iteration": 13,
+        "energy_excess_N_mm": 2.6594937929849283e-05,
+        "max_constraint_violation_mm": 5.551115123125783e-17
+      },
+      {
+        "iteration": 14,
+        "energy_excess_N_mm": 2.6594937929849272e-05,
+        "max_constraint_violation_mm": 5.551115123125783e-17
+      },
+      {
+        "iteration": 15,
+        "energy_excess_N_mm": 2.659493792984928e-05,
+        "max_constraint_violation_mm": 6.245004513516506e-17
+      },
+      {
+        "iteration": 16,
+        "energy_excess_N_mm": 2.659493792984928e-05,
+        "max_constraint_violation_mm": 1.0061396160665481e-16
+      },
+      {
+        "iteration": 17,
+        "energy_excess_N_mm": 2.6594937929849283e-05,
+        "max_constraint_violation_mm": 2.42861286636753e-17
+      },
+      {
+        "iteration": 18,
+        "energy_excess_N_mm": 2.6594937929849262e-05,
+        "max_constraint_violation_mm": 5.898059818321144e-17
+      },
+      {
+        "iteration": 19,
+        "energy_excess_N_mm": 2.659493792984928e-05,
+        "max_constraint_violation_mm": 1.0061396160665481e-16
+      },
+      {
+        "iteration": 20,
+        "energy_excess_N_mm": 2.6594937929849262e-05,
+        "max_constraint_violation_mm": 5.898059818321144e-17
+      },
+      {
+        "iteration": 21,
+        "energy_excess_N_mm": 2.6594937929849276e-05,
+        "max_constraint_violation_mm": 9.367506770274758e-17
+      },
+      {
+        "iteration": 22,
+        "energy_excess_N_mm": 2.6594937929849276e-05,
+        "max_constraint_violation_mm": 5.898059818321144e-17
+      },
+      {
+        "iteration": 23,
+        "energy_excess_N_mm": 2.659493792984927e-05,
+        "max_constraint_violation_mm": 5.204170427930421e-17
+      },
+      {
+        "iteration": 24,
+        "energy_excess_N_mm": 2.659493792984927e-05,
+        "max_constraint_violation_mm": 1.1449174941446927e-16
+      },
+      {
+        "iteration": 25,
+        "energy_excess_N_mm": 2.6594937929849262e-05,
+        "max_constraint_violation_mm": 9.367506770274758e-17
+      },
+      {
+        "iteration": 26,
+        "energy_excess_N_mm": 2.659493792984928e-05,
+        "max_constraint_violation_mm": 5.551115123125783e-17
+      },
+      {
+        "iteration": 27,
+        "energy_excess_N_mm": 2.659493792984927e-05,
+        "max_constraint_violation_mm": 8.326672684688674e-17
+      },
+      {
+        "iteration": 28,
+        "energy_excess_N_mm": 2.659493792984925e-05,
+        "max_constraint_violation_mm": 1.214306433183765e-16
+      },
+      {
+        "iteration": 29,
+        "energy_excess_N_mm": 2.6594937929849283e-05,
+        "max_constraint_violation_mm": 8.673617379884035e-17
+      },
+      {
+        "iteration": 30,
+        "energy_excess_N_mm": 2.6594937929849272e-05,
+        "max_constraint_violation_mm": 6.591949208711867e-17
+      },
+      {
+        "iteration": 31,
+        "energy_excess_N_mm": 2.6594937929849266e-05,
+        "max_constraint_violation_mm": 4.85722573273506e-17
+      },
+      {
+        "iteration": 32,
+        "energy_excess_N_mm": 2.659493792984927e-05,
+        "max_constraint_violation_mm": 4.163336342344337e-17
+      },
+      {
+        "iteration": 33,
+        "energy_excess_N_mm": 2.659493792984927e-05,
+        "max_constraint_violation_mm": 5.898059818321144e-17
+      },
+      {
+        "iteration": 34,
+        "energy_excess_N_mm": 2.6594937929849262e-05,
+        "max_constraint_violation_mm": 5.204170427930421e-17
+      },
+      {
+        "iteration": 35,
+        "energy_excess_N_mm": 2.659493792984927e-05,
+        "max_constraint_violation_mm": 4.85722573273506e-17
+      },
+      {
+        "iteration": 36,
+        "energy_excess_N_mm": 2.659493792984927e-05,
+        "max_constraint_violation_mm": 5.204170427930421e-17
+      },
+      {
+        "iteration": 37,
+        "energy_excess_N_mm": 2.659493792984926e-05,
+        "max_constraint_violation_mm": 9.367506770274758e-17
+      },
+      {
+        "iteration": 38,
+        "energy_excess_N_mm": 2.6594937929849276e-05,
+        "max_constraint_violation_mm": 7.28583859910259e-17
+      },
+      {
+        "iteration": 39,
+        "energy_excess_N_mm": 2.6594937929849266e-05,
+        "max_constraint_violation_mm": 4.163336342344337e-17
+      },
+      {
+        "iteration": 40,
+        "energy_excess_N_mm": 2.659493792984926e-05,
+        "max_constraint_violation_mm": 4.5102810375396984e-17
+      },
+      {
+        "iteration": 41,
+        "energy_excess_N_mm": 2.6594937929849283e-05,
+        "max_constraint_violation_mm": 5.204170427930421e-17
+      },
+      {
+        "iteration": 42,
+        "energy_excess_N_mm": 2.659493792984927e-05,
+        "max_constraint_violation_mm": 4.163336342344337e-17
+      },
+      {
+        "iteration": 43,
+        "energy_excess_N_mm": 2.659493792984927e-05,
+        "max_constraint_violation_mm": 6.591949208711867e-17
+      },
+      {
+        "iteration": 44,
+        "energy_excess_N_mm": 2.6594937929849272e-05,
+        "max_constraint_violation_mm": 4.5102810375396984e-17
+      },
+      {
+        "iteration": 45,
+        "energy_excess_N_mm": 2.659493792984927e-05,
+        "max_constraint_violation_mm": 1.0755285551056204e-16
+      },
+      {
+        "iteration": 46,
+        "energy_excess_N_mm": 2.659493792984927e-05,
+        "max_constraint_violation_mm": 3.8163916471489756e-17
+      },
+      {
+        "iteration": 47,
+        "energy_excess_N_mm": 2.659493792984929e-05,
+        "max_constraint_violation_mm": 7.28583859910259e-17
+      },
+      {
+        "iteration": 48,
+        "energy_excess_N_mm": 2.659493792984927e-05,
+        "max_constraint_violation_mm": 4.163336342344337e-17
+      },
+      {
+        "iteration": 49,
+        "energy_excess_N_mm": 2.6594937929849272e-05,
+        "max_constraint_violation_mm": 7.28583859910259e-17
+      },
+      {
+        "iteration": 50,
+        "energy_excess_N_mm": 2.6594937929849262e-05,
+        "max_constraint_violation_mm": 9.367506770274758e-17
+      },
+      {
+        "iteration": 51,
+        "energy_excess_N_mm": 2.659493792984926e-05,
+        "max_constraint_violation_mm": 1.1449174941446927e-16
+      },
+      {
+        "iteration": 52,
+        "energy_excess_N_mm": 2.6594937929849266e-05,
+        "max_constraint_violation_mm": 7.632783294297951e-17
+      },
+      {
+        "iteration": 53,
+        "energy_excess_N_mm": 2.6594937929849272e-05,
+        "max_constraint_violation_mm": 5.898059818321144e-17
+      },
+      {
+        "iteration": 54,
+        "energy_excess_N_mm": 2.659493792984926e-05,
+        "max_constraint_violation_mm": 5.204170427930421e-17
+      },
+      {
+        "iteration": 55,
+        "energy_excess_N_mm": 2.659493792984927e-05,
+        "max_constraint_violation_mm": 1.734723475976807e-17
+      }
+    ]
+  },
+  "twill_2_1": {
+    "spec": {
+      "draft": {
+        "name": "twill_2_1_step1",
+        "matrix": [
+          [
+            1,
+            1,
+            0
+          ],
+          [
+            0,
+            1,
+            1
+          ],
+          [
+            1,
+            0,
+            1
+          ]
+        ],
+        "row_axis": "weft",
+        "column_axis": "warp",
+        "one_means": "warp_over"
+      },
+      "warp_envelope_radius_mm": 0.012,
+      "weft_envelope_radius_mm": 0.012,
+      "warp_elasticity": {
+        "axial_stiffness_N": 0.02,
+        "bending_stiffness_N_mm2": 2e-06,
+        "rest_fraction": 0.995,
+        "source": "synthetic reduced-mechanics verification fixture",
+        "data_status": "synthetic"
+      },
+      "weft_elasticity": {
+        "axial_stiffness_N": 0.02,
+        "bending_stiffness_N_mm2": 2e-06,
+        "rest_fraction": 0.995,
+        "source": "synthetic reduced-mechanics verification fixture",
+        "data_status": "synthetic"
+      },
+      "warp_count": 4,
+      "weft_count": 4,
+      "warp_pitch_mm": 0.24,
+      "weft_pitch_mm": 0.24,
+      "clearance_mm": 0.004,
+      "max_slope": 0.3,
+      "segments_per_crossing": 4,
+      "padding_crossings": 1,
+      "initial_warp_share": 0.5,
+      "schema_version": "textile.reduced_weave_mechanics/3.0",
+      "units": {
+        "length": "mm",
+        "force": "N",
+        "energy": "N*mm"
+      }
+    },
+    "elapsed_seconds": 1.7158311770017463,
+    "diagnostics": {
+      "schema_version": "textile.reduced_weave_mechanics/3.0",
+      "solver": "SLSQP; analytic gradient; Hessian preconditioning",
+      "solver_success": true,
+      "solver_message": "Optimization terminated successfully",
+      "iterations": 52,
+      "function_evaluations": 292,
+      "initial_energy_excess_N_mm": 3.077487918145455e-05,
+      "final_energy_excess_N_mm": 1.393366447118661e-05,
+      "energy_reduction_fraction": 0.5472390195577674,
+      "stationarity_tolerance": 1e-08,
+      "feasibility_tolerance_relative_length": 1e-09,
+      "independent_kkt_certified": true,
+      "kkt": {
+        "stationarity_inf_N": 1.6811606699308236e-14,
+        "stationarity_relative": 2.1013049134612055e-14,
+        "stationarity_relative_to_gradient": 1.3441188929073008e-10,
+        "complementarity_N_mm": 2.3995303536579152e-21,
+        "complementarity_relative": 1.2496686099878038e-20,
+        "max_constraint_violation_mm": 2.42861286636753e-17,
+        "active_constraint_count": 15,
+        "active_tolerance_mm": 2.4e-09,
+        "multipliers_N": [
+          5.054973282377109e-05,
+          2.0666596336168066e-05,
+          9.880250520318154e-05,
+          8.549568150273125e-05,
+          0.00010323288946900865,
+          6.781256526300198e-05,
+          6.872261769128942e-05,
+          9.880250520318206e-05,
+          7.664433799032891e-05,
+          0.00012507529496103608,
+          6.78125652630016e-05,
+          2.0666596336167687e-05,
+          0.0,
+          7.664433799032832e-05,
+          0.00010323288946900866,
+          5.0549732823771216e-05,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "multiplier_scope": "ideal reduced-model inequality reactions, not measured pressure or friction"
+      },
+      "initial": {
+        "energy_excess_N_mm": 3.077487918145455e-05,
+        "constraints": {
+          "max_violation_mm": 0.0,
+          "min_crossing_separation_mm": 0.0304157853753606,
+          "max_abs_slope": 0.2009897275780669,
+          "configured_slope_bound": 0.3,
+          "configured_slope_bound_satisfied": true,
+          "conservative_orthogonal_envelope_clearance_mm": 0.004,
+          "observed_slope_orthogonal_envelope_clearance_bound_mm": 0.005256854000916571,
+          "family_max_abs_slope": {
+            "warp": 0.2009897275780669,
+            "weft": 0.2009897275780669
+          },
+          "parallel_family_clearance_bound_mm": 0.216,
+          "small_slope_bending_integrand_overestimate_bound": 0.10407250083646669,
+          "small_slope_diagnostic_scope": "continuum graph integrand factor at observed edge slopes; not a discrete-curvature or real-material error certificate",
+          "bound_scope": "piecewise-linear yarn centerlines and specified circular envelopes; no same-yarn fiber contact certificate"
+        },
+        "families": {
+          "warp": {
+            "centerline_length_mm": 4.825685193271302,
+            "projected_length_mm": 4.799999999999995,
+            "crimp_ratio": 0.005351081931522339,
+            "height_rms_mm": 0.011905380629327795,
+            "tangent_second_moment": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.9894382229852426,
+                -1.0784313977187862e-18
+              ],
+              [
+                0.0,
+                -9.885621145755541e-19,
+                0.010561777014757164
+              ]
+            ],
+            "axial_force_min_N": 0.00010050251256281673,
+            "axial_force_max_N": 0.0005024817281461491
+          },
+          "weft": {
+            "centerline_length_mm": 4.825685193271302,
+            "projected_length_mm": 4.799999999999995,
+            "crimp_ratio": 0.005351081931522339,
+            "height_rms_mm": 0.011905380629327795,
+            "tangent_second_moment": [
+              [
+                0.9894382229852426,
+                0.0,
+                3.5947713257292876e-19
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                2.6960784942969656e-19,
+                0.0,
+                0.010561777014757164
+              ]
+            ],
+            "axial_force_min_N": 0.00010050251256281673,
+            "axial_force_max_N": 0.0005024817281461491
+          }
+        }
+      },
+      "relaxed": {
+        "energy_excess_N_mm": 1.393366447118661e-05,
+        "constraints": {
+          "max_violation_mm": 2.42861286636753e-17,
+          "min_crossing_separation_mm": 0.030415785375360577,
+          "max_abs_slope": 0.15881272032950078,
+          "configured_slope_bound": 0.3,
+          "configured_slope_bound_satisfied": true,
+          "conservative_orthogonal_envelope_clearance_mm": 0.003999999999999976,
+          "observed_slope_orthogonal_envelope_clearance_bound_mm": 0.005676508057979843,
+          "family_max_abs_slope": {
+            "warp": 0.15881272032950078,
+            "weft": 0.15881272032950072
+          },
+          "parallel_family_clearance_bound_mm": 0.216,
+          "small_slope_bending_integrand_overestimate_bound": 0.06425142913506643,
+          "small_slope_diagnostic_scope": "continuum graph integrand factor at observed edge slopes; not a discrete-curvature or real-material error certificate",
+          "bound_scope": "piecewise-linear yarn centerlines and specified circular envelopes; no same-yarn fiber contact certificate"
+        },
+        "families": {
+          "warp": {
+            "centerline_length_mm": 4.8209948452460125,
+            "projected_length_mm": 4.799999999999995,
+            "crimp_ratio": 0.0043739260929203105,
+            "height_rms_mm": 0.013492587276338532,
+            "tangent_second_moment": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.9913215518973445,
+                2.772287381718021e-06
+              ],
+              [
+                0.0,
+                2.77228738172054e-06,
+                0.008678448102655355
+              ]
+            ],
+            "axial_force_min_N": 0.00010051354317456074,
+            "axial_force_max_N": 0.0003524062693799834
+          },
+          "weft": {
+            "centerline_length_mm": 4.8209948452460125,
+            "projected_length_mm": 4.799999999999995,
+            "crimp_ratio": 0.0043739260929203105,
+            "height_rms_mm": 0.013492587276338529,
+            "tangent_second_moment": [
+              [
+                0.9913215518973445,
+                0.0,
+                2.7722873817188307e-06
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                2.77228738171982e-06,
+                0.0,
+                0.008678448102655355
+              ]
+            ],
+            "axial_force_min_N": 0.00010051354317456074,
+            "axial_force_max_N": 0.0003524062693799834
+          }
+        }
+      },
+      "scope": "fixed-track, tension-domain axial energy plus small-slope bending; conservative envelope constraints; no friction/drape",
+      "problem_sha256": "1e6cbef2988f1251e7485039d7246d4ca2e106ac2a725facfa1c407c3bff54b7",
+      "height_state_sha256": "4e1b910e3c0ecf9008dc6949b2a36ef9ceaaebb949f4d9985754dff36e6fc623"
+    },
+    "history": [
+      {
+        "iteration": 1,
+        "energy_excess_N_mm": 1.4147807508025042e-05,
+        "max_constraint_violation_mm": 4.163336342344337e-17
+      },
+      {
+        "iteration": 2,
+        "energy_excess_N_mm": 1.3955071066589641e-05,
+        "max_constraint_violation_mm": 4.5102810375396984e-17
+      },
+      {
+        "iteration": 3,
+        "energy_excess_N_mm": 1.3934600478794893e-05,
+        "max_constraint_violation_mm": 4.5102810375396984e-17
+      },
+      {
+        "iteration": 4,
+        "energy_excess_N_mm": 1.3933729593549421e-05,
+        "max_constraint_violation_mm": 4.85722573273506e-17
+      },
+      {
+        "iteration": 5,
+        "energy_excess_N_mm": 1.3933667678297538e-05,
+        "max_constraint_violation_mm": 4.5102810375396984e-17
+      },
+      {
+        "iteration": 6,
+        "energy_excess_N_mm": 1.3933664839304012e-05,
+        "max_constraint_violation_mm": 5.551115123125783e-17
+      },
+      {
+        "iteration": 7,
+        "energy_excess_N_mm": 1.3933664500506974e-05,
+        "max_constraint_violation_mm": 4.85722573273506e-17
+      },
+      {
+        "iteration": 8,
+        "energy_excess_N_mm": 1.3933664472766249e-05,
+        "max_constraint_violation_mm": 5.204170427930421e-17
+      },
+      {
+        "iteration": 9,
+        "energy_excess_N_mm": 1.39336644713337e-05,
+        "max_constraint_violation_mm": 3.122502256758253e-17
+      },
+      {
+        "iteration": 10,
+        "energy_excess_N_mm": 1.3933664471191762e-05,
+        "max_constraint_violation_mm": 3.8163916471489756e-17
+      },
+      {
+        "iteration": 11,
+        "energy_excess_N_mm": 1.3933664471187017e-05,
+        "max_constraint_violation_mm": 2.0816681711721685e-17
+      },
+      {
+        "iteration": 12,
+        "energy_excess_N_mm": 1.3933664471186644e-05,
+        "max_constraint_violation_mm": 3.122502256758253e-17
+      },
+      {
+        "iteration": 13,
+        "energy_excess_N_mm": 1.3933664471186636e-05,
+        "max_constraint_violation_mm": 3.469446951953614e-17
+      },
+      {
+        "iteration": 14,
+        "energy_excess_N_mm": 1.393366447118663e-05,
+        "max_constraint_violation_mm": 4.163336342344337e-17
+      },
+      {
+        "iteration": 15,
+        "energy_excess_N_mm": 1.3933664471186626e-05,
+        "max_constraint_violation_mm": 5.551115123125783e-17
+      },
+      {
+        "iteration": 16,
+        "energy_excess_N_mm": 1.3933664471186626e-05,
+        "max_constraint_violation_mm": 5.898059818321144e-17
+      },
+      {
+        "iteration": 17,
+        "energy_excess_N_mm": 1.393366447118663e-05,
+        "max_constraint_violation_mm": 3.122502256758253e-17
+      },
+      {
+        "iteration": 18,
+        "energy_excess_N_mm": 1.3933664471186624e-05,
+        "max_constraint_violation_mm": 4.163336342344337e-17
+      },
+      {
+        "iteration": 19,
+        "energy_excess_N_mm": 1.3933664471186626e-05,
+        "max_constraint_violation_mm": 1.0061396160665481e-16
+      },
+      {
+        "iteration": 20,
+        "energy_excess_N_mm": 1.3933664471186622e-05,
+        "max_constraint_violation_mm": 3.469446951953614e-17
+      },
+      {
+        "iteration": 21,
+        "energy_excess_N_mm": 1.3933664471186626e-05,
+        "max_constraint_violation_mm": 4.5102810375396984e-17
+      },
+      {
+        "iteration": 22,
+        "energy_excess_N_mm": 1.393366447118662e-05,
+        "max_constraint_violation_mm": 4.5102810375396984e-17
+      },
+      {
+        "iteration": 23,
+        "energy_excess_N_mm": 1.393366447118662e-05,
+        "max_constraint_violation_mm": 1.734723475976807e-17
+      },
+      {
+        "iteration": 24,
+        "energy_excess_N_mm": 1.3933664471186624e-05,
+        "max_constraint_violation_mm": 4.5102810375396984e-17
+      },
+      {
+        "iteration": 25,
+        "energy_excess_N_mm": 1.3933664471186624e-05,
+        "max_constraint_violation_mm": 3.8163916471489756e-17
+      },
+      {
+        "iteration": 26,
+        "energy_excess_N_mm": 1.3933664471186617e-05,
+        "max_constraint_violation_mm": 5.204170427930421e-17
+      },
+      {
+        "iteration": 27,
+        "energy_excess_N_mm": 1.3933664471186617e-05,
+        "max_constraint_violation_mm": 5.551115123125783e-17
+      },
+      {
+        "iteration": 28,
+        "energy_excess_N_mm": 1.3933664471186639e-05,
+        "max_constraint_violation_mm": 2.0816681711721685e-17
+      },
+      {
+        "iteration": 29,
+        "energy_excess_N_mm": 1.3933664471186888e-05,
+        "max_constraint_violation_mm": 3.8163916471489756e-17
+      },
+      {
+        "iteration": 30,
+        "energy_excess_N_mm": 1.3933664471209944e-05,
+        "max_constraint_violation_mm": 5.898059818321144e-17
+      },
+      {
+        "iteration": 31,
+        "energy_excess_N_mm": 1.393366447118662e-05,
+        "max_constraint_violation_mm": 8.326672684688674e-17
+      },
+      {
+        "iteration": 32,
+        "energy_excess_N_mm": 1.3933664471186624e-05,
+        "max_constraint_violation_mm": 5.551115123125783e-17
+      },
+      {
+        "iteration": 33,
+        "energy_excess_N_mm": 1.3933664471186629e-05,
+        "max_constraint_violation_mm": 7.28583859910259e-17
+      },
+      {
+        "iteration": 34,
+        "energy_excess_N_mm": 1.3933664471186636e-05,
+        "max_constraint_violation_mm": 4.85722573273506e-17
+      },
+      {
+        "iteration": 35,
+        "energy_excess_N_mm": 1.3933664471186627e-05,
+        "max_constraint_violation_mm": 5.204170427930421e-17
+      },
+      {
+        "iteration": 36,
+        "energy_excess_N_mm": 1.3933664471186627e-05,
+        "max_constraint_violation_mm": 7.28583859910259e-17
+      },
+      {
+        "iteration": 37,
+        "energy_excess_N_mm": 1.3933664471186626e-05,
+        "max_constraint_violation_mm": 5.204170427930421e-17
+      },
+      {
+        "iteration": 38,
+        "energy_excess_N_mm": 1.3933664471186622e-05,
+        "max_constraint_violation_mm": 5.204170427930421e-17
+      },
+      {
+        "iteration": 39,
+        "energy_excess_N_mm": 1.3933664471326645e-05,
+        "max_constraint_violation_mm": 7.28583859910259e-17
+      },
+      {
+        "iteration": 40,
+        "energy_excess_N_mm": 1.3933664471186632e-05,
+        "max_constraint_violation_mm": 3.8163916471489756e-17
+      },
+      {
+        "iteration": 41,
+        "energy_excess_N_mm": 1.3933664471186632e-05,
+        "max_constraint_violation_mm": 5.898059818321144e-17
+      },
+      {
+        "iteration": 42,
+        "energy_excess_N_mm": 1.3933664471186634e-05,
+        "max_constraint_violation_mm": 1.0061396160665481e-16
+      },
+      {
+        "iteration": 43,
+        "energy_excess_N_mm": 1.3933664471186627e-05,
+        "max_constraint_violation_mm": 4.85722573273506e-17
+      },
+      {
+        "iteration": 44,
+        "energy_excess_N_mm": 1.3933664471186617e-05,
+        "max_constraint_violation_mm": 3.8163916471489756e-17
+      },
+      {
+        "iteration": 45,
+        "energy_excess_N_mm": 1.3933664471186637e-05,
+        "max_constraint_violation_mm": 5.898059818321144e-17
+      },
+      {
+        "iteration": 46,
+        "energy_excess_N_mm": 1.3933664471186634e-05,
+        "max_constraint_violation_mm": 4.5102810375396984e-17
+      },
+      {
+        "iteration": 47,
+        "energy_excess_N_mm": 1.3933664471186632e-05,
+        "max_constraint_violation_mm": 3.8163916471489756e-17
+      },
+      {
+        "iteration": 48,
+        "energy_excess_N_mm": 1.393366447118661e-05,
+        "max_constraint_violation_mm": 2.42861286636753e-17
+      }
+    ]
+  },
+  "basket_2_2": {
+    "spec": {
+      "draft": {
+        "name": "basket_2x2",
+        "matrix": [
+          [
+            1,
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            1
+          ],
+          [
+            0,
+            0,
+            1,
+            1
+          ]
+        ],
+        "row_axis": "weft",
+        "column_axis": "warp",
+        "one_means": "warp_over"
+      },
+      "warp_envelope_radius_mm": 0.012,
+      "weft_envelope_radius_mm": 0.012,
+      "warp_elasticity": {
+        "axial_stiffness_N": 0.02,
+        "bending_stiffness_N_mm2": 2e-06,
+        "rest_fraction": 0.995,
+        "source": "synthetic reduced-mechanics verification fixture",
+        "data_status": "synthetic"
+      },
+      "weft_elasticity": {
+        "axial_stiffness_N": 0.02,
+        "bending_stiffness_N_mm2": 2e-06,
+        "rest_fraction": 0.995,
+        "source": "synthetic reduced-mechanics verification fixture",
+        "data_status": "synthetic"
+      },
+      "warp_count": 4,
+      "weft_count": 4,
+      "warp_pitch_mm": 0.24,
+      "weft_pitch_mm": 0.24,
+      "clearance_mm": 0.004,
+      "max_slope": 0.3,
+      "segments_per_crossing": 4,
+      "padding_crossings": 1,
+      "initial_warp_share": 0.5,
+      "schema_version": "textile.reduced_weave_mechanics/3.0",
+      "units": {
+        "length": "mm",
+        "force": "N",
+        "energy": "N*mm"
+      }
+    },
+    "elapsed_seconds": 2.3660398880001594,
+    "diagnostics": {
+      "schema_version": "textile.reduced_weave_mechanics/3.0",
+      "solver": "SLSQP; analytic gradient; Hessian preconditioning",
+      "solver_success": true,
+      "solver_message": "Optimization terminated successfully",
+      "iterations": 65,
+      "function_evaluations": 406,
+      "initial_energy_excess_N_mm": 1.720993493773494e-05,
+      "final_energy_excess_N_mm": 5.161913408980678e-06,
+      "energy_reduction_fraction": 0.7000620032756466,
+      "stationarity_tolerance": 1e-08,
+      "feasibility_tolerance_relative_length": 1e-09,
+      "independent_kkt_certified": true,
+      "kkt": {
+        "stationarity_inf_N": 2.6708383277224265e-14,
+        "stationarity_relative": 3.3383160821473284e-14,
+        "stationarity_relative_to_gradient": 5.798560399682895e-10,
+        "complementarity_N_mm": 1.1186280523363064e-21,
+        "complementarity_relative": 5.825783204306852e-21,
+        "max_constraint_violation_mm": 2.42861286636753e-17,
+        "active_constraint_count": 16,
+        "active_tolerance_mm": 2.4e-09,
+        "multipliers_N": [
+          1.6273843005488978e-05,
+          2.0689476706345535e-05,
+          2.068947670821607e-05,
+          1.627384300269491e-05,
+          2.0689476705023683e-05,
+          4.606036918278615e-05,
+          4.6060369181922096e-05,
+          2.068947670239232e-05,
+          2.068947670359236e-05,
+          4.60603691855613e-05,
+          4.6060369185535756e-05,
+          2.068947670963849e-05,
+          1.6273843005838125e-05,
+          2.0689476712606037e-05,
+          2.068947670693896e-05,
+          1.6273843006481524e-05,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "multiplier_scope": "ideal reduced-model inequality reactions, not measured pressure or friction"
+      },
+      "initial": {
+        "energy_excess_N_mm": 1.720993493773494e-05,
+        "constraints": {
+          "max_violation_mm": 0.0,
+          "min_crossing_separation_mm": 0.0304157853753606,
+          "max_abs_slope": 0.2009897275780669,
+          "configured_slope_bound": 0.3,
+          "configured_slope_bound_satisfied": true,
+          "conservative_orthogonal_envelope_clearance_mm": 0.004,
+          "observed_slope_orthogonal_envelope_clearance_bound_mm": 0.005256854000916571,
+          "family_max_abs_slope": {
+            "warp": 0.2009897275780669,
+            "weft": 0.2009897275780669
+          },
+          "parallel_family_clearance_bound_mm": 0.216,
+          "small_slope_bending_integrand_overestimate_bound": 0.10407250083646669,
+          "small_slope_diagnostic_scope": "continuum graph integrand factor at observed edge slopes; not a discrete-curvature or real-material error certificate",
+          "bound_scope": "piecewise-linear yarn centerlines and specified circular envelopes; no same-yarn fiber contact certificate"
+        },
+        "families": {
+          "warp": {
+            "centerline_length_mm": 4.815425509988269,
+            "projected_length_mm": 4.799999999999995,
+            "crimp_ratio": 0.0032136479142237384,
+            "height_rms_mm": 0.012765096743180885,
+            "tangent_second_moment": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.9936376217566896,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.00636237824331011
+              ]
+            ],
+            "axial_force_min_N": 0.00010050251256281673,
+            "axial_force_max_N": 0.0005024817281461491
+          },
+          "weft": {
+            "centerline_length_mm": 4.815425509988269,
+            "projected_length_mm": 4.799999999999995,
+            "crimp_ratio": 0.0032136479142237384,
+            "height_rms_mm": 0.012765096743180885,
+            "tangent_second_moment": [
+              [
+                0.9936376217566896,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.00636237824331011
+              ]
+            ],
+            "axial_force_min_N": 0.00010050251256281673,
+            "axial_force_max_N": 0.0005024817281461491
+          }
+        }
+      },
+      "relaxed": {
+        "energy_excess_N_mm": 5.161913408980678e-06,
+        "constraints": {
+          "max_violation_mm": 2.42861286636753e-17,
+          "min_crossing_separation_mm": 0.030415785375360577,
+          "max_abs_slope": 0.13504723382370576,
+          "configured_slope_bound": 0.3,
+          "configured_slope_bound_satisfied": true,
+          "conservative_orthogonal_envelope_clearance_mm": 0.003999999999999976,
+          "observed_slope_orthogonal_envelope_clearance_bound_mm": 0.005875797861393306,
+          "family_max_abs_slope": {
+            "warp": 0.1350472338230899,
+            "weft": 0.13504723382370576
+          },
+          "parallel_family_clearance_bound_mm": 0.216,
+          "small_slope_bending_integrand_overestimate_bound": 0.046219934263044715,
+          "small_slope_diagnostic_scope": "continuum graph integrand factor at observed edge slopes; not a discrete-curvature or real-material error certificate",
+          "bound_scope": "piecewise-linear yarn centerlines and specified circular envelopes; no same-yarn fiber contact certificate"
+        },
+        "families": {
+          "warp": {
+            "centerline_length_mm": 4.812302730072979,
+            "projected_length_mm": 4.799999999999995,
+            "crimp_ratio": 0.0025630687652049566,
+            "height_rms_mm": 0.01396688391509051,
+            "tangent_second_moment": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.9948988861559902,
+                -6.074034035212478e-17
+              ],
+              [
+                0.0,
+                -5.785652597338888e-17,
+                0.005101113844009984
+              ]
+            ],
+            "axial_force_min_N": 0.00010067350380671414,
+            "axial_force_max_N": 0.00028296835345978713
+          },
+          "weft": {
+            "centerline_length_mm": 4.812302730073285,
+            "projected_length_mm": 4.799999999999995,
+            "crimp_ratio": 0.0025630687652686834,
+            "height_rms_mm": 0.013966883915268168,
+            "tangent_second_moment": [
+              [
+                0.9948988861558637,
+                0.0,
+                -4.233799984781366e-16
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                -4.2428119047149146e-16,
+                0.0,
+                0.005101113844136113
+              ]
+            ],
+            "axial_force_min_N": 0.000100673503806612,
+            "axial_force_max_N": 0.0002829683534614436
+          }
+        }
+      },
+      "scope": "fixed-track, tension-domain axial energy plus small-slope bending; conservative envelope constraints; no friction/drape",
+      "problem_sha256": "86619ac647a828c221fe9f45b851e3bb3d154265caeaae5a5eba8fa300ecced9",
+      "height_state_sha256": "4fd0f35b1c11e0c141b3c152e4dbfc2578218800325464c969fb25e76904f938"
+    },
+    "history": [
+      {
+        "iteration": 1,
+        "energy_excess_N_mm": 5.348513470959802e-06,
+        "max_constraint_violation_mm": 3.469446951953614e-17
+      },
+      {
+        "iteration": 2,
+        "energy_excess_N_mm": 5.180833517740347e-06,
+        "max_constraint_violation_mm": 3.469446951953614e-17
+      },
+      {
+        "iteration": 3,
+        "energy_excess_N_mm": 5.162054443434352e-06,
+        "max_constraint_violation_mm": 2.7755575615628914e-17
+      },
+      {
+        "iteration": 4,
+        "energy_excess_N_mm": 5.161916028456612e-06,
+        "max_constraint_violation_mm": 1.734723475976807e-17
+      },
+      {
+        "iteration": 5,
+        "energy_excess_N_mm": 5.16191348621691e-06,
+        "max_constraint_violation_mm": 2.42861286636753e-17
+      },
+      {
+        "iteration": 6,
+        "energy_excess_N_mm": 5.16191340903327e-06,
+        "max_constraint_violation_mm": 2.7755575615628914e-17
+      },
+      {
+        "iteration": 7,
+        "energy_excess_N_mm": 5.161913408981068e-06,
+        "max_constraint_violation_mm": 2.42861286636753e-17
+      },
+      {
+        "iteration": 8,
+        "energy_excess_N_mm": 5.161913408980687e-06,
+        "max_constraint_violation_mm": 4.5102810375396984e-17
+      },
+      {
+        "iteration": 9,
+        "energy_excess_N_mm": 5.161913408980683e-06,
+        "max_constraint_violation_mm": 2.42861286636753e-17
+      },
+      {
+        "iteration": 10,
+        "energy_excess_N_mm": 5.161913408980683e-06,
+        "max_constraint_violation_mm": 3.8163916471489756e-17
+      },
+      {
+        "iteration": 11,
+        "energy_excess_N_mm": 5.161913408980701e-06,
+        "max_constraint_violation_mm": 2.0816681711721685e-17
+      },
+      {
+        "iteration": 12,
+        "energy_excess_N_mm": 5.161913408980692e-06,
+        "max_constraint_violation_mm": 3.122502256758253e-17
+      },
+      {
+        "iteration": 13,
+        "energy_excess_N_mm": 5.161913408980688e-06,
+        "max_constraint_violation_mm": 2.7755575615628914e-17
+      },
+      {
+        "iteration": 14,
+        "energy_excess_N_mm": 5.1619134089806854e-06,
+        "max_constraint_violation_mm": 2.42861286636753e-17
+      },
+      {
+        "iteration": 15,
+        "energy_excess_N_mm": 5.161913408980687e-06,
+        "max_constraint_violation_mm": 3.122502256758253e-17
+      },
+      {
+        "iteration": 16,
+        "energy_excess_N_mm": 5.1619134089806905e-06,
+        "max_constraint_violation_mm": 3.469446951953614e-17
+      },
+      {
+        "iteration": 17,
+        "energy_excess_N_mm": 5.16191340898069e-06,
+        "max_constraint_violation_mm": 1.734723475976807e-17
+      },
+      {
+        "iteration": 18,
+        "energy_excess_N_mm": 5.161913408980687e-06,
+        "max_constraint_violation_mm": 2.7755575615628914e-17
+      },
+      {
+        "iteration": 19,
+        "energy_excess_N_mm": 5.1619134089806854e-06,
+        "max_constraint_violation_mm": 3.469446951953614e-17
+      },
+      {
+        "iteration": 20,
+        "energy_excess_N_mm": 5.1619134089806905e-06,
+        "max_constraint_violation_mm": 2.42861286636753e-17
+      },
+      {
+        "iteration": 21,
+        "energy_excess_N_mm": 5.161913408980695e-06,
+        "max_constraint_violation_mm": 1.734723475976807e-17
+      },
+      {
+        "iteration": 22,
+        "energy_excess_N_mm": 5.16191340898069e-06,
+        "max_constraint_violation_mm": 3.122502256758253e-17
+      },
+      {
+        "iteration": 23,
+        "energy_excess_N_mm": 5.161913408980689e-06,
+        "max_constraint_violation_mm": 3.8163916471489756e-17
+      },
+      {
+        "iteration": 24,
+        "energy_excess_N_mm": 5.161913408980685e-06,
+        "max_constraint_violation_mm": 2.42861286636753e-17
+      },
+      {
+        "iteration": 25,
+        "energy_excess_N_mm": 5.161913408980692e-06,
+        "max_constraint_violation_mm": 1.734723475976807e-17
+      },
+      {
+        "iteration": 26,
+        "energy_excess_N_mm": 5.161913408980784e-06,
+        "max_constraint_violation_mm": 2.42861286636753e-17
+      },
+      {
+        "iteration": 27,
+        "energy_excess_N_mm": 5.1619134089806854e-06,
+        "max_constraint_violation_mm": 4.163336342344337e-17
+      },
+      {
+        "iteration": 28,
+        "energy_excess_N_mm": 5.161913408980688e-06,
+        "max_constraint_violation_mm": 3.8163916471489756e-17
+      },
+      {
+        "iteration": 29,
+        "energy_excess_N_mm": 5.161913408980687e-06,
+        "max_constraint_violation_mm": 6.591949208711867e-17
+      },
+      {
+        "iteration": 30,
+        "energy_excess_N_mm": 5.161913408980686e-06,
+        "max_constraint_violation_mm": 3.122502256758253e-17
+      },
+      {
+        "iteration": 31,
+        "energy_excess_N_mm": 5.161913408980693e-06,
+        "max_constraint_violation_mm": 3.8163916471489756e-17
+      },
+      {
+        "iteration": 32,
+        "energy_excess_N_mm": 5.161913408980685e-06,
+        "max_constraint_violation_mm": 4.163336342344337e-17
+      },
+      {
+        "iteration": 33,
+        "energy_excess_N_mm": 5.161913408980686e-06,
+        "max_constraint_violation_mm": 2.42861286636753e-17
+      },
+      {
+        "iteration": 34,
+        "energy_excess_N_mm": 5.161913408980687e-06,
+        "max_constraint_violation_mm": 2.0816681711721685e-17
+      },
+      {
+        "iteration": 35,
+        "energy_excess_N_mm": 5.1619134089806854e-06,
+        "max_constraint_violation_mm": 2.42861286636753e-17
+      },
+      {
+        "iteration": 36,
+        "energy_excess_N_mm": 5.161913408980687e-06,
+        "max_constraint_violation_mm": 2.42861286636753e-17
+      },
+      {
+        "iteration": 37,
+        "energy_excess_N_mm": 5.1619134089806854e-06,
+        "max_constraint_violation_mm": 1.734723475976807e-17
+      },
+      {
+        "iteration": 38,
+        "energy_excess_N_mm": 5.161913408980685e-06,
+        "max_constraint_violation_mm": 3.122502256758253e-17
+      },
+      {
+        "iteration": 39,
+        "energy_excess_N_mm": 5.161913408982508e-06,
+        "max_constraint_violation_mm": 2.7755575615628914e-17
+      },
+      {
+        "iteration": 40,
+        "energy_excess_N_mm": 5.161913408980691e-06,
+        "max_constraint_violation_mm": 2.42861286636753e-17
+      },
+      {
+        "iteration": 41,
+        "energy_excess_N_mm": 5.161913408980688e-06,
+        "max_constraint_violation_mm": 3.122502256758253e-17
+      },
+      {
+        "iteration": 42,
+        "energy_excess_N_mm": 5.1619134089806905e-06,
+        "max_constraint_violation_mm": 3.122502256758253e-17
+      },
+      {
+        "iteration": 43,
+        "energy_excess_N_mm": 5.161913408980686e-06,
+        "max_constraint_violation_mm": 3.122502256758253e-17
+      },
+      {
+        "iteration": 44,
+        "energy_excess_N_mm": 5.161913408985474e-06,
+        "max_constraint_violation_mm": 2.0816681711721685e-17
+      },
+      {
+        "iteration": 45,
+        "energy_excess_N_mm": 5.161913408980687e-06,
+        "max_constraint_violation_mm": 2.42861286636753e-17
+      },
+      {
+        "iteration": 46,
+        "energy_excess_N_mm": 5.161913408980689e-06,
+        "max_constraint_violation_mm": 2.42861286636753e-17
+      },
+      {
+        "iteration": 47,
+        "energy_excess_N_mm": 5.161913408980688e-06,
+        "max_constraint_violation_mm": 2.7755575615628914e-17
+      },
+      {
+        "iteration": 48,
+        "energy_excess_N_mm": 5.161913408980686e-06,
+        "max_constraint_violation_mm": 2.7755575615628914e-17
+      },
+      {
+        "iteration": 49,
+        "energy_excess_N_mm": 5.161913408980686e-06,
+        "max_constraint_violation_mm": 2.42861286636753e-17
+      },
+      {
+        "iteration": 50,
+        "energy_excess_N_mm": 5.16191340898069e-06,
+        "max_constraint_violation_mm": 2.42861286636753e-17
+      },
+      {
+        "iteration": 51,
+        "energy_excess_N_mm": 5.161913408980689e-06,
+        "max_constraint_violation_mm": 3.122502256758253e-17
+      },
+      {
+        "iteration": 52,
+        "energy_excess_N_mm": 5.161913408980688e-06,
+        "max_constraint_violation_mm": 3.122502256758253e-17
+      },
+      {
+        "iteration": 53,
+        "energy_excess_N_mm": 5.161913408980687e-06,
+        "max_constraint_violation_mm": 3.469446951953614e-17
+      },
+      {
+        "iteration": 54,
+        "energy_excess_N_mm": 5.161913408980688e-06,
+        "max_constraint_violation_mm": 2.0816681711721685e-17
+      },
+      {
+        "iteration": 55,
+        "energy_excess_N_mm": 5.161913408980691e-06,
+        "max_constraint_violation_mm": 3.122502256758253e-17
+      },
+      {
+        "iteration": 56,
+        "energy_excess_N_mm": 5.1619134089806854e-06,
+        "max_constraint_violation_mm": 2.42861286636753e-17
+      },
+      {
+        "iteration": 57,
+        "energy_excess_N_mm": 5.161913408980687e-06,
+        "max_constraint_violation_mm": 1.734723475976807e-17
+      },
+      {
+        "iteration": 58,
+        "energy_excess_N_mm": 5.161913408980692e-06,
+        "max_constraint_violation_mm": 3.122502256758253e-17
+      },
+      {
+        "iteration": 59,
+        "energy_excess_N_mm": 5.1619134089808735e-06,
+        "max_constraint_violation_mm": 2.42861286636753e-17
+      },
+      {
+        "iteration": 60,
+        "energy_excess_N_mm": 5.16191340898069e-06,
+        "max_constraint_violation_mm": 2.0816681711721685e-17
+      },
+      {
+        "iteration": 61,
+        "energy_excess_N_mm": 5.161913408980678e-06,
+        "max_constraint_violation_mm": 2.42861286636753e-17
+      }
+    ]
+  }
+}

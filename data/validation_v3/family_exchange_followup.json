@@ -1,0 +1,40 @@
+{
+  "scope": "Integrated validation follow-up; scientific solver and optical experiment sources unchanged",
+  "initial_gate": {
+    "tests_run": 230,
+    "failures": 1,
+    "errors": 0,
+    "skipped": 0,
+    "failure": "rectangular family-exchange coordinate comparison",
+    "max_coordinate_difference_mm": 4.768365240853667e-09,
+    "atol_mm": 3e-09,
+    "rtol": 1e-07
+  },
+  "independent_equation_check": {
+    "energy_difference_N_mm": -1.6940658945086007e-21,
+    "max_gradient_difference_N": 0.0,
+    "max_hessian_difference_N_per_mm": 0.0
+  },
+  "fix": "Strengthen regression with E/gradient/Hessian permutation covariance, and request stationarity_tolerance=1e-10 for both compared solves; geometric assertion tolerance unchanged",
+  "tightened_solve": {
+    "max_coordinate_difference_mm": 6.88597317187456e-11,
+    "relative_energy_difference": -1.4432899320127035e-15,
+    "stationarity_relative": [
+      4.819696744035756e-12,
+      1.8051703218774613e-12
+    ],
+    "optimizer_success": [
+      false,
+      false
+    ],
+    "acceptance": "Independently recomputed KKT/feasibility/energy gates, not optimizer status alone"
+  },
+  "targeted_review": {
+    "tests_run": 12,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "elapsed_seconds": 4.578
+  },
+  "test_source_sha256": "20115dd921d919cfb571419d1d5be59de6833e71d227a43151d50ac3f2cc31d3"
+}
