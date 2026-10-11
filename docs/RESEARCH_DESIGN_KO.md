@@ -2,7 +2,7 @@
 
 **Multiscale Textile Appearance Modeling and Meta-Optical Sensing**
 
-연구 설계 갱신: 2026-10-11. 구현은 v0.3의 원사 평형·분광 관측에서 **v0.4의 물질좌표 운반과 광학 비교**로 확장했다. 각 버전의 실제 검증 범위는 [v0.3](RELEASE_V0_3.md), [v0.4](RELEASE_V0_4.md)에 분리한다. 연구 의도와 대화의 요구사항은 [연구헌장](RESEARCH_CHARTER_KO.md), 실행 결과는 [README](../README.md), 인터페이스·단위·수학은 [아키텍처](ARCHITECTURE.md), 원문 확인과 선행연구의 관계는 [v3 문헌 검토](../notes/literature_engine_v3.md)에 있다. 이 문서는 **전체 연구 목표**, **실제로 구현·실행한 범위**, **다음에 검증할 가설**을 구분한다. 염색·퇴색은 후속 과제로 미뤘다.
+연구 설계 v0.5 갱신. 구현은 v0.3의 원사 평형·분광 관측, v0.4의 물질좌표 운반에 이어 **v0.5의 가변 반지름 → 닫힌 mesh → 경계 반사·굴절과 체적 흡수**로 확장했다. 광학 adapter의 작동과 광량의 수렴은 별도로 판정한다. 과거 검증 범위는 [v0.3](RELEASE_V0_3.md), [v0.4](RELEASE_V0_4.md)에 보존한다. 연구 의도와 대화의 요구사항은 [연구헌장](RESEARCH_CHARTER_KO.md), 실행 결과는 [README](../README.md), 인터페이스·단위·수학은 [아키텍처](ARCHITECTURE.md), 선행연구의 관계는 [v3 문헌 검토](../notes/literature_engine_v3.md)에 있다. 새 경로의 근거는 [가변 반지름 기하](../notes/variable_radius_geometry_v5.md), [광학 소스 검토](../notes/variable_radius_optics_source_audit_v5.md), [광학 oracle](../notes/volume_optics_validation_v5.md), [독립 리뷰](../notes/review_variable_radius_v5.md)에 기록한다. 이 문서는 **전체 연구 목표**, **실제로 구현·실행한 범위**, **다음에 검증할 가설**을 구분한다. 염색·퇴색은 후속 과제로 미뤘다.
 
 ## 1. 연구 목적을 다시 고정한다
 
@@ -21,7 +21,7 @@
 
 > **실제 원단의 구조와 광학 상태를 관측에서 추정하여 현재 외관을 복원하고 새로운 조명·시점의 외관을 예측한다. Fiber–ply–yarn–weave–fabric 계층의 순방향 엔진으로 구조·재료 모호성을 분석하고, 강한 RGB 기준이 남기는 오차를 줄이는 관측을 검증한 뒤 그 관측에 맞는 외부 메타광학을 설계한다. 최종적으로 같은 화면 조건에서 실물 원단에 대한 판단이 개선되는지 평가한다.**
 
-v0.3의 직접 성과는 이 목적의 기반인 **원사 높이 평형 → 섬유 재구성 → 광학 축약 오차 및 실제 분광 관측**의 실행 가능한 연결이다. 실측 원단 inverse fitting, 다중조명 RGB 대비 정보 이득, 제작한 메타표면의 성능 및 사용자 지각 개선은 이번 결과에 포함하지 않는다.
+v0.3은 이 목적의 기반인 **원사 높이 평형 → 섬유 재구성 → 광학 축약 오차 및 실제 분광 관측**을 연결했다. v0.4는 부모 원사의 변화에서 자식 fiber의 물질좌표와 재료 ID를 추적했고, v0.5는 같은 pose에서 두 반지름 상태를 같은 광학 모델로 비교할 수 있게 했다. 아직 해결할 핵심은 작은 물리적 차이를 기하 근사·renderer 수치 오차와 구분하는 것이다. 실측 원단 inverse fitting, 다중조명 RGB 대비 정보 이득, 제작한 메타표면의 성능 및 사용자 지각 개선은 현재 결과에 포함하지 않는다.
 
 ### 1.1 연구 방향을 유지하는 결정
 
@@ -53,14 +53,14 @@ Ply라는 용어는 방적 단사 하나 또는 여러 섬유의 묶음을 뜻�
 | 수준 | 설계·상태 변수 | 자식에게 전달하는 정보 | 현재 구현과 다음 확장 |
 | --- | --- | --- | --- |
 | Constituent material | `n(λ)+iκ(λ)`, source/status; 역학 `EA`, `B`는 별도 | 광학 spectrum 및 역학 입력의 출처 | 합성 scalar index·흡수. 이방성·실측 constitutive law는 후속 |
-| Fiber | 중심선·반지름·재료·부모 ID | 위치·접선·실제 호길이·단면 | 일정 반지름 원형 polyline. 단면 비원형·표면 잔털 통계는 후속 |
+| Fiber | 기준/현재 중심선·물질좌표·선분 반지름·재료·부모 ID | 위치·접선·호길이·단면·대응 provenance | 원형 polyline 및 v5 연속 정점 반지름/닫힌 mesh. 국소 부피 재분배를 기록; 비원형 단면·실측 표면 통계는 후속 |
 | Ply | fiber packing·offset·fiber twist·migration | local frame과 fiber 배치 | 명시적 fiber 묶음. ply 자체의 응력·fiber sliding은 미계산 |
 | Yarn | ply 수·배치·ply twist·envelope | 부모 중심선과 호길이 twist | 명시적 multi-ply. v3에서 유효 yarn 높이 평형을 계산 |
 | Crossing / draft | 경·위사 위아래 순서·pitch·float | crossing 제약과 track index | 직사각형 single-layer binary draft. multilayer stack·knit connectivity는 후속 |
 | Yarn network | 경계·rest length·강성·clearance | 초기 또는 축소 평형 원사 트랙 | 고정 평면 경로·높이 DOF. 3D rod·압착·접촉마찰은 후속 |
-| Fabric patch | 유한 범위·위치별 물질·microgeometry | `OpticalScene`과 관측 영역 | 실제 explicit-fiber path tracing, 투영 통계, 분광 관측 |
-| Fabric surface / garment | 거시 곡률·주름·경계·seams·중력 | 표면과 미시구조 사이 변형 map | 전체 의류 drape와 material-coordinate 운반은 후속 |
-| Observation / display | 광원 스펙트럼·방향·크기, sensor/display 응답 | 관측 영상·추정값·사용자 표현 | 합성 rig와 CIE 적분. 실물 camera/display calibration은 후속 |
+| Fabric patch | 유한 범위·위치별 물질·microgeometry | 일정 반지름 `OpticalScene` 또는 닫힌 volume scene과 공통 관측 영역 | 실제 fiber/mesh path tracing, 투영 통계, 조건별 단색 관측 |
+| Fabric surface / garment | 거시 곡률·주름·경계·seams·중력 | 표면과 미시구조 사이 변형 map | v4의 국소 yarn→fiber 물질좌표 운반은 구현. 전체 의류 drape·표면 map·접촉 역학은 후속 |
+| Observation / display | 광원 스펙트럼·방향·크기, sensor/display 응답 | 관측 영상·추정값·사용자 표현 | v3 합성 rig/CIE 적분과 v5 단색 진단을 구분. 실물 camera/display calibration은 후속 |
 
 실크·코튼·큐프라·린넨은 버튼 하나에 대응하는 고정 appearance가 아니다. 섬유의 단면·직경·표면, 원사의 꼬임·잔털, 직조, 가공 상태가 함께 입력되어야 한다. 현재 엔진은 이런 변수를 분리할 구조를 제공하지만 실제 재료별 정확도는 측정하지 않았다. Blend를 넣을 때는 fiber별 material ID를 유지하며, 근거 없이 평균 굴절률로 바꾸지 않는다.
 
@@ -78,11 +78,11 @@ Weavecraft의 3D blocks는 여러 원사의 ordered stack, 빈 위치, 연결·�
 | --- | --- | --- |
 | 공간 구조와 강한 RGB 기준 | R-M1 | camera·renderer의 합성 관측 기반; 실물 촬영은 후속 |
 | 추가 광학 정보와 보조 IR | R-M2, R-IR | 각도 검출·이상적 meta pupil 진단을 관측 설계로 확장 |
-| 변형과 기준 물성 | R-M4, R-M8 | K1의 유효 역학을 실측 구조·장력·굽힘에 연결할 경로 |
-| 공통 좌표·단위·관측 교정 | R-M5 | O1·C1의 scene/spectrum identity를 실제 장비로 확장 |
+| 변형과 기준 물성 | R-M4, R-M8 | K1 유효 역학과 K2 물질좌표 운반을 실측 구조·장력·굽힘에 연결할 경로 |
+| 공통 좌표·단위·관측 교정 | R-M5 | O1·O5·C1의 scene/spectrum identity와 buffer 단위 검산을 실제 장비로 확장 |
 | 구조·광학 상태 추정 | R-M6 | 아래 H/K/O/C 순방향 엔진이 기반; inverse fitting은 후속 |
 | 사용자에게 전달되는 외관 | R-M7 | 표시용 그림에서 교정된 확대·재조명·역광 표현으로 확장 |
-| 독립 실물·수치·지각 검증 | R-M9 | V1·Q1·테스트·리뷰를 실물 held-out 비교와 연결 |
+| 독립 실물·수치·지각 검증 | R-M9 | V1·V2·Q1·Q2·테스트·리뷰를 실물 held-out 비교와 연결 |
 
 다음 그림은 **현재 순방향 소프트웨어**의 데이터 경로다. 전체 연구의 실물 계측·역추정·사용자 평가까지 구현됐다는 뜻은 아니다.
 
@@ -92,6 +92,11 @@ flowchart TD
     I --> K["K1 원사 높이 평형"]
     K --> H
     H --> V["V1 sampling·간격·identity"]
+    H --> K2["K2 물질좌표 운반"]
+    K --> K2
+    K2 --> H2["H2 연속 반지름·닫힌 mesh"]
+    H2 --> V2["V2 부피·buffer·장면 간격"]
+    V2 --> O5["O5 dielectric·순수 흡수"]
     V --> O["O1 OpticalScene"]
     O --> W["O2 local Maxwell / ray"]
     O --> R["O3 explicit-fiber rendering"]
@@ -100,9 +105,12 @@ flowchart TD
     A --> Q["Q1 근사 오차·조건 분석"]
     W --> Q
     C --> Q
+    O5 --> Q2["Q2 반지름·분할·수치 척도 비교"]
 ```
 
-| 모듈 | 입력 → 출력 | v0.3의 실제 상태 | 다음 gate |
+다음 표는 v0.3 당시의 구현과 결과를 보존한 기록이다. 이어지는 확장 표에서 v0.4/v0.5가 해결한 연결과 남은 gate를 갱신한다.
+
+| 모듈 | 입력 → 출력 | v0.3의 실제 상태 | 당시 남긴 gate |
 | --- | --- | --- | --- |
 | H1 계층 기하 | fiber/ply/yarn/draft → explicit fibers | 5개 v2 예제와 v3 평형 연결; 부모 호길이 twist·RMF·bounded irregularity | 실측 기하 분포·비원형 단면·material-coordinate 운반 |
 | K1 원사 평형 | 유효 `EA,B,r`, 경계·draft → yarn heights | convex 인장·작은 기울기 굽힘, analytic derivatives, 보수적 envelope 제약 | finite-rotation rod와 비교 후 3D·contact 확장 |
@@ -113,6 +121,14 @@ flowchart TD
 | O4 계층 축약 | 같은 scene + 공통 V → `g(ω)`, SGGX fits | 1/2/6/6 그룹의 held-out projected-area 오차 | aggregate BSDF·다중 산란·공간 density와 실제 영상 비교 |
 | C1 분광 관측 | 파장별 radiance + SPD·CIE → XYZ | 536회 fiber 렌더, 4 seed pairing, 25/12.5 nm 일부 수렴 | 실제 source/camera/display, 그리드·noise 예산 수렴 |
 | Q1 근사 분석 | 공통 입력의 여러 표현 → 오차 분해 | geometry·통계·MC·일부 파장 차이를 별도 보고 | model mismatch·독립 원단·미관측 조건 |
+
+| 확장 모듈 | 구현된 입력 → 출력 | 보존·검증 계약 | 남은 gate |
+| --- | --- | --- | --- |
+| K2 물질좌표 운반 | v4 기준/현재 부모 곡선 → 대응하는 자식 좌표·선분 신장·반지름 상태 | 두 물질좌표, fiber/ply/yarn/material ID, reference/state hash | 구성식에 따른 응력·twist·미끄럼·접촉 |
+| H2 반지름/표면 | 선분 반지름 → 양의 연속 정점 반지름 → RMF 고리·닫힌 삼각망 | 선분별 재분배, 총 frustum 적분, 실제 mesh 부피를 각각 기록 | 같은 fiber 자기 교차, 비원형 단면, 축/단면 sampling 수렴 |
+| V2 실제 renderer 기하 | float64 mesh → 검산한 float32/uint32 buffer | 닫힘·winding·퇴화·양자화 변위, 해당 장면의 다른 fiber 간격 하한 | 일반적인 중첩 매질/자기 관통 인증 |
+| O5 체적 광학 | buffer+material+공통 rig → 파장별 scalar radiance | 같은 dielectric/순수 흡수, 기하 법선, inverse-mm 흡수, scene hash 결합 | 거칠기·복굴절·파동 효과와 실측 scattering |
+| Q2 수치 비교 | 두 반지름 상태×단면 분할×조건×seed → paired 비교 | 실제 render 횟수·raw 축·개별 기록·해시, 독립 원본 재구성 | 광량 수렴, 작은 반지름 효과의 식별, 실물 정확도 |
 
 다음 개발 흐름은 관측을 선택하고 실제 원단으로 검증하는 것이다. 이 부분은 아직 구현·입증되지 않은 연구 단계다.
 
@@ -148,7 +164,7 @@ z^* = \arg\min_{Az\ge b}
 
 이 모델은 **reduced quasi-static yarn-height equilibrium**이다. [DER](https://www.cs.columbia.edu/cg/pdfs/143-rods.pdf)의 full 3D framed rod, twisting energy, 접촉압·마찰, 단면 압착, transverse sliding, garment drape를 구현한 것은 아니다. 작은 기울기 bending 근사의 크기는 따로 기록한다. Optical pair에서 edge slope 기반 `(1+L²)^(5/2)-1`은 약 18.06%로, 더 정교한 기하 모델과 비교할 이유가 남는다. 이 수치는 해의 위치나 실제 원단 전체에 대한 error bound가 아니다.
 
-Fiber는 평형 yarn 위에 새로 생성한다. ID를 유지하더라도 material-coordinate 변형이 아니다. 광학 pair의 전체 cylinder-volume proxy는 +0.04424%, warp/weft fiber 길이는 각각 −0.57358%/+0.66206% 변한다. 따라서 전후 optical 차이를 접선 하나의 변화로 귀속하지 않는다.
+v3에서는 fiber를 평형 yarn 위에 새로 생성한다. ID를 유지하더라도 material-coordinate 변형이 아니다. 광학 pair의 전체 cylinder-volume proxy는 +0.04424%, warp/weft fiber 길이는 각각 −0.57358%/+0.66206% 변한다. 따라서 전후 optical 차이를 접선 하나의 변화로 귀속하지 않는다. V4의 별도 운반 경로는 이 재생성과 원래 물질점의 대응을 구분하기 위해 추가됐다.
 
 ### 5.2 광학 축약의 기준
 
@@ -172,9 +188,49 @@ L_o=\mathcal T_{G,\theta_M}[L_i]
 
 다. 현재 실제 backend는 3D incoherent fiber path tracing, 유효 단면의 2D Maxwell, 2D power-ray다. 같은 scene에서 시작하지만 서로 다른 물리량·정규화·유효범위를 갖는다. Local wave cross-section을 정규화 없이 fabric BRDF로 옮기거나 직접광·회절·ray power를 중복해서 더하지 않는다. [Yu ray–wave의 실제 역할 분리](https://blaire9989.github.io/assets/3_RayWaveFabric/project.html)도 이 경계를 없애 주는 단순 합산식은 아니다.
 
-v3에서는 실제 파장별 scalar radiance를 공식 CIE observer와 Planck source로 적분한다. 6500 K Planck를 D65라고 부르지 않으며 절대 휘도·실물 화면 교정을 주장하지 않는다. 새 광학 모듈은 raw spectra와 선형 XYZ를 남겨 관측자·표시를 바꾸어도 원래 정보를 보존한다.
+v3에서는 실제 파장별 scalar radiance를 공식 CIE observer와 Planck source로 적분한다. 6500 K Planck를 D65라고 부르지 않으며 절대 휘도·실물 화면 교정을 주장하지 않는다. V3는 raw spectra와 선형 XYZ를 남긴다. V5의 기본 450/550/650 nm는 기하·흡수 변화의 단색 진단이며 세 표본으로 정확한 색을 재구성했다는 뜻이 아니다. Gray RGB backend의 세 채널도 세 개 파장이나 독립 표본으로 세지 않는다.
 
-## 6. 이번 실험이 실제로 보여 준 것
+### 5.4 가변 반지름을 광학에 전달할 때 보존하는 것
+
+V4의 `incompressible_segments`는 기준 선분 길이 \(\ell_e^0\)와 현재 길이 \(\ell_e\)에 대해 \(r_e=r_e^0\sqrt{\ell_e^0/\ell_e}\)를 선택한다. 이 규칙이 보존하는 것은 원통 proxy \(V_e^{\rm cyl}=\pi r_e^2\ell_e\)다. 이산 proxy를 실제 고체의 부피 또는 검증된 constitutive law와 동일시하지 않는다.
+
+V5의 `profiles_from_transport(state)`는 선분마다 다른 \(r_e\)를 연속적인 정점 반지름 \(\rho_i\)로 바꾼다. 내부 정점에서는 길이로 가중한 단면적을 사용한다.
+
+\[
+\widetilde\rho_i^2=
+\frac{\ell_{i-1}r_{i-1}^2+\ell_i r_i^2}{\ell_{i-1}+\ell_i},
+\qquad
+V_e^{\rm frustum}(\rho)=\frac{\pi\ell_e}{3}
+\left(\rho_i^2+\rho_i\rho_{i+1}+\rho_{i+1}^2\right).
+\]
+
+끝 정점은 인접 선분의 반지름을 사용하고, 각 fiber에서 \(q=\sqrt{\sum_e V_e^{\rm cyl}/\sum_e V_e^{\rm frustum}(\widetilde\rho)}\), \(\rho_i=q\widetilde\rho_i\)로 전역 배율을 정한다. 이 방법은 **fiber 전체의 직선 frustum 적분**을 원통 proxy에 맞추지만, 각 물질 선분의 부피는 재분배한다. `segment_relative_volume_error`를 남기는 이유다. 이는 명시적으로 선택한 연속화 규칙이며, 측정 없이 실제 반지름 분포를 복원하는 방법은 아니다.
+
+`build_tapered_tube(profile, radial_segments=N, initial_normal=...)`는 rotation-minimizing frame의 고리와 두 endcap으로 삼각망을 만든다. 실제 삼각망의 부피는 별도로 계산한다.
+
+\[
+V_{\rm mesh}=\frac16\sum_f
+(\mathbf v_{f0}-\mathbf o)\cdot
+\big[(\mathbf v_{f1}-\mathbf o)\times(\mathbf v_{f2}-\mathbf o)\big].
+\]
+
+여기서 \(\mathbf o\)는 수치 상쇄를 줄이기 위한 정점 평균이다. 따라서 **원통 proxy, 직선 frustum 적분, 실제 닫힌 mesh의 signed volume**은 세 가지 다른 양이다. 마지막 값도 자기 교차가 없어야 일반적인 고체 부피로 해석할 수 있다. 직선 원뿔대에서 정N각형 근사의 부피 비율은 \(N\sin(2\pi/N)/(2\pi)\)이며, 이를 제거해도 굽힘·고리 배치·축방향 이산화 오차가 남을 수 있다. Mesh를 다시 확대하여 이 오차를 숨기지 않는다. 실제 renderer에 전달할 float32 buffer의 부피와 최대 정점 변위도 따로 검사한다. [수학·저장 계약과 기준 문제](../notes/variable_radius_geometry_v5.md).
+
+새 `build_volume_scene()`은 각 fiber의 닫힌 mesh를 **기하 법선의 매끄러운 dielectric 경계와 내부의 균질 순수 흡수 매질**에 연결한다. 재료별 \(n\)은 실수 Fresnel 경계에, \(\kappa\)는
+
+\[
+\mu_a=\frac{4\pi\kappa}{\lambda_0},
+\qquad \lambda_0\ [{\rm mm}],\quad
+\sigma_t=\mu_a\ [{\rm mm}^{-1}],\quad \mathrm{albedo}=0
+\]
+
+에 사용한다. 허용하는 \(\kappa/n\) 범위를 선언하며 complex Fresnel을 정확히 풀었다고 하지 않는다. `volpath`는 경계 반사·굴절과 내부 경로를 계산한다. V3/v4의 hair shader에 사용하는 radius-normalized \(\mu_a r\)를 이 매질에 넣으면 단위가 맞지 않는다. 양쪽 반지름 상태를 모두 이 새 모델로 계산해야 shader 변경을 반지름 효과와 섞지 않을 수 있다. 거칠기·복굴절·편광·회절은 이 경로의 구현 범위 밖이다. [Mitsuba 소스에 따른 mapping 검토](../notes/variable_radius_optics_source_audit_v5.md).
+
+**교차 검사는 범위를 명시한다.** 각 원래 중심선 chord를 해당 fiber의 최대 새 정점 반지름으로 감싼 capsule에는 생성한 옆면·cap 삼각형이 포함된다. 실험은 이 capsule로 서로 다른 fiber의 최소 간격 하한을 구하고, 최대 float32 정점 변위의 두 배를 뺀 값도 양수인지 확인한다. 이 결과는 계산한 두 상태와 해당 buffer에 대한 증거다. 닫힌 edge, 올바른 winding, 양의 signed volume만으로 같은 fiber의 자기 관통이나 물리적 contact가 해결됐다고 해석하지 않는다.
+
+## 6. 버전별 실험 결과와 해석
+
+### 6.1 v0.3에서 확인한 결과: 보존 기록
 
 | 항목 | 실제 결과 | 가능한 해석 | 금지할 확대 해석 |
 | --- | --- | --- | --- |
@@ -189,13 +245,39 @@ v3에서는 실제 파장별 scalar radiance를 공식 CIE observer와 Planck so
 
 역학·광학 결과는 각각 [mechanics manifest](../data/mechanics_v3/experiment_manifest.json), [optical metrics](../data/optical_v3/optical_scale_metrics.json)와 원래 arrays에 대응한다. 표의 광학 구간은 **4개 seed의 Monte Carlo uncertainty**다. 픽셀·파장을 독립 표본으로 늘리지 않았고, 실물·모델·교정 uncertainty는 포함하지 않는다. 현재 최종 suite의 test 수와 pass/fail은 [통합 기록](../data/final_test_summary.json)을 기준으로 한다.
 
+### 6.2 v0.5의 완료 결과: 연결은 구현됐고, 광량 수렴은 남았다
+
+비교의 기본 설계는 **같은 pose의 두 반지름 상태 × 세 조명(R0/R90/T45) × 단면 분할 16/32/64 × 450/550/650 nm × 네 seed**다. 최종 배치는 64×64, 64 spp에서 실제 **216회**를 실행했고, 202.188323초가 걸렸다. 아홉 NPZ의 CRC와 중첩 hash, 실행 전후 source/input 불변 검사를 통과했다. 독립 verifier는 원본 mechanics 네 파일에서 두 상태를 재구성하고 252개 fiber mesh, 54개 scene metadata, 216개 영상 기록과 전체 77개 출력 파일을 검사했다. 동일 seed의 상태 차이와 분할 차이를 paired 통계로 계산하며, pointwise 구간과 미리 정의한 비교 family의 다중비교 보정 구간을 구분한다. [실험 기록](../notes/variable_radius_v5_experiment.md#6-실행-결과), [독립 검산](../data/validation_v5/independent_review/verification_summary.json).
+
+| 확인한 대상 | 현재 근거 | 연구 판단 |
+| --- | --- | --- |
+| 반지름 연속화 | 독립 42-fiber 검사에서 per-fiber frustum 총합의 상대 오차는 최대 \(4.44\times10^{-16}\); 개별 선분은 약 −3.96%~+3.80% 재분배 | 총합 보존은 확인했지만 국소 비압축성의 보존은 아님 |
+| 닫힌 기하 | 직선 원기둥/원뿔대, winding·내부 출사·강체 변환, 원호의 축방향 수렴을 별도 검사 | renderer에 전달할 기하 계약의 근거; 같은 fiber 자기 교차는 별도 과제 |
+| 단면 세분화 | mesh/frustum 부피 차이는 16/32/64에서 약 −2.55389%/−0.64480%/−0.16407%; R0 radiance는 32→64에서 두 상태·세 파장에 걸쳐 약 25.70~31.56% 감소 | 부피 수렴만으로 하이라이트·광량 수렴을 선언할 수 없음 |
+| 반지름 효과 | 64각형의 9개 조건에서 variable−constant 반지름의 pointwise 95% 및 Bonferroni 구간이 모두 0 포함 | 현재 예산과 모델에서 차이가 분리되지 않음; 반지름의 물리적 효과가 0이라는 증명은 아님 |
+| 체적 광학 oracle | Beer, 흡수 없는 dielectric furnace, 내부 출사와 단위 계수 검사에 대한 사전 오차 guard 통과 | 알려진 단순 합성 문제의 검증이며 일반 원단의 산란 정확도와는 다름 |
+| Renderer 수치 척도 | 길이와 흡수의 상사 비교에서 작은 paired 차이가 남고, 실제 ray 시작점 이동의 내부 광로 변화와 부호·크기가 일치 | 미세 섬유의 작은 외관 효과를 추정하기 전에 별도 수치 척도 검증 필요 |
+
+반지름·기하 수치는 [독립 기하 검토](../notes/review_variable_radius_v5.md), 원단 radiance는 [원시 optical metrics](../data/variable_radius_v5/optics/optical_metrics.json), 단순 광학 문제와 실제 ray 질의는 [광학 oracle 기록](../notes/volume_optics_validation_v5.md)에 대응한다. 저장 무결성 문제로 거부한 첫 배치와 최종 배치의 raw radiance는 byte까지 같지만 두 실행을 독립 seed처럼 합산하지 않는다. 상세한 실패·수정·재실행 이력은 [작업 로그](WORK_LOG.md)에 남긴다.
+
+550 nm·64각형에서 별도로 시행한 **척도 1/10/100 × 두 상태 × 세 조명 × 네 seed = 72회**는 source 불변·CRC 검사를 통과했다. 척도 10→100의 상대 radiance 점추정은 다음과 같다.
+
+| 상태 | R0 | R90 | T45 |
+| --- | ---: | ---: | ---: |
+| 일정 반지름 | +0.042% | +0.934% | −4.242% |
+| 가변 반지름 | −0.590% | +3.303% | +1.654% |
+
+이 여섯 변화의 pointwise 구간과 전체 척도 쌍 18조건의 Bonferroni 구간에는 모두 0이 포함됐다. 이는 이 예산에서 척도 차이가 분리되지 않았다는 결과이며, 동등성 허용량을 만족했거나 무한 척도로 수렴했다는 판정이 아니다. 이 배치는 216회 원단 배치 및 32회 물리 oracle와 분리한 실험이다. [척도 민감도 원시 결과](../data/validation_v5/volume_scale_sensitivity/sensitivity_metrics.json), [실행 manifest](../data/validation_v5/volume_scale_sensitivity/experiment_manifest.json).
+
+**연구의 다음 판단은 ‘가변 반지름 렌더링 성공’에서 ‘작은 물리적 신호보다 순방향 계산 오차가 작은가’로 이동한다.** 이 gate가 통과되기 전에 반지름을 역추정하거나 그 민감도로 메타광학 채널을 최적화하면 renderer의 근사를 식별하는 채널을 선택할 수 있다.
+
 ## 7. 가장 유망한 다음 연구 질문
 
 > **강한 다중조명 RGB에서 남는 ‘원사 crimp·방향 변화’와 ‘섬유 고유 산란·흡수 변화’의 모호성을, 적은 각도·분광 관측으로 줄일 수 있는가? 그리고 그 이득이 다른 기하·광학 근사를 써도 유지되는가?**
 
 이 질문은 제품 외관 예측과 메타광학 연구를 연결한다. 목표를 실크/코튼 이름 분류 하나로 두면 구조·가공·조명의 confound가 숨을 수 있다. 우선 미관측 조건의 하이라이트·비침·선형 색 오차를 줄이는 데 충분한 상태를 추정한다.
 
-현재 반사 두 방향의 opposite-sign 변화는 후보 관측을 정할 실마리다. 다만 두 상태만 비교했으므로 다른 roughness·흡수·조명 강도 변화가 같은 관측을 만들 수 있는지는 아직 계산하지 않았다. 이를 확인해야 채널의 정보 가치를 주장할 수 있다.
+V3의 반사 두 방향에서 얻은 opposite-sign 변화는 후보 관측을 정할 실마리다. 다만 두 상태만 비교했으므로 다른 roughness·흡수·조명 강도 변화가 같은 관측을 만들 수 있는지는 아직 계산하지 않았다. V5의 기하·ray offset 진단은 모델 수치 오차도 이 비교에 포함해야 함을 보여 준다. 이들을 확인해야 채널의 정보 가치를 주장할 수 있다.
 
 ### 7.1 큰 민감도보다 모호성을 제거한 정보가 중요하다
 
@@ -207,7 +289,7 @@ F_{g\mid n}=J_g^T(I-J_nJ_n^+)J_g
 
 로 진단할 수 있다. 이는 가정한 local Gaussian noise 모델의 선형 근사이며 global uniqueness를 보장하지 않는다. Rank가 부족한 경우 pseudo-inverse를 사용하고, parameter scaling·prior와 noise covariance를 함께 명시해야 한다.
 
-추가 관측은 raw derivative가 큰 채널보다, nuisance를 제거한 뒤 관심 구조 또는 미관측 외관의 uncertainty를 줄이는 채널이어야 한다. 이 식과 channel optimization은 **v3의 미구현 연구 설계**다. 실제 sensor response·shot/read noise로 검증한 후 사용할 예정이다.
+추가 관측은 raw derivative가 큰 채널보다, nuisance를 제거한 뒤 관심 구조 또는 미관측 외관의 uncertainty를 줄이는 채널이어야 한다. 이 식과 channel optimization은 **현재도 미구현인 연구 설계**다. Forward discretization과 수치 척도를 먼저 검증하고 실제 sensor response·shot/read noise를 포함한 뒤 사용할 예정이다. 계산 표본을 늘려 Monte Carlo 구간을 줄이는 것은 체계적인 모델 오차를 줄이는 일과 다르다.
 
 ### 7.2 메타표면의 역할
 
@@ -225,7 +307,7 @@ VIS는 사용자에게 보여 줄 외관의 기준 대역이다. IR은 기존 �
 
 ### A. 구조·역학의 유효범위를 먼저 측정한다
 
-원형 fiber와 합성 index를 유지한 상태에서 `EA`, `B`, `r`, pitch, draft를 별도 축으로 바꾼다. 동일 시편의 small-slope 해와 finite-rotation rod 해를 비교하고, boundary와 volume/length 변화의 기여를 분리한다. V4는 같은 reference 물질좌표를 운반하는 일정 반지름 상태와 기존 재생성을 비교했다. 선분 부피 proxy 보존 상태는 별도 가변 반지름 adapter가 없어 아직 렌더하지 않는다. 이를 같은 실제 질량을 갖는 변형의 광학 비교라고 표시하지 않는다.
+원형 fiber와 합성 index를 유지한 상태에서 `EA`, `B`, `r`, pitch, draft를 별도 축으로 바꾼다. 동일 시편의 small-slope 해와 finite-rotation rod 해를 비교하고, boundary와 volume/length 변화의 기여를 분리한다. V4는 같은 reference 물질좌표를 운반하는 일정 반지름 상태와 기존 재생성을 비교했다. 당시 렌더하지 않았던 선분 부피 proxy 보존 상태는 v5에서 연속 반지름·닫힌 mesh adapter로 연결했다. 연속화에서 국소 부피가 재분배되므로 이를 같은 실제 질량·국소 비압축성을 보장하는 변형의 광학 비교라고 표시하지 않는다.
 
 **v0.4 물질좌표 연결의 검증 기준:** 기준 geometry와 material labels를 고정하고 변형 map의 입력·출력을 구분한다. Identity map, rigid motion, 단순 stretch 등의 독립 기준을 먼저 검사한다. 새로운 위치만 얻었다고 길이·질량·twist가 모두 보존됐다고 표시하지 않고, 선택한 constitutive response가 어떤 양을 보존하고 어떤 strain·단면 변화를 허용하는지 기록한다. Fiber/ply/yarn ID와 기준 sampling의 대응, round-trip 오차, 재생성 대조군, 서로 다른 섬유 사이의 간격과 광학 exporter의 형상 근사를 함께 평가한다.
 
@@ -233,7 +315,31 @@ VIS는 사용자에게 보여 줄 외관의 기준 대역이다. IR은 기존 �
 
 V4 실행에서 42개 fiber의 전체 길이 변화는 +0.044224%였지만 국소 선분 strain은 약 −14~+14%, reference-length 가중 RMS는 1.7282%였다. 이 값은 stress-free 기준의 실물 탄성 strain이 아니라 선언한 map의 진단이다. 세 파장 광학 비교의 9개 pointwise 구간 중 8개가 0을 포함하므로 재생성보다 외관 정확도가 개선됐다는 결론을 내리지 않는다. 다음 검증은 material correspondence 유지에 더해 국소 신장·단면·물리적 twist와 sampling의 오차를 줄이는 것이다.
 
-계속 진행할 근거는 KKT 하나가 아니라 높이·접선·간격·경계 민감도와 optical response의 수렴이다. 현재 8→16 mesh 차이가 광학 효과보다 작은지 아직 paired rendering으로 확인하지 않았으므로, 작은 외관 차이를 추론할 때는 이 gate를 먼저 통과해야 한다.
+계속 진행할 근거는 KKT 하나가 아니라 높이·접선·간격·경계 민감도와 optical response의 수렴이다. V3 역학 grid의 8→16 차이가 광학 효과보다 작은지는 아직 paired rendering으로 확인하지 않았다. 이 역학 grid와 v5의 반지름 둘레 분할 16/32/64는 서로 다른 refinement 축이다.
+
+### A2. 가변 반지름의 기하·광학 오차를 독립적으로 줄인다
+
+같은 중심선·재료·광원·camera에서 반지름 상태를 비교하되 다음 변수를 따로 바꾼다. 모든 변경을 한 번에 적용하면 결과 차이를 어느 근사에 귀속할 수 없다.
+
+| Gate | 고정할 것과 바꿀 것 | 완료 판정의 근거 |
+| --- | --- | --- |
+| 반지름 재구성 | source 물질좌표·선분 부피를 고정; 연속화 규칙의 local 재분배를 노출 | 총합 보존과 local error를 분리하고 반지름 법칙의 불확실성을 추정에 반영 |
+| 표면 기하 | 중심선을 고정한 단면 N 증가와, 단면을 고정한 축방향 sampling 증가를 분리 | 실제 mesh/buffer 부피·기하 법선·광량의 변화가 관심 신호보다 충분히 작음 |
+| 단면의 회전 위상 | 같은 RMF 입력 seed·N을 상태 사이에 유지; 위상 변경은 별도 축 | 원형 fiber의 물리적 변화와 polygon facet 배치 효과를 구분 |
+| 매질 경계 | 새 node radius의 다른 fiber capsule 하한과 float32 변위를 평가 | 해당 장면에서 양의 하한; 같은 fiber 자기 관통은 독립 검사 필요 |
+| Renderer 좌표 척도 | 모든 길이·광원·camera를 a배, \(\mu_a\)를 1/a배; 좌표 원점은 별도 변경 | 이상적인 optical depth가 같은데 남는 radiance 차이를 수치 오차로 추적 |
+| 통계와 식별 | 같은 rig·shader·조건·seed의 차이를 계산; SPP·seed 증가는 별도 | 물리적 신호와 MC 구간, refinement·offset 차이를 함께 제시 |
+
+Pinned renderer source의 surface-ray 시작점에는
+
+\[
+\mathbf p_{\rm ray}=\mathbf p\pm
+\epsilon_{\rm ray}(1+\|\mathbf p\|_\infty)\mathbf n
+\]
+
+형태의 이동이 있다. 길이와 함께 바뀌지 않는 상수 항 때문에 수치적 길이 상사가 정확히 유지되지는 않는다. 실제 cap 교차 질의로 단순 oracle의 내부 광로 단축을 확인했으나, 그 결과만으로 원단 영상 오차 전체의 원인을 확정하지 않는다. 완료된 72회 척도 배치는 §6.2에 보고했고, 원점·offset 처리까지의 일반적인 불변성은 여전히 별도 gate다. 기하광학에서 \(\mu_a L\)을 유지하는 상사 검사이며, 파장에 대한 구조 크기를 바꾸어도 full-wave 반응이 같다는 주장이 아니다. 원래 물리적 mm 기하·재료와, 길이 a배/흡수 1/a배의 수치 proxy를 분리해 저장한다. [소스와 재현 코드](../notes/volume_optics_validation_v5.md#3-정확한-단위-상사가-깨지는-renderer-수치-척도-발견).
+
+이 gate의 오차 허용량은 먼저 고정한 외관 목표에 맞춘다. 예를 들어 반지름 변화의 예상 radiance 차이보다 단면 분할이나 좌표 스케일의 차이가 크면, 그 설정의 반지름 식별은 보류하고 forward 오차부터 줄인다. 거칠기를 도입해 수렴이 쉬워져도 실제 표면 근거와 held-out 검증이 필요하다.
 
 ### B. 계층 축약을 실제 외관으로 검증한다
 
@@ -266,6 +372,9 @@ V4 실행에서 42개 fiber의 전체 길이 변화는 +0.044224%였지만 국�
 - 선언된 축소 역학 모델에서 원사 crimp가 바뀌고, 같은 관측계의 실제 fiber 반사 영상이 방향별로 다르게 변했다.
 - 한 SGGX로 합치는 것과 경·위사 분포를 남기는 것의 projected-area 오차를 같은 기하에서 비교했다.
 - 구조·광학 연결의 단위, identity, geometric clearance, MC·파장 오차를 추적할 수 있다.
+- 같은 물질좌표 pose의 두 반지름 상태를 동일한 닫힌 mesh/체적 광학 모델에서 비교하고, 원통 proxy·frustum·실제 mesh 부피와 renderer 수치 오차를 분리했다.
+
+마지막 항목은 추적 가능한 adapter와 오차 분석의 기여다. 현재 원단 광량의 수렴이나 반지름 역추정의 성공을 뜻하지 않는다.
 
 “SGGX textile rendering 최초”, “Weavecraft/DER 완전 재현”, “실크·코튼을 완벽 재현”, “메타표면으로 RGB의 한계를 해결”은 현재 증거로 뒷받침하지 않는다. 선행연구에는 강한 direct overlap이 있고, 실물·관측 가치·소자 장점은 각각 독립적인 성공 조건이다.
 
@@ -273,6 +382,32 @@ V4 실행에서 42개 fiber의 전체 길이 변화는 +0.044224%였지만 국�
 
 ## 10. 작업 log·버전·재현 규칙
 
-각 run에는 source commit/hash, config, material/elasticity source/status, spectrum·rig, seed, 실제 mesh/spp/wavelength budget, diagnostics, raw linear arrays, 표시용 그림을 함께 저장한다. `run_engine_v3.py`는 실행한 stage와 생략한 render를 구분하고 새 출력 폴더를 사용한다. 기존 evidence를 읽어 검산하는 `verify`와 실제 새 시뮬레이션은 로그에서 구별한다.
+각 run에는 source commit/hash, config, material/elasticity source/status, spectrum·rig, seed, 실제 mesh/spp/wavelength budget, diagnostics, raw linear arrays, 표시용 그림을 함께 저장한다. V3/v4의 runner와 과거 결과는 유지하고, 새 `run_engine_v5.py`는 `experiment → verify → tests`를 실행한다. 새 출력 폴더를 사용하며, 기존 evidence를 읽어 검산하는 `verify`와 실제 새 시뮬레이션을 로그에서 구별한다.
 
-독립 리뷰에서 발견한 결함·실패도 [review](../notes/review_engine_v3.md)와 [작업 로그](WORK_LOG.md)에 기록한다. v0.1/v0.2의 결과는 해당 버전의 역사적 증거로 보존하고, 새 source에 의해 자동으로 다시 실행된 것처럼 표시하지 않는다. 현재 최종 test summary는 현재 통합 실행의 결과이고, 각 재현 run의 summary는 그 run의 증거다.
+```bash
+# 명령·입력·예산만 확인; 출력 파일과 시뮬레이션 없음
+python run_engine_v5.py --dry-run
+
+# 가변 반지름/mesh와 원본 대응 검증; 원단 렌더 0회
+python run_engine_v5.py --stages experiment verify --no-render \
+  --output scratch_runs/v5_geometry
+
+# 기존 산출물을 원래 mechanics pair에서 재구성해 검증
+python run_engine_v5.py --stages verify --input-data data \
+  --source-input data/mechanics_v3/optical_pair \
+  --output scratch_runs/v5_audit
+
+# 새 기본 실험 216회 예산과 독립 검증·전체 테스트
+python run_engine_v5.py --radial-segments 16 32 64 \
+  --wavelengths 450 550 650 --resolution 64 --spp 64 \
+  --replicates 4 --max-render-count 216 \
+  --output scratch_runs/v5_complete
+```
+
+`--input-data`는 데이터 루트이며 verify-only 기본 산출물은 그 아래 `variable_radius_v5`다. Verifier 단독 CLI는 `verify_variable_radius_artifacts_v5.py --input ARTIFACT --output OUT [--source-input PAIR]`다. Runner는 원래 `mechanics_v3/optical_pair`가 있으면 이를 자동 전달하고 read-only hash 범위에 포함한다. `--source-input`은 그 위치를 명시하는 override이며, 명시한 경로가 없으면 실패한다. 별도 archive에 기본 원본 pair가 없으면 `unavailable_default`로 표시하고 내부 산출물만 검증한다. 이 경우 원본에서 물질좌표를 재구성했다고 기록하지 않는다.
+
+원시 NPZ는 nonpickle 배열이고, v5 radiance 축은 `(radial, state, light, wavelength, seed, row, column)`이다. 개별 render record와 이 다섯 조건의 array index를 대조하여 누락·중복을 검출한다. Producer는 완료 전에 중첩 manifest의 NPZ hash와 ZIP CRC를 확인한다. 독립 verifier는 저장한 profile·mesh·실제 renderer buffer·재료/rig·통계를 재계산하고, 원본 pair가 선택되면 initial/relaxed JSON/NPZ 네 파일과 v4의 두 물질좌표 상태까지 재구성한다. Runner는 current producer code hash와 실행 전후 source/input 변경도 별도로 검사한다.
+
+`--no-render`로 `experiment verify`만 실행하면 광학 렌더를 하지 않는다. Repo 밖의 작업 디렉터리에서 실행한 이 경로도 실제 0회와 원본 대응 재검산을 확인했다. `tests`를 선택하면 격리 worker의 작은 renderer 기준 문제가 실행될 수 있다. 부분 실패 후 새 render 횟수를 확정할 수 없으면 `null`을 유지한다. 기본 예산, 실제 완료 횟수, 저장된 영상의 검증 횟수는 서로 다른 필드다. V0.5의 완료된 전체 suite는 **391 tests, failures/errors/skips 0, 실행 중 source 변경 0**이다. 이 count에 렌더 호출이나 수동 검사 횟수를 더하지 않는다. [최종 test summary](../data/final_test_summary.json), [no-render 실행](../data/validation_v5/no_render_integration/run_manifest.json).
+
+독립 리뷰에서 발견한 결함·실패도 [v3 review](../notes/review_engine_v3.md), [v5 review](../notes/review_variable_radius_v5.md), [작업 로그](WORK_LOG.md)에 기록한다. 과거 버전의 결과는 해당 source의 역사적 증거로 보존하고, 새 source에 의해 자동으로 다시 실행된 것처럼 표시하지 않는다. 현재 최종 test summary는 현재 통합 실행의 결과이고, 각 재현 run의 summary는 그 run의 증거다.

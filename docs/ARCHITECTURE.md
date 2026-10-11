@@ -1,6 +1,6 @@
 # 아키텍처와 데이터 계약
 
-버전 0.4.0. 이 문서는 **직물 외관 재현을 위한 다중 규모 광학 모델링과 메타광학 계측** 연구에서 실제 구현된 경로와 확장 경계를 설명한다. 연구 목적·모듈의 기준은 [연구헌장](RESEARCH_CHARTER_KO.md)과 [연구 설계](RESEARCH_DESIGN_KO.md), 계층·기존 광학 유도는 [hierarchy_design.md](../notes/hierarchy_design.md)와 [optical_bridge.md](../notes/optical_bridge.md)에 있다. v3의 추가 수학은 [weave_mechanics_v3.md](../notes/weave_mechanics_v3.md)와 [optical_scale_v3.md](../notes/optical_scale_v3.md), v4의 물질좌표 계약은 [material_transport_v4.md](../notes/material_transport_v4.md)에 있다.
+구현 아키텍처 v0.5. 이 문서는 **직물 외관 재현을 위한 다중 규모 광학 모델링과 메타광학 계측** 연구에서 실제 구현된 경로와 확장 경계를 설명한다. 연구 목적·모듈의 기준은 [연구헌장](RESEARCH_CHARTER_KO.md)과 [연구 설계](RESEARCH_DESIGN_KO.md), 계층·기존 광학 유도는 [hierarchy_design.md](../notes/hierarchy_design.md)와 [optical_bridge.md](../notes/optical_bridge.md)에 있다. v3의 추가 수학은 [weave_mechanics_v3.md](../notes/weave_mechanics_v3.md)와 [optical_scale_v3.md](../notes/optical_scale_v3.md), v4의 물질좌표 계약은 [material_transport_v4.md](../notes/material_transport_v4.md)에 있다. v5의 새 계약은 [가변 반지름 기하](../notes/variable_radius_geometry_v5.md), [광학 경로의 소스 검토](../notes/variable_radius_optics_source_audit_v5.md), [독립 광학 oracle](../notes/volume_optics_validation_v5.md), [독립 리뷰](../notes/review_variable_radius_v5.md)를 따른다. API 구현과 원단 radiance의 수렴 판정은 별개다. 최신 배치·테스트·판정은 [작업 로그](WORK_LOG.md)와 각 실행 manifest에 기록한다.
 
 ## 1. 설계 원칙
 
@@ -25,16 +25,23 @@ flowchart TD
     D --> H
     H --> T["material_transport.py"]
     B --> T
-    T --> S["optical_scene.py"]
-    H --> S["optical_scene.py"]
+    T --> S["optical_scene.py / 일정 반지름"]
+    T --> V["variable_radius.py"]
+    V --> O["volume_optics.py / 닫힌 mesh"]
+    H --> S
     P["MaterialSpectrum"] --> S
+    P --> O
     S --> M["render.py / Mitsuba"]
     S --> X["검증된 BundleSection"]
     X --> W["fiber_wave.py"]
     X --> R["ply_ray.py"]
     S --> Q["optical_lod.py / 투영 면적"]
-    M --> C["분광 radiance / CIE 적분"]
+    M --> C["단색 radiance / 조건별 관측"]
+    O --> C
+    M --> I["v3 경로의 CIE 적분"]
 ```
+
+`run_engine_v5.py`는 **같은 물질좌표 pose의 두 반지름 상태 → 닫힌 삼각망 → dielectric/흡수 관측 → 독립 검산 → 전체 tests**를 연결한다. 실제 실험은 `run_variable_radius_experiments.py`, 원시 결과의 재검산은 `verify_variable_radius_artifacts_v5.py`가 담당한다. 두 radius 상태 모두 같은 새 광학 모델을 사용한다. v4 hair renderer와 v5 dielectric 결과의 차이를 곧바로 반지름 효과로 해석하지 않는다.
 
 `run_engine_v4.py`는 기존 부모 곡선의 두 상태를 받아 experiment, verify, tests를 연결한다. 실제 실험은 `run_material_transport_experiments.py`, 저장 원시 배열의 독립 재검산은 `verify_material_transport_artifacts_v4.py`가 담당한다. v4는 원사 평형을 다시 풀지 않으며, 명시된 기존 initial/relaxed 곡선에 material-coordinate 대응을 부여한다. `run_engine_v3.py`는 mechanics, optics, verify, tests를 순서대로 실행하고 입력·출력·로그 hash를 남긴다. `run_engine_v2.py`의 geometry, refinement, optics, tests 단계는 기존 계층 실험의 독립 실행 경로로 유지한다. `run_all.py`는 보존된 v0.1 optical/camera/meta 실험을 재실행한다. Runner가 기존의 서로 다른 물리 backend를 하나의 검증된 3D wave solver로 합치지는 않는다.
 
@@ -44,6 +51,8 @@ flowchart TD
 | `textile_sim/hierarchy.py` | explicit fiber/ply/yarn/fabric, sampling·clearance, 저장 |
 | `textile_sim/weave_mechanics.py` | 축소 원사 높이 평형, 제약·KKT·identity, fiber 계층 재구성 |
 | `textile_sim/material_transport.py` | 고정 reference의 yarn→ply→fiber 물질좌표 운반, frame·strain·선분 부피 proxy·엄격한 optical export |
+| `textile_sim/variable_radius.py` | 선분 radius→연속 정점 radius, 재분배 오차·총 frustum 적분, RMF 고리·닫힌 triangle mesh와 실제 부피 |
+| `textile_sim/volume_optics.py` | 검산한 float32/uint32 mesh, geometric normal, real dielectric+inverse-mm 순수 흡수, scene handle/metadata binding |
 | `textile_sim/optical_lod.py` | 계층 투영 통계, SGGX projected-area fitting, CIE·Planck 적분, paired MC 통계 |
 | `textile_sim/optical_scene.py` | 재료/scene schema, renderer·2D adapter, 통계 |
 | `textile_sim/fiber_wave*.py` | 원형 cylinder/cluster의 2D electromagnetic reference와 beam |
@@ -53,6 +62,8 @@ flowchart TD
 | `examples/mechanics/` | 42-fiber optical pair와 84-fiber multi-ply 평형 설정 |
 | `data/mechanics_v3/`, `data/optical_v3/` | 평형·sweep·수렴, raw 파장/seed radiance, optical metrics, CIE 출처 |
 | `data/material_transport_v4/` | 두 반지름 모드의 원시 material labels·strain, 세 기하 상태, 공통 rig의 108회 단색 radiance |
+| `data/variable_radius_v5/` | 두 radius 상태의 profile·renderer buffer·scene metadata·단색 radiance·반지름/단면 분할 비교; 완료 상태는 해당 manifest로 판정 |
+| `data/validation_v5/` | 단순 광학 oracle, 원시 자료 재검산, 수치 민감도와 실행별 evidence |
 | `examples/hierarchy/` | 실행된 5개 입력 JSON과 geometry 진단 plotter |
 | `tests/` | analytic/numerical/regression/integration 검사 |
 | `data/hierarchy_v2/`, `data/optical_bridge_v2/` | 추적된 기준 geometry, 선형 배열, 측정량, manifests |
@@ -152,12 +163,71 @@ new_clearance = audit_clearance(transported_geometry)
 | `TransportedFiber` | reference/target 위치, 원래 fiber/parent labels, 현재 호길이, 선분 stretch·strain·radius·cylinder volume |
 | `MaterialTransportState` | reference와 연결된 ID·부모·모드·기하 대응을 생성 시 검증; 일치하지 않는 교체 또는 혼합 state 거부 |
 | `constant_reference` | 원래 원형 radius 유지. 기존 광학 adapter 사용 가능; 국소·전체 부피 proxy 변화는 그대로 보고 |
-| `incompressible_segments` | `r_e = r_0 / sqrt(lambda_e)`로 각 선분 cylinder proxy 유지. 현재 constant-radius adapter로의 export 거부 |
+| `incompressible_segments` | `r_e = r_0 / sqrt(lambda_e)`로 각 선분 cylinder proxy 유지. 기존 constant-radius adapter의 export는 계속 거부; v5의 별도 연속 radius/closed-mesh 경로 사용 |
 | `save_material_transport()` | non-pickle NPZ, raw array layout와 byte SHA, reference/state SHA. 기존 파일 덮어쓰기 거부 |
 
 이 운반은 선언한 no-slip kinematics다. 자유로운 material twist field, fiber stress, 마찰·sliding·접촉 평형, 3D incompressibility를 풀지 않는다. 변형 후 labels가 유지되는 것과 fiber가 비신장인 것은 별개다. 실제 초기 형상에서 정의한 strain은 stress-free natural length 기준의 탄성 strain이 아니다. Radius 보정은 선분 원기둥 부피 proxy만 보존하고, 접합부·곡률·중첩·단면 변형을 포함한 전체 fiber 부피 또는 질량의 물리적 보존을 인증하지 않는다.
 
 기존 reference 또는 v3 평형의 clearance 진단은 운반된 기하에 상속하지 않는다. 새 polyline audit와 optical B-spline/float32 변위 한계를 다시 계산한 뒤에만 렌더한다. v4의 세 파장 비교는 단색 radiance 진단이며, 세 파장으로 색 재현을 완료했다고 해석하지 않는다.
+
+### 3.6 v5 연속 반지름과 닫힌 기하
+
+```python
+from textile_sim.variable_radius import (
+    profiles_from_transport, build_tapered_tube,
+    save_variable_radius_profiles, save_tapered_tube,
+)
+
+profiles = profiles_from_transport(state)
+meshes = tuple(build_tapered_tube(p, radial_segments=32,
+                                 initial_normal=chosen_normal)
+               for p in profiles)
+save_variable_radius_profiles(output / "profiles", profiles)
+save_tapered_tube(output / "one_fiber", meshes[0])
+```
+
+`chosen_normal`은 해당 fiber tangent와 평행하지 않은 명시적 frame seed다. None이면 결정적인 Cartesian-axis 규칙을 사용한다. 원래 입력 seed를 저장하고, 실제 투영·정규화된 normal은 `mesh.frames`에서 확인한다. 저장/복원 때 projected normal을 반복 정규화하여 좌표가 조금씩 달라지는 경로를 방지했다.
+
+| 객체 / API | 계약 |
+| --- | --- |
+| `VariableRadiusFiber` | 현재 점·원래 fiber/parent labels·선분 radius·fiber/yarn/ply/material/family/index/kind·출처 보존. 모든 수치 배열은 immutable |
+| `profiles_from_transport(state)` | v4 state hash와 reference hash, 원래 radius mode와 대응 가정을 provenance에 추가 |
+| `node_radius_mm` | 길이 가중 정점 단면적을 만든 뒤 한 섬유의 총 frustum 적분을 맞춘 양의 radius |
+| `segment_relative_volume_error` | 연속 radius가 각 원래 물질 선분에 재분배한 부피 오차 |
+| `TaperedTubeMesh` | RMF 고리와 양 끝 cap, outward triangle winding, signed volume·표면적·frame·법선 |
+| `vertices_mm`, `faces` | 원래 float64/int64 기하. 실제 renderer용 float32/uint32 buffer는 별도 검사·저장 |
+| `save_*` / `load_*` | nonpickle NPZ+JSON, byte hash와 semantic hash, source에서 profile/mesh 재계산, 기존 파일 덮어쓰기 거부 |
+
+세 종류의 부피를 구분한다. 현재 선분 길이를 \(\ell_e\), 선분 radius를 \(r_e\), 연속 표현의 정점 radius를 \(\rho_i\)라 하면
+
+\[
+V_e^{\rm cyl}=\pi r_e^2\ell_e,
+\qquad
+V_e^{\rm frustum}=\frac{\pi\ell_e}{3}
+(\rho_i^2+\rho_i\rho_{i+1}+\rho_{i+1}^2).
+\]
+
+내부 정점의 임시 radius는 \(\widetilde\rho_i^2=(\ell_{i-1}r_{i-1}^2+\ell_i r_i^2)/(\ell_{i-1}+\ell_i)\)이며, 끝점은 인접 선분 값을 사용한다. 그 후
+
+\[
+\rho_i=q\widetilde\rho_i,
+\qquad
+q=\sqrt{\frac{\sum_e V_e^{\rm cyl}}
+{\sum_e V_e^{\rm frustum}(\widetilde\rho)}}
+\]
+
+를 적용한다. 이 식은 **각 fiber의 총 직선 frustum 적분**을 보존한다. 개별 물질 선분의 부피나 굽은 fiber의 실제 부피·질량을 보존하는 구성식은 아니다.
+
+닫힌 삼각망의 세 번째 부피는 별도로
+
+\[
+V_{\rm mesh}=\frac16\sum_f(\mathbf v_{f0}-\mathbf o)\cdot
+[(\mathbf v_{f1}-\mathbf o)\times(\mathbf v_{f2}-\mathbf o)]
+\]
+
+로 계산한다. 수치 원점 \(\mathbf o\)를 정점 평균으로 옮겨 큰 world translation의 상쇄 오차를 줄인다. 실제 mesh를 다시 확대하여 이 값을 앞선 부피에 맞추지는 않는다. 같은 buffer를 float32로 바꾼 뒤의 부피도 별도 기록한다. 직선 원뿔대의 정N각형 단면 factor \(N\sin(2\pi/N)/(2\pi)\)를 분리한 잔차는 굽힘·ring 배치·축방향 sampling 진단이다.
+
+닫힌 edge incidence, 반대 winding, Euler characteristic 2와 양의 signed volume은 topology·국소 방향 검사다. **동일 섬유의 자기 교차 없음**을 증명하지 않으므로 `self_intersection_tested=False`를 유지한다.
 
 ## 4. OpticalScene API
 
@@ -187,7 +257,7 @@ restored = OpticalScene.load(path)
 
 Scene은 fiber ID 중복, 정의되지 않은 재료, 잘못된 단위/schema, ply의 여러 yarn 부모, yarn의 서로 다른 family 같은 일관성 위반을 거부한다. `scene.sha256`은 geometry와 material/provenance가 포함된 canonical JSON의 content hash다. 저장 파일에는 이 hash를 포함하며 load에서 비교한다.
 
-Current hierarchy adapter는 constant-radius circular fiber를 요구한다. Variable radius나 비원형 단면은 데이터형의 선언만으로 지원되는 물리가 되지 않으며, 별도 adapter가 필요하다.
+이 절의 hierarchy→`OpticalScene` adapter는 constant-radius circular fiber를 요구한다. v5의 variable-radius 처리는 §4.5의 별도 closed-mesh adapter를 사용한다. 비원형 단면은 데이터형의 선언만으로 지원되는 물리가 되지 않으며 추가 계약이 필요하다.
 
 ### 4.3 3D renderer adapter
 
@@ -230,6 +300,41 @@ ray_kwargs = ray_inputs(section, scene, wavelength_nm)
 
 `wave_inputs`는 위치·반지름을 μm로, wavelength를 host-medium wavelength로, index를 host 대비 상대 complex index로 바꾼다. `ray_inputs`는 real `n_fiber`, `n_host`, `absorption_um_inv`를 전달한다. 서로 다른 backend의 absorption 규약을 하나의 숫자로 혼용하지 않는다.
 
+### 4.5 v5 closed mesh와 체적 흡수 adapter
+
+```python
+from textile_sim.volume_optics import build_volume_scene, render_volume_scene
+
+handle, metadata = build_volume_scene(
+    meshes, materials, wavelength_nm=550.0,
+    config=render_config, bounds_mm=common_bounds_mm,
+    background_n=1.0, max_kappa_ratio=0.01,
+)
+rgb_scalar, observation = render_volume_scene(
+    handle, metadata, seed=chosen_seed, spp=chosen_spp,
+)
+```
+
+`meshes`는 `TaperedTubeMesh`의 sequence다. 각 fiber는 자신의 material ID와 별도의 경계 mesh를 유지한다. 참조된 모든 재료가 있어야 하며, 쓰이지 않는 재료를 조용히 섞지 않는다. `common_bounds_mm`는 비교할 모든 상태의 기하를 포함하는 같은 관측 범위다. Scene마다 별도 자동 framing을 사용하면 같은 pixel이 다른 실제 영역을 보게 되므로 v5 비교 driver는 공통 범위를 사용한다.
+
+실제 backend는 `mi.Mesh(..., has_vertex_normals=False)`이며, 정점 float32·면 index uint32를 메모리로 전달한다. Triangle winding·퇴화·닫힘·양의 부피와 최대 양자화 변위를 검사한다. Tapered fiber의 실제 법선에는 축방향 성분이 있으므로 방사 방향을 shading normal로 대체하지 않는다.
+
+광학 경계는 각 평평한 삼각형 위의 매끄러운 `dielectric`, 내부는 균질한 **순수 흡수**다.
+
+\[
+\mu_a(\lambda_0)=\frac{4\pi\kappa(\lambda_0)}{\lambda_0},
+\quad [\lambda_0]={\rm mm},\qquad
+\sigma_t=\mu_a\ [{\rm mm}^{-1}],\quad\mathrm{albedo}=0.
+\]
+
+`volpath`가 경계 반사·굴절과 내부 매질의 경로를 계산한다. 현재 근사는 실수 굴절률의 Fresnel과 \(\kappa\)로부터 얻은 Beer 흡수를 연결하며, 허용 \(\kappa/n\)을 명시한다. v4 hair shader의 radius-normalized \(\mu_a r\) 값을 여기 전달하면 단위가 틀린다. 이 경로에는 거칠기 BSDF, 복굴절, 편광, 회절, coherent interference가 들어 있지 않다. 관련된 공식 소스와 기존 curve 경로를 채택하지 않은 이유는 [광학 소스 검토](../notes/variable_radius_optics_source_audit_v5.md)에 있다.
+
+`VolumeSceneHandle.scene_sha256`는 기하·재료·rig·budget의 metadata에 결합된다. `render_volume_scene()`은 metadata를 다시 hash하고 handle과 대조하므로 다른 scene의 유효한 metadata를 섞을 수 없다. 외부 `mi.traverse`로 backend를 임의 수정하는 사용법은 지원 범위 밖이다.
+
+한 호출은 한 파장의 scalar radiance를 gray RGB backend에서 계산한다. 세 채널이 일치하는지 확인한 뒤 실험 driver는 channel 0을 저장한다. RGB 세 채널을 세 파장이나 독립 표본으로 세지 않는다. V5의 450/550/650 nm 비교는 CIE 색 재현의 완료를 뜻하지 않는다.
+
+**장면별 간격 gate:** 각 원래 중심선 chord를 해당 fiber의 최대 새 node radius로 감싼 capsule은 고리 사이와 cap의 삼각형을 포함한다. 실험 driver는 이 기하로 **서로 다른 fiber**의 최소 간격 하한 \(d_{\min}\)을 다시 구한다. 최대 float32 정점 변위가 \(\delta\)이면 \(d_{\min}-2\delta>0\)를 요구한다. 이 하한은 해당 source/profile/buffer에만 유효하며, `build_volume_scene()` 자체가 모든 호출자의 자기 교차나 매질 경계 배치를 인증하는 것은 아니다. Same-fiber self-intersection와 실제 contact mechanics는 남은 gate다.
+
 ## 5. 물리량과 집계
 
 | 값 | 단위 / 의미 | 함께 기록할 조건 |
@@ -241,6 +346,8 @@ ray_kwargs = ray_inputs(section, scene, wavelength_nm)
 | Camera `mean_linear` | 특정 rig의 평균 radiance | illumination, exposure convention, spp |
 | Tangent tensor | 무차원, trace 1 | 길이/부피 weight, group |
 | Cylinder-volume sum | mm³ | segment union의 joint/overlap 보정 제외 |
+| Linear-radius frustum integral | mm³ | 직선 선분의 정확한 반지름 적분; per-fiber 총합 보존·local 재분배 별도 |
+| Closed triangle signed volume | mm³ | 실제 mesh 및 float32 mesh의 값을 분리; 자기 교차가 없어야 실제 고체 부피 해석 가능 |
 | Lateral projected-area sum | mm² | endcap·차폐·multiple scattering 제외 |
 
 `microstructure_statistics`는 polyline/circle에 대해 geometry statistics를 계산하고, B-spline control polygon을 실제 geometry로 집계하지 않는다. 통계는 material/family/yarn/ply별로 추적된다. 이 통계 함수가 자동 SGGX matrix나 optical depth를 산출하지는 않는다. v3의 별도 `projected_area_density()`와 `fit_sggx_projected_area()`가 명시적 공통 부피·방향 집합을 받아 축약한다. §9에서 정의한 비차폐 통계의 유효범위가 적용된다.
@@ -257,10 +364,57 @@ ray_kwargs = ray_inputs(section, scene, wavelength_nm)
 | Mechanics JSON / NPZ | `textile.reduced_weave_mechanics/3.0` | spec·height identity, equilibrium diagnostics, actual fiber geometry |
 | Optical scale metrics / radiance NPZ | `textile.optical_scale/3.0` | pair·source hash, wavelength/seed axis, observer·source·display contract |
 | v2 Unified `run_manifest.json` | `textile-engine-v2-run/1.0` | stage commands, exits, logs, input/output hashes, environment |
+| v5 radius JSON / NPZ | `textile.variable_radius_profile/5.0` | 원래 두 물질좌표, source segment radius, 재구성 규칙·node radius·local volume error |
+| v5 단일 tube JSON / NPZ | `textile.tapered_tube_mesh/5.0` | 원래 RMF seed, profile identity, 원시 mesh·normals·실제 부피 |
+| v5 renderer buffer JSON / NPZ | `variable_radius_mesh_buffers_v5.0` | float32 mm 정점·uint32 faces, profile/mesh hash·양자화·장면별 간격 하한 |
+| v5 volume scene JSON | `textile.closed_mesh_volume_optics/5.0` | material spectrum·단위·경계/흡수 mapping·rig·기하 buffer identity |
+| v5 experiment / optics JSON | `variable_radius_experiment_v5.0`, `variable_radius_optics_experiment_v5.0` | source/input/output hash, 실제 render 행·단색 radiance NPZ·명시적 축·paired 비교 |
+| v5 verification / run JSON | `variable_radius_artifact_verification_v5.0`, `textile-engine-v5-run/1.0` | 독립 재검산·선택된 원래 mechanics 재구성, stage별 실행/검증 횟수·오류·해시 변화 |
 
 NPZ와 scene JSON은 precision/units를 정량 검산하는 기준이다. PNG에는 display encoding과 plot 설정이 포함된다. 원 데이터의 provenance를 확인하지 않고 그림의 선 폭이나 밝기를 물리량으로 해석하지 않는다.
 
 ## 7. 실행·실패·로그
+
+### v5 실행 계약
+
+```bash
+# 현재 명령·입력 경로·216회 기본 예산을 쓰기 없이 확인
+python run_engine_v5.py --dry-run
+
+# 새 geometry/profile/buffer 계산과 원래 mechanics까지 재검산, 광학 렌더 0회
+python run_engine_v5.py --stages experiment verify --no-render \
+  --output scratch_runs/v5_geometry
+
+# 저장된 canonical 결과 검증; 같은 input-data의 원래 mechanics pair 자동 전달
+python run_engine_v5.py --stages verify \
+  --output scratch_runs/v5_audit
+
+# 다른 곳에 있는 원래 mechanics pair를 명시
+python run_engine_v5.py --stages verify --input-data data \
+  --source-input data/mechanics_v3/optical_pair \
+  --output scratch_runs/v5_audit_explicit
+
+# 전체 새 실험 → 검증 → 전체 테스트
+python run_engine_v5.py --radial-segments 16 32 64 \
+  --wavelengths 450 550 650 --resolution 64 --spp 64 \
+  --replicates 4 --max-render-count 216 \
+  --output scratch_runs/v5_complete
+```
+
+단계는 요청 순서와 관계없이 `experiment → verify → tests`다. 기본 실험은 두 radius 상태 × 세 조명 × 세 단면 분할 × 세 파장 × 네 seed = **216회**다. 이는 기본 명령의 예정 횟수이며 실제 완료 횟수는 manifest에서 확인한다. Raw scalar array 축은 `(radial_segments, state, light, wavelength_nm, seed, row, column)`이다. 각 render record는 이 다섯 조건의 한 조합이며 `actual_render_count=1`이다. Runner는 모든 조합의 중복·누락, array index, 개별 횟수·총계와 raw hash를 확인한다.
+
+통합 runner의 입력 루트는 `--input-data`다. 실제 하위 명령은 다음 계약을 사용한다.
+
+- Producer: `run_variable_radius_experiments.py --input-pair PAIR --output OUT`.
+- Verifier: `verify_variable_radius_artifacts_v5.py --input ARTIFACT --output OUT [--source-input PAIR]`.
+
+새 experiment와 verify를 함께 선택하면 기본적으로 producer에 사용한 원래 mechanics pair를 verifier에 전달한다. Verify만 선택한 경우 기본 pair가 있으면 자동으로 전달하며, `--source-input`은 명시적인 override다. Override한 자료도 저장 산출물의 원본과 일치해야 검증을 통과한다. 명시한 경로가 없으면 출력 생성 전에 실패한다. 다른 저장 archive에 기본 pair가 없으면 `unavailable_default`를 명시하고 내부 산출물 검증을 진행한다. 이 경우 원래 material map까지 재구성했다고 표시하지 않는다.
+
+원본 pair가 선택되면 해당 파일을 read-only hash 범위에 포함하고, 두 pose의 JSON/NPZ 네 파일을 대조해 v4 map을 다시 적용한다. Verifier는 원래 reference와 두 radius state hash를 보고해야 한다. Runner는 실제 성공한 재구성을 `source_input_reconstruction_verified`로 기록한다. Current producer code hash 검사와 외부 원본 데이터 재검산은 별도 gate다.
+
+`--no-render`는 실험의 광학 영상만 생략한다. `tests`를 함께 선택하면 작은 renderer oracle가 실행될 수 있다. Test worker는 `validate_all.py`와 같은 전체 discovery를 격리 출력에서 실행하고 source 전후 hash를 저장한다. 실패·오류·skip이 있는 suite는 통과하지 못한다. Source/input drift, 누락된 산출물, NPZ·reference 불일치가 있으면 뒤 단계의 성공을 주장하지 않는다. 부분 render가 실패했을 때 runner의 실제 새 render 수는 알 수 없는 값 `null`로 남으며, 저장 결과를 검증한 횟수는 새 실행 횟수와 구분한다.
+
+Producer는 저장한 NPZ와 이를 참조하는 중첩 manifest의 hash 및 ZIP CRC를 완료 gate에서 재검사한다. 파일 기록이 끝났다는 이유만으로 기존 byte hash가 올바르다고 가정하지 않는다. 과거 배치를 새로운 결과에 섞지 않고 해당 source·seed·manifest로 보존한다.
 
 ### v3 실행 계약
 
@@ -464,7 +618,7 @@ xyz = integrate_xyz(radiance, weights)
 
 | 추가 연구 | 필요한 확장 | 기존 API에서 유지할 것 |
 | --- | --- | --- |
-| 3D textile mechanics 확장 | finite-rotation rod, material-coordinate fiber 운반, contact/friction·압착·경계 교정 | fiber/ply/yarn IDs, 단위, 상태·오차 provenance |
+| 3D textile mechanics 확장 | finite-rotation rod, 현재의 prescribed 운반을 구성식·contact/friction·압착·경계 교정과 연결 | fiber/ply/yarn IDs, 단위, 상태·오차 provenance |
 | 비원형·복굴절 fiber | explicit section/orientation tensor, constitutive dispersion, 대응 solver | circle 전용 adapter의 엄격한 거부 |
 | Multi-layer weaving / knitting | richer topology와 connectivity, repeat/boundary conditions | topology와 geometry·appearance 분리 |
 | Local→3D optical aggregation | angular/polarization/wavelength kernel과 normalization, fitting/validation set | ray/wave 기준 geometry와 물리량 계약 |
@@ -473,3 +627,26 @@ xyz = integrate_xyz(radiance, weights)
 | Product visualization | garment shape, 실측 source/camera/display 교정, controlled interaction | 렌더 획득 효과와 표현 UI 효과를 분리한 평가 |
 
 구조·단위·물리량의 계약을 먼저 확장하고, 그 계약을 검증하는 독립 기준 문제를 추가한 다음 새 결과를 저장한다. 데이터 필드를 하나 늘리는 것과 해당 물리 현상을 구현·검증한 것은 구별한다.
+
+## 12. v5에서 추가된 수치 판정 경계
+
+**기하 부피의 수렴은 광학 radiance의 수렴을 보장하지 않는다.** Smooth dielectric을 flat triangle로 근사하면 단면 분할 변화가 법선·specular 경로를 바꾼다. V5 최종 216회에서 16/32/64각형의 mesh/frustum 부피 차이는 약 −2.55389%/−0.64480%/−0.16407%로 감소했지만, 32→64 분할의 R0 radiance는 두 상태·세 파장에서 약 25.70~31.56% 감소했다. 또한 64각형의 variable−constant radius 비교 9조건 모두 pointwise 95%와 Bonferroni 구간에 0이 포함됐다. 따라서 현재 API 연결을 radiance 수렴 또는 반지름 상태 식별 성공으로 기록하지 않는다. 수치·구간의 전체 범위는 [실험 보고](../notes/variable_radius_v5_experiment.md), [원시 optical metrics](../data/variable_radius_v5/optics/optical_metrics.json), [독립 리뷰](../notes/review_variable_radius_v5.md)를 따른다.
+
+최종 배치는 아홉 NPZ의 CRC·중첩 hash와 source/input 불변 검사를 통과했다. 독립 검산은 원래 mechanics 네 파일에서 물질좌표를 재구성하고 252개 fiber mesh·54개 scene metadata·216개 영상 기록·77개 출력 파일을 대조했다. 전체 suite는 **391 tests, failures/errors/skips 0, source 변경 0**이며, repo 밖 작업 디렉터리의 `experiment verify --no-render`도 0회로 통과했다. 이 통과는 구현·저장·재현 계약에 관한 판정이다. [원본을 포함한 검산](../data/validation_v5/independent_review/verification_summary.json), [전체 테스트](../data/final_test_summary.json), [no-render 통합](../data/validation_v5/no_render_integration/run_manifest.json).
+
+오차 gate는 다음과 같이 분리한다.
+
+| gate | 실제 비교 | 통과가 뜻하지 않는 것 |
+| --- | --- | --- |
+| Radius 표현 | 원래 원통 proxy, 선분별 재분배, 총 frustum 적분 | 물리적 국소 비압축성·질량 보존 |
+| Mesh 기하 | 단면 N과 축 sampling을 독립적으로 변경, 실제 volume·normal·buffer 비교 | radiance 오차의 상한 |
+| 매질 배치 | 해당 두 radius 상태의 서로 다른 fiber capsule 하한과 float32 변위 | 같은 fiber의 자기 관통·물리적 contact 해 |
+| 경계·흡수 | Beer와 dielectric furnace, 내부 출사, 단위 계수 | 일반 원단의 scattering 또는 실물 BSDF |
+| Renderer 수치 척도 | 길이·광원·camera 스케일과 inverse-length 흡수, 원점과 ray offset 민감도 | full-wave scale invariance |
+| Radiance | 같은 shader·rig·wavelength의 N/축 sampling 변화, seed별 paired 구간 | 미측정 원단 일반화나 지각 개선 |
+
+독립 광학 oracle의 단위 상사 비교에서 검출된 작은 잔차를 pinned source의 surface-ray offset과 연결해 검토했다. 시작점 이동에는 \(\epsilon_{\rm ray}(1+\|\mathbf p\|_\infty)\mathbf n\) 형태의 절대 척도가 있으므로, 물리적으로 같은 무차원 optical depth라도 좌표 단위와 원점에 대한 수치 민감도가 남을 수 있다. 모든 길이를 a배 하고 \(\mu_a\)를 1/a배 할 때 source·camera geometry도 함께 맞춰 검사하며, 이 결과를 단순 단위 환산 오류와 구분한다. 소스 hash·실제 교차 질의는 [광학 oracle 기록](../notes/volume_optics_validation_v5.md)에 남긴다.
+
+별도의 550 nm·64각형 척도 1/10/100 비교는 두 상태·세 조명·네 seed에서 **72회**를 실행하고 source 불변·CRC 검사를 통과했다. 전체 18개 척도 쌍의 Bonferroni 구간에는 0이 포함됐다. 척도 10→100의 여섯 점추정은 −4.242%~+3.303%이고 pointwise 구간도 모두 0을 포함한다. 이 결과로 동등성이나 수렴을 인증하지 않으며, 원점·경계 offset·표본 예산의 추가 검증이 남는다. 파라미터를 바꾼 수치 proxy와 원래 물리적 mm 자료도 구분해 저장한다. [척도 민감도 metrics](../data/validation_v5/volume_scale_sensitivity/sensitivity_metrics.json), [실행 manifest](../data/validation_v5/volume_scale_sensitivity/experiment_manifest.json).
+
+작은 반지름 차이를 물리적 효과로 추정하거나 계측 채널을 최적화하려면, 먼저 그 신호보다 geometry·facet normal·ray offset·Monte Carlo 오차가 충분히 작은지 보여야 한다. 이 조건이 충족되기 전에는 계층/광학 adapter의 유효범위를 넓히거나 추가 해상도·표본을 선택하는 연구로 해석한다.

@@ -187,7 +187,7 @@ GitHub 앱으로 업로드한 각 단계의 tree가 로컬 commit의 tree와 정
 
 ### 전체 테스트와 통합 경로
 
-`OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -u validate_all.py`를 최종 source에서 실행했다. **297 tests, failures/errors/skips 모두 0**, 실행 시간 **19.256124534초**다. [전체 summary](../data/final_test_summary.json), [전체 log](../data/final_tests.log)에 검사 대상 source별 SHA가 있다. 새 58개 검사는 구현 17개, 독립 수학 18개, runner 16개, 산출물 검산 7개다. 기존 239개와 새 코드를 함께 실행한 결과이며 과거 v3 summary를 재사용하지 않았다.
+`OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -u validate_all.py`를 최종 source에서 실행했다. **297 tests, failures/errors/skips 모두 0**, 실행 시간 **19.256124534초**다. [v0.4.0 태그의 전체 summary](https://github.com/Phill-lms/textile-appearance-research/blob/v0.4.0/data/final_test_summary.json), [v0.4.0 태그의 전체 log](https://github.com/Phill-lms/textile-appearance-research/blob/v0.4.0/data/final_tests.log)에 검사 대상 source별 SHA가 있다. 새 58개 검사는 구현 17개, 독립 수학 18개, runner 16개, 산출물 검산 7개다. 기존 239개와 새 코드를 함께 실행한 결과이며 과거 v3 summary를 재사용하지 않았다.
 
 산출물 검산의 손상 테스트 5개는 checksum과 producer ledger까지 다시 계산한 후 허위 strain, determinant −1 frame, NaN radiance, 허위 paired mean, 누락된 원래 label을 거부했다. 두 정상 검사는 rendered/skipped 모드를 다룬다. 이런 검사는 실제 물성·실물 재현의 검증과 별개다.
 
@@ -223,3 +223,96 @@ GitHub 앱으로 업로드한 각 단계의 tree가 로컬 commit의 tree와 정
 [기계 판독 가능한 게시 확인](../data/repository_release_v4_audit.json)에는 API에서 받은 릴리스 설명과 tag/commit/tree, private 상태, 결과·source hash 검사를 보존했다. [게시된 릴리스 화면](github_v0_4_release_verified.jpg)도 함께 남긴다. 이 후속 provenance commit은 main에 추가하며 **v0.4.0 tag는 위 검증된 snapshot에 유지한다.**
 
 게시 확인 단계에서는 광학 실험이나 전체 테스트를 다시 실행하지 않았다. 최종 실행의 297개 테스트·108회 렌더를 그대로 확인한 것이며, GitHub Actions 성공이나 실물 재현 성능을 인증한 것으로 기록하지 않는다. Pilot의 같은 네 seed를 추가 독립 표본으로 합치지 않는다. 현재 완료한 연구 증가분은 물질좌표에 따른 동일 fiber 상태 추적, 국소 변형 진단과 기존 광학 경로의 검증 가능한 연결이다.
+
+## 2026-10-11 UTC / 2026-10-12 KST — v0.5 가변 반지름·닫힌 표면 광학·독립 검산
+
+### 연구 질문과 사전 비교 설계
+
+V0.4는 동일한 fiber 물질점을 운반하고 선분 신장에 따른 반지름을 계산했지만, 기존 광학 adapter는 일정 반지름만 허용했다. 이번 작업의 질문은 **같은 물질점·중심선·재료·관측계에서 반지름 상태를 바꾼 효과를 표면 분할과 renderer의 수치 오차에서 구분할 수 있는가**였다. 실제 원단의 시각적 재질감 재현이라는 전체 목표를 유지하고, 실측 inverse fitting·RGB 대비 추가 정보·메타표면 제작·지각 평가는 별도의 후속 gate로 남겼다. 염색·퇴색은 계속 보류했다.
+
+원단 실험은 처음부터 두 반지름 상태, R0/R90/T45 조명, 16/32/64 원주 분할, 450/550/650 nm, 네 seed로 정했다. 기본 예산은 **2×3×3×3×4=216회**, 각 영상은 64×64·64 spp다. 최고 분할의 반지름 비교 9조건과 인접 분할 비교 36조건을 별도 family로 정해 pointwise 및 Bonferroni 구간을 계산했다. 픽셀·파장·gray RGB 세 채널을 독립 반복으로 세지 않았다. [실험 설계·seed·광원·통계 계약](../notes/variable_radius_v5_experiment.md#5-실험-구성과-통계).
+
+### 구현과 수학·소스 검토의 결정
+
+| 구현 | 실제로 추가한 기능과 계약 |
+| --- | --- |
+| `variable_radius.py` | 선분별 radius를 길이 가중 node area로 연속화하고 fiber별 배율을 적용. 원래 두 물질좌표·부모·fiber/material ID·source state를 보존한 immutable profile |
+| 닫힌 tapered tube | RMF 고리·옆면 삼각형·두 endcap, 원래 normal seed, 실제 법선·표면적·signed volume. 저장한 source로부터 nonpickle NPZ/JSON 재구성 |
+| `volume_optics.py` | float32/uint32 buffer의 실제 기하를 검사하고 `mi.Mesh`에 전달. Geometric face normal, real dielectric 경계, inverse-mm 순수 흡수, `volpath`, scene handle와 metadata hash 결합 |
+| 원단 producer | 두 상태의 중심선·material labels 동일성, 공통 rig/bounds, 원주 분할별 mesh·실제 렌더·개별 record·raw scalar 저장 |
+| 독립 verifier | producer driver/renderer 없이 profile·buffer·scene·seed 통계 재계산. 명시한 원본 mechanics 네 파일에서 핵심 v4 map을 재적용해 좌표·반지름·ID 대조 |
+| 통합 runner | `experiment → verify → tests`, cold dry-run, 새 출력·렌더 예산·source/input 불변, 원본 `--source-input`, 독립 worker의 전체 test discovery |
+
+반지름 연속화에서는 내부 node의 \(\widetilde r_i^2\)를 인접 선분 \(r_e^2\)의 길이 가중 평균으로 정하고, 각 fiber에서 전역 배율을 선택했다. **원통 proxy \(\sum_e\pi r_e^2\ell_e\), 직선 frustum 적분 \(\sum_e\pi\ell_e(r_i^2+r_ir_{i+1}+r_{i+1}^2)/3\), 실제 닫힌 mesh signed volume**은 구분했다. 전역 배율은 앞의 두 총합을 맞추지만 개별 물질 선분의 부피를 재분배한다. 실제 mesh를 다시 확대하여 polygon·굽힘·축방향 오차를 숨기지 않았다. [기하 수학/API](../notes/variable_radius_geometry_v5.md), [독립 기하 검토](../notes/review_variable_radius_v5.md).
+
+광학 경로를 선택하기 전에 Mitsuba **3.9.1 / `llvm_ad_rgb`**, 공식 tag의 commit `478e193a183c21723f4a8251afc3ad29a8da4c5e`를 확인했다. `hair.cpp`, `bsplinecurve.cpp`, `dielectric.cpp`, `homogeneous.cpp`의 byte/blob과 실제 runtime 교차를 대조했다. Hair의 흡수는 반지름으로 정규화된 국소 경로이므로 \(\mu_a r\) mapping을 요구하고, curve는 내부 출사 교차를 제거한다. 이 때문에 가변 curve에 dielectric/medium만 붙이는 경로 대신 **닫힌 mesh와 실제 내부 광로**를 선택했다. 새 매질에는 \(\mu_a=4\pi\kappa/\lambda_0\,[\mathrm{mm}^{-1}]\), \(\sigma_t=\mu_a\), albedo 0을 전달한다. 실수 Fresnel 근사의 \(\kappa/n\le0.01\) gate를 명시했다. 두 반지름 상태 모두 같은 새 광학 모델을 사용하며 v4 hair와의 모델 차이를 반지름 효과로 해석하지 않았다. [소스 감사와 실제 교차 probe](../notes/variable_radius_optics_source_audit_v5.md), [보존한 probe/checkpoint](../data/validation_v5/backend_source_audit/checkpoint.json).
+
+### 독립 리뷰에서 발견한 결함과 수정
+
+| 발견한 문제 | 실제 수정과 확인 |
+| --- | --- |
+| 초기 RMF normal의 재투영 오차 | 이미 투영한 첫 normal을 seed로 바꿔 저장하면 재로드 시 ulp 차이가 발생. 명시 seed의 실제 42개 fiber 중 39개 실패를 재현한 뒤 원래 입력 seed를 보존하도록 수정; 수정 후 42개 모두 복원 |
+| Scene와 metadata 혼용 | 다른 scene의 유효 metadata 또는 변경 metadata를 사용할 수 있던 경로를 handle/hash 결합과 render 전 재해시로 거부 |
+| `max_depth` sentinel 입력 | 비정수 `-1.0`이 정수 sentinel을 우회하지 않도록 엄격한 정수 검증. 일반 유한 값·config·bounds·material 입력 거부 검사 유지 |
+| 실제 geometric normal 확인 | Mitsuba가 disabled 상태에도 길이 0의 `vertex_normals` key를 노출함을 확인. Key 부재 가정 대신 길이 0·`has_vertex_normals()==False`·실제 교차 normal을 검사 |
+| 완성되지 않은 ZIP과 중첩 hash | 실제 저장 mesh NPZ에서 central directory/EOF가 없는 파일을 관찰. Outer ledger만으로 통과할 수 있던 경로를 차단하고 원자 저장·readback·전체 CRC/nested hash gate 추가 |
+
+직선 원기둥·원뿔대의 해석 부피, cap/옆면 winding, 독립 ray–triangle 입출사, taper 법선의 축방향 성분, 강체/단위 변환, 원호의 축방향 수렴을 별도 검사했다. Same-fiber self-intersection은 이 테스트의 통과 범위에 포함하지 않았다. 자세한 반례와 회귀 검사는 [기하 review](../notes/review_variable_radius_v5.md) 및 [광학 oracle review](../notes/volume_optics_validation_v5.md)에 있다.
+
+### 첫 216회 거부와 전체 재실행
+
+첫 no-render preflight와 첫 216회 후 저장 무결성을 검사하는 과정에서 잘린 NPZ를 관찰했다. 첫 216회의 `radial_032/incompressible_segments/renderer_buffers.npz`는 로컬 ZIP header를 갖지만 central directory 끝 표지가 없었다. Mesh manifest에 앞서 기록한 hash는 실제 바이트와 달랐고, 마지막 outer ledger는 불완전한 파일의 hash와 일치했다. 따라서 producer가 `passed`를 남겼어도 독립 verifier는 이를 거부했다.
+
+**발생 원인은 확정하지 않았다.** 파일시스템·NumPy·특정 실행 단계나 의도적인 변경으로 귀속할 증거는 없다. 손상 테스트는 별도 임시 경로를 사용했다. 거부한 파일·실험 기록·당시 source의 일부와 hash를 [serialization rejection 기록](../data/validation_v5/serialization_rejection_216/rejection_audit.json)에 보존했다. 이 묶음에는 첫 실행이 참조하던 모든 scene 파일이 들어 있지 않으므로 **첫 216회의 완전한 재실행 snapshot이나 self-contained optical replay package가 아니다**. 보존 목적은 실제 거부 근거와 수정 전 상태의 추적이다.
+
+NPZ를 메모리에서 완성한 뒤 임시 파일에 write·flush·fsync하고 원자적으로 교체하며, 저장 직후 readback과 마지막 전체 ZIP CRC·중첩 hash를 확인하도록 보완했다. 기존 실패 파일을 고쳐 통과로 표시하지 않고 수정한 source에서 216회 전체를 다시 실행했다.
+
+최종 원단 driver는 **2026-10-11 15:53:29.178158–15:56:51.366451 UTC**, **202.188323358998초**에 완료했다. 아홉 NPZ의 CRC와 nested checksum, source/input 불변 gate를 통과했다. 실행 상태와 hash ledger는 [최종 manifest](../data/variable_radius_v5/experiment_manifest.json)에 있다. [최종 raw radiance](../data/variable_radius_v5/optics/spectral_radiance.npz)의 SHA-256은 `7e677abb8d777bab68044033de22d114a279be11b79cc239af8afe18cf4f1728`이다.
+
+거부한 첫 배치와 최종 배치의 raw radiance는 **byte까지 동일**했다. 최종 배치는 실제 저장 mesh까지 검산을 통과한 결과이며, 두 배치를 독립 8 seeds나 추가 고유 측정으로 합산하지 않는다. 첫 216회의 release용 accepted count는 0으로 남겼다.
+
+### 완료된 테스트·독립 검산·추가 실험
+
+| 실행 | 실제 완료 범위 | 시간과 근거 |
+| --- | --- | --- |
+| 전체 suite | **391 tests, failures/errors/skips 0, 실행 중 source 변경 0** | **30.231309687995235초**; [전체 summary](../data/final_test_summary.json), [격리 worker summary](../data/validation_v5/final_artifact_and_tests/tests/test_summary.json) |
+| 원본을 포함한 독립 검산 | 원본 네 파일에서 두 material state 재구성, 252개 fiber mesh·54개 scene metadata·216개 영상 기록·77개 출력 파일 | [독립 verifier summary](../data/validation_v5/independent_review/verification_summary.json), [runner의 검산·tests 기록](../data/validation_v5/final_artifact_and_tests/run_manifest.json) |
+| 외부 cwd의 no-render 통합 | 새 experiment→verify, 원본 재구성, 새/저장 렌더 모두 **0회** | **39.99984886699531초**; [통합 manifest](../data/validation_v5/no_render_integration/run_manifest.json) |
+| 물리 oracle | 8조건×4 seeds = **32회**, 16×16·2,048 spp·550 nm, 사전 오차 guard 모두 통과 | **9.465649273초**; [manifest](../data/validation_v5/volume_physics/experiment_manifest.json), [metrics](../data/validation_v5/volume_physics/validation_metrics.json) |
+| 실제 fiber 척도 민감도 | 척도 1/10/100×두 상태×세 조명×네 seed = **72회**, 64각형·64×64·64 spp·550 nm | **196.183671359초**, source 불변·CRC 통과; [manifest](../data/validation_v5/volume_scale_sensitivity/experiment_manifest.json), [metrics](../data/validation_v5/volume_scale_sensitivity/sensitivity_metrics.json) |
+
+전체 suite는 `validate_all.py`와 같은 unittest discovery를 격리 worker에서 실행했다. 391개는 테스트 함수 실행 수이며 수동 42-fiber 재로드, 광선 교차 질의, renderer 호출을 추가하지 않았다. `--no-render`는 experiment의 렌더를 생략하지만 따로 선택한 tests의 작은 광학 기준 문제까지 생략하는 옵션은 아니다.
+
+독립 verifier는 원본 pair의 네 파일에서 핵심 v4 material map을 다시 적용한다. 따라서 producer driver와 분리된 검산이지만 완전히 독립적인 두 번째 material-transport solver는 아니다. 저장 scalar 영상에서 통계·seed/index·hash를 재계산한 것이며 기록된 실행 자체를 외부에서 인증한 것으로 표현하지 않는다. 현재 producer source와의 hash 비교는 runner가 별도로 수행했다. `--source-input`을 명시한 경로가 없으면 실패하고, 기본 원본이 없는 custom archive는 내부 산출물 검증만 수행했음을 표시한다.
+
+세 완료 실험의 호출은 **216+32+72=320회**다. 이는 고유한 독립 측정 320개가 아니다. 특히 척도 1배의 **24개 기준 조건은 앞선 216회와 중복**되므로 독립 seed 증가로 합산하지 않는다. 실패한 첫 216회와 개발 pilot도 최종 통계에 추가하지 않았다.
+
+### 정량 결과와 해석의 한계
+
+| 결과 | 실제 값 | 판정 |
+| --- | --- | --- |
+| 동일 물질점의 반지름 비교 | 42 fibers·8,106 vertices·8,064 segments, 두 상태의 중심선·labels 동일 | 반지름 외의 source 대응을 통제 |
+| 연속 node radius | 2.808323–3.235533 μm | 합성 reference와 선언한 반지름 법칙의 재구성 |
+| Fiber별 총 frustum 오차 | 최대 상대 4.44e−16 | 원통 proxy와 총합 일치; 실제 질량 보존 증명 아님 |
+| 선분별 재분배 | −3.96381%~+3.80001%, 절댓값 99백분위 1.74383% | 국소 비압축성은 보존하지 않음 |
+| 다른 fiber의 buffer 간격 하한 | 64각형에서 일정/가변 각각 **2.945345/2.602843 μm** | 새 node 상한 capsule에서 float32 최대 변위 두 배를 차감한 해당 장면의 보수적 하한 |
+| 실제 mesh/frustum 부피 차이 | 16/32/64에서 약 **−2.55389%/−0.64480%/−0.16407%** | 원주 다각형 이득과 남은 굽힘/축방향 오차를 구분 |
+| 반지름의 radiance 차이 | 최고 분할의 9조건 모두 pointwise·Bonferroni 구간에 0 포함 | 현재 예산에서 효과 미검출; 물리적 동등성 판정 아님 |
+| 원주 32→64의 R0 radiance | 두 상태·세 파장의 점추정 **약 25.70~31.56% 감소** | 부피 수렴만으로 facet 법선·광량 수렴을 주장할 수 없음 |
+
+장면별 간격은 원래 chord를 각 fiber의 최대 새 node radius로 감싼 capsule이 옆면·cap triangle을 포함한다는 관계를 사용했다. 기하 buffer에 대해 계산한 이 하한은 같은 fiber의 비인접 부분 간 자기 관통, 실제 contact force·압착·미끄럼, 모든 새 원단의 비접촉을 인증하지 않는다. [기하 metrics](../data/variable_radius_v5/geometry_metrics.json), [광학 metrics](../data/variable_radius_v5/optics/optical_metrics.json).
+
+32회 단순 oracle에서는 Beer의 다섯 optical depth, 흡수 없는 dielectric furnace, 8배 길이 상사, taper를 검사했다. 모든 사전 물리 guard는 통과했지만 8배−1배 paired radiance는 **−2.19400390e−5**, 95% 구간 **[−3.13756757e−5, −1.25044023e−5]**로 0을 제외했다. 설치 header와 실제 `spawn_ray`/exit 교차를 조사해 \(\epsilon_{\rm ray}(1+\|p\|_\infty)n\)의 절대 항과 내부 광로 단축을 확인했다. 기본 offset 척도는 mm 좌표에서 약 0.0894 μm다. 이 근거는 단순 cap geometry에 한정하며 원단 오차 전체의 원인을 확정하지 않는다. [물리 oracle·pinned source](../notes/volume_optics_validation_v5.md), [실제 교차 감사](../data/validation_v5/ray_offset_audit/ray_offset_audit.json).
+
+이를 계기로 시행한 별도 72회 척도 비교는 모든 길이·광원·camera를 a배, 흡수를 1/a배 한 수치 proxy를 사용했다. 원래 물리적 mm 기하·재료는 별도 입력으로 남겼다. 10→100의 상대 radiance 점추정은 일정 반지름 R0/R90/T45에서 **+0.042%/+0.934%/−4.242%**, 가변 반지름에서 **−0.590%/+3.303%/+1.654%**였다. 이 여섯 pointwise 구간과 전체 척도 쌍 18조건의 Bonferroni 구간은 모두 0을 포함했다. **미검출은 동등성·불변성·수렴의 증명이 아니며**, 원점·offset·표본 예산의 오차 gate가 남는다. 기하광학의 상사 진단을 full-wave 규모 불변성으로 해석하지 않는다.
+
+이번 단계의 완료는 가변 반지름에서 추적 가능한 닫힌 광학 경계까지의 연결과 그 오차 분석이다. 반지름 역추정, 실물 재질별 정확도, RGB 대비 추가 채널의 정보 이득, 메타표면의 시스템 성능, 촉감 개선은 입증하지 않았다. 작은 물리적 신호보다 원주/축방향·법선·ray-offset·Monte Carlo 오차가 충분히 작아지는지를 다음 판단 기준으로 정리했다. [연구 설계](RESEARCH_DESIGN_KO.md), [아키텍처](ARCHITECTURE.md).
+
+### Git 이력과 현재 게시 확인 범위
+
+| 단계 | 로컬 commit | 확인한 GitHub commit | Git tree |
+| --- | --- | --- | --- |
+| v0.5 기하·광학·runner·검산 코드 | `802403c568a9f2a63b3167b7c1963dd0b2ca801e` | `b51131d17fd3e9ae59d7ab2669c8b3dd20dd50ae` | `0680e39a8fa675a94031d154e7f6d0a4cb3b9db2` |
+| 최종 원단·oracle·척도·391 tests·검산 자료 | `c2df0609a30d6e473971299b29ec3d4770fd1847` | `af2ce4d209b83b818186783719451b692408619e` | `abf6e1906589491d5f4319941784fd683d200791` |
+
+코드와 자료 단계 모두 로컬·원격 commit의 metadata가 달라도 동일한 tree를 확인했다. 이 시점에는 두 원격 commit 객체의 내용을 확인했으며, main은 최종 문서와 함께 갱신하기 전의 v0.4 상태다. 이 표는 최종 문서 commit·v0.5 tag·release 게시를 완료했다고 기록하지 않는다. 자료·문서를 포함한 최종 tree와 게시 상태는 실제 확인 후 별도 게시 감사 절에 추가한다. 과거 v0.4.0 tag와 원래 실험 결과는 유지한다.
