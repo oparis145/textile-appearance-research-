@@ -1,0 +1,105 @@
+{
+  "schema_version": "textile.figure_serialization_rejection/5.1",
+  "status": "rejected",
+  "observed_at_utc": "2026-10-11T16:49:52.433714+00:00",
+  "verification_command": [
+    "python",
+    "-m",
+    "visualization.review_structure_figures",
+    "--manifest",
+    "figures/structure_v5_1/figure_manifest.json",
+    "--output",
+    "data/validation_v5_1/independent_review",
+    "--initial-oracle",
+    "scratch_runs/v5_1_review_oracles/initial_plane_audit.json"
+  ],
+  "verifier_source_sha256": "09dcb645d415803c8f6965e70ef44efe3bae78c138d6510da97c5984fa84a847",
+  "exception": "ValueError: fabric_structure_hierarchy: byte SHA-256 mismatch",
+  "before_rejection": "Four physical maps, twelve referenced NPZ archives, source/identity/camera checks and saved SS-to-RGBA color checks completed before the figure-file hash check failed. The main function writes its success summary only after all gates pass, so no success output was created.",
+  "new_analytic_oracle_queries": 0,
+  "new_lighting_render_calls": 0,
+  "corrupt_figure_file": "figures/structure_v5_1/fabric_structure_hierarchy.pdf",
+  "corrupt_copy_file": "fabric_structure_hierarchy_truncated.pdf",
+  "corrupt_copy_sha256": "5da30811b6d7df94f3925b59b4688dd1d0c6dfe7520fff3ce89eb3e2e23780ea",
+  "corrupt_pdf_has_EOF_marker_in_last_100_bytes": false,
+  "original_manifest_copy_file": "figure_manifest_at_rejection.json",
+  "original_manifest_copy_sha256": "67461875f816a15354e9fe18261e304581075d54b40ba2d97c9018e214f95d52",
+  "file_observations": [
+    {
+      "file": "figures/structure_v5_1/fabric_structure_triptych.png",
+      "expected_sha256": "bb84b4177f0c6264aa44759cc8fd1e7bf6e46b9027f29be3fe647fb378961218",
+      "actual_sha256": "bb84b4177f0c6264aa44759cc8fd1e7bf6e46b9027f29be3fe647fb378961218",
+      "expected_size_bytes": 653069,
+      "actual_size_bytes": 653069,
+      "matches": true
+    },
+    {
+      "file": "figures/structure_v5_1/fabric_structure_triptych.pdf",
+      "expected_sha256": "a64de105572036afd1e32482c1e5e7a01a82d3d33356cdd1b6a3188609232534",
+      "actual_sha256": "a64de105572036afd1e32482c1e5e7a01a82d3d33356cdd1b6a3188609232534",
+      "expected_size_bytes": 486122,
+      "actual_size_bytes": 486122,
+      "matches": true
+    },
+    {
+      "file": "figures/structure_v5_1/fabric_structure_triptych.svg",
+      "expected_sha256": "24a558878fe4dbb41c50c0443bdf6ede9a65a25f8707ce7e190be64faaa8f151",
+      "actual_sha256": "24a558878fe4dbb41c50c0443bdf6ede9a65a25f8707ce7e190be64faaa8f151",
+      "expected_size_bytes": 620095,
+      "actual_size_bytes": 620095,
+      "matches": true
+    },
+    {
+      "file": "figures/structure_v5_1/fabric_structure_hierarchy.png",
+      "expected_sha256": "0f2d77261d9127c869ce5728ad1c4df529102b0c25529c7588bf596dbe81b637",
+      "actual_sha256": "0f2d77261d9127c869ce5728ad1c4df529102b0c25529c7588bf596dbe81b637",
+      "expected_size_bytes": 836777,
+      "actual_size_bytes": 836777,
+      "matches": true
+    },
+    {
+      "file": "figures/structure_v5_1/fabric_structure_hierarchy.pdf",
+      "expected_sha256": "cc64599566351ec793a151dd27021f6ee66fef80c160f345abd46da52acee166",
+      "actual_sha256": "5da30811b6d7df94f3925b59b4688dd1d0c6dfe7520fff3ce89eb3e2e23780ea",
+      "expected_size_bytes": 566866,
+      "actual_size_bytes": 433871,
+      "matches": false
+    },
+    {
+      "file": "figures/structure_v5_1/fabric_structure_hierarchy.svg",
+      "expected_sha256": "ee395dba6481824c50fb34d72700bc65347e197accbf56800144a57659928523",
+      "actual_sha256": "ee395dba6481824c50fb34d72700bc65347e197accbf56800144a57659928523",
+      "expected_size_bytes": 778425,
+      "actual_size_bytes": 778425,
+      "matches": true
+    },
+    {
+      "file": "figures/structure_v5_1/fabric_structure_material_detail.png",
+      "expected_sha256": "558a230b68039f0a8421157f78f55033d46845845864262982b8eed913d10ded",
+      "actual_sha256": "558a230b68039f0a8421157f78f55033d46845845864262982b8eed913d10ded",
+      "expected_size_bytes": 456962,
+      "actual_size_bytes": 456962,
+      "matches": true
+    },
+    {
+      "file": "figures/structure_v5_1/fabric_structure_material_detail.pdf",
+      "expected_sha256": "f9b2a73b29836dd59f50247af55bbe53ddc52257ae1d67764de6fe8a43826450",
+      "actual_sha256": "f9b2a73b29836dd59f50247af55bbe53ddc52257ae1d67764de6fe8a43826450",
+      "expected_size_bytes": 265670,
+      "actual_size_bytes": 265670,
+      "matches": true
+    },
+    {
+      "file": "figures/structure_v5_1/fabric_structure_material_detail.svg",
+      "expected_sha256": "3a34a3b27de7329e7aec54d3eb730052e695a40d3472cbc61b5baaee8028b85c",
+      "actual_sha256": "3a34a3b27de7329e7aec54d3eb730052e695a40d3472cbc61b5baaee8028b85c",
+      "expected_size_bytes": 368712,
+      "actual_size_bytes": 368712,
+      "matches": true
+    }
+  ],
+  "cause": "Unknown; an observed truncation is recorded without attributing it to storage, another agent, or a particular writer.",
+  "copy_does_not_repair_original": true,
+  "complete_replay_bundle": false,
+  "replay_scope": "Only rejection evidence is copied. The source/raw map files remain referenced by the historical manifest hashes; this is not a standalone copy of the full generation run."
+}

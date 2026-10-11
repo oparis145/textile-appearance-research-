@@ -1,0 +1,273 @@
+{
+  "schema": "textile.structure_figure_container_qa/5.1",
+  "status": "passed",
+  "input_publication_checks_sha256": "a7eff402c25bb3d6e23fe74672f6e89f9ea5d5b0d84d3ab6792cbbe22c7563e5",
+  "manifest_checks": [
+    {
+      "case": "canonical",
+      "path": "figures/structure_v5_1/figure_manifest.json",
+      "sha256": "57314881bd9397a86d283c116efa1f6220257d9123bd1184a9bf00565e4325a5"
+    },
+    {
+      "case": "compact",
+      "path": "figures/structure_v5_1/compact/figure_manifest.json",
+      "sha256": "87458ec41deaceb254311606da5cb4323b397652c801aafabaa3fc240a7d4de8"
+    }
+  ],
+  "accepted_figure_files": 18,
+  "pdf_pages_parsed_and_rasterized": 6,
+  "png_full_decodes": 6,
+  "svg_xml_parses": 6,
+  "full_page_parser": {
+    "library": "PyMuPDF",
+    "version": "1.26.6",
+    "optional_environment_qa_only": true
+  },
+  "geometry_ray_queries": 0,
+  "light_transport_render_calls": 0,
+  "checks": [
+    {
+      "path": "figures/structure_v5_1/fabric_structure_triptych.png",
+      "sha256": "bb84b4177f0c6264aa44759cc8fd1e7bf6e46b9027f29be3fe647fb378961218",
+      "size_bytes": 653069,
+      "digest_matches_final_manifest": true,
+      "png_full_decode": true,
+      "dimensions_wh": [
+        3600,
+        1410
+      ]
+    },
+    {
+      "path": "figures/structure_v5_1/fabric_structure_triptych.pdf",
+      "sha256": "a64de105572036afd1e32482c1e5e7a01a82d3d33356cdd1b6a3188609232534",
+      "size_bytes": 486122,
+      "digest_matches_final_manifest": true,
+      "pdf_page_count": 1,
+      "page_rect_points": [
+        0.0,
+        0.0,
+        864.0,
+        338.3999938964844
+      ],
+      "page_raster_dimensions_wh": [
+        864,
+        339
+      ],
+      "page_raster_sha256": "ed18840befd97f2a4cb9c0ca23b88996ab685d3c3ddfe46930521fad31dfc4e6",
+      "full_page_parse_and_rasterize": true,
+      "preview_path": "scratch_runs/structure_final_pdf_qa_v5_1/canonical_fabric_structure_triptych.png"
+    },
+    {
+      "path": "figures/structure_v5_1/fabric_structure_triptych.svg",
+      "sha256": "1f5577d7cc9f5e0c2f40e59fe71d7901f6bfa582de7e3a87e8b7ebfcd5a163b6",
+      "size_bytes": 620095,
+      "digest_matches_final_manifest": true,
+      "svg_xml_parse": true
+    },
+    {
+      "path": "figures/structure_v5_1/fabric_structure_hierarchy.png",
+      "sha256": "0f2d77261d9127c869ce5728ad1c4df529102b0c25529c7588bf596dbe81b637",
+      "size_bytes": 836777,
+      "digest_matches_final_manifest": true,
+      "png_full_decode": true,
+      "dimensions_wh": [
+        3600,
+        2820
+      ]
+    },
+    {
+      "path": "figures/structure_v5_1/fabric_structure_hierarchy.pdf",
+      "sha256": "cc64599566351ec793a151dd27021f6ee66fef80c160f345abd46da52acee166",
+      "size_bytes": 566866,
+      "digest_matches_final_manifest": true,
+      "pdf_page_count": 1,
+      "page_rect_points": [
+        0.0,
+        0.0,
+        864.0,
+        676.7999877929688
+      ],
+      "page_raster_dimensions_wh": [
+        864,
+        677
+      ],
+      "page_raster_sha256": "cb28cd84c74e63fd606a03f629378b85773e01306e526ef32079e03a05e5017c",
+      "full_page_parse_and_rasterize": true,
+      "preview_path": "scratch_runs/structure_final_pdf_qa_v5_1/canonical_fabric_structure_hierarchy.png"
+    },
+    {
+      "path": "figures/structure_v5_1/fabric_structure_hierarchy.svg",
+      "sha256": "b15d573c60a9687f0043d4dd8be4292f4174cacbac1612041d3c04f64e7705be",
+      "size_bytes": 778425,
+      "digest_matches_final_manifest": true,
+      "svg_xml_parse": true
+    },
+    {
+      "path": "figures/structure_v5_1/fabric_structure_material_detail.png",
+      "sha256": "558a230b68039f0a8421157f78f55033d46845845864262982b8eed913d10ded",
+      "size_bytes": 456962,
+      "digest_matches_final_manifest": true,
+      "png_full_decode": true,
+      "dimensions_wh": [
+        3600,
+        1410
+      ]
+    },
+    {
+      "path": "figures/structure_v5_1/fabric_structure_material_detail.pdf",
+      "sha256": "f9b2a73b29836dd59f50247af55bbe53ddc52257ae1d67764de6fe8a43826450",
+      "size_bytes": 265670,
+      "digest_matches_final_manifest": true,
+      "pdf_page_count": 1,
+      "page_rect_points": [
+        0.0,
+        0.0,
+        864.0,
+        338.3999938964844
+      ],
+      "page_raster_dimensions_wh": [
+        864,
+        339
+      ],
+      "page_raster_sha256": "3fd1d26a8ef4230511ddf000331e2c7032ad8647132ceba307911bbf28c00406",
+      "full_page_parse_and_rasterize": true,
+      "preview_path": "scratch_runs/structure_final_pdf_qa_v5_1/canonical_fabric_structure_material_detail.png"
+    },
+    {
+      "path": "figures/structure_v5_1/fabric_structure_material_detail.svg",
+      "sha256": "4493f2053525b1d052432aabaae4581865a2ecf5423682b81632b10e2720427d",
+      "size_bytes": 368712,
+      "digest_matches_final_manifest": true,
+      "svg_xml_parse": true
+    },
+    {
+      "path": "figures/structure_v5_1/compact/fabric_structure_hierarchy.png",
+      "sha256": "223a3cd2d7cfbf4ca9ed35c0b2c6b352772cbe34d41445357697ea8b108ad66e",
+      "size_bytes": 2358860,
+      "digest_matches_final_manifest": true,
+      "png_full_decode": true,
+      "dimensions_wh": [
+        3600,
+        2820
+      ]
+    },
+    {
+      "path": "figures/structure_v5_1/compact/fabric_structure_hierarchy.pdf",
+      "sha256": "338668ae1f930e14f4639ac2adb18e07c8391eb3d0ce4aa628cde3718143fb8c",
+      "size_bytes": 1716156,
+      "digest_matches_final_manifest": true,
+      "pdf_page_count": 1,
+      "page_rect_points": [
+        0.0,
+        0.0,
+        864.0,
+        676.7999877929688
+      ],
+      "page_raster_dimensions_wh": [
+        864,
+        677
+      ],
+      "page_raster_sha256": "4ae996335370d7d17b42c4b173abba828271826200e8e697954023c8640cb6a4",
+      "full_page_parse_and_rasterize": true,
+      "preview_path": "scratch_runs/structure_final_pdf_qa_v5_1/compact_fabric_structure_hierarchy.png"
+    },
+    {
+      "path": "figures/structure_v5_1/compact/fabric_structure_hierarchy.svg",
+      "sha256": "ba43fd1807b8cd8a7385575a5ab37071949816878c32112b0531924642866cdc",
+      "size_bytes": 2549366,
+      "digest_matches_final_manifest": true,
+      "svg_xml_parse": true
+    },
+    {
+      "path": "figures/structure_v5_1/compact/fabric_structure_material_detail.png",
+      "sha256": "46fc65ba10a4900fd21fc571f4f923f95bfca8dff1f0b32f2942243c4b045e21",
+      "size_bytes": 907857,
+      "digest_matches_final_manifest": true,
+      "png_full_decode": true,
+      "dimensions_wh": [
+        3600,
+        1410
+      ]
+    },
+    {
+      "path": "figures/structure_v5_1/compact/fabric_structure_material_detail.pdf",
+      "sha256": "dd14889cc92ca1d4e715ccafd7623c466508e030d39d83c1c6756481350383c8",
+      "size_bytes": 635100,
+      "digest_matches_final_manifest": true,
+      "pdf_page_count": 1,
+      "page_rect_points": [
+        0.0,
+        0.0,
+        864.0,
+        338.3999938964844
+      ],
+      "page_raster_dimensions_wh": [
+        864,
+        339
+      ],
+      "page_raster_sha256": "ac317c9a6e5d32dbc293be85c51002156b6f1eb1a578f679f610960be78e1490",
+      "full_page_parse_and_rasterize": true,
+      "preview_path": "scratch_runs/structure_final_pdf_qa_v5_1/compact_fabric_structure_material_detail.png"
+    },
+    {
+      "path": "figures/structure_v5_1/compact/fabric_structure_material_detail.svg",
+      "sha256": "20b438f8f2bee297760ef645969ad5250e59053ff0e7b0449662b5592308a789",
+      "size_bytes": 922275,
+      "digest_matches_final_manifest": true,
+      "svg_xml_parse": true
+    },
+    {
+      "path": "figures/structure_v5_1/compact/compact_structure_triptych.png",
+      "sha256": "9f177d99b3c1db3507579b421478f508402b37b7b3a2b240d4ddf90f02bb6238",
+      "size_bytes": 1275695,
+      "digest_matches_final_manifest": true,
+      "png_full_decode": true,
+      "dimensions_wh": [
+        3600,
+        1410
+      ]
+    },
+    {
+      "path": "figures/structure_v5_1/compact/compact_structure_triptych.pdf",
+      "sha256": "e2042a5890b67dd3c8e74f0b2876fb096a832d213a2d182fab4010e64dfc2c7b",
+      "size_bytes": 949715,
+      "digest_matches_final_manifest": true,
+      "pdf_page_count": 1,
+      "page_rect_points": [
+        0.0,
+        0.0,
+        864.0,
+        338.3999938964844
+      ],
+      "page_raster_dimensions_wh": [
+        864,
+        339
+      ],
+      "page_raster_sha256": "599a820773dd48ab8424d499ad4ee8449d84c5e91d2b289006ab9b7f670d6ab6",
+      "full_page_parse_and_rasterize": true,
+      "preview_path": "scratch_runs/structure_final_pdf_qa_v5_1/compact_compact_structure_triptych.png"
+    },
+    {
+      "path": "figures/structure_v5_1/compact/compact_structure_triptych.svg",
+      "sha256": "7270b7090882c70cda4f35f5f75344f5872613a0d787ba7ad1a387ca444e10fc",
+      "size_bytes": 1349501,
+      "digest_matches_final_manifest": true,
+      "svg_xml_parse": true
+    }
+  ],
+  "inventories": [
+    {
+      "directory": "figures/structure_v5_1",
+      "accepted_files": 9,
+      "unreferenced_figure_paths": [],
+      "packaging_rule": "only exact accepted manifest paths; excluded intermediates are never scientific outputs"
+    },
+    {
+      "directory": "figures/structure_v5_1/compact",
+      "accepted_files": 9,
+      "unreferenced_figure_paths": [],
+      "packaging_rule": "only exact accepted manifest paths; excluded intermediates are never scientific outputs"
+    }
+  ],
+  "scope": "Full PDF parsing/rasterization and container/file hashes; scientific map validation is recorded by the independent map audit."
+}

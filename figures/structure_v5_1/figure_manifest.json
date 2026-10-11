@@ -1,0 +1,1861 @@
+{
+  "schema": "textile.structure_figures/5.1",
+  "status": "completed",
+  "kind": "structural_AOV_visualization",
+  "not_a_radiance_render": true,
+  "elapsed_seconds": 87.8245169629954,
+  "producer_sources_sha256": {
+    "visualization/render_structure_figures.py": "3bb5a2e744934287cdf1ebed29c6aa008d6efb9f24cb30a399cfc044a54aa913",
+    "visualization/structure_maps.py": "4e4052be958b820f1deb13b89d429540d70287e3bbdccb901a7616030bbea3cb",
+    "textile_sim/hierarchy.py": "0ccea74ef08c735cbcf9c22682bd7a51a59423efb9599e743d23f1cb08ca3a73",
+    "textile_sim/weave_draft.py": "13704a2ade4f6ea7c9f43de0c23e077861c2094fbcd937ec13ca3b2d52efc540",
+    "textile_sim/variable_radius.py": "811d72412723f1b4dbd51644aaf0e7ff0cb96a9e6500f3b022424161c44fb9e4",
+    "textile_sim/render.py": "704c6052f0e22e0b0644137d1960fd175126ad7ed801f396163056aa6ade5ac9"
+  },
+  "runtime": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "matplotlib": "3.10.8"
+  },
+  "input_spec": {
+    "path": "data/structure_maps_v5_1/input_spec.json",
+    "sha256": "811e8c3140dd494dd8eacc08c64202f2690602a4f724e0f31b5e43c476fcb885",
+    "original_path": "examples/hierarchy/basket_rectangular_three_ply.json",
+    "original_sha256": "811e8c3140dd494dd8eacc08c64202f2690602a4f724e0f31b5e43c476fcb885"
+  },
+  "geometry": {
+    "yarns": 10,
+    "plies": 30,
+    "fibers": 210,
+    "draft": {
+      "name": "basket_3x2",
+      "matrix": [
+        [
+          1,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          1,
+          1
+        ]
+      ],
+      "row_axis": "weft",
+      "column_axis": "warp",
+      "one_means": "warp_over"
+    },
+    "radial_segments": 64,
+    "metadata": {
+      "length_unit": "mm",
+      "schema_version": "textile-hierarchy/2.0",
+      "draft_diagnostics": {
+        "weft_repeat": 4,
+        "warp_repeat": 6,
+        "warp_top_fraction": 0.5,
+        "unbound_warp_indices": [],
+        "unbound_weft_indices": [],
+        "every_yarn_interlaces_in_repeat": true,
+        "run_lengths": {
+          "warp_value_0_max_run_in_repeat": 2,
+          "warp_value_1_max_run_in_repeat": 2,
+          "weft_value_0_max_run_in_repeat": 3,
+          "weft_value_1_max_run_in_repeat": 3
+        },
+        "scope": "Binary single-layer topology diagnostics; no manufacturing certificate."
+      },
+      "visible_size_mm": [
+        1.08,
+        0.8
+      ],
+      "crossing_center_distance_mm": 0.07100000000000001,
+      "nominal_crossing_envelope_gap_mm": 0.012,
+      "sampling_refinements": 1,
+      "samples_per_crossing_used": 48,
+      "max_fiber_segment_mm": 0.005529005969907765,
+      "max_polyline_turn_radians": 0.05232375935155694,
+      "max_parent_twist_or_migration_phase_step_rad": 0.07647004172909252,
+      "geometry_tileable": false,
+      "periodicity_scope": "Draft and unperturbed/wavy yarn centerlines repeat; nested twist/migration phases are not forced to close.",
+      "physical_mechanics_solved": false,
+      "clearance_scope": "Reference-section bounds only; run actual polyline capsule audit for global separation.",
+      "flyaway_scope": "Optional C2 outward loop excursion of an existing fiber; no duplicated fiber objects, but length/volume can change. No mass conservation or fitted staple statistics."
+    }
+  },
+  "crossing_zoom": {
+    "warp_index": 3,
+    "weft_index": 2,
+    "center_xy_mm": [
+      0.09,
+      0.1
+    ],
+    "extent_xy_mm": [
+      -0.020000000000000004,
+      0.2,
+      -0.009999999999999995,
+      0.21000000000000002
+    ]
+  },
+  "encoding": {
+    "normal": {
+      "source": "world_normal",
+      "meaning": "outward geometric triangle normal at ray hit",
+      "mapping": "RGB=(n+1)/2",
+      "world_components_rgb": [
+        "X",
+        "Y",
+        "Z"
+      ],
+      "gamma_or_light_transport": "none; numeric map values are not physical display radiance"
+    },
+    "orientation": {
+      "source": "world_tangent",
+      "meaning": "centerline tangent of the represented ply or fiber",
+      "projection": "world XY",
+      "angle_formula": "atan2(ty,tx) mod pi",
+      "range_rad": [
+        0,
+        3.141592653589793
+      ],
+      "period_deg": 180,
+      "colormap": "twilight_shifted",
+      "colormap_input": "theta/pi",
+      "colormap_phase_fraction": 0.25,
+      "colormap_lut_size": 2048,
+      "colormap_lut_rule": "base_colormap((arange(N)/N + phase_fraction) mod 1)",
+      "projection_threshold": 1e-08,
+      "undefined_rgb": [
+        0.45,
+        0.45,
+        0.45
+      ],
+      "sign_invariance": "t and -t describe the same line and share color",
+      "glyphs": "unoriented line segments from valid pixel-center tangents"
+    },
+    "height": {
+      "source": "height_mm",
+      "mapping": "world z * 1000; no per-panel normalization",
+      "units": "um",
+      "shared_limits_um": [
+        -70.0,
+        70.0
+      ],
+      "colormap": "gray",
+      "clipped_samples_allowed": 0
+    },
+    "material": {
+      "source": "material_index at pixel center",
+      "palette_hex": [
+        "#0072B2",
+        "#D55E00",
+        "#009E73",
+        "#CC79A7",
+        "#E69F00",
+        "#56B4E9",
+        "#332288",
+        "#882255"
+      ],
+      "palette_rule": "nonnegative integer index modulo palette length",
+      "meaning": "synthetic source assignments, not material inference or dye colors",
+      "antialias_categories": false,
+      "mixed_proxy_rgb": [
+        0.45,
+        0.45,
+        0.45
+      ]
+    },
+    "background_rgb": [
+      0.94,
+      0.945,
+      0.95
+    ],
+    "antialias": {
+      "source": "actual regular-grid ray-hit supersamples",
+      "order": "map each sample to RGB, average premultiplied RGB and hit alpha, then unpremultiply",
+      "storage": "straight RGBA float32; alpha=coverage; RGB=0 where alpha=0",
+      "equation": "RGB=mean(hit*sample_rgb)/mean(hit); alpha=mean(hit)",
+      "composite_equation": "alpha*RGB+(1-alpha)*B = mean(hit*sample_rgb+(1-hit)*B)",
+      "normal_average_is_unit_vector": false,
+      "reproducible_sources": "display_sources.npz preserves hit mask, normal, tangent and height supersamples"
+    },
+    "camera": {
+      "type": "orthographic top down",
+      "view_direction": [
+        0,
+        0,
+        -1
+      ],
+      "right": [
+        1,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "array_row_zero": "largest world y",
+      "matplotlib_origin": "upper",
+      "extent_order": [
+        "xmin",
+        "xmax",
+        "ymin",
+        "ymax"
+      ],
+      "all_lengths": "mm; scale bars explicitly labelled um"
+    }
+  },
+  "input_maps": {
+    "overview/ply_envelope": {
+      "role": "overview",
+      "level": "ply_envelope",
+      "extent_xy_mm": [
+        -0.54,
+        0.54,
+        -0.4,
+        0.4
+      ],
+      "resolution_hw": [
+        474,
+        640
+      ],
+      "supersample": 2,
+      "radial_segments": 64,
+      "statistics": {
+        "center_valid_pixels": 124972,
+        "center_total_pixels": 303360,
+        "center_coverage_fraction": 0.41195938818565403,
+        "supersample_valid_pixels": 499915,
+        "supersample_total_pixels": 1213440,
+        "sample_coverage_fraction": 0.41198163897679324,
+        "center_orientation_undefined_hits": 0,
+        "sample_orientation_undefined_hits": 0,
+        "height_observed_um": [
+          -56.525291442871094,
+          64.9962158203125
+        ],
+        "height_clipped_samples": 0,
+        "material_indices_on_valid_centers": [
+          -1
+        ]
+      },
+      "raw_arrays": {
+        "path": "data/structure_maps_v5_1/overview/ply_envelope/structure_maps.npz",
+        "sha256": "c97f341106c5a31e525cbd4821aaeed7350e3c8a2cb445a49c539f36fdf206e8",
+        "size_bytes": 6078157
+      },
+      "raw_metadata": {
+        "path": "data/structure_maps_v5_1/overview/ply_envelope/structure_maps.json",
+        "sha256": "afa01c0ba0dde9ad121d6dfcd5124f4a02d1e0cfa18b34724ecaada76453080d",
+        "size_bytes": 152539
+      },
+      "display_sources": {
+        "path": "data/structure_maps_v5_1/overview/ply_envelope/display_sources.npz",
+        "sha256": "7b8d13ff8d8f14e65a045b8628094584e0b8715b723aa8bdaa9a0ec1ed015d18",
+        "size_bytes": 9056847,
+        "arrays": {
+          "valid_mask": {
+            "shape": [
+              948,
+              1280
+            ],
+            "dtype": "|b1",
+            "sha256_c_order_bytes": "554a96cf4306956193ea25e7fffb472cba854f1c549b8060fbd26e6a15456542"
+          },
+          "world_normal": {
+            "shape": [
+              948,
+              1280,
+              3
+            ],
+            "dtype": "<f4",
+            "sha256_c_order_bytes": "35b247ea78da611f5367b1dc693708d74cd8c29835c9ae29368aed6dea585de4"
+          },
+          "world_tangent": {
+            "shape": [
+              948,
+              1280,
+              3
+            ],
+            "dtype": "<f4",
+            "sha256_c_order_bytes": "dd76cad2d46ac2c7dbe93e57018f86de0a0a77de19521fc09834ac7023126fd1"
+          },
+          "height_mm": {
+            "shape": [
+              948,
+              1280
+            ],
+            "dtype": "<f4",
+            "sha256_c_order_bytes": "c5d8723ab33a8716d3b19595ebd4c19846f78419f23b54dfc487f5401d498be9"
+          }
+        }
+      },
+      "display_arrays": {
+        "path": "data/structure_maps_v5_1/overview/ply_envelope/display_rgba.npz",
+        "sha256": "5f99e6031eb7d701a34e59877bc07689f580995fd73b4e40194555de13eb04c9",
+        "size_bytes": 2309803,
+        "arrays": {
+          "normal_rgba": {
+            "shape": [
+              474,
+              640,
+              4
+            ],
+            "dtype": "<f4",
+            "sha256_c_order_bytes": "5ddae831473391616f65c0f149a05b55fa8c876777b13d70de3a7b916b22941d"
+          },
+          "orientation_rgba": {
+            "shape": [
+              474,
+              640,
+              4
+            ],
+            "dtype": "<f4",
+            "sha256_c_order_bytes": "0c83483b1751011c7575f3aa21643bd288cfd006956c9e3acbd6ab1156a024da"
+          },
+          "height_rgba": {
+            "shape": [
+              474,
+              640,
+              4
+            ],
+            "dtype": "<f4",
+            "sha256_c_order_bytes": "c9283182ca6aefaca7ab3927a91de03c01a753231f3e7cfec3be5aad60e1ff59"
+          },
+          "material_rgba": {
+            "shape": [
+              474,
+              640,
+              4
+            ],
+            "dtype": "<f4",
+            "sha256_c_order_bytes": "65616d409fe9c0addafe8051e971cbce65c65aed5be572b72aa903f392ad5718"
+          },
+          "orientation_angle_rad": {
+            "shape": [
+              474,
+              640
+            ],
+            "dtype": "<f4",
+            "sha256_c_order_bytes": "63e897c5e85c7a69ba634a209ddb07cd8645f937b40b43f62f7699cec79e88f4"
+          },
+          "orientation_defined_mask": {
+            "shape": [
+              474,
+              640
+            ],
+            "dtype": "|b1",
+            "sha256_c_order_bytes": "bfcd283c0a849aa37a10916df9101bff26977278b970a08f57fad4a39e34785f"
+          }
+        }
+      },
+      "material_labels": {
+        "0": "synthetic_A",
+        "1": "synthetic_B"
+      },
+      "camera": {
+        "backend_origin_rule": "float64 pixel formula cast to float32 before ray query",
+        "backend_view_direction_float32": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "height_mm": 0.8,
+        "origin_mm": [
+          0.0,
+          0.0,
+          1.1449998858571053
+        ],
+        "pixel_rule": "origin + ((col+.5)/W-.5)*width*right + (.5-(row+.5)/H)*height*up",
+        "pixel_size_mm": [
+          0.0016877637130801688,
+          0.0016875000000000002
+        ],
+        "resolution_hw": [
+          474,
+          640
+        ],
+        "right": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "row_column_convention": "row 0 toward +up; column 0 toward -right",
+        "type": "orthographic",
+        "up": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "view_direction": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "width_mm": 1.08,
+        "world_height_definition": "z coordinate of nearest actual triangle hit; not ray distance"
+      }
+    },
+    "zoom/ply_envelope": {
+      "role": "zoom",
+      "level": "ply_envelope",
+      "extent_xy_mm": [
+        -0.020000000000000004,
+        0.2,
+        -0.009999999999999995,
+        0.21000000000000002
+      ],
+      "resolution_hw": [
+        640,
+        640
+      ],
+      "supersample": 2,
+      "radial_segments": 64,
+      "statistics": {
+        "center_valid_pixels": 139150,
+        "center_total_pixels": 409600,
+        "center_coverage_fraction": 0.3397216796875,
+        "supersample_valid_pixels": 556046,
+        "supersample_total_pixels": 1638400,
+        "sample_coverage_fraction": 0.339383544921875,
+        "center_orientation_undefined_hits": 0,
+        "sample_orientation_undefined_hits": 0,
+        "height_observed_um": [
+          -56.420753479003906,
+          64.76060485839844
+        ],
+        "height_clipped_samples": 0,
+        "material_indices_on_valid_centers": [
+          -1
+        ]
+      },
+      "raw_arrays": {
+        "path": "data/structure_maps_v5_1/zoom/ply_envelope/structure_maps.npz",
+        "sha256": "c34d35cb8bd4dca3d82d9f868a3ffd9fbc815b0f9ff41bda30dc1c4bb09253e7",
+        "size_bytes": 5527223
+      },
+      "raw_metadata": {
+        "path": "data/structure_maps_v5_1/zoom/ply_envelope/structure_maps.json",
+        "sha256": "14b5a1b2a3671a19669a93008b18b026a17701ab0839034049c9aab3cf9f04df",
+        "size_bytes": 152573
+      },
+      "display_sources": {
+        "path": "data/structure_maps_v5_1/zoom/ply_envelope/display_sources.npz",
+        "sha256": "d97be55b89b0a2467a3acd5b703b51bd51ca3b956f96525d7576205b68a2ffa3",
+        "size_bytes": 7482949,
+        "arrays": {
+          "valid_mask": {
+            "shape": [
+              1280,
+              1280
+            ],
+            "dtype": "|b1",
+            "sha256_c_order_bytes": "07a3f90ed848cdf80368cd58cda31bc51eb2c28e86b8b202bc8ac47caf7fcd7d"
+          },
+          "world_normal": {
+            "shape": [
+              1280,
+              1280,
+              3
+            ],
+            "dtype": "<f4",
+            "sha256_c_order_bytes": "790f2e18539deee56a5582fd428577f6311435a5f2a2cc4b861f7083c740f3d8"
+          },
+          "world_tangent": {
+            "shape": [
+              1280,
+              1280,
+              3
+            ],
+            "dtype": "<f4",
+            "sha256_c_order_bytes": "df92c8d9afef473099bc43e349b61e3749f56ba4a0494b01e5916e942ef2ea34"
+          },
+          "height_mm": {
+            "shape": [
+              1280,
+              1280
+            ],
+            "dtype": "<f4",
+            "sha256_c_order_bytes": "3cb05dbc0b2a248fbe6310257840cff425188cf4a39b880022ea922c5f2d8c3d"
+          }
+        }
+      },
+      "display_arrays": {
+        "path": "data/structure_maps_v5_1/zoom/ply_envelope/display_rgba.npz",
+        "sha256": "85950112ca315e46934433b4cd66633f9f84bb42f9bdb32858587b53a64a1588",
+        "size_bytes": 1274175,
+        "arrays": {
+          "normal_rgba": {
+            "shape": [
+              640,
+              640,
+              4
+            ],
+            "dtype": "<f4",
+            "sha256_c_order_bytes": "b3fd3b07f3a3b35fcd38d1a49642e8a8ad48d9c606c7c71c4837a8ca3998844e"
+          },
+          "orientation_rgba": {
+            "shape": [
+              640,
+              640,
+              4
+            ],
+            "dtype": "<f4",
+            "sha256_c_order_bytes": "4d5243217afb476e4bf57faf0a8da79ad4311e712e8fcb53d7a1716b94d4f8e8"
+          },
+          "height_rgba": {
+            "shape": [
+              640,
+              640,
+              4
+            ],
+            "dtype": "<f4",
+            "sha256_c_order_bytes": "61d493d8721a75edd8a809da6790cf8ca200c3bcdef36dc9879245be65e8fba5"
+          },
+          "material_rgba": {
+            "shape": [
+              640,
+              640,
+              4
+            ],
+            "dtype": "<f4",
+            "sha256_c_order_bytes": "c9ad40a1c897372584360c40d76f657ac70cb42802e8c669ba8f7c5914fc29d2"
+          },
+          "orientation_angle_rad": {
+            "shape": [
+              640,
+              640
+            ],
+            "dtype": "<f4",
+            "sha256_c_order_bytes": "567c77c31ce5e61e824143ed15ebbcb4a633d32a298c181785c52cb27528f4a2"
+          },
+          "orientation_defined_mask": {
+            "shape": [
+              640,
+              640
+            ],
+            "dtype": "|b1",
+            "sha256_c_order_bytes": "e5d164e59261dd5000963e0f5fe8e4e2081b19d418db68944919fd972bbe23b1"
+          }
+        }
+      },
+      "material_labels": {
+        "0": "synthetic_A",
+        "1": "synthetic_B"
+      },
+      "camera": {
+        "backend_origin_rule": "float64 pixel formula cast to float32 before ray query",
+        "backend_view_direction_float32": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "height_mm": 0.22000000000000003,
+        "origin_mm": [
+          0.09,
+          0.1,
+          0.2849998858571053
+        ],
+        "pixel_rule": "origin + ((col+.5)/W-.5)*width*right + (.5-(row+.5)/H)*height*up",
+        "pixel_size_mm": [
+          0.00034375000000000003,
+          0.00034375000000000003
+        ],
+        "resolution_hw": [
+          640,
+          640
+        ],
+        "right": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "row_column_convention": "row 0 toward +up; column 0 toward -right",
+        "type": "orthographic",
+        "up": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "view_direction": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "width_mm": 0.22000000000000003,
+        "world_height_definition": "z coordinate of nearest actual triangle hit; not ray distance"
+      }
+    },
+    "overview/explicit_fiber": {
+      "role": "overview",
+      "level": "explicit_fiber",
+      "extent_xy_mm": [
+        -0.54,
+        0.54,
+        -0.4,
+        0.4
+      ],
+      "resolution_hw": [
+        474,
+        640
+      ],
+      "supersample": 2,
+      "radial_segments": 64,
+      "statistics": {
+        "center_valid_pixels": 119202,
+        "center_total_pixels": 303360,
+        "center_coverage_fraction": 0.392939082278481,
+        "supersample_valid_pixels": 476710,
+        "supersample_total_pixels": 1213440,
+        "sample_coverage_fraction": 0.39285832014767935,
+        "center_orientation_undefined_hits": 0,
+        "sample_orientation_undefined_hits": 0,
+        "height_observed_um": [
+          -62.575660705566406,
+          64.88745880126953
+        ],
+        "height_clipped_samples": 0,
+        "material_indices_on_valid_centers": [
+          0,
+          1
+        ]
+      },
+      "raw_arrays": {
+        "path": "data/structure_maps_v5_1/overview/explicit_fiber/structure_maps.npz",
+        "sha256": "64cb45c7c0a1391b6578858daab901b9a24e69b218234881bc1d9c44b35984c5",
+        "size_bytes": 6452949
+      },
+      "raw_metadata": {
+        "path": "data/structure_maps_v5_1/overview/explicit_fiber/structure_maps.json",
+        "sha256": "64d4505b334965220f419dc206fa95252519401e222b9bda52c1fc684b024203",
+        "size_bytes": 421977
+      },
+      "display_sources": {
+        "path": "data/structure_maps_v5_1/overview/explicit_fiber/display_sources.npz",
+        "sha256": "6b495140b325ac57a0607f2e5c930dfc577cab628b548ceee7960610f773813a",
+        "size_bytes": 11109661,
+        "arrays": {
+          "valid_mask": {
+            "shape": [
+              948,
+              1280
+            ],
+            "dtype": "|b1",
+            "sha256_c_order_bytes": "6a9021fd830dbcceb6ede93313c42f5480f348a6f9c1b1271eb54144651a37b0"
+          },
+          "world_normal": {
+            "shape": [
+              948,
+              1280,
+              3
+            ],
+            "dtype": "<f4",
+            "sha256_c_order_bytes": "7469d439b0c63f91f88d79c9b8c3b5a8a92aa9f313ebb5193a459e4d07e8f026"
+          },
+          "world_tangent": {
+            "shape": [
+              948,
+              1280,
+              3
+            ],
+            "dtype": "<f4",
+            "sha256_c_order_bytes": "b9f6d97dececebbd7cdc61618acd3bacc79c21e705c532c7b7d8476b5f418902"
+          },
+          "height_mm": {
+            "shape": [
+              948,
+              1280
+            ],
+            "dtype": "<f4",
+            "sha256_c_order_bytes": "8998780fe611a9ee0ad94c91a40b1dccae8ee9d72604a87274f95ac557d05d6e"
+          }
+        }
+      },
+      "display_arrays": {
+        "path": "data/structure_maps_v5_1/overview/explicit_fiber/display_rgba.npz",
+        "sha256": "fd1f4c7d0970c3ddfb73078f9fd567d7f8bc07c1981c6cd61245f714d05a56c7",
+        "size_bytes": 2760355,
+        "arrays": {
+          "normal_rgba": {
+            "shape": [
+              474,
+              640,
+              4
+            ],
+            "dtype": "<f4",
+            "sha256_c_order_bytes": "b11e8a4075e895c374820f1bb271d05cdcc98741591a588086a4c81f78b1d1a8"
+          },
+          "orientation_rgba": {
+            "shape": [
+              474,
+              640,
+              4
+            ],
+            "dtype": "<f4",
+            "sha256_c_order_bytes": "27fac98ff53ff4d6404beeda9d036599cde877b6d40285f50ad3866870829780"
+          },
+          "height_rgba": {
+            "shape": [
+              474,
+              640,
+              4
+            ],
+            "dtype": "<f4",
+            "sha256_c_order_bytes": "b2d340653c7b56a5528175d2e9947b1cf2c5f9fabccac4f6902f411d470c5ab4"
+          },
+          "material_rgba": {
+            "shape": [
+              474,
+              640,
+              4
+            ],
+            "dtype": "<f4",
+            "sha256_c_order_bytes": "7cca93533622ee7f4ff2f9bad0cf074e570930f05c3ae466eca7b22a97f9193a"
+          },
+          "orientation_angle_rad": {
+            "shape": [
+              474,
+              640
+            ],
+            "dtype": "<f4",
+            "sha256_c_order_bytes": "fa901b14e12f4a9db178898d1ad1d40aa39a869ff36e9c34d3e07b8ae1e06912"
+          },
+          "orientation_defined_mask": {
+            "shape": [
+              474,
+              640
+            ],
+            "dtype": "|b1",
+            "sha256_c_order_bytes": "2cb51bcd63b1813d90cbe2b9050893596aed68d0bcd040e9e3f2069b5ece9df5"
+          }
+        }
+      },
+      "material_labels": {
+        "0": "synthetic_A",
+        "1": "synthetic_B"
+      },
+      "camera": {
+        "backend_origin_rule": "float64 pixel formula cast to float32 before ray query",
+        "backend_view_direction_float32": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "height_mm": 0.8,
+        "origin_mm": [
+          0.0,
+          0.0,
+          1.1449998858571053
+        ],
+        "pixel_rule": "origin + ((col+.5)/W-.5)*width*right + (.5-(row+.5)/H)*height*up",
+        "pixel_size_mm": [
+          0.0016877637130801688,
+          0.0016875000000000002
+        ],
+        "resolution_hw": [
+          474,
+          640
+        ],
+        "right": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "row_column_convention": "row 0 toward +up; column 0 toward -right",
+        "type": "orthographic",
+        "up": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "view_direction": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "width_mm": 1.08,
+        "world_height_definition": "z coordinate of nearest actual triangle hit; not ray distance"
+      }
+    },
+    "zoom/explicit_fiber": {
+      "role": "zoom",
+      "level": "explicit_fiber",
+      "extent_xy_mm": [
+        -0.020000000000000004,
+        0.2,
+        -0.009999999999999995,
+        0.21000000000000002
+      ],
+      "resolution_hw": [
+        640,
+        640
+      ],
+      "supersample": 2,
+      "radial_segments": 64,
+      "statistics": {
+        "center_valid_pixels": 131780,
+        "center_total_pixels": 409600,
+        "center_coverage_fraction": 0.321728515625,
+        "supersample_valid_pixels": 526930,
+        "supersample_total_pixels": 1638400,
+        "sample_coverage_fraction": 0.321612548828125,
+        "center_orientation_undefined_hits": 0,
+        "sample_orientation_undefined_hits": 0,
+        "height_observed_um": [
+          -62.5434684753418,
+          64.61360931396484
+        ],
+        "height_clipped_samples": 0,
+        "material_indices_on_valid_centers": [
+          0,
+          1
+        ]
+      },
+      "raw_arrays": {
+        "path": "data/structure_maps_v5_1/zoom/explicit_fiber/structure_maps.npz",
+        "sha256": "b615300406ee9550cbb7ab8410c9578d223089f0dfaa8a8ff6e46cfca5819198",
+        "size_bytes": 5962202
+      },
+      "raw_metadata": {
+        "path": "data/structure_maps_v5_1/zoom/explicit_fiber/structure_maps.json",
+        "sha256": "3e349627b7438cd9b53bffea4630258e16b323aff94254990a1fb789336d248a",
+        "size_bytes": 422012
+      },
+      "display_sources": {
+        "path": "data/structure_maps_v5_1/zoom/explicit_fiber/display_sources.npz",
+        "sha256": "942a124243980b8f95af08bf75cba68305c1469177b393c1388d90e1524d31d2",
+        "size_bytes": 8767071,
+        "arrays": {
+          "valid_mask": {
+            "shape": [
+              1280,
+              1280
+            ],
+            "dtype": "|b1",
+            "sha256_c_order_bytes": "a51e2d600d6baa8f2dfbe8e2ad44c4c04c4c0262bef4860f6b12e7c77cc162ed"
+          },
+          "world_normal": {
+            "shape": [
+              1280,
+              1280,
+              3
+            ],
+            "dtype": "<f4",
+            "sha256_c_order_bytes": "574a7ad7ee5a621d8a0c7e5dfbbc0bea9bb1ceea57836a9ca4275421e0cc45fa"
+          },
+          "world_tangent": {
+            "shape": [
+              1280,
+              1280,
+              3
+            ],
+            "dtype": "<f4",
+            "sha256_c_order_bytes": "e806acedca63062a5f01eb07c1e2711640ed3b465dda8244a61309046877c2f3"
+          },
+          "height_mm": {
+            "shape": [
+              1280,
+              1280
+            ],
+            "dtype": "<f4",
+            "sha256_c_order_bytes": "dd4a57a9aa1623d1fd1642f3c18b8c7e11f89a59bc83fc72d9071e7a2e246f61"
+          }
+        }
+      },
+      "display_arrays": {
+        "path": "data/structure_maps_v5_1/zoom/explicit_fiber/display_rgba.npz",
+        "sha256": "ac1c55578c04388f6954f61befaff33543a24f6c655d3e6dbc7cfb4d9157766f",
+        "size_bytes": 1857183,
+        "arrays": {
+          "normal_rgba": {
+            "shape": [
+              640,
+              640,
+              4
+            ],
+            "dtype": "<f4",
+            "sha256_c_order_bytes": "1687fee6da39ee642c8e4aa60c3daf795f876310de0ed3a5ac6703834820d5ee"
+          },
+          "orientation_rgba": {
+            "shape": [
+              640,
+              640,
+              4
+            ],
+            "dtype": "<f4",
+            "sha256_c_order_bytes": "ca04257a9d87553293d631e7bcfc5b46a6813cc65963a3478933a399761a0cad"
+          },
+          "height_rgba": {
+            "shape": [
+              640,
+              640,
+              4
+            ],
+            "dtype": "<f4",
+            "sha256_c_order_bytes": "26624dfc315e6606a5b070b9a097992c60364a5ff1165765dd33fc2eeecf7014"
+          },
+          "material_rgba": {
+            "shape": [
+              640,
+              640,
+              4
+            ],
+            "dtype": "<f4",
+            "sha256_c_order_bytes": "ed0540480f4d06dafb73a42085e97da4445fb8eb49c86b0049530b6ee40bfc49"
+          },
+          "orientation_angle_rad": {
+            "shape": [
+              640,
+              640
+            ],
+            "dtype": "<f4",
+            "sha256_c_order_bytes": "8d9528b314be7c52b5900b11feb5bf006d7ed8e47ebc6c60d1ba9b0d097c24bf"
+          },
+          "orientation_defined_mask": {
+            "shape": [
+              640,
+              640
+            ],
+            "dtype": "|b1",
+            "sha256_c_order_bytes": "a94a33183659c90938b17a3af88b80083caa907554bd3888ab4b1da408d5c590"
+          }
+        }
+      },
+      "material_labels": {
+        "0": "synthetic_A",
+        "1": "synthetic_B"
+      },
+      "camera": {
+        "backend_origin_rule": "float64 pixel formula cast to float32 before ray query",
+        "backend_view_direction_float32": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "height_mm": 0.22000000000000003,
+        "origin_mm": [
+          0.09,
+          0.1,
+          0.2849998858571053
+        ],
+        "pixel_rule": "origin + ((col+.5)/W-.5)*width*right + (.5-(row+.5)/H)*height*up",
+        "pixel_size_mm": [
+          0.00034375000000000003,
+          0.00034375000000000003
+        ],
+        "resolution_hw": [
+          640,
+          640
+        ],
+        "right": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "row_column_convention": "row 0 toward +up; column 0 toward -right",
+        "type": "orthographic",
+        "up": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "view_direction": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "width_mm": 0.22000000000000003,
+        "world_height_definition": "z coordinate of nearest actual triangle hit; not ray distance"
+      }
+    }
+  },
+  "figures": [
+    {
+      "name": "fabric_structure_triptych",
+      "panels": [
+        {
+          "map": "overview/ply_envelope",
+          "field": "normal",
+          "extent_xy_mm": [
+            -0.54,
+            0.54,
+            -0.4,
+            0.4
+          ]
+        },
+        {
+          "map": "overview/ply_envelope",
+          "field": "orientation",
+          "extent_xy_mm": [
+            -0.54,
+            0.54,
+            -0.4,
+            0.4
+          ]
+        },
+        {
+          "map": "overview/ply_envelope",
+          "field": "height",
+          "extent_xy_mm": [
+            -0.54,
+            0.54,
+            -0.4,
+            0.4
+          ]
+        }
+      ],
+      "scale_bars": [
+        {
+          "length_mm": 0.2,
+          "start_xy_mm": [
+            -0.4698,
+            -0.34400000000000003
+          ],
+          "end_xy_mm": [
+            -0.2698,
+            -0.34400000000000003
+          ]
+        }
+      ],
+      "files": [
+        {
+          "path": "figures/structure_v5_1/fabric_structure_triptych.png",
+          "sha256": "bb84b4177f0c6264aa44759cc8fd1e7bf6e46b9027f29be3fe647fb378961218",
+          "size_bytes": 653069,
+          "container_validation": {
+            "format": "png",
+            "full_decode": true,
+            "dimensions_wh": [
+              3600,
+              1410
+            ]
+          }
+        },
+        {
+          "path": "figures/structure_v5_1/fabric_structure_triptych.pdf",
+          "sha256": "a64de105572036afd1e32482c1e5e7a01a82d3d33356cdd1b6a3188609232534",
+          "size_bytes": 486122,
+          "container_validation": {
+            "format": "pdf",
+            "header_and_terminal_eof": true,
+            "full_pdf_parser_required_here": false
+          }
+        },
+        {
+          "path": "figures/structure_v5_1/fabric_structure_triptych.svg",
+          "sha256": "1f5577d7cc9f5e0c2f40e59fe71d7901f6bfa582de7e3a87e8b7ebfcd5a163b6",
+          "size_bytes": 620095,
+          "container_validation": {
+            "format": "svg",
+            "xml_parse": true,
+            "width": "864pt",
+            "height": "338.4pt"
+          }
+        }
+      ]
+    },
+    {
+      "name": "fabric_structure_hierarchy",
+      "panels": [
+        {
+          "map": "zoom/ply_envelope",
+          "field": "normal",
+          "extent_xy_mm": [
+            -0.020000000000000004,
+            0.2,
+            -0.009999999999999995,
+            0.21000000000000002
+          ]
+        },
+        {
+          "map": "zoom/ply_envelope",
+          "field": "orientation",
+          "extent_xy_mm": [
+            -0.020000000000000004,
+            0.2,
+            -0.009999999999999995,
+            0.21000000000000002
+          ]
+        },
+        {
+          "map": "zoom/ply_envelope",
+          "field": "height",
+          "extent_xy_mm": [
+            -0.020000000000000004,
+            0.2,
+            -0.009999999999999995,
+            0.21000000000000002
+          ]
+        },
+        {
+          "map": "zoom/explicit_fiber",
+          "field": "normal",
+          "extent_xy_mm": [
+            -0.020000000000000004,
+            0.2,
+            -0.009999999999999995,
+            0.21000000000000002
+          ]
+        },
+        {
+          "map": "zoom/explicit_fiber",
+          "field": "orientation",
+          "extent_xy_mm": [
+            -0.020000000000000004,
+            0.2,
+            -0.009999999999999995,
+            0.21000000000000002
+          ]
+        },
+        {
+          "map": "zoom/explicit_fiber",
+          "field": "height",
+          "extent_xy_mm": [
+            -0.020000000000000004,
+            0.2,
+            -0.009999999999999995,
+            0.21000000000000002
+          ]
+        }
+      ],
+      "scale_bars": [
+        {
+          "length_mm": 0.05,
+          "start_xy_mm": [
+            -0.005700000000000002,
+            0.005400000000000009
+          ],
+          "end_xy_mm": [
+            0.0443,
+            0.005400000000000009
+          ]
+        },
+        {
+          "length_mm": 0.05,
+          "start_xy_mm": [
+            -0.005700000000000002,
+            0.005400000000000009
+          ],
+          "end_xy_mm": [
+            0.0443,
+            0.005400000000000009
+          ]
+        }
+      ],
+      "orientation_glyphs": [
+        {
+          "map": "zoom/ply_envelope",
+          "arrowheads": false,
+          "samples": [
+            {
+              "pixel_row_col": [
+                57,
+                349
+              ],
+              "center_xy_mm": [
+                0.10014062500000002,
+                0.190234375
+              ],
+              "theta_rad": 1.4705462455749512,
+              "half_length_mm": 0.0044
+            },
+            {
+              "pixel_row_col": [
+                115,
+                349
+              ],
+              "center_xy_mm": [
+                0.10014062500000002,
+                0.17029687500000001
+              ],
+              "theta_rad": 1.457390546798706,
+              "half_length_mm": 0.0044
+            },
+            {
+              "pixel_row_col": [
+                174,
+                349
+              ],
+              "center_xy_mm": [
+                0.10014062500000002,
+                0.150015625
+              ],
+              "theta_rad": 1.4462803602218628,
+              "half_length_mm": 0.0044
+            },
+            {
+              "pixel_row_col": [
+                232,
+                349
+              ],
+              "center_xy_mm": [
+                0.10014062500000002,
+                0.130078125
+              ],
+              "theta_rad": 1.4377142190933228,
+              "half_length_mm": 0.0044
+            },
+            {
+              "pixel_row_col": [
+                290,
+                349
+              ],
+              "center_xy_mm": [
+                0.10014062500000002,
+                0.110140625
+              ],
+              "theta_rad": 1.431562900543213,
+              "half_length_mm": 0.0044
+            },
+            {
+              "pixel_row_col": [
+                290,
+                407
+              ],
+              "center_xy_mm": [
+                0.12007812500000002,
+                0.110140625
+              ],
+              "theta_rad": 3.044729471206665,
+              "half_length_mm": 0.0044
+            },
+            {
+              "pixel_row_col": [
+                290,
+                465
+              ],
+              "center_xy_mm": [
+                0.14001562500000003,
+                0.110140625
+              ],
+              "theta_rad": 3.0310730934143066,
+              "half_length_mm": 0.0044
+            },
+            {
+              "pixel_row_col": [
+                290,
+                524
+              ],
+              "center_xy_mm": [
+                0.160296875,
+                0.110140625
+              ],
+              "theta_rad": 3.019418954849243,
+              "half_length_mm": 0.0044
+            },
+            {
+              "pixel_row_col": [
+                290,
+                582
+              ],
+              "center_xy_mm": [
+                0.180234375,
+                0.110140625
+              ],
+              "theta_rad": 3.010300636291504,
+              "half_length_mm": 0.0044
+            },
+            {
+              "pixel_row_col": [
+                349,
+                57
+              ],
+              "center_xy_mm": [
+                -0.00023437500000000194,
+                0.08985937499999999
+              ],
+              "theta_rad": 2.977079153060913,
+              "half_length_mm": 0.0044
+            },
+            {
+              "pixel_row_col": [
+                349,
+                115
+              ],
+              "center_xy_mm": [
+                0.019703125000000002,
+                0.08985937499999999
+              ],
+              "theta_rad": 2.9671037197113037,
+              "half_length_mm": 0.0044
+            },
+            {
+              "pixel_row_col": [
+                349,
+                174
+              ],
+              "center_xy_mm": [
+                0.039984375,
+                0.08985937499999999
+              ],
+              "theta_rad": 2.975475549697876,
+              "half_length_mm": 0.0044
+            },
+            {
+              "pixel_row_col": [
+                349,
+                232
+              ],
+              "center_xy_mm": [
+                0.05992187500000001,
+                0.08985937499999999
+              ],
+              "theta_rad": 3.0062999725341797,
+              "half_length_mm": 0.0044
+            },
+            {
+              "pixel_row_col": [
+                349,
+                290
+              ],
+              "center_xy_mm": [
+                0.07985937500000001,
+                0.08985937499999999
+              ],
+              "theta_rad": 3.0496068000793457,
+              "half_length_mm": 0.0044
+            },
+            {
+              "pixel_row_col": [
+                349,
+                349
+              ],
+              "center_xy_mm": [
+                0.10014062500000002,
+                0.08985937499999999
+              ],
+              "theta_rad": 1.4385662078857422,
+              "half_length_mm": 0.0044
+            },
+            {
+              "pixel_row_col": [
+                407,
+                290
+              ],
+              "center_xy_mm": [
+                0.07985937500000001,
+                0.069921875
+              ],
+              "theta_rad": 1.6592551469802856,
+              "half_length_mm": 0.0044
+            },
+            {
+              "pixel_row_col": [
+                407,
+                349
+              ],
+              "center_xy_mm": [
+                0.10014062500000002,
+                0.069921875
+              ],
+              "theta_rad": 1.6460578441619873,
+              "half_length_mm": 0.0044
+            },
+            {
+              "pixel_row_col": [
+                465,
+                290
+              ],
+              "center_xy_mm": [
+                0.07985937500000001,
+                0.049984375
+              ],
+              "theta_rad": 1.4434837102890015,
+              "half_length_mm": 0.0044
+            },
+            {
+              "pixel_row_col": [
+                524,
+                290
+              ],
+              "center_xy_mm": [
+                0.07985937500000001,
+                0.029703124999999997
+              ],
+              "theta_rad": 1.432955026626587,
+              "half_length_mm": 0.0044
+            },
+            {
+              "pixel_row_col": [
+                582,
+                290
+              ],
+              "center_xy_mm": [
+                0.07985937500000001,
+                0.009765625
+              ],
+              "theta_rad": 1.4211400747299194,
+              "half_length_mm": 0.0044
+            }
+          ]
+        },
+        {
+          "map": "zoom/explicit_fiber",
+          "arrowheads": false,
+          "samples": [
+            {
+              "pixel_row_col": [
+                57,
+                349
+              ],
+              "center_xy_mm": [
+                0.10014062500000002,
+                0.190234375
+              ],
+              "theta_rad": 1.5069223642349243,
+              "half_length_mm": 0.0044
+            },
+            {
+              "pixel_row_col": [
+                115,
+                349
+              ],
+              "center_xy_mm": [
+                0.10014062500000002,
+                0.17029687500000001
+              ],
+              "theta_rad": 1.7912929058074951,
+              "half_length_mm": 0.0044
+            },
+            {
+              "pixel_row_col": [
+                174,
+                349
+              ],
+              "center_xy_mm": [
+                0.10014062500000002,
+                0.150015625
+              ],
+              "theta_rad": 1.446512222290039,
+              "half_length_mm": 0.0044
+            },
+            {
+              "pixel_row_col": [
+                232,
+                349
+              ],
+              "center_xy_mm": [
+                0.10014062500000002,
+                0.130078125
+              ],
+              "theta_rad": 1.4378877878189087,
+              "half_length_mm": 0.0044
+            },
+            {
+              "pixel_row_col": [
+                290,
+                349
+              ],
+              "center_xy_mm": [
+                0.10014062500000002,
+                0.110140625
+              ],
+              "theta_rad": 1.4813282489776611,
+              "half_length_mm": 0.0044
+            },
+            {
+              "pixel_row_col": [
+                290,
+                407
+              ],
+              "center_xy_mm": [
+                0.12007812500000002,
+                0.110140625
+              ],
+              "theta_rad": 3.0773208141326904,
+              "half_length_mm": 0.0044
+            },
+            {
+              "pixel_row_col": [
+                290,
+                465
+              ],
+              "center_xy_mm": [
+                0.14001562500000003,
+                0.110140625
+              ],
+              "theta_rad": 3.087406873703003,
+              "half_length_mm": 0.0044
+            },
+            {
+              "pixel_row_col": [
+                290,
+                524
+              ],
+              "center_xy_mm": [
+                0.160296875,
+                0.110140625
+              ],
+              "theta_rad": 3.0196950435638428,
+              "half_length_mm": 0.0044
+            },
+            {
+              "pixel_row_col": [
+                290,
+                582
+              ],
+              "center_xy_mm": [
+                0.180234375,
+                0.110140625
+              ],
+              "theta_rad": 3.0104641914367676,
+              "half_length_mm": 0.0044
+            },
+            {
+              "pixel_row_col": [
+                349,
+                57
+              ],
+              "center_xy_mm": [
+                -0.00023437500000000194,
+                0.08985937499999999
+              ],
+              "theta_rad": 3.0383687019348145,
+              "half_length_mm": 0.0044
+            },
+            {
+              "pixel_row_col": [
+                349,
+                115
+              ],
+              "center_xy_mm": [
+                0.019703125000000002,
+                0.08985937499999999
+              ],
+              "theta_rad": 2.967038869857788,
+              "half_length_mm": 0.0044
+            },
+            {
+              "pixel_row_col": [
+                349,
+                174
+              ],
+              "center_xy_mm": [
+                0.039984375,
+                0.08985937499999999
+              ],
+              "theta_rad": 2.8760218620300293,
+              "half_length_mm": 0.0044
+            },
+            {
+              "pixel_row_col": [
+                349,
+                232
+              ],
+              "center_xy_mm": [
+                0.05992187500000001,
+                0.08985937499999999
+              ],
+              "theta_rad": 3.0537211894989014,
+              "half_length_mm": 0.0044
+            },
+            {
+              "pixel_row_col": [
+                349,
+                290
+              ],
+              "center_xy_mm": [
+                0.07985937500000001,
+                0.08985937499999999
+              ],
+              "theta_rad": 3.0606424808502197,
+              "half_length_mm": 0.0044
+            },
+            {
+              "pixel_row_col": [
+                349,
+                349
+              ],
+              "center_xy_mm": [
+                0.10014062500000002,
+                0.08985937499999999
+              ],
+              "theta_rad": 1.4638009071350098,
+              "half_length_mm": 0.0044
+            },
+            {
+              "pixel_row_col": [
+                407,
+                290
+              ],
+              "center_xy_mm": [
+                0.07985937500000001,
+                0.069921875
+              ],
+              "theta_rad": 1.6586178541183472,
+              "half_length_mm": 0.0044
+            },
+            {
+              "pixel_row_col": [
+                465,
+                290
+              ],
+              "center_xy_mm": [
+                0.07985937500000001,
+                0.049984375
+              ],
+              "theta_rad": 1.4742599725723267,
+              "half_length_mm": 0.0044
+            },
+            {
+              "pixel_row_col": [
+                524,
+                290
+              ],
+              "center_xy_mm": [
+                0.07985937500000001,
+                0.029703124999999997
+              ],
+              "theta_rad": 1.4907524585723877,
+              "half_length_mm": 0.0044
+            },
+            {
+              "pixel_row_col": [
+                582,
+                290
+              ],
+              "center_xy_mm": [
+                0.07985937500000001,
+                0.009765625
+              ],
+              "theta_rad": 1.5069212913513184,
+              "half_length_mm": 0.0044
+            }
+          ]
+        }
+      ],
+      "files": [
+        {
+          "path": "figures/structure_v5_1/fabric_structure_hierarchy.png",
+          "sha256": "0f2d77261d9127c869ce5728ad1c4df529102b0c25529c7588bf596dbe81b637",
+          "size_bytes": 836777,
+          "container_validation": {
+            "format": "png",
+            "full_decode": true,
+            "dimensions_wh": [
+              3600,
+              2820
+            ]
+          }
+        },
+        {
+          "path": "figures/structure_v5_1/fabric_structure_hierarchy.pdf",
+          "sha256": "cc64599566351ec793a151dd27021f6ee66fef80c160f345abd46da52acee166",
+          "size_bytes": 566866,
+          "container_validation": {
+            "format": "pdf",
+            "header_and_terminal_eof": true,
+            "full_pdf_parser_required_here": false
+          }
+        },
+        {
+          "path": "figures/structure_v5_1/fabric_structure_hierarchy.svg",
+          "sha256": "b15d573c60a9687f0043d4dd8be4292f4174cacbac1612041d3c04f64e7705be",
+          "size_bytes": 778425,
+          "container_validation": {
+            "format": "svg",
+            "xml_parse": true,
+            "width": "864pt",
+            "height": "676.8pt"
+          }
+        }
+      ]
+    },
+    {
+      "name": "fabric_structure_material_detail",
+      "panels": [
+        {
+          "map": "overview/explicit_fiber",
+          "field": "material",
+          "extent_xy_mm": [
+            -0.54,
+            0.54,
+            -0.4,
+            0.4
+          ]
+        },
+        {
+          "map": "zoom/explicit_fiber",
+          "field": "material",
+          "extent_xy_mm": [
+            -0.020000000000000004,
+            0.2,
+            -0.009999999999999995,
+            0.21000000000000002
+          ]
+        },
+        {
+          "map": "zoom/explicit_fiber",
+          "field": "normal",
+          "extent_xy_mm": [
+            -0.020000000000000004,
+            0.2,
+            -0.009999999999999995,
+            0.21000000000000002
+          ]
+        }
+      ],
+      "zoom_rectangle_extent_xy_mm": [
+        -0.020000000000000004,
+        0.2,
+        -0.009999999999999995,
+        0.21000000000000002
+      ],
+      "scale_bars": [
+        {
+          "length_mm": 0.2,
+          "start_xy_mm": [
+            -0.4698,
+            -0.34400000000000003
+          ],
+          "end_xy_mm": [
+            -0.2698,
+            -0.34400000000000003
+          ]
+        },
+        {
+          "length_mm": 0.05,
+          "start_xy_mm": [
+            -0.005700000000000002,
+            0.005400000000000009
+          ],
+          "end_xy_mm": [
+            0.0443,
+            0.005400000000000009
+          ]
+        },
+        {
+          "length_mm": 0.05,
+          "start_xy_mm": [
+            -0.005700000000000002,
+            0.005400000000000009
+          ],
+          "end_xy_mm": [
+            0.0443,
+            0.005400000000000009
+          ]
+        }
+      ],
+      "files": [
+        {
+          "path": "figures/structure_v5_1/fabric_structure_material_detail.png",
+          "sha256": "558a230b68039f0a8421157f78f55033d46845845864262982b8eed913d10ded",
+          "size_bytes": 456962,
+          "container_validation": {
+            "format": "png",
+            "full_decode": true,
+            "dimensions_wh": [
+              3600,
+              1410
+            ]
+          }
+        },
+        {
+          "path": "figures/structure_v5_1/fabric_structure_material_detail.pdf",
+          "sha256": "f9b2a73b29836dd59f50247af55bbe53ddc52257ae1d67764de6fe8a43826450",
+          "size_bytes": 265670,
+          "container_validation": {
+            "format": "pdf",
+            "header_and_terminal_eof": true,
+            "full_pdf_parser_required_here": false
+          }
+        },
+        {
+          "path": "figures/structure_v5_1/fabric_structure_material_detail.svg",
+          "sha256": "4493f2053525b1d052432aabaae4581865a2ecf5423682b81632b10e2720427d",
+          "size_bytes": 368712,
+          "container_validation": {
+            "format": "svg",
+            "xml_parse": true,
+            "width": "864pt",
+            "height": "338.4pt"
+          }
+        }
+      ]
+    }
+  ],
+  "reproduction": {
+    "cwd": "repository root",
+    "full_command": [
+      "python",
+      "-m",
+      "visualization.render_structure_figures",
+      "--spec",
+      "examples/hierarchy/basket_rectangular_three_ply.json",
+      "--data-dir",
+      "data/structure_maps_v5_1",
+      "--figure-dir",
+      "figures/structure_v5_1",
+      "--resolution",
+      "640",
+      "--supersample",
+      "2",
+      "--radial-segments",
+      "64",
+      "--zoom-width-mm",
+      "0.22"
+    ],
+    "plot_only_command": [
+      "python",
+      "-m",
+      "visualization.render_structure_figures",
+      "--replot-from",
+      "figures/structure_v5_1/figure_manifest.json"
+    ],
+    "plot_only_retraces_geometry": false
+  },
+  "scope": [
+    "The envelope and explicit-fiber surfaces are distinct geometric representations.",
+    "The ply map's tangent is not the analytic twist-rotated fiber orientation used in FabricGen.",
+    "Geometry is procedural and has not been fitted to a physical specimen.",
+    "No light transport, scattering, optical material inference or radiance accuracy is implied.",
+    "v0.5 optical experiments are unchanged; these maps do not increase their sample counts."
+  ],
+  "plot_source_sha256": "3bb5a2e744934287cdf1ebed29c6aa008d6efb9f24cb30a399cfc044a54aa913",
+  "publication_finalization": {
+    "schema": "textile.structure_figure_publication/5.1",
+    "source_files_sha256": {
+      "visualization/finalize_structure_figures.py": "06d8cb8c904a42abf90b51fec09a94a891a11a25e3243bbede80b4cdd2535465",
+      "visualization/render_structure_figures.py": "3bb5a2e744934287cdf1ebed29c6aa008d6efb9f24cb30a399cfc044a54aa913",
+      "visualization/render_compact_structure_figure.py": "0fdb1c9e559ad22c087effcd035b1c592dfaf1a19ca3d77efb257cf47df00408"
+    },
+    "input_generation_manifest": {
+      "path": "data/validation_v5_1/figure_finalization/canonical_input_generation_manifest.json",
+      "sha256": "92b9079b520893a755b9a20d822db7c1f0804882e919f25a275d7b3f04dacd89"
+    },
+    "original_producer_sources_preserved": true,
+    "input_map_descriptors_preserved": true,
+    "geometry_retraced": false,
+    "display_fields_recomputed": false,
+    "light_transport_render_calls": 0,
+    "serialization": "savefig to BytesIO; validate; atomic write with flush/fsync/replace; exact-byte readback",
+    "pdf_validation_scope": "required header and terminal EOF; full page parsing is outside this finalizer; see separate QA records",
+    "layout_adjustments": [],
+    "skipped_unreferenced_intermediate": null,
+    "actual_accepted_files": 9,
+    "all_cases_post_write_byte_check_passed": true
+  }
+}

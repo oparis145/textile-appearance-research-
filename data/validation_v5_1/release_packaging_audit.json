@@ -1,0 +1,273 @@
+{
+  "schema": "textile.release_packaging/5.1",
+  "checked_utc": "2026-10-11T17:07:32.402708+00:00",
+  "status": "passed",
+  "input_manifests": 2,
+  "accepted_structure_maps": 8,
+  "accepted_map_payload_files": 34,
+  "accepted_figure_files": 18,
+  "source_files_match_final_suite": 87,
+  "accepted_artifact_hash_checks": [
+    {
+      "path": "data/structure_maps_v5_1/input_spec.json",
+      "size_bytes": 21635,
+      "sha256": "811e8c3140dd494dd8eacc08c64202f2690602a4f724e0f31b5e43c476fcb885"
+    },
+    {
+      "path": "data/structure_maps_v5_1/overview/ply_envelope/structure_maps.npz",
+      "size_bytes": 6078157,
+      "sha256": "c97f341106c5a31e525cbd4821aaeed7350e3c8a2cb445a49c539f36fdf206e8"
+    },
+    {
+      "path": "data/structure_maps_v5_1/overview/ply_envelope/structure_maps.json",
+      "size_bytes": 152539,
+      "sha256": "afa01c0ba0dde9ad121d6dfcd5124f4a02d1e0cfa18b34724ecaada76453080d"
+    },
+    {
+      "path": "data/structure_maps_v5_1/overview/ply_envelope/display_sources.npz",
+      "size_bytes": 9056847,
+      "sha256": "7b8d13ff8d8f14e65a045b8628094584e0b8715b723aa8bdaa9a0ec1ed015d18"
+    },
+    {
+      "path": "data/structure_maps_v5_1/overview/ply_envelope/display_rgba.npz",
+      "size_bytes": 2309803,
+      "sha256": "5f99e6031eb7d701a34e59877bc07689f580995fd73b4e40194555de13eb04c9"
+    },
+    {
+      "path": "data/structure_maps_v5_1/zoom/ply_envelope/structure_maps.npz",
+      "size_bytes": 5527223,
+      "sha256": "c34d35cb8bd4dca3d82d9f868a3ffd9fbc815b0f9ff41bda30dc1c4bb09253e7"
+    },
+    {
+      "path": "data/structure_maps_v5_1/zoom/ply_envelope/structure_maps.json",
+      "size_bytes": 152573,
+      "sha256": "14b5a1b2a3671a19669a93008b18b026a17701ab0839034049c9aab3cf9f04df"
+    },
+    {
+      "path": "data/structure_maps_v5_1/zoom/ply_envelope/display_sources.npz",
+      "size_bytes": 7482949,
+      "sha256": "d97be55b89b0a2467a3acd5b703b51bd51ca3b956f96525d7576205b68a2ffa3"
+    },
+    {
+      "path": "data/structure_maps_v5_1/zoom/ply_envelope/display_rgba.npz",
+      "size_bytes": 1274175,
+      "sha256": "85950112ca315e46934433b4cd66633f9f84bb42f9bdb32858587b53a64a1588"
+    },
+    {
+      "path": "data/structure_maps_v5_1/overview/explicit_fiber/structure_maps.npz",
+      "size_bytes": 6452949,
+      "sha256": "64cb45c7c0a1391b6578858daab901b9a24e69b218234881bc1d9c44b35984c5"
+    },
+    {
+      "path": "data/structure_maps_v5_1/overview/explicit_fiber/structure_maps.json",
+      "size_bytes": 421977,
+      "sha256": "64d4505b334965220f419dc206fa95252519401e222b9bda52c1fc684b024203"
+    },
+    {
+      "path": "data/structure_maps_v5_1/overview/explicit_fiber/display_sources.npz",
+      "size_bytes": 11109661,
+      "sha256": "6b495140b325ac57a0607f2e5c930dfc577cab628b548ceee7960610f773813a"
+    },
+    {
+      "path": "data/structure_maps_v5_1/overview/explicit_fiber/display_rgba.npz",
+      "size_bytes": 2760355,
+      "sha256": "fd1f4c7d0970c3ddfb73078f9fd567d7f8bc07c1981c6cd61245f714d05a56c7"
+    },
+    {
+      "path": "data/structure_maps_v5_1/zoom/explicit_fiber/structure_maps.npz",
+      "size_bytes": 5962202,
+      "sha256": "b615300406ee9550cbb7ab8410c9578d223089f0dfaa8a8ff6e46cfca5819198"
+    },
+    {
+      "path": "data/structure_maps_v5_1/zoom/explicit_fiber/structure_maps.json",
+      "size_bytes": 422012,
+      "sha256": "3e349627b7438cd9b53bffea4630258e16b323aff94254990a1fb789336d248a"
+    },
+    {
+      "path": "data/structure_maps_v5_1/zoom/explicit_fiber/display_sources.npz",
+      "size_bytes": 8767071,
+      "sha256": "942a124243980b8f95af08bf75cba68305c1469177b393c1388d90e1524d31d2"
+    },
+    {
+      "path": "data/structure_maps_v5_1/zoom/explicit_fiber/display_rgba.npz",
+      "size_bytes": 1857183,
+      "sha256": "ac1c55578c04388f6954f61befaff33543a24f6c655d3e6dbc7cfb4d9157766f"
+    },
+    {
+      "path": "figures/structure_v5_1/fabric_structure_triptych.png",
+      "size_bytes": 653069,
+      "sha256": "bb84b4177f0c6264aa44759cc8fd1e7bf6e46b9027f29be3fe647fb378961218"
+    },
+    {
+      "path": "figures/structure_v5_1/fabric_structure_triptych.pdf",
+      "size_bytes": 486122,
+      "sha256": "a64de105572036afd1e32482c1e5e7a01a82d3d33356cdd1b6a3188609232534"
+    },
+    {
+      "path": "figures/structure_v5_1/fabric_structure_triptych.svg",
+      "size_bytes": 620095,
+      "sha256": "1f5577d7cc9f5e0c2f40e59fe71d7901f6bfa582de7e3a87e8b7ebfcd5a163b6"
+    },
+    {
+      "path": "figures/structure_v5_1/fabric_structure_hierarchy.png",
+      "size_bytes": 836777,
+      "sha256": "0f2d77261d9127c869ce5728ad1c4df529102b0c25529c7588bf596dbe81b637"
+    },
+    {
+      "path": "figures/structure_v5_1/fabric_structure_hierarchy.pdf",
+      "size_bytes": 566866,
+      "sha256": "cc64599566351ec793a151dd27021f6ee66fef80c160f345abd46da52acee166"
+    },
+    {
+      "path": "figures/structure_v5_1/fabric_structure_hierarchy.svg",
+      "size_bytes": 778425,
+      "sha256": "b15d573c60a9687f0043d4dd8be4292f4174cacbac1612041d3c04f64e7705be"
+    },
+    {
+      "path": "figures/structure_v5_1/fabric_structure_material_detail.png",
+      "size_bytes": 456962,
+      "sha256": "558a230b68039f0a8421157f78f55033d46845845864262982b8eed913d10ded"
+    },
+    {
+      "path": "figures/structure_v5_1/fabric_structure_material_detail.pdf",
+      "size_bytes": 265670,
+      "sha256": "f9b2a73b29836dd59f50247af55bbe53ddc52257ae1d67764de6fe8a43826450"
+    },
+    {
+      "path": "figures/structure_v5_1/fabric_structure_material_detail.svg",
+      "size_bytes": 368712,
+      "sha256": "4493f2053525b1d052432aabaae4581865a2ecf5423682b81632b10e2720427d"
+    },
+    {
+      "path": "data/structure_maps_v5_1/compact/input_spec.json",
+      "size_bytes": 21569,
+      "sha256": "3e6e16ba6cadf1be23e3d4a051a1595221a4ddcad23183bbc7babf41d81ae64d"
+    },
+    {
+      "path": "data/structure_maps_v5_1/compact/overview/ply_envelope/structure_maps.npz",
+      "size_bytes": 13103396,
+      "sha256": "6413b76afcc2c1d876c2b638c606a2bc623608c906bac3dab24936b07a846fd5"
+    },
+    {
+      "path": "data/structure_maps_v5_1/compact/overview/ply_envelope/structure_maps.json",
+      "size_bytes": 231967,
+      "sha256": "9664ca4b89eb1c50d5d4499e26310066ebd4a4cee8690e4c556045024af66f80"
+    },
+    {
+      "path": "data/structure_maps_v5_1/compact/overview/ply_envelope/display_sources.npz",
+      "size_bytes": 19826051,
+      "sha256": "924a19f059a7b71b3f360644af4a96539c4f25ff463502cedcb880efa0a7e173"
+    },
+    {
+      "path": "data/structure_maps_v5_1/compact/overview/ply_envelope/display_rgba.npz",
+      "size_bytes": 5437456,
+      "sha256": "a326abd59d977de17301ef161ceddaed3523fe6dc7b4630d6387a8fba3148a17"
+    },
+    {
+      "path": "data/structure_maps_v5_1/compact/zoom/ply_envelope/structure_maps.npz",
+      "size_bytes": 11762951,
+      "sha256": "44f0683846d8136ca017af27044e459f84e1d1f6516d3999490bc72201098050"
+    },
+    {
+      "path": "data/structure_maps_v5_1/compact/zoom/ply_envelope/structure_maps.json",
+      "size_bytes": 232005,
+      "sha256": "c1759dda1ac0f051921744cde15dee6ff8211b0f57a76764dc3db05ba44cb675"
+    },
+    {
+      "path": "data/structure_maps_v5_1/compact/zoom/ply_envelope/display_sources.npz",
+      "size_bytes": 16642518,
+      "sha256": "0ab5fdebdecf61c9852df955dbaef936a8dc4a00899858fe93cc821b6858b652"
+    },
+    {
+      "path": "data/structure_maps_v5_1/compact/zoom/ply_envelope/display_rgba.npz",
+      "size_bytes": 3624198,
+      "sha256": "494dd18e1386b8293c840e8515f2021911f019293765da514ff3bca2096254b5"
+    },
+    {
+      "path": "data/structure_maps_v5_1/compact/overview/explicit_fiber/structure_maps.npz",
+      "size_bytes": 13814599,
+      "sha256": "12849078f688f93d5f43cc6f09de70f2d280899906a6896f70caeb8eee582ce6"
+    },
+    {
+      "path": "data/structure_maps_v5_1/compact/overview/explicit_fiber/structure_maps.json",
+      "size_bytes": 662818,
+      "sha256": "56dcbd8b84ee118b7a79d6624dc8b998470e999ae301d762c7d82eaf898133d9"
+    },
+    {
+      "path": "data/structure_maps_v5_1/compact/overview/explicit_fiber/display_sources.npz",
+      "size_bytes": 24566772,
+      "sha256": "6da64aa4930536de8989567cd73cb5c8ce49c27800535f920a6185989f06a7f3"
+    },
+    {
+      "path": "data/structure_maps_v5_1/compact/overview/explicit_fiber/display_rgba.npz",
+      "size_bytes": 6109625,
+      "sha256": "2fed5d82dbbfef2bd7c872fd4f8a190e43133560d052c254b85f3aaf51bd94b3"
+    },
+    {
+      "path": "data/structure_maps_v5_1/compact/zoom/explicit_fiber/structure_maps.npz",
+      "size_bytes": 12834101,
+      "sha256": "5224c0aeeeb4df9130dbec491e258c8dd9438069e7293d84f6a4ca7ad297ba20"
+    },
+    {
+      "path": "data/structure_maps_v5_1/compact/zoom/explicit_fiber/structure_maps.json",
+      "size_bytes": 662856,
+      "sha256": "8ef2362b5a2962a2ef741e2d2f207716049c9db7f9f7e36f04233478716bb85f"
+    },
+    {
+      "path": "data/structure_maps_v5_1/compact/zoom/explicit_fiber/display_sources.npz",
+      "size_bytes": 18714721,
+      "sha256": "c6ce0f0de0441a2c3c685ca2bf646217b08c744e722ebc7b9c6b0083a7c91257"
+    },
+    {
+      "path": "data/structure_maps_v5_1/compact/zoom/explicit_fiber/display_rgba.npz",
+      "size_bytes": 5253712,
+      "sha256": "eb792c99ca2dbc029d299857e8c4081f92cb5637ebedc851854d67a0e720634d"
+    },
+    {
+      "path": "figures/structure_v5_1/compact/compact_structure_triptych.png",
+      "size_bytes": 1275695,
+      "sha256": "9f177d99b3c1db3507579b421478f508402b37b7b3a2b240d4ddf90f02bb6238"
+    },
+    {
+      "path": "figures/structure_v5_1/compact/compact_structure_triptych.pdf",
+      "size_bytes": 949715,
+      "sha256": "e2042a5890b67dd3c8e74f0b2876fb096a832d213a2d182fab4010e64dfc2c7b"
+    },
+    {
+      "path": "figures/structure_v5_1/compact/compact_structure_triptych.svg",
+      "size_bytes": 1349501,
+      "sha256": "7270b7090882c70cda4f35f5f75344f5872613a0d787ba7ad1a387ca444e10fc"
+    },
+    {
+      "path": "figures/structure_v5_1/compact/fabric_structure_hierarchy.png",
+      "size_bytes": 2358860,
+      "sha256": "223a3cd2d7cfbf4ca9ed35c0b2c6b352772cbe34d41445357697ea8b108ad66e"
+    },
+    {
+      "path": "figures/structure_v5_1/compact/fabric_structure_hierarchy.pdf",
+      "size_bytes": 1716156,
+      "sha256": "338668ae1f930e14f4639ac2adb18e07c8391eb3d0ce4aa628cde3718143fb8c"
+    },
+    {
+      "path": "figures/structure_v5_1/compact/fabric_structure_hierarchy.svg",
+      "size_bytes": 2549366,
+      "sha256": "ba43fd1807b8cd8a7385575a5ab37071949816878c32112b0531924642866cdc"
+    },
+    {
+      "path": "figures/structure_v5_1/compact/fabric_structure_material_detail.png",
+      "size_bytes": 907857,
+      "sha256": "46fc65ba10a4900fd21fc571f4f923f95bfca8dff1f0b32f2942243c4b045e21"
+    },
+    {
+      "path": "figures/structure_v5_1/compact/fabric_structure_material_detail.pdf",
+      "size_bytes": 635100,
+      "sha256": "dd14889cc92ca1d4e715ccafd7623c466508e030d39d83c1c6756481350383c8"
+    },
+    {
+      "path": "figures/structure_v5_1/compact/fabric_structure_material_detail.svg",
+      "size_bytes": 922275,
+      "sha256": "20b438f8f2bee297760ef645969ad5250e59053ff0e7b0449662b5592308a789"
+    }
+  ],
+  "scope": "Read-only packaging hash checks against the two final manifests; no new geometry queries, light-transport renders, or additional test-suite runs. Rejected/unused files beneath validation directories are audit evidence, not accepted figures."
+}

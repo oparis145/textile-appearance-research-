@@ -1,0 +1,187 @@
+{
+  "status": "passed",
+  "oracles": [
+    {
+      "oracle": "tilted_plane_with_silhouette",
+      "height_error_mm": 5.3246815956420335e-08,
+      "normal_vector_error": 2.3842700899239132e-08,
+      "center": {
+        "label": "analytic_tilted_plane",
+        "shape": [
+          9,
+          11
+        ],
+        "valid_count": 63,
+        "miss_count": 36,
+        "unit_length_max_errors": {
+          "world_normal": 1.6326541008027107e-08,
+          "world_tangent": 1.1481815498370906e-08,
+          "world_smooth_normal": 1.3522974406932065e-08
+        },
+        "position_ray_max_error_mm": 6.275248104379315e-07,
+        "world_height_max_error_mm": 0.0,
+        "height_range_mm": [
+          0.09454546868801117,
+          0.7054545879364014
+        ],
+        "min_front_facing_normal_cosine": 0.9407208561897278,
+        "backfacing_geometric_hit_count": 0,
+        "max_abs_normal_centerline_tangent_dot": 8.648282978640509e-09,
+        "normal_tangent_orthogonality_is_a_gate": false,
+        "projected_orientation_undefined_count": 0,
+        "headless_director_invariance_error": 0.0,
+        "categorical_visible_ids": {
+          "object_index": [
+            0
+          ],
+          "fiber_index": [
+            -1
+          ],
+          "ply_index": [
+            -1
+          ],
+          "yarn_index": [
+            -1
+          ],
+          "material_index": [
+            -1
+          ],
+          "family_index": [
+            -1
+          ],
+          "primitive_index": [
+            0,
+            1
+          ]
+        }
+      },
+      "subpixel": {
+        "label": "analytic_tilted_plane_SS2",
+        "shape": [
+          18,
+          22
+        ],
+        "valid_count": 216,
+        "miss_count": 180,
+        "unit_length_max_errors": {
+          "world_normal": 1.6326541008027107e-08,
+          "world_tangent": 1.1481815498370906e-08,
+          "world_smooth_normal": 1.3522974406932065e-08
+        },
+        "position_ray_max_error_mm": 6.858893347184002e-07,
+        "world_height_max_error_mm": 0.0,
+        "height_range_mm": [
+          0.09878789633512497,
+          0.7012121081352234
+        ],
+        "min_front_facing_normal_cosine": 0.9407208561897278,
+        "backfacing_geometric_hit_count": 0,
+        "max_abs_normal_centerline_tangent_dot": 8.648282978640509e-09,
+        "normal_tangent_orthogonality_is_a_gate": false,
+        "projected_orientation_undefined_count": 0,
+        "headless_director_invariance_error": 0.0,
+        "categorical_visible_ids": {
+          "object_index": [
+            0
+          ],
+          "fiber_index": [
+            -1
+          ],
+          "ply_index": [
+            -1
+          ],
+          "yarn_index": [
+            -1
+          ],
+          "material_index": [
+            -1
+          ],
+          "family_index": [
+            -1
+          ],
+          "primitive_index": [
+            0,
+            1
+          ]
+        }
+      },
+      "executed_geometry_sources_sha256": {
+        "textile_sim/hierarchy.py": "0ccea74ef08c735cbcf9c22682bd7a51a59423efb9599e743d23f1cb08ca3a73",
+        "textile_sim/render.py": "704c6052f0e22e0b0644137d1960fd175126ad7ed801f396163056aa6ade5ac9",
+        "textile_sim/variable_radius.py": "811d72412723f1b4dbd51644aaf0e7ff0cb96a9e6500f3b022424161c44fb9e4",
+        "visualization/structure_maps.py": "4e4052be958b820f1deb13b89d429540d70287e3bbdccb901a7616030bbea3cb"
+      },
+      "actual_primary_ray_queries": 495
+    },
+    {
+      "oracle": "two_layer_occlusion",
+      "height_error_mm": 3.5762786843029915e-08,
+      "visible_front_pixel_count": 15,
+      "visible_back_pixel_count": 84,
+      "center": {
+        "label": "analytic_occlusion",
+        "shape": [
+          9,
+          11
+        ],
+        "valid_count": 99,
+        "miss_count": 0,
+        "unit_length_max_errors": {
+          "world_normal": 0.0,
+          "world_tangent": 0.0,
+          "world_smooth_normal": 0.0
+        },
+        "position_ray_max_error_mm": 2.4172739440395065e-07,
+        "world_height_max_error_mm": 0.0,
+        "height_range_mm": [
+          0.04999999701976776,
+          0.6000000238418579
+        ],
+        "min_front_facing_normal_cosine": 1.0,
+        "backfacing_geometric_hit_count": 0,
+        "max_abs_normal_centerline_tangent_dot": 0.0,
+        "normal_tangent_orthogonality_is_a_gate": false,
+        "projected_orientation_undefined_count": 0,
+        "headless_director_invariance_error": 0.0,
+        "categorical_visible_ids": {
+          "object_index": [
+            0,
+            1
+          ],
+          "fiber_index": [
+            -1
+          ],
+          "ply_index": [
+            -1
+          ],
+          "yarn_index": [
+            -1
+          ],
+          "material_index": [
+            -1
+          ],
+          "family_index": [
+            -1
+          ],
+          "primitive_index": [
+            0,
+            1,
+            2,
+            3
+          ]
+        }
+      },
+      "executed_geometry_sources_sha256": {
+        "textile_sim/hierarchy.py": "0ccea74ef08c735cbcf9c22682bd7a51a59423efb9599e743d23f1cb08ca3a73",
+        "textile_sim/render.py": "704c6052f0e22e0b0644137d1960fd175126ad7ed801f396163056aa6ade5ac9",
+        "textile_sim/variable_radius.py": "811d72412723f1b4dbd51644aaf0e7ff0cb96a9e6500f3b022424161c44fb9e4",
+        "visualization/structure_maps.py": "4e4052be958b820f1deb13b89d429540d70287e3bbdccb901a7616030bbea3cb"
+      },
+      "actual_primary_ray_queries": 99
+    }
+  ],
+  "actual_primary_ray_queries": 594,
+  "actual_lighting_render_calls": 0,
+  "review_source_sha256": "0721e047dab8791c39b5e5464c253c900ccab25af09331ad4a7713c73584176e",
+  "execution_workflow": "python -m visualization.review_structure_figures"
+}

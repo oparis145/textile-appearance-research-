@@ -1,0 +1,26 @@
+{
+  "schema_version": "textile.figure_serialization_rejection/5.1",
+  "status": "rejected",
+  "observed_at_utc": "2026-10-11T16:53:43.624124+00:00",
+  "file": "figures/structure_v5_1/fabric_structure_hierarchy.svg",
+  "expected_sha256": "92a47e575e73e499f3dacb8e19fb77e03118520a3b47de95b20b4ececea9a4bc",
+  "actual_sha256": "19c8d4164e19cf196d4b77ee294e90471ef3aaf67148deb78c77b18419bf2ca0",
+  "expected_size_bytes": 778425,
+  "actual_size_bytes": 581192,
+  "container_error": "unclosed token: line 670, column 4",
+  "file_copy": "truncated_fabric_structure_hierarchy.svg",
+  "manifest_copy": "figure_manifest_at_rejection.json",
+  "manifest_sha256": "92b9079b520893a755b9a20d822db7c1f0804882e919f25a275d7b3f04dacd89",
+  "producer_sources_sha256": {
+    "visualization/render_structure_figures.py": "3bb5a2e744934287cdf1ebed29c6aa008d6efb9f24cb30a399cfc044a54aa913",
+    "visualization/structure_maps.py": "4e4052be958b820f1deb13b89d429540d70287e3bbdccb901a7616030bbea3cb",
+    "textile_sim/hierarchy.py": "0ccea74ef08c735cbcf9c22682bd7a51a59423efb9599e743d23f1cb08ca3a73",
+    "textile_sim/weave_draft.py": "13704a2ade4f6ea7c9f43de0c23e077861c2094fbcd937ec13ca3b2d52efc540",
+    "textile_sim/variable_radius.py": "811d72412723f1b4dbd51644aaf0e7ff0cb96a9e6500f3b022424161c44fb9e4",
+    "textile_sim/render.py": "704c6052f0e22e0b0644137d1960fd175126ad7ed801f396163056aa6ade5ac9"
+  },
+  "source_files_changed_by_reviewer": false,
+  "raw_arrays_copied": false,
+  "cause": "Unknown. Observed truncation is preserved without attributing cause.",
+  "independent_observation_only_no_render_or_ray_query": true
+}

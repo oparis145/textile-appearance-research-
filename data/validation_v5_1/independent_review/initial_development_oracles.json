@@ -1,0 +1,161 @@
+{
+  "status": "passed",
+  "oracles": [
+    {
+      "oracle": "tilted_plane_with_silhouette",
+      "height_error_mm": 5.3246815956420335e-08,
+      "normal_vector_error": 2.3842700899239132e-08,
+      "center": {
+        "label": "analytic_tilted_plane",
+        "shape": [
+          9,
+          11
+        ],
+        "valid_count": 63,
+        "miss_count": 36,
+        "unit_length_max_errors": {
+          "world_normal": 1.6326541008027107e-08,
+          "world_tangent": 1.1481815498370906e-08,
+          "world_smooth_normal": 1.3522974406932065e-08
+        },
+        "position_ray_max_error_mm": 6.275248104379315e-07,
+        "world_height_max_error_mm": 0.0,
+        "height_range_mm": [
+          0.09454546868801117,
+          0.7054545879364014
+        ],
+        "projected_orientation_undefined_count": 0,
+        "headless_director_invariance_error": 0.0,
+        "categorical_visible_ids": {
+          "object_index": [
+            0
+          ],
+          "fiber_index": [
+            -1
+          ],
+          "ply_index": [
+            -1
+          ],
+          "yarn_index": [
+            -1
+          ],
+          "material_index": [
+            -1
+          ],
+          "family_index": [
+            -1
+          ],
+          "primitive_index": [
+            0,
+            1
+          ]
+        }
+      },
+      "subpixel": {
+        "label": "analytic_tilted_plane_SS2",
+        "shape": [
+          18,
+          22
+        ],
+        "valid_count": 216,
+        "miss_count": 180,
+        "unit_length_max_errors": {
+          "world_normal": 1.6326541008027107e-08,
+          "world_tangent": 1.1481815498370906e-08,
+          "world_smooth_normal": 1.3522974406932065e-08
+        },
+        "position_ray_max_error_mm": 6.858893347184002e-07,
+        "world_height_max_error_mm": 0.0,
+        "height_range_mm": [
+          0.09878789633512497,
+          0.7012121081352234
+        ],
+        "projected_orientation_undefined_count": 0,
+        "headless_director_invariance_error": 0.0,
+        "categorical_visible_ids": {
+          "object_index": [
+            0
+          ],
+          "fiber_index": [
+            -1
+          ],
+          "ply_index": [
+            -1
+          ],
+          "yarn_index": [
+            -1
+          ],
+          "material_index": [
+            -1
+          ],
+          "family_index": [
+            -1
+          ],
+          "primitive_index": [
+            0,
+            1
+          ]
+        }
+      },
+      "actual_primary_ray_queries": 495
+    },
+    {
+      "oracle": "two_layer_occlusion",
+      "height_error_mm": 3.5762786843029915e-08,
+      "visible_front_pixel_count": 15,
+      "visible_back_pixel_count": 84,
+      "center": {
+        "label": "analytic_occlusion",
+        "shape": [
+          9,
+          11
+        ],
+        "valid_count": 99,
+        "miss_count": 0,
+        "unit_length_max_errors": {
+          "world_normal": 0.0,
+          "world_tangent": 0.0,
+          "world_smooth_normal": 0.0
+        },
+        "position_ray_max_error_mm": 2.4172739440395065e-07,
+        "world_height_max_error_mm": 0.0,
+        "height_range_mm": [
+          0.04999999701976776,
+          0.6000000238418579
+        ],
+        "projected_orientation_undefined_count": 0,
+        "headless_director_invariance_error": 0.0,
+        "categorical_visible_ids": {
+          "object_index": [
+            0,
+            1
+          ],
+          "fiber_index": [
+            -1
+          ],
+          "ply_index": [
+            -1
+          ],
+          "yarn_index": [
+            -1
+          ],
+          "material_index": [
+            -1
+          ],
+          "family_index": [
+            -1
+          ],
+          "primitive_index": [
+            0,
+            1,
+            2,
+            3
+          ]
+        }
+      },
+      "actual_primary_ray_queries": 99
+    }
+  ],
+  "actual_primary_ray_queries": 594,
+  "actual_lighting_render_calls": 0
+}

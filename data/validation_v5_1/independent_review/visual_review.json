@@ -1,0 +1,98 @@
+{
+  "schema_version": "textile.independent_visual_review/5.1",
+  "status": "passed_for_stated_scope",
+  "recorded_at_utc": "2026-10-11T17:06:28.827670+00:00",
+  "authorship": "Independent AI review agent /root/radius_review_v5; dated review record, not a reusable CLI execution attestation.",
+  "reviewed_png_count": 6,
+  "figures": [
+    {
+      "case": "main",
+      "path": "figures/structure_v5_1/fabric_structure_triptych.png",
+      "sha256": "bb84b4177f0c6264aa44759cc8fd1e7bf6e46b9027f29be3fe647fb378961218",
+      "matches_independent_numerical_audit": true,
+      "review_method": "Displayed with view_image and visually inspected by the independent AI review agent on 2026-10-11.",
+      "observation": "Original open basket geometry; three geometric fields and metric bar are legible; normal legend and footer no longer overlap."
+    },
+    {
+      "case": "main",
+      "path": "figures/structure_v5_1/fabric_structure_hierarchy.png",
+      "sha256": "0f2d77261d9127c869ce5728ad1c4df529102b0c25529c7588bf596dbe81b637",
+      "matches_independent_numerical_audit": true,
+      "review_method": "Displayed with view_image and visually inspected by the independent AI review agent on 2026-10-11.",
+      "observation": "Ply-envelope proxy and explicit fibers occupy separate rows with the same crossing and crop; scale bars and headless line glyphs are visible."
+    },
+    {
+      "case": "main",
+      "path": "figures/structure_v5_1/fabric_structure_material_detail.png",
+      "sha256": "558a230b68039f0a8421157f78f55033d46845845864262982b8eed913d10ded",
+      "matches_independent_numerical_audit": true,
+      "review_method": "Displayed with view_image and visually inspected by the independent AI review agent on 2026-10-11.",
+      "observation": "Overview and crop show discrete synthetic_A/synthetic_B assignments; crop rectangle and scale bars are legible; categorical pixel-center edges are not interpreted as averaged material IDs."
+    },
+    {
+      "case": "compact",
+      "path": "figures/structure_v5_1/compact/compact_structure_triptych.png",
+      "sha256": "9f177d99b3c1db3507579b421478f508402b37b7b3a2b240d4ddf90f02bb6238",
+      "matches_independent_numerical_audit": true,
+      "review_method": "Displayed with view_image and visually inspected by the independent AI review agent on 2026-10-11.",
+      "observation": "Separate compact demonstration is identified; the relocated subtitle is below the square map panels without overlap; height and direction legends are visible."
+    },
+    {
+      "case": "compact",
+      "path": "figures/structure_v5_1/compact/fabric_structure_hierarchy.png",
+      "sha256": "223a3cd2d7cfbf4ca9ed35c0b2c6b352772cbe34d41445357697ea8b108ad66e",
+      "matches_independent_numerical_audit": true,
+      "review_method": "Displayed with view_image and visually inspected by the independent AI review agent on 2026-10-11.",
+      "observation": "Compact ply and fiber surfaces use separate rows and the same crop; individual fibers, helix directions, headless glyphs and 20 micrometer scale bars are visible; sampled geometry facets remain visible in places."
+    },
+    {
+      "case": "compact",
+      "path": "figures/structure_v5_1/compact/fabric_structure_material_detail.png",
+      "sha256": "46fc65ba10a4900fd21fc571f4f923f95bfca8dff1f0b32f2942243c4b045e21",
+      "matches_independent_numerical_audit": true,
+      "review_method": "Displayed with view_image and visually inspected by the independent AI review agent on 2026-10-11.",
+      "observation": "Dense overview, crop rectangle and explicit-fiber material/normal detail are legible; synthetic material legend is distinct from dye chemistry and neutral miss background."
+    }
+  ],
+  "numerical_audits": [
+    {
+      "path": "data/validation_v5_1/independent_review/verification_summary.json",
+      "sha256": "f61cdcd336da08302c1e0edc1c5154e5ec80ccfae0f842a949340286e389e099"
+    },
+    {
+      "path": "data/validation_v5_1/compact_review/verification_summary.json",
+      "sha256": "d05ac776ab5afa1be199d75939d785fdb4bd2a6eed6ae08c943939a95eaded31"
+    }
+  ],
+  "compact_design_linkage": {
+    "design_audit_path": "examples/visualization/compact_three_ply_basket_design_audit.json",
+    "design_audit_sha256": "270faed205c8c1750f655d98bd79ef3ff1a0717119006febbcd6f82495a3c2e7",
+    "spec_path": "examples/visualization/compact_three_ply_basket.json",
+    "spec_sha256": "3e6e16ba6cadf1be23e3d4a051a1595221a4ddcad23183bbc7babf41d81ae64d",
+    "spec_digest_matches_design_audit": true,
+    "recorded_geometry_digest_matches_compact_map_audit": true,
+    "source_geometry_sha256": "16c665c389ad1a5f97a47ca7c68823fe8b2e986befdba330e83f2acbc8af96f2",
+    "geometry_was_regenerated_by_this_review": false,
+    "capsule_search_was_repeated_by_this_review": false,
+    "self_contact_certified_absent": false,
+    "mechanical_equilibrium_solved": false
+  },
+  "separate_container_qa": {
+    "path": "data/validation_v5_1/figure_finalization/page_container_qa.json",
+    "sha256": "996911e055a43dbc2556bfdc95679886a74a223b8372abdb67631f3f6a9600ad",
+    "executed_by": "Figure composition agent; not rerun by this visual-review record writer.",
+    "recorded_accepted_files": 18,
+    "recorded_pdf_pages_parsed_and_rasterized": 6,
+    "recorded_png_full_decodes": 6,
+    "recorded_svg_xml_parses": 6,
+    "recorded_final_unreferenced_paths": []
+  },
+  "new_geometry_queries": 0,
+  "new_lighting_render_calls": 0,
+  "scope": [
+    "Qualitative inspection of six displayed accepted PNGs, with current file hashes matched to the independent numerical audits.",
+    "This review does not establish measured-fabric agreement, physical optical accuracy, packing equilibrium or convergence.",
+    "Common height ranges apply within each four-map case: main -70..70 micrometers; separate compact -60..60 micrometers.",
+    "Only exact accepted figure paths are scientific outputs; separate inventory/serialization records retain excluded intermediates and observed failures."
+  ]
+}
