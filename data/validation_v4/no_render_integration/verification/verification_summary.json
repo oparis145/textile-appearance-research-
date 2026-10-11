@@ -1,0 +1,356 @@
+{
+  "schema_version": "material_transport_verification_v4.1",
+  "status": "passed",
+  "producer": {
+    "status": "passed",
+    "output_files_hash_verified": 29,
+    "current_external_input_or_source_files_rechecked": false
+  },
+  "tracking": {
+    "constant_reference": {
+      "radius_mode": "constant_reference",
+      "fiber_material_points_tracked": true,
+      "physical_mass_conservation_certified": false,
+      "contact_or_clearance_certified": false,
+      "segment_cylinder_volume_conservation_enforced": false,
+      "all": {
+        "fiber_count": 42,
+        "vertex_count": 8106,
+        "segment_count": 8064,
+        "reference_fiber_length_mm": 40.61116531446068,
+        "deformed_fiber_length_mm": 40.62912535957995,
+        "relative_fiber_length_change": 0.0004422440228002422,
+        "min_segment_stretch": 0.8596802447529622,
+        "max_segment_stretch": 1.1412012899206438,
+        "reference_length_weighted_mean_engineering_strain": 0.0004422440228001968,
+        "reference_length_weighted_rms_engineering_strain": 0.01728205682828188,
+        "reference_cylinder_segment_volume_mm3": 0.0011482536474506726,
+        "deformed_cylinder_segment_volume_mm3": 0.001148761455762916,
+        "relative_cylinder_segment_volume_change": 0.0004422440228000202,
+        "max_absolute_relative_segment_volume_change": 0.14120128992064385
+      },
+      "families": {
+        "warp": {
+          "fiber_count": 21,
+          "vertex_count": 4053,
+          "segment_count": 4032,
+          "reference_fiber_length_mm": 20.30558265723034,
+          "deformed_fiber_length_mm": 20.189166147592964,
+          "relative_fiber_length_change": -0.005733226748650955,
+          "min_segment_stretch": 0.9278007473293887,
+          "max_segment_stretch": 1.0660040629845984,
+          "reference_length_weighted_mean_engineering_strain": -0.0057332267486511395,
+          "reference_length_weighted_rms_engineering_strain": 0.016541855209861258,
+          "reference_cylinder_segment_volume_mm3": 0.0005741268237253363,
+          "deformed_cylinder_segment_volume_mm3": 0.0005708352244624361,
+          "relative_cylinder_segment_volume_change": -0.005733226748651177,
+          "max_absolute_relative_segment_volume_change": 0.07219925267061134
+        },
+        "weft": {
+          "fiber_count": 21,
+          "vertex_count": 4053,
+          "segment_count": 4032,
+          "reference_fiber_length_mm": 20.30558265723034,
+          "deformed_fiber_length_mm": 20.439959211986988,
+          "relative_fiber_length_change": 0.006617714794251439,
+          "min_segment_stretch": 0.8596802447529622,
+          "max_segment_stretch": 1.1412012899206438,
+          "reference_length_weighted_mean_engineering_strain": 0.006617714794251533,
+          "reference_length_weighted_rms_engineering_strain": 0.01799183155345544,
+          "reference_cylinder_segment_volume_mm3": 0.0005741268237253363,
+          "deformed_cylinder_segment_volume_mm3": 0.00057792623130048,
+          "relative_cylinder_segment_volume_change": 0.006617714794251439,
+          "max_absolute_relative_segment_volume_change": 0.14120128992064385
+        }
+      }
+    },
+    "incompressible_segments": {
+      "radius_mode": "incompressible_segments",
+      "fiber_material_points_tracked": true,
+      "physical_mass_conservation_certified": false,
+      "contact_or_clearance_certified": false,
+      "segment_cylinder_volume_conservation_enforced": true,
+      "all": {
+        "fiber_count": 42,
+        "vertex_count": 8106,
+        "segment_count": 8064,
+        "reference_fiber_length_mm": 40.61116531446068,
+        "deformed_fiber_length_mm": 40.62912535957995,
+        "relative_fiber_length_change": 0.0004422440228002422,
+        "min_segment_stretch": 0.8596802447529622,
+        "max_segment_stretch": 1.1412012899206438,
+        "reference_length_weighted_mean_engineering_strain": 0.0004422440228001968,
+        "reference_length_weighted_rms_engineering_strain": 0.01728205682828188,
+        "reference_cylinder_segment_volume_mm3": 0.0011482536474506726,
+        "deformed_cylinder_segment_volume_mm3": 0.0011482536474506726,
+        "relative_cylinder_segment_volume_change": 0.0,
+        "max_absolute_relative_segment_volume_change": 6.661338147750939e-16
+      },
+      "families": {
+        "warp": {
+          "fiber_count": 21,
+          "vertex_count": 4053,
+          "segment_count": 4032,
+          "reference_fiber_length_mm": 20.30558265723034,
+          "deformed_fiber_length_mm": 20.189166147592964,
+          "relative_fiber_length_change": -0.005733226748650955,
+          "min_segment_stretch": 0.9278007473293887,
+          "max_segment_stretch": 1.0660040629845984,
+          "reference_length_weighted_mean_engineering_strain": -0.0057332267486511395,
+          "reference_length_weighted_rms_engineering_strain": 0.016541855209861258,
+          "reference_cylinder_segment_volume_mm3": 0.0005741268237253363,
+          "deformed_cylinder_segment_volume_mm3": 0.0005741268237253363,
+          "relative_cylinder_segment_volume_change": 0.0,
+          "max_absolute_relative_segment_volume_change": 6.661338147750939e-16
+        },
+        "weft": {
+          "fiber_count": 21,
+          "vertex_count": 4053,
+          "segment_count": 4032,
+          "reference_fiber_length_mm": 20.30558265723034,
+          "deformed_fiber_length_mm": 20.439959211986988,
+          "relative_fiber_length_change": 0.006617714794251439,
+          "min_segment_stretch": 0.8596802447529622,
+          "max_segment_stretch": 1.1412012899206438,
+          "reference_length_weighted_mean_engineering_strain": 0.006617714794251533,
+          "reference_length_weighted_rms_engineering_strain": 0.01799183155345544,
+          "reference_cylinder_segment_volume_mm3": 0.0005741268237253363,
+          "deformed_cylinder_segment_volume_mm3": 0.0005741268237253364,
+          "relative_cylinder_segment_volume_change": 2.220446049250313e-16,
+          "max_absolute_relative_segment_volume_change": 6.661338147750939e-16
+        }
+      }
+    }
+  },
+  "geometry": {
+    "states": {
+      "initial": {
+        "yarn_count": 6,
+        "ply_count": 6,
+        "fiber_count": 42,
+        "vertex_count": 8106,
+        "fiber_counts_by_material": {
+          "synthetic_A": 21,
+          "synthetic_B": 21
+        },
+        "total_fiber_length_mm": 40.61116531446068,
+        "cylinder_volume_proxy_mm3": 0.0011482536474506726,
+        "bounds_mm": [
+          [
+            -0.4830732338261879,
+            -0.4830732338261879,
+            -0.027081755533244878
+          ],
+          [
+            0.48306915703796044,
+            0.48306915703796044,
+            0.027081755533244878
+          ]
+        ]
+      },
+      "regenerated": {
+        "yarn_count": 6,
+        "ply_count": 6,
+        "fiber_count": 42,
+        "vertex_count": 8106,
+        "fiber_counts_by_material": {
+          "synthetic_A": 21,
+          "synthetic_B": 21
+        },
+        "total_fiber_length_mm": 40.62913248065454,
+        "cylinder_volume_proxy_mm3": 0.0011487616571065568,
+        "bounds_mm": [
+          [
+            -0.4845497802136374,
+            -0.48368071494253567,
+            -0.03623500480451597
+          ],
+          [
+            0.4844512904522695,
+            0.4836455347492624,
+            0.04054321521645058
+          ]
+        ]
+      },
+      "transported": {
+        "yarn_count": 6,
+        "ply_count": 6,
+        "fiber_count": 42,
+        "vertex_count": 8106,
+        "fiber_counts_by_material": {
+          "synthetic_A": 21,
+          "synthetic_B": 21
+        },
+        "total_fiber_length_mm": 40.62912535957995,
+        "cylinder_volume_proxy_mm3": 0.0011487614557629162,
+        "bounds_mm": [
+          [
+            -0.4845497802136374,
+            -0.4836807149425356,
+            -0.036217686551478
+          ],
+          [
+            0.48446350688805906,
+            0.48364282083255367,
+            0.040511065838361726
+          ]
+        ]
+      }
+    },
+    "regenerated_vs_transported": {
+      "rms_vertex_position_difference_mm": 7.734400819533426e-05,
+      "maximum_vertex_position_difference_mm": 0.0002087075376387035,
+      "rms_segment_tangent_angle_difference_deg": 0.015738982737449215,
+      "maximum_segment_tangent_angle_difference_deg": 0.038985428671890976
+    },
+    "raw_reference_frame_identity_error_mm": 4.336808689942018e-18,
+    "clearance_audits": {
+      "initial": {
+        "certified_separated": true,
+        "minimum_clearance_lower_bound_mm": 0.0029836307726289445,
+        "minimum_tested_clearance_mm": 0.0029836307726289445,
+        "overlapping_capsule_pairs": 0,
+        "pairs_within_probe_margin": 38534,
+        "tested_segment_pairs": 68737,
+        "total_segments": 8064,
+        "broadphase_radius_mm": 0.014455868957319276,
+        "probe_margin_mm": 0.003,
+        "closest_tested_fiber_pair": [
+          "warp:0000:warp_yarn/p/f0004",
+          "warp:0000:warp_yarn/p/f0006"
+        ],
+        "scope": "All pairs of DIFFERENT constant-radius polyline fibers; same-fiber self-contact excluded."
+      },
+      "regenerated": {
+        "certified_separated": true,
+        "minimum_clearance_lower_bound_mm": 0.002945379638445376,
+        "minimum_tested_clearance_mm": 0.002945379638445376,
+        "overlapping_capsule_pairs": 0,
+        "pairs_within_probe_margin": 38360,
+        "tested_segment_pairs": 68783,
+        "total_segments": 8064,
+        "broadphase_radius_mm": 0.014871272684114225,
+        "probe_margin_mm": 0.003,
+        "closest_tested_fiber_pair": [
+          "weft:0001:weft_yarn/p/f0000",
+          "weft:0001:weft_yarn/p/f0001"
+        ],
+        "scope": "All pairs of DIFFERENT constant-radius polyline fibers; same-fiber self-contact excluded."
+      },
+      "transported": {
+        "certified_separated": true,
+        "minimum_clearance_lower_bound_mm": 0.002945386245676798,
+        "minimum_tested_clearance_mm": 0.002945386245676798,
+        "overlapping_capsule_pairs": 0,
+        "pairs_within_probe_margin": 37925,
+        "tested_segment_pairs": 68785,
+        "total_segments": 8064,
+        "broadphase_radius_mm": 0.014872975766838652,
+        "probe_margin_mm": 0.003,
+        "closest_tested_fiber_pair": [
+          "weft:0001:weft_yarn/p/f0000",
+          "weft:0001:weft_yarn/p/f0001"
+        ],
+        "scope": "All pairs of DIFFERENT constant-radius polyline fibers; same-fiber self-contact excluded."
+      }
+    }
+  },
+  "optics": {
+    "status": "skipped",
+    "verified_saved_render_count": 0,
+    "projection_errors": {
+      "initial": {
+        "all": {
+          "heldout_relative_rmse": 0.03572724982923018,
+          "heldout_max_error_over_rms_target": 0.1393519111209884
+        },
+        "family": {
+          "heldout_relative_rmse": 0.0021975647715074542,
+          "heldout_max_error_over_rms_target": 0.009585615991725197
+        },
+        "yarn": {
+          "heldout_relative_rmse": 0.0021975647722295155,
+          "heldout_max_error_over_rms_target": 0.009585615888378867
+        },
+        "ply": {
+          "heldout_relative_rmse": 0.0021975647722295155,
+          "heldout_max_error_over_rms_target": 0.009585615888378867
+        }
+      },
+      "regenerated": {
+        "all": {
+          "heldout_relative_rmse": 0.03578803315143789,
+          "heldout_max_error_over_rms_target": 0.15944006226686894
+        },
+        "family": {
+          "heldout_relative_rmse": 0.0029841212446162805,
+          "heldout_max_error_over_rms_target": 0.017343711596895562
+        },
+        "yarn": {
+          "heldout_relative_rmse": 0.002989711252147613,
+          "heldout_max_error_over_rms_target": 0.017535820075656794
+        },
+        "ply": {
+          "heldout_relative_rmse": 0.002989711252147613,
+          "heldout_max_error_over_rms_target": 0.017535820075656794
+        }
+      },
+      "transported": {
+        "all": {
+          "heldout_relative_rmse": 0.03578789265577572,
+          "heldout_max_error_over_rms_target": 0.1594145565309384
+        },
+        "family": {
+          "heldout_relative_rmse": 0.0029844862609362055,
+          "heldout_max_error_over_rms_target": 0.017347635459296056
+        },
+        "yarn": {
+          "heldout_relative_rmse": 0.0029900735277859636,
+          "heldout_max_error_over_rms_target": 0.017539660902384183
+        },
+        "ply": {
+          "heldout_relative_rmse": 0.0029900735277859636,
+          "heldout_max_error_over_rms_target": 0.017539660902384183
+        }
+      }
+    },
+    "exported_clearance_budgets": {
+      "initial": {
+        "source_clearance_lower_bound_mm": 0.0029836307726289445,
+        "maximum_tube_displacement_bound_mm": 7.412641902598714e-05,
+        "exported_clearance_lower_bound_mm": 0.00283537793457697
+      },
+      "regenerated": {
+        "source_clearance_lower_bound_mm": 0.002945379638445376,
+        "maximum_tube_displacement_bound_mm": 0.0001738959771978884,
+        "exported_clearance_lower_bound_mm": 0.0025975876840495992
+      },
+      "transported": {
+        "source_clearance_lower_bound_mm": 0.002945386245676798,
+        "maximum_tube_displacement_bound_mm": 0.00017392165925995948,
+        "exported_clearance_lower_bound_mm": 0.002597542927156879
+      }
+    },
+    "paired_comparisons": []
+  },
+  "checks": {
+    "tracking_array_hashes": true,
+    "reference_and_state_semantic_hashes": true,
+    "raw_segment_lengths_strains_radii_and_volume_proxies": true,
+    "material_labels_parentage_and_framed_poses": true,
+    "proper_orthonormal_frames": true,
+    "same_labelled_pose_across_radius_modes": true,
+    "hierarchy_scene_renderer_curve_identity": true,
+    "new_different_fiber_clearance_and_export_displacement": true,
+    "raw_projected_area_errors": true,
+    "saved_seed_arrays_and_paired_intervals": false
+  },
+  "scope": [
+    "No new rendering is executed by this verifier.",
+    "Producer completion and output ledger are checked; the runner separately checks current external source/input hashes.",
+    "Saved render count is consistency of records with array channels, not an independent proof of invocation history.",
+    "Segment cylinder-volume proxies are not a proof of global material-volume or mass conservation.",
+    "Different-fiber capsule clearance excludes self-contact and physical contact response.",
+    "Statistical intervals describe rendering replicates, not model error, measured fabric variability or perceptual validity."
+  ]
+}

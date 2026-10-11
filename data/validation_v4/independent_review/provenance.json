@@ -1,0 +1,7 @@
+{
+  "kind": "byte_identical_independent_review_result_copy",
+  "original_path": "scratch_runs/v4_independent_final/verification_summary.json",
+  "stored_path": "data/validation_v4/independent_review/verification_summary.json",
+  "sha256": "89464e7f899a7a232b2f5cc2e031b5a42011020550a89001977a929b6a70cde2",
+  "scope": "Preserves the independent reviewer result; copying is not another verification run."
+}

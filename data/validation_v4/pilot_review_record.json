@@ -1,0 +1,12 @@
+{
+  "status": "retained_pilot",
+  "reason": "Presentation and general-input review corrected histogram support, seed count label and ratio-CI wording before final production rerun; numerical modules unchanged. Pilot inputs and raw arrays retained here.",
+  "original_path": "data/material_transport_v4",
+  "retained_path": "scratch_runs/v4_material_transport_pilot",
+  "actual_render_count": 108,
+  "original_manifest_sha256": "247d539bf8e8d2796d4846134c091ece6c164a86f22e30ce36b674d4de2ee5a1",
+  "production_output": "data/material_transport_v4",
+  "durable_checkpoint": "data/validation_v4/pilot_checkpoint",
+  "pilot_raw_arrays_equal_final": true,
+  "scope": "Exploratory full folder remains reproducible scratch; a content-addressed checkpoint shares byte-identical final files and retains changed pilot files and manifest."
+}

@@ -1,0 +1,1141 @@
+{
+  "schema_version": "textile.material_transport/4.0",
+  "summary": {
+    "schema_version": "textile.material_transport/4.0",
+    "length_unit": "mm",
+    "reference_sha256": "9a2f514db5435641a42ec414ca8b7ef32589d3cad354e784243372b00f692987",
+    "state_sha256": "b5ba5938cc040b13ef0eba3537d45127b37b8bc8e2f80620575a91a0d82cd7f0",
+    "radius_mode": "incompressible_segments",
+    "fiber_material_points_tracked": true,
+    "material_correspondence": "declared_shared_vertex_indices",
+    "fiber_vertices_added_or_removed": 0,
+    "fiber_stress_solved": false,
+    "inextensibility_enforced": false,
+    "contact_or_clearance_certified": false,
+    "segment_cylinder_volume_conservation_enforced": true,
+    "physical_mass_conservation_certified": false,
+    "constant_radius_optical_export_allowed": false,
+    "frame_rule": "explicit yarn endpoint directors; double-reflection RMF; SO(3) shortest-geodesic interpolation; child director carried by parent and minimally tangent-aligned",
+    "scope": "prescribed framed no-slip kinematic correspondence; no solved fiber stress/twist/slip, contact, global injectivity, or full tube volume",
+    "all": {
+      "fiber_count": 42,
+      "vertex_count": 8106,
+      "segment_count": 8064,
+      "reference_fiber_length_mm": 40.61116531446068,
+      "deformed_fiber_length_mm": 40.629125359579945,
+      "relative_fiber_length_change": 0.0004422440228000202,
+      "min_segment_stretch": 0.8596802447529622,
+      "max_segment_stretch": 1.1412012899206438,
+      "reference_length_weighted_mean_engineering_strain": 0.0004422440228001968,
+      "reference_length_weighted_rms_engineering_strain": 0.01728205682828188,
+      "reference_cylinder_segment_volume_mm3": 0.0011482536474506726,
+      "deformed_cylinder_segment_volume_mm3": 0.0011482536474506726,
+      "relative_cylinder_segment_volume_change": 0.0,
+      "max_absolute_relative_segment_volume_change": 6.661338147750939e-16
+    },
+    "families": {
+      "warp": {
+        "fiber_count": 21,
+        "vertex_count": 4053,
+        "segment_count": 4032,
+        "reference_fiber_length_mm": 20.30558265723034,
+        "deformed_fiber_length_mm": 20.189166147592957,
+        "relative_fiber_length_change": -0.005733226748651288,
+        "min_segment_stretch": 0.9278007473293887,
+        "max_segment_stretch": 1.0660040629845984,
+        "reference_length_weighted_mean_engineering_strain": -0.0057332267486511395,
+        "reference_length_weighted_rms_engineering_strain": 0.016541855209861258,
+        "reference_cylinder_segment_volume_mm3": 0.0005741268237253363,
+        "deformed_cylinder_segment_volume_mm3": 0.0005741268237253363,
+        "relative_cylinder_segment_volume_change": 0.0,
+        "max_absolute_relative_segment_volume_change": 6.661338147750939e-16
+      },
+      "weft": {
+        "fiber_count": 21,
+        "vertex_count": 4053,
+        "segment_count": 4032,
+        "reference_fiber_length_mm": 20.30558265723034,
+        "deformed_fiber_length_mm": 20.43995921198699,
+        "relative_fiber_length_change": 0.006617714794251661,
+        "min_segment_stretch": 0.8596802447529622,
+        "max_segment_stretch": 1.1412012899206438,
+        "reference_length_weighted_mean_engineering_strain": 0.006617714794251533,
+        "reference_length_weighted_rms_engineering_strain": 0.01799183155345544,
+        "reference_cylinder_segment_volume_mm3": 0.0005741268237253363,
+        "deformed_cylinder_segment_volume_mm3": 0.0005741268237253363,
+        "relative_cylinder_segment_volume_change": 0.0,
+        "max_absolute_relative_segment_volume_change": 6.661338147750939e-16
+      }
+    },
+    "parents": {
+      "yarns": {
+        "warp:0000:warp_yarn": {
+          "reference_arclength_mm": 0.9667204640522752,
+          "deformed_arclength_mm": 0.9608576657687262,
+          "material_coordinate_end_mm": 0.9667204640522752,
+          "target_vertex_count": 193
+        },
+        "warp:0001:warp_yarn": {
+          "reference_arclength_mm": 0.9667204640522752,
+          "deformed_arclength_mm": 0.9618116955687882,
+          "material_coordinate_end_mm": 0.9667204640522752,
+          "target_vertex_count": 193
+        },
+        "warp:0002:warp_yarn": {
+          "reference_arclength_mm": 0.9667204640522752,
+          "deformed_arclength_mm": 0.9608576657687262,
+          "material_coordinate_end_mm": 0.9667204640522752,
+          "target_vertex_count": 193
+        },
+        "weft:0000:weft_yarn": {
+          "reference_arclength_mm": 0.9667204640522752,
+          "deformed_arclength_mm": 0.9717071217826038,
+          "material_coordinate_end_mm": 0.9667204640522752,
+          "target_vertex_count": 193
+        },
+        "weft:0001:weft_yarn": {
+          "reference_arclength_mm": 0.9667204640522752,
+          "deformed_arclength_mm": 0.9759475697756272,
+          "material_coordinate_end_mm": 0.9667204640522752,
+          "target_vertex_count": 193
+        },
+        "weft:0002:weft_yarn": {
+          "reference_arclength_mm": 0.9667204640522752,
+          "deformed_arclength_mm": 0.9717071217826038,
+          "material_coordinate_end_mm": 0.9667204640522752,
+          "target_vertex_count": 193
+        }
+      },
+      "plies": {
+        "warp:0000:warp_yarn/p": {
+          "reference_arclength_mm": 0.9667204640522752,
+          "deformed_arclength_mm": 0.9608576657687262,
+          "material_coordinate_end_mm": 0.9667204640522752,
+          "target_vertex_count": 193
+        },
+        "warp:0001:warp_yarn/p": {
+          "reference_arclength_mm": 0.9667204640522752,
+          "deformed_arclength_mm": 0.9618116955687882,
+          "material_coordinate_end_mm": 0.9667204640522752,
+          "target_vertex_count": 193
+        },
+        "warp:0002:warp_yarn/p": {
+          "reference_arclength_mm": 0.9667204640522752,
+          "deformed_arclength_mm": 0.9608576657687262,
+          "material_coordinate_end_mm": 0.9667204640522752,
+          "target_vertex_count": 193
+        },
+        "weft:0000:weft_yarn/p": {
+          "reference_arclength_mm": 0.9667204640522752,
+          "deformed_arclength_mm": 0.9717071217826038,
+          "material_coordinate_end_mm": 0.9667204640522752,
+          "target_vertex_count": 193
+        },
+        "weft:0001:weft_yarn/p": {
+          "reference_arclength_mm": 0.9667204640522752,
+          "deformed_arclength_mm": 0.9759475697756272,
+          "material_coordinate_end_mm": 0.9667204640522752,
+          "target_vertex_count": 193
+        },
+        "weft:0002:weft_yarn/p": {
+          "reference_arclength_mm": 0.9667204640522752,
+          "deformed_arclength_mm": 0.9717071217826038,
+          "material_coordinate_end_mm": 0.9667204640522752,
+          "target_vertex_count": 193
+        }
+      }
+    }
+  },
+  "reference_spec": {
+    "height_state_sha256": "59c12430a618b637306da85b46fe1ff3590503d0b00ed4e533280b8008f89adf",
+    "kind": "reduced_mechanics_embedded_hierarchy",
+    "mechanics": {
+      "clearance_mm": 0.004,
+      "draft": {
+        "column_axis": "warp",
+        "matrix": [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "name": "plain",
+        "one_means": "warp_over",
+        "row_axis": "weft"
+      },
+      "initial_warp_share": 0.5,
+      "max_slope": 0.3,
+      "padding_crossings": 1,
+      "schema_version": "textile.reduced_weave_mechanics/3.0",
+      "segments_per_crossing": 8,
+      "units": {
+        "energy": "N*mm",
+        "force": "N",
+        "length": "mm"
+      },
+      "warp_count": 3,
+      "warp_elasticity": {
+        "axial_stiffness_N": 0.02,
+        "bending_stiffness_N_mm2": 2e-05,
+        "data_status": "synthetic",
+        "rest_fraction": 0.985,
+        "source": "synthetic reduced-mechanics verification fixture"
+      },
+      "warp_envelope_radius_mm": 0.012,
+      "warp_pitch_mm": 0.24,
+      "weft_count": 3,
+      "weft_elasticity": {
+        "axial_stiffness_N": 0.02,
+        "bending_stiffness_N_mm2": 2e-06,
+        "data_status": "synthetic",
+        "rest_fraction": 0.995,
+        "source": "synthetic reduced-mechanics verification fixture"
+      },
+      "weft_envelope_radius_mm": 0.012,
+      "weft_pitch_mm": 0.24
+    },
+    "seed": 20261011,
+    "subdivisions": 6,
+    "warp_yarn": {
+      "id": "warp_yarn",
+      "plies": [
+        {
+          "fiber_phase_rad": 0.0,
+          "fiber_twist_per_mm": 0.4,
+          "fibers": [
+            {
+              "id": "f0000",
+              "loop_amplitude_mm": 0.0,
+              "loop_center_fraction": 0.5,
+              "loop_length_mm": 0.1,
+              "material_id": "synthetic_A",
+              "migration_amplitude_mm": 0.0,
+              "migration_period_mm": 0.3,
+              "migration_phase_rad": null,
+              "offset_mm": [
+                -0.009,
+                0.0
+              ],
+              "radius_mm": 0.003
+            },
+            {
+              "id": "f0001",
+              "loop_amplitude_mm": 0.0,
+              "loop_center_fraction": 0.5,
+              "loop_length_mm": 0.1,
+              "material_id": "synthetic_A",
+              "migration_amplitude_mm": 0.0,
+              "migration_period_mm": 0.3,
+              "migration_phase_rad": null,
+              "offset_mm": [
+                -0.0045,
+                0.007794228634059947
+              ],
+              "radius_mm": 0.003
+            },
+            {
+              "id": "f0002",
+              "loop_amplitude_mm": 0.0,
+              "loop_center_fraction": 0.5,
+              "loop_length_mm": 0.1,
+              "material_id": "synthetic_A",
+              "migration_amplitude_mm": 0.0,
+              "migration_period_mm": 0.3,
+              "migration_phase_rad": null,
+              "offset_mm": [
+                -0.0045,
+                -0.007794228634059947
+              ],
+              "radius_mm": 0.003
+            },
+            {
+              "id": "f0003",
+              "loop_amplitude_mm": 0.0,
+              "loop_center_fraction": 0.5,
+              "loop_length_mm": 0.1,
+              "material_id": "synthetic_A",
+              "migration_amplitude_mm": 0.0,
+              "migration_period_mm": 0.3,
+              "migration_phase_rad": null,
+              "offset_mm": [
+                0.0,
+                0.0
+              ],
+              "radius_mm": 0.003
+            },
+            {
+              "id": "f0004",
+              "loop_amplitude_mm": 0.0,
+              "loop_center_fraction": 0.5,
+              "loop_length_mm": 0.1,
+              "material_id": "synthetic_A",
+              "migration_amplitude_mm": 0.0,
+              "migration_period_mm": 0.3,
+              "migration_phase_rad": null,
+              "offset_mm": [
+                0.0045,
+                0.007794228634059947
+              ],
+              "radius_mm": 0.003
+            },
+            {
+              "id": "f0005",
+              "loop_amplitude_mm": 0.0,
+              "loop_center_fraction": 0.5,
+              "loop_length_mm": 0.1,
+              "material_id": "synthetic_A",
+              "migration_amplitude_mm": 0.0,
+              "migration_period_mm": 0.3,
+              "migration_phase_rad": null,
+              "offset_mm": [
+                0.0045,
+                -0.007794228634059947
+              ],
+              "radius_mm": 0.003
+            },
+            {
+              "id": "f0006",
+              "loop_amplitude_mm": 0.0,
+              "loop_center_fraction": 0.5,
+              "loop_length_mm": 0.1,
+              "material_id": "synthetic_A",
+              "migration_amplitude_mm": 0.0,
+              "migration_period_mm": 0.3,
+              "migration_phase_rad": null,
+              "offset_mm": [
+                0.009,
+                0.0
+              ],
+              "radius_mm": 0.003
+            }
+          ],
+          "id": "p",
+          "offset_mm": [
+            0.0,
+            0.0
+          ]
+        }
+      ],
+      "ply_phase_rad": 0.0,
+      "ply_twist_per_mm": 0.0
+    },
+    "weft_yarn": {
+      "id": "weft_yarn",
+      "plies": [
+        {
+          "fiber_phase_rad": 0.0,
+          "fiber_twist_per_mm": -0.4,
+          "fibers": [
+            {
+              "id": "f0000",
+              "loop_amplitude_mm": 0.0,
+              "loop_center_fraction": 0.5,
+              "loop_length_mm": 0.1,
+              "material_id": "synthetic_B",
+              "migration_amplitude_mm": 0.0,
+              "migration_period_mm": 0.3,
+              "migration_phase_rad": null,
+              "offset_mm": [
+                -0.009,
+                0.0
+              ],
+              "radius_mm": 0.003
+            },
+            {
+              "id": "f0001",
+              "loop_amplitude_mm": 0.0,
+              "loop_center_fraction": 0.5,
+              "loop_length_mm": 0.1,
+              "material_id": "synthetic_B",
+              "migration_amplitude_mm": 0.0,
+              "migration_period_mm": 0.3,
+              "migration_phase_rad": null,
+              "offset_mm": [
+                -0.0045,
+                0.007794228634059947
+              ],
+              "radius_mm": 0.003
+            },
+            {
+              "id": "f0002",
+              "loop_amplitude_mm": 0.0,
+              "loop_center_fraction": 0.5,
+              "loop_length_mm": 0.1,
+              "material_id": "synthetic_B",
+              "migration_amplitude_mm": 0.0,
+              "migration_period_mm": 0.3,
+              "migration_phase_rad": null,
+              "offset_mm": [
+                -0.0045,
+                -0.007794228634059947
+              ],
+              "radius_mm": 0.003
+            },
+            {
+              "id": "f0003",
+              "loop_amplitude_mm": 0.0,
+              "loop_center_fraction": 0.5,
+              "loop_length_mm": 0.1,
+              "material_id": "synthetic_B",
+              "migration_amplitude_mm": 0.0,
+              "migration_period_mm": 0.3,
+              "migration_phase_rad": null,
+              "offset_mm": [
+                0.0,
+                0.0
+              ],
+              "radius_mm": 0.003
+            },
+            {
+              "id": "f0004",
+              "loop_amplitude_mm": 0.0,
+              "loop_center_fraction": 0.5,
+              "loop_length_mm": 0.1,
+              "material_id": "synthetic_B",
+              "migration_amplitude_mm": 0.0,
+              "migration_period_mm": 0.3,
+              "migration_phase_rad": null,
+              "offset_mm": [
+                0.0045,
+                0.007794228634059947
+              ],
+              "radius_mm": 0.003
+            },
+            {
+              "id": "f0005",
+              "loop_amplitude_mm": 0.0,
+              "loop_center_fraction": 0.5,
+              "loop_length_mm": 0.1,
+              "material_id": "synthetic_B",
+              "migration_amplitude_mm": 0.0,
+              "migration_period_mm": 0.3,
+              "migration_phase_rad": null,
+              "offset_mm": [
+                0.0045,
+                -0.007794228634059947
+              ],
+              "radius_mm": 0.003
+            },
+            {
+              "id": "f0006",
+              "loop_amplitude_mm": 0.0,
+              "loop_center_fraction": 0.5,
+              "loop_length_mm": 0.1,
+              "material_id": "synthetic_B",
+              "migration_amplitude_mm": 0.0,
+              "migration_period_mm": 0.3,
+              "migration_phase_rad": null,
+              "offset_mm": [
+                0.009,
+                0.0
+              ],
+              "radius_mm": 0.003
+            }
+          ],
+          "id": "p",
+          "offset_mm": [
+            0.0,
+            0.0
+          ]
+        }
+      ],
+      "ply_phase_rad": 0.0,
+      "ply_twist_per_mm": 0.0
+    }
+  },
+  "reference_geometry_metadata": {
+    "centerline_basis": "mechanical_piecewise_linear",
+    "clearance_audit": {
+      "broadphase_radius_mm": 0.014455868957319276,
+      "certified_separated": true,
+      "closest_tested_fiber_pair": [
+        "warp:0000:warp_yarn/p/f0004",
+        "warp:0000:warp_yarn/p/f0006"
+      ],
+      "minimum_clearance_lower_bound_mm": 0.0029836307726289445,
+      "minimum_tested_clearance_mm": 0.0029836307726289445,
+      "overlapping_capsule_pairs": 0,
+      "pairs_within_probe_margin": 38534,
+      "probe_margin_mm": 0.003,
+      "scope": "All pairs of DIFFERENT constant-radius polyline fibers; same-fiber self-contact excluded.",
+      "tested_segment_pairs": 68737,
+      "total_segments": 8064
+    },
+    "envelope_constraints": {
+      "bound_scope": "piecewise-linear yarn centerlines and specified circular envelopes; no same-yarn fiber contact certificate",
+      "configured_slope_bound": 0.3,
+      "conservative_orthogonal_envelope_clearance_mm": 0.004,
+      "max_abs_slope": 0.22790799466441458,
+      "max_violation_mm": 0.0,
+      "min_crossing_separation_mm": 0.0304157853753606,
+      "parallel_family_clearance_bound_mm": 0.216,
+      "small_slope_bending_integrand_overestimate_bound": 0.13495735518069196
+    },
+    "equilibrium_kkt": null,
+    "equilibrium_status": "supplied_feasible_heights",
+    "fiber_material_points_conserved": false,
+    "geometry_tileable": false,
+    "length_unit": "mm",
+    "physical_mechanics_solved": false,
+    "schema_version": "textile-hierarchy/2.0",
+    "scope": "geometric microstructure embedding on reduced yarn mechanics; no constituent fiber mechanics or mass conservation"
+  },
+  "array_file": "material_transport.npz",
+  "array_file_sha256": "01486190ff597d426a50ca7e573e833c7f2f5eff7ac456d27751d83181724d02",
+  "array_layout": {
+    "fibers": [
+      {
+        "array_prefix": "fiber_00000",
+        "fiber_id": "warp:0000:warp_yarn/p/f0000",
+        "yarn_id": "warp:0000:warp_yarn",
+        "ply_id": "warp:0000:warp_yarn/p",
+        "material_id": "synthetic_A",
+        "family": "warp",
+        "yarn_index": 0,
+        "ply_index": 0,
+        "fiber_index": 0,
+        "kind": "core",
+        "cross_section": "circle",
+        "reference_radius_mm": 0.003
+      },
+      {
+        "array_prefix": "fiber_00001",
+        "fiber_id": "warp:0000:warp_yarn/p/f0001",
+        "yarn_id": "warp:0000:warp_yarn",
+        "ply_id": "warp:0000:warp_yarn/p",
+        "material_id": "synthetic_A",
+        "family": "warp",
+        "yarn_index": 0,
+        "ply_index": 0,
+        "fiber_index": 1,
+        "kind": "core",
+        "cross_section": "circle",
+        "reference_radius_mm": 0.003
+      },
+      {
+        "array_prefix": "fiber_00002",
+        "fiber_id": "warp:0000:warp_yarn/p/f0002",
+        "yarn_id": "warp:0000:warp_yarn",
+        "ply_id": "warp:0000:warp_yarn/p",
+        "material_id": "synthetic_A",
+        "family": "warp",
+        "yarn_index": 0,
+        "ply_index": 0,
+        "fiber_index": 2,
+        "kind": "core",
+        "cross_section": "circle",
+        "reference_radius_mm": 0.003
+      },
+      {
+        "array_prefix": "fiber_00003",
+        "fiber_id": "warp:0000:warp_yarn/p/f0003",
+        "yarn_id": "warp:0000:warp_yarn",
+        "ply_id": "warp:0000:warp_yarn/p",
+        "material_id": "synthetic_A",
+        "family": "warp",
+        "yarn_index": 0,
+        "ply_index": 0,
+        "fiber_index": 3,
+        "kind": "core",
+        "cross_section": "circle",
+        "reference_radius_mm": 0.003
+      },
+      {
+        "array_prefix": "fiber_00004",
+        "fiber_id": "warp:0000:warp_yarn/p/f0004",
+        "yarn_id": "warp:0000:warp_yarn",
+        "ply_id": "warp:0000:warp_yarn/p",
+        "material_id": "synthetic_A",
+        "family": "warp",
+        "yarn_index": 0,
+        "ply_index": 0,
+        "fiber_index": 4,
+        "kind": "core",
+        "cross_section": "circle",
+        "reference_radius_mm": 0.003
+      },
+      {
+        "array_prefix": "fiber_00005",
+        "fiber_id": "warp:0000:warp_yarn/p/f0005",
+        "yarn_id": "warp:0000:warp_yarn",
+        "ply_id": "warp:0000:warp_yarn/p",
+        "material_id": "synthetic_A",
+        "family": "warp",
+        "yarn_index": 0,
+        "ply_index": 0,
+        "fiber_index": 5,
+        "kind": "core",
+        "cross_section": "circle",
+        "reference_radius_mm": 0.003
+      },
+      {
+        "array_prefix": "fiber_00006",
+        "fiber_id": "warp:0000:warp_yarn/p/f0006",
+        "yarn_id": "warp:0000:warp_yarn",
+        "ply_id": "warp:0000:warp_yarn/p",
+        "material_id": "synthetic_A",
+        "family": "warp",
+        "yarn_index": 0,
+        "ply_index": 0,
+        "fiber_index": 6,
+        "kind": "core",
+        "cross_section": "circle",
+        "reference_radius_mm": 0.003
+      },
+      {
+        "array_prefix": "fiber_00007",
+        "fiber_id": "warp:0001:warp_yarn/p/f0000",
+        "yarn_id": "warp:0001:warp_yarn",
+        "ply_id": "warp:0001:warp_yarn/p",
+        "material_id": "synthetic_A",
+        "family": "warp",
+        "yarn_index": 1,
+        "ply_index": 0,
+        "fiber_index": 0,
+        "kind": "core",
+        "cross_section": "circle",
+        "reference_radius_mm": 0.003
+      },
+      {
+        "array_prefix": "fiber_00008",
+        "fiber_id": "warp:0001:warp_yarn/p/f0001",
+        "yarn_id": "warp:0001:warp_yarn",
+        "ply_id": "warp:0001:warp_yarn/p",
+        "material_id": "synthetic_A",
+        "family": "warp",
+        "yarn_index": 1,
+        "ply_index": 0,
+        "fiber_index": 1,
+        "kind": "core",
+        "cross_section": "circle",
+        "reference_radius_mm": 0.003
+      },
+      {
+        "array_prefix": "fiber_00009",
+        "fiber_id": "warp:0001:warp_yarn/p/f0002",
+        "yarn_id": "warp:0001:warp_yarn",
+        "ply_id": "warp:0001:warp_yarn/p",
+        "material_id": "synthetic_A",
+        "family": "warp",
+        "yarn_index": 1,
+        "ply_index": 0,
+        "fiber_index": 2,
+        "kind": "core",
+        "cross_section": "circle",
+        "reference_radius_mm": 0.003
+      },
+      {
+        "array_prefix": "fiber_00010",
+        "fiber_id": "warp:0001:warp_yarn/p/f0003",
+        "yarn_id": "warp:0001:warp_yarn",
+        "ply_id": "warp:0001:warp_yarn/p",
+        "material_id": "synthetic_A",
+        "family": "warp",
+        "yarn_index": 1,
+        "ply_index": 0,
+        "fiber_index": 3,
+        "kind": "core",
+        "cross_section": "circle",
+        "reference_radius_mm": 0.003
+      },
+      {
+        "array_prefix": "fiber_00011",
+        "fiber_id": "warp:0001:warp_yarn/p/f0004",
+        "yarn_id": "warp:0001:warp_yarn",
+        "ply_id": "warp:0001:warp_yarn/p",
+        "material_id": "synthetic_A",
+        "family": "warp",
+        "yarn_index": 1,
+        "ply_index": 0,
+        "fiber_index": 4,
+        "kind": "core",
+        "cross_section": "circle",
+        "reference_radius_mm": 0.003
+      },
+      {
+        "array_prefix": "fiber_00012",
+        "fiber_id": "warp:0001:warp_yarn/p/f0005",
+        "yarn_id": "warp:0001:warp_yarn",
+        "ply_id": "warp:0001:warp_yarn/p",
+        "material_id": "synthetic_A",
+        "family": "warp",
+        "yarn_index": 1,
+        "ply_index": 0,
+        "fiber_index": 5,
+        "kind": "core",
+        "cross_section": "circle",
+        "reference_radius_mm": 0.003
+      },
+      {
+        "array_prefix": "fiber_00013",
+        "fiber_id": "warp:0001:warp_yarn/p/f0006",
+        "yarn_id": "warp:0001:warp_yarn",
+        "ply_id": "warp:0001:warp_yarn/p",
+        "material_id": "synthetic_A",
+        "family": "warp",
+        "yarn_index": 1,
+        "ply_index": 0,
+        "fiber_index": 6,
+        "kind": "core",
+        "cross_section": "circle",
+        "reference_radius_mm": 0.003
+      },
+      {
+        "array_prefix": "fiber_00014",
+        "fiber_id": "warp:0002:warp_yarn/p/f0000",
+        "yarn_id": "warp:0002:warp_yarn",
+        "ply_id": "warp:0002:warp_yarn/p",
+        "material_id": "synthetic_A",
+        "family": "warp",
+        "yarn_index": 2,
+        "ply_index": 0,
+        "fiber_index": 0,
+        "kind": "core",
+        "cross_section": "circle",
+        "reference_radius_mm": 0.003
+      },
+      {
+        "array_prefix": "fiber_00015",
+        "fiber_id": "warp:0002:warp_yarn/p/f0001",
+        "yarn_id": "warp:0002:warp_yarn",
+        "ply_id": "warp:0002:warp_yarn/p",
+        "material_id": "synthetic_A",
+        "family": "warp",
+        "yarn_index": 2,
+        "ply_index": 0,
+        "fiber_index": 1,
+        "kind": "core",
+        "cross_section": "circle",
+        "reference_radius_mm": 0.003
+      },
+      {
+        "array_prefix": "fiber_00016",
+        "fiber_id": "warp:0002:warp_yarn/p/f0002",
+        "yarn_id": "warp:0002:warp_yarn",
+        "ply_id": "warp:0002:warp_yarn/p",
+        "material_id": "synthetic_A",
+        "family": "warp",
+        "yarn_index": 2,
+        "ply_index": 0,
+        "fiber_index": 2,
+        "kind": "core",
+        "cross_section": "circle",
+        "reference_radius_mm": 0.003
+      },
+      {
+        "array_prefix": "fiber_00017",
+        "fiber_id": "warp:0002:warp_yarn/p/f0003",
+        "yarn_id": "warp:0002:warp_yarn",
+        "ply_id": "warp:0002:warp_yarn/p",
+        "material_id": "synthetic_A",
+        "family": "warp",
+        "yarn_index": 2,
+        "ply_index": 0,
+        "fiber_index": 3,
+        "kind": "core",
+        "cross_section": "circle",
+        "reference_radius_mm": 0.003
+      },
+      {
+        "array_prefix": "fiber_00018",
+        "fiber_id": "warp:0002:warp_yarn/p/f0004",
+        "yarn_id": "warp:0002:warp_yarn",
+        "ply_id": "warp:0002:warp_yarn/p",
+        "material_id": "synthetic_A",
+        "family": "warp",
+        "yarn_index": 2,
+        "ply_index": 0,
+        "fiber_index": 4,
+        "kind": "core",
+        "cross_section": "circle",
+        "reference_radius_mm": 0.003
+      },
+      {
+        "array_prefix": "fiber_00019",
+        "fiber_id": "warp:0002:warp_yarn/p/f0005",
+        "yarn_id": "warp:0002:warp_yarn",
+        "ply_id": "warp:0002:warp_yarn/p",
+        "material_id": "synthetic_A",
+        "family": "warp",
+        "yarn_index": 2,
+        "ply_index": 0,
+        "fiber_index": 5,
+        "kind": "core",
+        "cross_section": "circle",
+        "reference_radius_mm": 0.003
+      },
+      {
+        "array_prefix": "fiber_00020",
+        "fiber_id": "warp:0002:warp_yarn/p/f0006",
+        "yarn_id": "warp:0002:warp_yarn",
+        "ply_id": "warp:0002:warp_yarn/p",
+        "material_id": "synthetic_A",
+        "family": "warp",
+        "yarn_index": 2,
+        "ply_index": 0,
+        "fiber_index": 6,
+        "kind": "core",
+        "cross_section": "circle",
+        "reference_radius_mm": 0.003
+      },
+      {
+        "array_prefix": "fiber_00021",
+        "fiber_id": "weft:0000:weft_yarn/p/f0000",
+        "yarn_id": "weft:0000:weft_yarn",
+        "ply_id": "weft:0000:weft_yarn/p",
+        "material_id": "synthetic_B",
+        "family": "weft",
+        "yarn_index": 0,
+        "ply_index": 0,
+        "fiber_index": 0,
+        "kind": "core",
+        "cross_section": "circle",
+        "reference_radius_mm": 0.003
+      },
+      {
+        "array_prefix": "fiber_00022",
+        "fiber_id": "weft:0000:weft_yarn/p/f0001",
+        "yarn_id": "weft:0000:weft_yarn",
+        "ply_id": "weft:0000:weft_yarn/p",
+        "material_id": "synthetic_B",
+        "family": "weft",
+        "yarn_index": 0,
+        "ply_index": 0,
+        "fiber_index": 1,
+        "kind": "core",
+        "cross_section": "circle",
+        "reference_radius_mm": 0.003
+      },
+      {
+        "array_prefix": "fiber_00023",
+        "fiber_id": "weft:0000:weft_yarn/p/f0002",
+        "yarn_id": "weft:0000:weft_yarn",
+        "ply_id": "weft:0000:weft_yarn/p",
+        "material_id": "synthetic_B",
+        "family": "weft",
+        "yarn_index": 0,
+        "ply_index": 0,
+        "fiber_index": 2,
+        "kind": "core",
+        "cross_section": "circle",
+        "reference_radius_mm": 0.003
+      },
+      {
+        "array_prefix": "fiber_00024",
+        "fiber_id": "weft:0000:weft_yarn/p/f0003",
+        "yarn_id": "weft:0000:weft_yarn",
+        "ply_id": "weft:0000:weft_yarn/p",
+        "material_id": "synthetic_B",
+        "family": "weft",
+        "yarn_index": 0,
+        "ply_index": 0,
+        "fiber_index": 3,
+        "kind": "core",
+        "cross_section": "circle",
+        "reference_radius_mm": 0.003
+      },
+      {
+        "array_prefix": "fiber_00025",
+        "fiber_id": "weft:0000:weft_yarn/p/f0004",
+        "yarn_id": "weft:0000:weft_yarn",
+        "ply_id": "weft:0000:weft_yarn/p",
+        "material_id": "synthetic_B",
+        "family": "weft",
+        "yarn_index": 0,
+        "ply_index": 0,
+        "fiber_index": 4,
+        "kind": "core",
+        "cross_section": "circle",
+        "reference_radius_mm": 0.003
+      },
+      {
+        "array_prefix": "fiber_00026",
+        "fiber_id": "weft:0000:weft_yarn/p/f0005",
+        "yarn_id": "weft:0000:weft_yarn",
+        "ply_id": "weft:0000:weft_yarn/p",
+        "material_id": "synthetic_B",
+        "family": "weft",
+        "yarn_index": 0,
+        "ply_index": 0,
+        "fiber_index": 5,
+        "kind": "core",
+        "cross_section": "circle",
+        "reference_radius_mm": 0.003
+      },
+      {
+        "array_prefix": "fiber_00027",
+        "fiber_id": "weft:0000:weft_yarn/p/f0006",
+        "yarn_id": "weft:0000:weft_yarn",
+        "ply_id": "weft:0000:weft_yarn/p",
+        "material_id": "synthetic_B",
+        "family": "weft",
+        "yarn_index": 0,
+        "ply_index": 0,
+        "fiber_index": 6,
+        "kind": "core",
+        "cross_section": "circle",
+        "reference_radius_mm": 0.003
+      },
+      {
+        "array_prefix": "fiber_00028",
+        "fiber_id": "weft:0001:weft_yarn/p/f0000",
+        "yarn_id": "weft:0001:weft_yarn",
+        "ply_id": "weft:0001:weft_yarn/p",
+        "material_id": "synthetic_B",
+        "family": "weft",
+        "yarn_index": 1,
+        "ply_index": 0,
+        "fiber_index": 0,
+        "kind": "core",
+        "cross_section": "circle",
+        "reference_radius_mm": 0.003
+      },
+      {
+        "array_prefix": "fiber_00029",
+        "fiber_id": "weft:0001:weft_yarn/p/f0001",
+        "yarn_id": "weft:0001:weft_yarn",
+        "ply_id": "weft:0001:weft_yarn/p",
+        "material_id": "synthetic_B",
+        "family": "weft",
+        "yarn_index": 1,
+        "ply_index": 0,
+        "fiber_index": 1,
+        "kind": "core",
+        "cross_section": "circle",
+        "reference_radius_mm": 0.003
+      },
+      {
+        "array_prefix": "fiber_00030",
+        "fiber_id": "weft:0001:weft_yarn/p/f0002",
+        "yarn_id": "weft:0001:weft_yarn",
+        "ply_id": "weft:0001:weft_yarn/p",
+        "material_id": "synthetic_B",
+        "family": "weft",
+        "yarn_index": 1,
+        "ply_index": 0,
+        "fiber_index": 2,
+        "kind": "core",
+        "cross_section": "circle",
+        "reference_radius_mm": 0.003
+      },
+      {
+        "array_prefix": "fiber_00031",
+        "fiber_id": "weft:0001:weft_yarn/p/f0003",
+        "yarn_id": "weft:0001:weft_yarn",
+        "ply_id": "weft:0001:weft_yarn/p",
+        "material_id": "synthetic_B",
+        "family": "weft",
+        "yarn_index": 1,
+        "ply_index": 0,
+        "fiber_index": 3,
+        "kind": "core",
+        "cross_section": "circle",
+        "reference_radius_mm": 0.003
+      },
+      {
+        "array_prefix": "fiber_00032",
+        "fiber_id": "weft:0001:weft_yarn/p/f0004",
+        "yarn_id": "weft:0001:weft_yarn",
+        "ply_id": "weft:0001:weft_yarn/p",
+        "material_id": "synthetic_B",
+        "family": "weft",
+        "yarn_index": 1,
+        "ply_index": 0,
+        "fiber_index": 4,
+        "kind": "core",
+        "cross_section": "circle",
+        "reference_radius_mm": 0.003
+      },
+      {
+        "array_prefix": "fiber_00033",
+        "fiber_id": "weft:0001:weft_yarn/p/f0005",
+        "yarn_id": "weft:0001:weft_yarn",
+        "ply_id": "weft:0001:weft_yarn/p",
+        "material_id": "synthetic_B",
+        "family": "weft",
+        "yarn_index": 1,
+        "ply_index": 0,
+        "fiber_index": 5,
+        "kind": "core",
+        "cross_section": "circle",
+        "reference_radius_mm": 0.003
+      },
+      {
+        "array_prefix": "fiber_00034",
+        "fiber_id": "weft:0001:weft_yarn/p/f0006",
+        "yarn_id": "weft:0001:weft_yarn",
+        "ply_id": "weft:0001:weft_yarn/p",
+        "material_id": "synthetic_B",
+        "family": "weft",
+        "yarn_index": 1,
+        "ply_index": 0,
+        "fiber_index": 6,
+        "kind": "core",
+        "cross_section": "circle",
+        "reference_radius_mm": 0.003
+      },
+      {
+        "array_prefix": "fiber_00035",
+        "fiber_id": "weft:0002:weft_yarn/p/f0000",
+        "yarn_id": "weft:0002:weft_yarn",
+        "ply_id": "weft:0002:weft_yarn/p",
+        "material_id": "synthetic_B",
+        "family": "weft",
+        "yarn_index": 2,
+        "ply_index": 0,
+        "fiber_index": 0,
+        "kind": "core",
+        "cross_section": "circle",
+        "reference_radius_mm": 0.003
+      },
+      {
+        "array_prefix": "fiber_00036",
+        "fiber_id": "weft:0002:weft_yarn/p/f0001",
+        "yarn_id": "weft:0002:weft_yarn",
+        "ply_id": "weft:0002:weft_yarn/p",
+        "material_id": "synthetic_B",
+        "family": "weft",
+        "yarn_index": 2,
+        "ply_index": 0,
+        "fiber_index": 1,
+        "kind": "core",
+        "cross_section": "circle",
+        "reference_radius_mm": 0.003
+      },
+      {
+        "array_prefix": "fiber_00037",
+        "fiber_id": "weft:0002:weft_yarn/p/f0002",
+        "yarn_id": "weft:0002:weft_yarn",
+        "ply_id": "weft:0002:weft_yarn/p",
+        "material_id": "synthetic_B",
+        "family": "weft",
+        "yarn_index": 2,
+        "ply_index": 0,
+        "fiber_index": 2,
+        "kind": "core",
+        "cross_section": "circle",
+        "reference_radius_mm": 0.003
+      },
+      {
+        "array_prefix": "fiber_00038",
+        "fiber_id": "weft:0002:weft_yarn/p/f0003",
+        "yarn_id": "weft:0002:weft_yarn",
+        "ply_id": "weft:0002:weft_yarn/p",
+        "material_id": "synthetic_B",
+        "family": "weft",
+        "yarn_index": 2,
+        "ply_index": 0,
+        "fiber_index": 3,
+        "kind": "core",
+        "cross_section": "circle",
+        "reference_radius_mm": 0.003
+      },
+      {
+        "array_prefix": "fiber_00039",
+        "fiber_id": "weft:0002:weft_yarn/p/f0004",
+        "yarn_id": "weft:0002:weft_yarn",
+        "ply_id": "weft:0002:weft_yarn/p",
+        "material_id": "synthetic_B",
+        "family": "weft",
+        "yarn_index": 2,
+        "ply_index": 0,
+        "fiber_index": 4,
+        "kind": "core",
+        "cross_section": "circle",
+        "reference_radius_mm": 0.003
+      },
+      {
+        "array_prefix": "fiber_00040",
+        "fiber_id": "weft:0002:weft_yarn/p/f0005",
+        "yarn_id": "weft:0002:weft_yarn",
+        "ply_id": "weft:0002:weft_yarn/p",
+        "material_id": "synthetic_B",
+        "family": "weft",
+        "yarn_index": 2,
+        "ply_index": 0,
+        "fiber_index": 5,
+        "kind": "core",
+        "cross_section": "circle",
+        "reference_radius_mm": 0.003
+      },
+      {
+        "array_prefix": "fiber_00041",
+        "fiber_id": "weft:0002:weft_yarn/p/f0006",
+        "yarn_id": "weft:0002:weft_yarn",
+        "ply_id": "weft:0002:weft_yarn/p",
+        "material_id": "synthetic_B",
+        "family": "weft",
+        "yarn_index": 2,
+        "ply_index": 0,
+        "fiber_index": 6,
+        "kind": "core",
+        "cross_section": "circle",
+        "reference_radius_mm": 0.003
+      }
+    ],
+    "parents": {
+      "yarns": [
+        {
+          "id": "warp:0000:warp_yarn",
+          "array_prefix": "yarns_00000"
+        },
+        {
+          "id": "warp:0001:warp_yarn",
+          "array_prefix": "yarns_00001"
+        },
+        {
+          "id": "warp:0002:warp_yarn",
+          "array_prefix": "yarns_00002"
+        },
+        {
+          "id": "weft:0000:weft_yarn",
+          "array_prefix": "yarns_00003"
+        },
+        {
+          "id": "weft:0001:weft_yarn",
+          "array_prefix": "yarns_00004"
+        },
+        {
+          "id": "weft:0002:weft_yarn",
+          "array_prefix": "yarns_00005"
+        }
+      ],
+      "plies": [
+        {
+          "id": "warp:0000:warp_yarn/p",
+          "array_prefix": "plies_00000",
+          "parent_yarn_id": "warp:0000:warp_yarn"
+        },
+        {
+          "id": "warp:0001:warp_yarn/p",
+          "array_prefix": "plies_00001",
+          "parent_yarn_id": "warp:0001:warp_yarn"
+        },
+        {
+          "id": "warp:0002:warp_yarn/p",
+          "array_prefix": "plies_00002",
+          "parent_yarn_id": "warp:0002:warp_yarn"
+        },
+        {
+          "id": "weft:0000:weft_yarn/p",
+          "array_prefix": "plies_00003",
+          "parent_yarn_id": "weft:0000:weft_yarn"
+        },
+        {
+          "id": "weft:0001:weft_yarn/p",
+          "array_prefix": "plies_00004",
+          "parent_yarn_id": "weft:0001:weft_yarn"
+        },
+        {
+          "id": "weft:0002:weft_yarn/p",
+          "array_prefix": "plies_00005",
+          "parent_yarn_id": "weft:0002:weft_yarn"
+        }
+      ]
+    }
+  }
+}
