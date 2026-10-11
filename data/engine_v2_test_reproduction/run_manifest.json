@@ -1,0 +1,135 @@
+{
+  "schema": "textile-engine-v2-run/1.0",
+  "root": "/workspace/scratch/2b957533e88d/textile_optics_engine",
+  "output": "/workspace/scratch/2b957533e88d/textile_optics_engine/data/engine_v2_test_reproduction",
+  "selected_stages": [
+    "tests"
+  ],
+  "requested_stages": [
+    "tests"
+  ],
+  "no_experiment_render": false,
+  "invocation": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "/workspace/scratch/2b957533e88d/textile_optics_engine/run_engine_v2.py",
+    "--stages",
+    "tests",
+    "--output",
+    "data/engine_v2_test_reproduction"
+  ],
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "python_executable": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+    "packages_on_python_path": {
+      "numpy": "2.3.5",
+      "scipy": "1.17.0",
+      "matplotlib": "3.10.8",
+      "pillow": "12.3.0",
+      "mitsuba": null,
+      "drjit": null
+    },
+    "numeric_threads": {
+      "OPENBLAS_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    },
+    "MPLBACKEND": "Agg",
+    "version_scope": "Distribution metadata; renderer also records its actually loaded version."
+  },
+  "input_sha256": {
+    "data/fiber_wave_gaussian_beam.npz": "8dfdf134a893ed0d2c6bef3971619dc97e87244ddf77ef6d5d16dc1b457817a6",
+    "data/fiber_wave_gaussian_beam_metrics.json": "46a96df6066a5c6d740b3ca4ecacbb6221300331bf75b9a50c8398ba40aca248",
+    "data/render_validation_metrics.json": "0d7e5fa67143c9ec872724916b5ab0c8355a2ecc2ba5674a3cd8138bca33fdc0",
+    "examples/hierarchy/basket_rectangular_three_ply.json": "811e8c3140dd494dd8eacc08c64202f2690602a4f724e0f31b5e43c476fcb885",
+    "examples/hierarchy/plain_single_ply.json": "eccb0aa7ee9a84550be4351cef58fe99d448d775df1ed327d4b445076f0864ba",
+    "examples/hierarchy/twill_loop_excursions.json": "ceba79d734e24222d253e11f96b87e9e3543ceb8dbd46af76df2123a952db5ed",
+    "examples/hierarchy/twill_migration_waviness.json": "0cc077f69cc11ec05357d8e2616891a3f86bdc662196b6672fc14c47007cd78d",
+    "examples/hierarchy/twill_two_ply.json": "4b38f19b4d9c23c64732edc304e456e144dc450959b52391b82c094439548f3e",
+    "package_results.py": "d84e4ef3969edc44372627c5306be94bcf0a4035a943876cbac45785232f5f14",
+    "requirements.txt": "23ee0bb10e90787a79f489879e393e92e78ff7b24e8d374a0c4155b1d18e4a12",
+    "run_all.py": "3222cb4bcb8aa8614b2e4e73dddf0dd41192593d7c2d4723b31f5cd2042952e4",
+    "run_engine_v2.py": "eadbae8ac7a97bda6c79cd59bb7dfa52d70400a7d8fd3e4bdec186f0bc455845",
+    "run_fabric_experiments.py": "83ff37c96d42bf9cab7c0e4de37d927bf400b9a6b19540504cf0551f9482452c",
+    "run_optical_bridge_experiments.py": "fc686552c0ec8068e90047865d67a6bf34817eb0c2ae2724996fd0ed12e11563",
+    "tests/test_angular_measurement.py": "c2e134c793547c80828a0da09ae91ac99597b4319c33a3ed4d03e2e017da22d8",
+    "tests/test_angular_surrogate.py": "82cd46156378fefd10185395a66d216461fff70fd836f483ce11332e63780fa0",
+    "tests/test_aperture_wave.py": "e705894bd6fc2b390389cdc34aec331dcb49d1329d18494e608b95ff07ac9327",
+    "tests/test_camera.py": "b9ab3c70ffe07ca35b866ecc17466ce1c784aabdd8496f1c48b0cc6bc9c2c8e2",
+    "tests/test_engine_v2_cli.py": "46da0da3749c784e24a20fda875b4f3bb8b66d316e50ca401386a06de06a2079",
+    "tests/test_engine_v2_review.py": "692e04eaf2bf16f31e124567859676998c10f6f9301d0ff52b6c546a9a70c0f5",
+    "tests/test_fiber_wave.py": "ccb4d86a5ba30973549b5435f91ec29f81ed764624f9f9ba96611100261baf25",
+    "tests/test_fiber_wave_beam.py": "24ff523d6c2ef5ffff10a708dde5aa58ea9bc29d85538d9533597f8b8032f1f3",
+    "tests/test_geometry.py": "6235b64d968bea59351673e415c5d0ef52e575c04a585d1324afea21c80eccd1",
+    "tests/test_hierarchy.py": "c2206d3e9a4356598bd0e68a73c7ed2220bc04104247a60ee7858650bedbd6de",
+    "tests/test_meta_optics.py": "e112ef0d41ebe73f4ade11b81303ff1ec1bb48bd2583fb72b837cb51953bd5ed",
+    "tests/test_optical_scene.py": "a51d6f0f2cb4eaa47664de24df160f29b4e9c0ccbcfbb064f5ac0aac3a34b373",
+    "tests/test_ply_ray.py": "db69e806a034281e3068e6697f79f225c791c12021512177b48c40c08e94791c",
+    "tests/test_render.py": "ed446d5c1b4a71f180ecdae9708c4fae3950f88d2ad6fc6aa92c305e5ec48673",
+    "tests/test_render_physics.py": "bd58f87d71eb2cbabc2b079e37577eff1b66dfc26ccc454bd2852e2bae66cf0a",
+    "tests/test_weave_draft.py": "466b083e2a76d99f7721536da0d6c76b77b582f5edb5c87789789a69d75100d1",
+    "textile_sim/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "textile_sim/angular_measurement.py": "ad641d1691ff4ed50313f4ff007fef7ba72f0aa27f1c4bce992752bc2affac79",
+    "textile_sim/angular_surrogate.py": "188341f88b89a7462c95f43aed577e78f2486c5ec179bdfc88701e27c979de2b",
+    "textile_sim/aperture_wave.py": "cd8c4147573ada0acccc32ed16434067dbc761e708f329aef8f2b6d80312f986",
+    "textile_sim/camera.py": "e59614eab1fc89c50d52c8441bae15dbba3187dfa2a1b22d2cfbf53215ef5336",
+    "textile_sim/fiber_wave.py": "315d35f57cd0748b05a1d941d44ceee8324dacc6ae15822a23c0b85ea3951bac",
+    "textile_sim/fiber_wave_beam.py": "ccbb7fb3993755dec46b1eadbd80b833eb619a14b915bcd4944e85b578f76360",
+    "textile_sim/geometry.py": "9a84cef0b62ee9702074b908eff3105e303a6371c650c51c98f919212fa980fc",
+    "textile_sim/hierarchy.py": "0ccea74ef08c735cbcf9c22682bd7a51a59423efb9599e743d23f1cb08ca3a73",
+    "textile_sim/meta_optics.py": "b8542e688934dea1e16bb07556869a7db4f6583ed64f932a66abab69ab36a3da",
+    "textile_sim/optical_scene.py": "8575c32cba21d784c1b6d19d3fa66723e0331d4a1be99756322efd488044e061",
+    "textile_sim/ply_ray.py": "d78b7e6270770161945481ecd7c303b22a870db825fffa5fed748b5d7af8d91a",
+    "textile_sim/render.py": "704c6052f0e22e0b0644137d1960fd175126ad7ed801f396163056aa6ade5ac9",
+    "textile_sim/weave_draft.py": "13704a2ade4f6ea7c9f43de0c23e077861c2094fbcd937ec13ca3b2d52efc540",
+    "validate_all.py": "cb469c71c2ddb735900692a003f6fa0f7f372e10e59895c6021fea3935c5a2cf",
+    "validate_render.py": "58d72df33998da7d80bd7f2c200d7c2ecbce57b8483e65be5503a0faefe71a02"
+  },
+  "scope": "Reproduces synthetic geometric/numerical experiments; does not establish measured fabric fidelity.",
+  "status": "passed",
+  "started_utc": "2026-10-11T09:13:57.093558+00:00",
+  "records": [
+    {
+      "stage": "tests",
+      "case": "",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-u",
+        "/workspace/scratch/2b957533e88d/textile_optics_engine/run_engine_v2.py",
+        "--_worker",
+        "tests",
+        "--output",
+        "/workspace/scratch/2b957533e88d/textile_optics_engine/data/engine_v2_test_reproduction/tests"
+      ],
+      "output_directory": "/workspace/scratch/2b957533e88d/textile_optics_engine/data/engine_v2_test_reproduction/tests",
+      "required_outputs": [
+        "test_summary.json",
+        "tests.log"
+      ],
+      "cwd": "/workspace/scratch/2b957533e88d/textile_optics_engine",
+      "started_utc": "2026-10-11T09:13:57.093836+00:00",
+      "status": "passed",
+      "log": "logs/01_tests.log",
+      "finished_utc": "2026-10-11T09:14:08.612051+00:00",
+      "elapsed_seconds": 11.51781433999895,
+      "exit_code": 0,
+      "log_sha256": "1fd171fad243974938dda1a8d268da266bc1368cf9f7fc7d90f00e44a8c2d222",
+      "output_sha256": {
+        "tests/test_summary.json": "1fd171fad243974938dda1a8d268da266bc1368cf9f7fc7d90f00e44a8c2d222",
+        "tests/tests.log": "3b60270eece7a6689fdb348e7b1644a4fd2b2d0e83c98048b2323f61f6483e8f"
+      }
+    }
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 11.521502808998775,
+  "finished_utc": "2026-10-11T09:14:08.615283+00:00",
+  "unexecuted_commands": [],
+  "output_sha256": {
+    "logs/01_tests.log": "1fd171fad243974938dda1a8d268da266bc1368cf9f7fc7d90f00e44a8c2d222",
+    "tests/test_summary.json": "1fd171fad243974938dda1a8d268da266bc1368cf9f7fc7d90f00e44a8c2d222",
+    "tests/tests.log": "3b60270eece7a6689fdb348e7b1644a4fd2b2d0e83c98048b2323f61f6483e8f"
+  },
+  "hash_scope": "All run artifacts except this self-referential manifest; source hashes are recorded separately."
+}

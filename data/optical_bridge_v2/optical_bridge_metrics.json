@@ -1,0 +1,617 @@
+{
+  "experiment": "versioned hierarchy-to-optics bridge",
+  "date_utc": "2026-10-11",
+  "material_status": "synthetic; not silk/cotton/linen measurements",
+  "source_paper": "Tang et al. 2024, arXiv:2406.19398v3 (scope/reference, not reproduction)",
+  "assumptions": [
+    "dyeing/fading absent",
+    "circular fibers and explicit assigned materials",
+    "ray/Fresnel and Mitsuba hair use real index with Beer absorption",
+    "2D Maxwell is only evaluated for explicitly accepted local parallel bundles"
+  ],
+  "calibration_geometry": {
+    "schema_version": "textile-hierarchy/2.0",
+    "curve_basis": "polyline",
+    "yarn_count": 1,
+    "ply_count": 1,
+    "fiber_count": 7,
+    "vertex_count": 427,
+    "fiber_counts_by_material": {
+      "synthetic_A": 4,
+      "synthetic_B": 3
+    },
+    "total_fiber_length_mm": 2.1,
+    "cylinder_volume_proxy_mm3": 0.00010555751316061703,
+    "bounds_mm": [
+      [
+        -0.016,
+        -0.014392304845413264,
+        -0.154
+      ],
+      [
+        0.016,
+        0.014392304845413264,
+        0.154
+      ]
+    ],
+    "metadata": {
+      "centerline_sampling": "caller_supplied",
+      "geometry_tileable": false,
+      "physical_mechanics_solved": false,
+      "schema_version": "textile-hierarchy/2.0",
+      "length_unit": "mm"
+    }
+  },
+  "calibration_solver_runs": [
+    {
+      "wavelength_nm_vacuum": 450,
+      "polarization": "Ez",
+      "wave_Csca_um": 54.75215649559073,
+      "wave_Cabs_um": 2.6546523574139655,
+      "wave_Cback_um": 6.094142619920459,
+      "wave_relative_flux_residual": 8.486203517303161e-15,
+      "wave_linear_system_residual": 9.558692710306815e-16,
+      "ray_energy": {
+        "backward": 0.18353443056287527,
+        "collided_forward": 0.5703166576586408,
+        "uncollided_forward": 0.1691,
+        "absorbed": 0.07704891177848398,
+        "residual": 0.0
+      },
+      "ray_n_rays": 50000,
+      "fiber_material_counts": {
+        "synthetic_A": 4,
+        "synthetic_B": 3
+      }
+    },
+    {
+      "wavelength_nm_vacuum": 450,
+      "polarization": "Hz",
+      "wave_Csca_um": 53.13673405645085,
+      "wave_Cabs_um": 2.4502978276325607,
+      "wave_Cback_um": 4.32230178665636,
+      "wave_relative_flux_residual": 7.701472515895233e-15,
+      "wave_linear_system_residual": 1.0262746629045612e-15,
+      "ray_energy": {
+        "backward": 0.11174310655375361,
+        "collided_forward": 0.6471913633830261,
+        "uncollided_forward": 0.16348,
+        "absorbed": 0.07758553006322041,
+        "residual": 0.0
+      },
+      "ray_n_rays": 50000,
+      "fiber_material_counts": {
+        "synthetic_A": 4,
+        "synthetic_B": 3
+      }
+    },
+    {
+      "wavelength_nm_vacuum": 550,
+      "polarization": "Ez",
+      "wave_Csca_um": 43.2520945942655,
+      "wave_Cabs_um": 2.3045673079926488,
+      "wave_Cback_um": 6.108313571427772,
+      "wave_relative_flux_residual": 5.0007563140132016e-15,
+      "wave_linear_system_residual": 1.0798709551601653e-15,
+      "ray_energy": {
+        "backward": 0.1846588050403659,
+        "collided_forward": 0.5786845321364372,
+        "uncollided_forward": 0.1657,
+        "absorbed": 0.07095666282319696,
+        "residual": 0.0
+      },
+      "ray_n_rays": 50000,
+      "fiber_material_counts": {
+        "synthetic_A": 4,
+        "synthetic_B": 3
+      }
+    },
+    {
+      "wavelength_nm_vacuum": 550,
+      "polarization": "Hz",
+      "wave_Csca_um": 43.60201673928327,
+      "wave_Cabs_um": 2.4513580939410886,
+      "wave_Cback_um": 4.3349301174115675,
+      "wave_relative_flux_residual": 5.197536227822742e-15,
+      "wave_linear_system_residual": 1.057766498775633e-15,
+      "ray_energy": {
+        "backward": 0.11032819728202906,
+        "collided_forward": 0.6487652880001931,
+        "uncollided_forward": 0.17026,
+        "absorbed": 0.07064651471777787,
+        "residual": 0.0
+      },
+      "ray_n_rays": 50000,
+      "fiber_material_counts": {
+        "synthetic_A": 4,
+        "synthetic_B": 3
+      }
+    },
+    {
+      "wavelength_nm_vacuum": 650,
+      "polarization": "Ez",
+      "wave_Csca_um": 66.34596801611542,
+      "wave_Cabs_um": 2.0425368529375163,
+      "wave_Cback_um": 5.314386384746768,
+      "wave_relative_flux_residual": 6.4286873736073004e-15,
+      "wave_linear_system_residual": 1.050144349994298e-15,
+      "ray_energy": {
+        "backward": 0.18688314169042475,
+        "collided_forward": 0.5818016113286624,
+        "uncollided_forward": 0.1674,
+        "absorbed": 0.06391524698091279,
+        "residual": 0.0
+      },
+      "ray_n_rays": 50000,
+      "fiber_material_counts": {
+        "synthetic_A": 4,
+        "synthetic_B": 3
+      }
+    },
+    {
+      "wavelength_nm_vacuum": 650,
+      "polarization": "Hz",
+      "wave_Csca_um": 68.16233651021457,
+      "wave_Cabs_um": 2.7455696255048565,
+      "wave_Cback_um": 4.467464177185962,
+      "wave_relative_flux_residual": 6.457051128813017e-15,
+      "wave_linear_system_residual": 1.055733169371168e-15,
+      "ray_energy": {
+        "backward": 0.11202537304070334,
+        "collided_forward": 0.6563439627104773,
+        "uncollided_forward": 0.167,
+        "absorbed": 0.06463066424881926,
+        "residual": 0.0
+      },
+      "ray_n_rays": 50000,
+      "fiber_material_counts": {
+        "synthetic_A": 4,
+        "synthetic_B": 3
+      }
+    }
+  ],
+  "oblique_slice_sweep": [
+    {
+      "tilt_deg": 0.0,
+      "strict_eligible": true,
+      "local_eligible": true,
+      "measured_ellipse_area_ratio": 1.0,
+      "analytic_ellipse_area_ratio": 1.0
+    },
+    {
+      "tilt_deg": 0.04,
+      "strict_eligible": false,
+      "local_eligible": true,
+      "measured_ellipse_area_ratio": 1.0000002436939852,
+      "analytic_ellipse_area_ratio": 1.0000002436939852
+    },
+    {
+      "tilt_deg": 0.2,
+      "strict_eligible": false,
+      "local_eligible": false,
+      "measured_ellipse_area_ratio": 1.0000060923793264,
+      "analytic_ellipse_area_ratio": 1.0000060923793264
+    },
+    {
+      "tilt_deg": 1.0,
+      "strict_eligible": false,
+      "local_eligible": false,
+      "measured_ellipse_area_ratio": 1.0001523280439077,
+      "analytic_ellipse_area_ratio": 1.0001523280439077
+    },
+    {
+      "tilt_deg": 5.0,
+      "strict_eligible": false,
+      "local_eligible": false,
+      "measured_ellipse_area_ratio": 1.0038198375433474,
+      "analytic_ellipse_area_ratio": 1.0038198375433474
+    },
+    {
+      "tilt_deg": 15.0,
+      "strict_eligible": false,
+      "local_eligible": false,
+      "measured_ellipse_area_ratio": 1.035276180410083,
+      "analytic_ellipse_area_ratio": 1.035276180410083
+    },
+    {
+      "tilt_deg": 30.0,
+      "strict_eligible": false,
+      "local_eligible": false,
+      "measured_ellipse_area_ratio": 1.1547005383792517,
+      "analytic_ellipse_area_ratio": 1.1547005383792515
+    },
+    {
+      "tilt_deg": 60.0,
+      "strict_eligible": false,
+      "local_eligible": false,
+      "measured_ellipse_area_ratio": 1.9999999999999991,
+      "analytic_ellipse_area_ratio": 1.9999999999999996
+    }
+  ],
+  "twisted_yarn_slice_sweep": [
+    {
+      "fiber_twist_per_mm": 0.0,
+      "strict_eligible": true,
+      "max_tilt_deg": 0.0,
+      "max_tangent_change_deg": 0.0,
+      "max_centerline_deviation_mm": 0.0
+    },
+    {
+      "fiber_twist_per_mm": 0.1,
+      "strict_eligible": false,
+      "max_tilt_deg": 0.43198044541048297,
+      "max_tangent_change_deg": 0.004749878858395354,
+      "max_centerline_deviation_mm": 9.474224268095917e-07
+    },
+    {
+      "fiber_twist_per_mm": 0.5,
+      "strict_eligible": false,
+      "max_tilt_deg": 2.1575599866395656,
+      "max_tangent_change_deg": 0.11862163899996071,
+      "max_centerline_deviation_mm": 2.3649849440111105e-05
+    },
+    {
+      "fiber_twist_per_mm": 1.0,
+      "strict_eligible": false,
+      "max_tilt_deg": 4.300586870557641,
+      "max_tangent_change_deg": 0.4729301121351722,
+      "max_centerline_deviation_mm": 9.415528280460184e-05
+    },
+    {
+      "fiber_twist_per_mm": 2.0,
+      "strict_eligible": false,
+      "max_tilt_deg": 8.488026632334272,
+      "max_tangent_change_deg": 1.8674183896908048,
+      "max_centerline_deviation_mm": 0.0003696506250379472
+    }
+  ],
+  "fabric_geometry": {
+    "schema_version": "textile-hierarchy/2.0",
+    "curve_basis": "polyline",
+    "yarn_count": 7,
+    "ply_count": 14,
+    "fiber_count": 98,
+    "vertex_count": 24402,
+    "fiber_counts_by_material": {
+      "synthetic_A": 56,
+      "synthetic_B": 42
+    },
+    "total_fiber_length_mm": 87.9261441929961,
+    "cylinder_volume_proxy_mm3": 0.003531458637551025,
+    "bounds_mm": [
+      [
+        -0.404691137202782,
+        -0.4536936596802519,
+        -0.0795
+      ],
+      [
+        0.4047333275583754,
+        0.45372950453690536,
+        0.0795
+      ]
+    ],
+    "metadata": {
+      "length_unit": "mm",
+      "schema_version": "textile-hierarchy/2.0",
+      "draft_diagnostics": {
+        "weft_repeat": 4,
+        "warp_repeat": 4,
+        "warp_top_fraction": 0.5,
+        "unbound_warp_indices": [],
+        "unbound_weft_indices": [],
+        "every_yarn_interlaces_in_repeat": true,
+        "run_lengths": {
+          "warp_value_0_max_run_in_repeat": 2,
+          "warp_value_1_max_run_in_repeat": 2,
+          "weft_value_0_max_run_in_repeat": 2,
+          "weft_value_1_max_run_in_repeat": 2
+        },
+        "scope": "Binary single-layer topology diagnostics; no manufacturing certificate."
+      },
+      "visible_size_mm": [
+        0.6000000000000001,
+        0.72
+      ],
+      "crossing_center_distance_mm": 0.08299999999999999,
+      "nominal_crossing_envelope_gap_mm": 0.008,
+      "sampling_refinements": 1,
+      "samples_per_crossing_used": 56,
+      "max_fiber_segment_mm": 0.005078188782657423,
+      "max_polyline_turn_radians": 0.04515452980877438,
+      "max_parent_twist_or_migration_phase_step_rad": 0.03260423565220284,
+      "geometry_tileable": false,
+      "periodicity_scope": "Draft and unperturbed/wavy yarn centerlines repeat; nested twist/migration phases are not forced to close.",
+      "physical_mechanics_solved": false,
+      "clearance_scope": "Reference-section bounds only; run actual polyline capsule audit for global separation.",
+      "flyaway_scope": "Optional C2 outward loop excursion of an existing fiber; no duplicated fiber objects, but length/volume can change. No mass conservation or fitted staple statistics."
+    }
+  },
+  "fabric_polyline_clearance": {
+    "certified_separated": true,
+    "minimum_clearance_lower_bound_mm": 0.002,
+    "minimum_tested_clearance_mm": 0.003951724957880437,
+    "overlapping_capsule_pairs": 0,
+    "pairs_within_probe_margin": 0,
+    "tested_segment_pairs": 212657,
+    "total_segments": 24304,
+    "broadphase_radius_mm": 0.015078188782657423,
+    "probe_margin_mm": 0.002,
+    "closest_tested_fiber_pair": [
+      "weft:0000:weft/p1/f0001",
+      "weft:0000:weft/p1/f0004"
+    ],
+    "scope": "All pairs of DIFFERENT constant-radius polyline fibers; same-fiber self-contact excluded."
+  },
+  "mitsuba_exports": [
+    {
+      "wavelength_nm": 450,
+      "group_count": 4,
+      "groups": [
+        {
+          "material_id": "synthetic_A",
+          "radius_mm": 0.003,
+          "fiber_count": 24,
+          "n_real": 1.5,
+          "kappa": 7.16197243913529e-05,
+          "absorption_per_mm": 2.0,
+          "max_centerline_smoothing_bound_mm": 4.113835819723388e-05,
+          "float32_centerline_quantization_bound_mm": 1.6515571150545484e-08,
+          "float32_radius_quantization_bound_mm": 2.6077032026783353e-11
+        },
+        {
+          "material_id": "synthetic_A",
+          "radius_mm": 0.004,
+          "fiber_count": 32,
+          "n_real": 1.5,
+          "kappa": 7.16197243913529e-05,
+          "absorption_per_mm": 2.0,
+          "max_centerline_smoothing_bound_mm": 3.761198214382346e-05,
+          "float32_centerline_quantization_bound_mm": 2.0987392109754467e-08,
+          "float32_radius_quantization_bound_mm": 1.899898051382909e-10
+        },
+        {
+          "material_id": "synthetic_B",
+          "radius_mm": 0.003,
+          "fiber_count": 18,
+          "n_real": 1.63,
+          "kappa": 0.00042971834634811744,
+          "absorption_per_mm": 12.000000000000002,
+          "max_centerline_smoothing_bound_mm": 3.764572065678278e-05,
+          "float32_centerline_quantization_bound_mm": 1.6164814055930085e-08,
+          "float32_radius_quantization_bound_mm": 2.6077032026783353e-11
+        },
+        {
+          "material_id": "synthetic_B",
+          "radius_mm": 0.004,
+          "fiber_count": 24,
+          "n_real": 1.63,
+          "kappa": 0.00042971834634811744,
+          "absorption_per_mm": 12.000000000000002,
+          "max_centerline_smoothing_bound_mm": 3.506181909520909e-05,
+          "float32_centerline_quantization_bound_mm": 2.0823924458526454e-08,
+          "float32_radius_quantization_bound_mm": 1.899898051382909e-10
+        }
+      ],
+      "max_tube_displacement_bound_mm": 4.1154899845416455e-05,
+      "exported_tube_separation_lower_bound_mm": 0.0019176902003091671,
+      "separation_argument": "source capsule clearance minus 2*(smoothing + float32 center + radius error); different fibers only",
+      "scene_sha256": "e3bea2dc5068e39abdddaed5de122b0930a2080bbfc8c58d8f986fecd18a6658"
+    },
+    {
+      "wavelength_nm": 650,
+      "group_count": 4,
+      "groups": [
+        {
+          "material_id": "synthetic_A",
+          "radius_mm": 0.003,
+          "fiber_count": 24,
+          "n_real": 1.52,
+          "kappa": 0.0003103521390291959,
+          "absorption_per_mm": 5.999999999999999,
+          "max_centerline_smoothing_bound_mm": 4.113835819723388e-05,
+          "float32_centerline_quantization_bound_mm": 1.6515571150545484e-08,
+          "float32_radius_quantization_bound_mm": 2.6077032026783353e-11
+        },
+        {
+          "material_id": "synthetic_A",
+          "radius_mm": 0.004,
+          "fiber_count": 32,
+          "n_real": 1.52,
+          "kappa": 0.0003103521390291959,
+          "absorption_per_mm": 5.999999999999999,
+          "max_centerline_smoothing_bound_mm": 3.761198214382346e-05,
+          "float32_centerline_quantization_bound_mm": 2.0987392109754467e-08,
+          "float32_radius_quantization_bound_mm": 1.899898051382909e-10
+        },
+        {
+          "material_id": "synthetic_B",
+          "radius_mm": 0.003,
+          "fiber_count": 18,
+          "n_real": 1.61,
+          "kappa": 0.00020690142601946393,
+          "absorption_per_mm": 4.0,
+          "max_centerline_smoothing_bound_mm": 3.764572065678278e-05,
+          "float32_centerline_quantization_bound_mm": 1.6164814055930085e-08,
+          "float32_radius_quantization_bound_mm": 2.6077032026783353e-11
+        },
+        {
+          "material_id": "synthetic_B",
+          "radius_mm": 0.004,
+          "fiber_count": 24,
+          "n_real": 1.61,
+          "kappa": 0.00020690142601946393,
+          "absorption_per_mm": 4.0,
+          "max_centerline_smoothing_bound_mm": 3.506181909520909e-05,
+          "float32_centerline_quantization_bound_mm": 2.0823924458526454e-08,
+          "float32_radius_quantization_bound_mm": 1.899898051382909e-10
+        }
+      ],
+      "max_tube_displacement_bound_mm": 4.1154899845416455e-05,
+      "exported_tube_separation_lower_bound_mm": 0.0019176902003091671,
+      "separation_argument": "source capsule clearance minus 2*(smoothing + float32 center + radius error); different fibers only",
+      "scene_sha256": "e3bea2dc5068e39abdddaed5de122b0930a2080bbfc8c58d8f986fecd18a6658"
+    }
+  ],
+  "actual_render_runs": [
+    {
+      "scene_sha256": "e3bea2dc5068e39abdddaed5de122b0930a2080bbfc8c58d8f986fecd18a6658",
+      "mitsuba_version": "3.9.1",
+      "variant": "llvm_ad_rgb",
+      "mode": "reflection",
+      "resolution": 128,
+      "spp": 64,
+      "seed": 805,
+      "group_count": 4,
+      "wavelength_nm_vacuum": 450.0,
+      "mean_linear": 0.044497936964035034,
+      "max_linear": 1.3419289588928223,
+      "build_seconds": 0.23520124000060605,
+      "render_seconds": 2.180517798999972,
+      "quantity": "camera linear radiance average, not hemispherical reflectance",
+      "spectral_mode": "single-wavelength physical parameters in RGB scalar proxy",
+      "render_config": {
+        "resolution": 128,
+        "spp": 64,
+        "seed": 805,
+        "mode": "reflection",
+        "light_elevation_deg": 50,
+        "light_azimuth_deg": 25,
+        "light_halfwidth_deg": 7.0,
+        "view_elevation_deg": 90.0,
+        "view_azimuth_deg": -90.0,
+        "ior": 1.55,
+        "absorption_per_mm": 2.0,
+        "longitudinal_roughness": 0.18,
+        "azimuthal_roughness": 0.2,
+        "max_depth": -1,
+        "rr_depth": 8,
+        "exposure": 1.0,
+        "ambient": 0.0,
+        "width_fraction": 0.68
+      },
+      "material_parameter_source": "export manifest per material/radius; config material fields unused"
+    },
+    {
+      "scene_sha256": "e3bea2dc5068e39abdddaed5de122b0930a2080bbfc8c58d8f986fecd18a6658",
+      "mitsuba_version": "3.9.1",
+      "variant": "llvm_ad_rgb",
+      "mode": "transmission",
+      "resolution": 128,
+      "spp": 64,
+      "seed": 806,
+      "group_count": 4,
+      "wavelength_nm_vacuum": 450.0,
+      "mean_linear": 0.149977907538414,
+      "max_linear": 8.193285942077637,
+      "build_seconds": 0.02260739299981651,
+      "render_seconds": 1.7931141910003134,
+      "quantity": "camera linear radiance average, not hemispherical reflectance",
+      "spectral_mode": "single-wavelength physical parameters in RGB scalar proxy",
+      "render_config": {
+        "resolution": 128,
+        "spp": 64,
+        "seed": 806,
+        "mode": "transmission",
+        "light_elevation_deg": 50,
+        "light_azimuth_deg": 25,
+        "light_halfwidth_deg": 7.0,
+        "view_elevation_deg": 90.0,
+        "view_azimuth_deg": -90.0,
+        "ior": 1.55,
+        "absorption_per_mm": 2.0,
+        "longitudinal_roughness": 0.18,
+        "azimuthal_roughness": 0.2,
+        "max_depth": -1,
+        "rr_depth": 8,
+        "exposure": 1.0,
+        "ambient": 0.0,
+        "width_fraction": 0.68
+      },
+      "material_parameter_source": "export manifest per material/radius; config material fields unused"
+    },
+    {
+      "scene_sha256": "e3bea2dc5068e39abdddaed5de122b0930a2080bbfc8c58d8f986fecd18a6658",
+      "mitsuba_version": "3.9.1",
+      "variant": "llvm_ad_rgb",
+      "mode": "reflection",
+      "resolution": 128,
+      "spp": 64,
+      "seed": 807,
+      "group_count": 4,
+      "wavelength_nm_vacuum": 650.0,
+      "mean_linear": 0.046102166175842285,
+      "max_linear": 1.806200623512268,
+      "build_seconds": 0.02157450200047606,
+      "render_seconds": 1.8246138380000048,
+      "quantity": "camera linear radiance average, not hemispherical reflectance",
+      "spectral_mode": "single-wavelength physical parameters in RGB scalar proxy",
+      "render_config": {
+        "resolution": 128,
+        "spp": 64,
+        "seed": 807,
+        "mode": "reflection",
+        "light_elevation_deg": 50,
+        "light_azimuth_deg": 25,
+        "light_halfwidth_deg": 7.0,
+        "view_elevation_deg": 90.0,
+        "view_azimuth_deg": -90.0,
+        "ior": 1.55,
+        "absorption_per_mm": 2.0,
+        "longitudinal_roughness": 0.18,
+        "azimuthal_roughness": 0.2,
+        "max_depth": -1,
+        "rr_depth": 8,
+        "exposure": 1.0,
+        "ambient": 0.0,
+        "width_fraction": 0.68
+      },
+      "material_parameter_source": "export manifest per material/radius; config material fields unused"
+    },
+    {
+      "scene_sha256": "e3bea2dc5068e39abdddaed5de122b0930a2080bbfc8c58d8f986fecd18a6658",
+      "mitsuba_version": "3.9.1",
+      "variant": "llvm_ad_rgb",
+      "mode": "transmission",
+      "resolution": 128,
+      "spp": 64,
+      "seed": 808,
+      "group_count": 4,
+      "wavelength_nm_vacuum": 650.0,
+      "mean_linear": 0.15193277597427368,
+      "max_linear": 9.106987953186035,
+      "build_seconds": 0.010252734999994573,
+      "render_seconds": 2.4735212630002934,
+      "quantity": "camera linear radiance average, not hemispherical reflectance",
+      "spectral_mode": "single-wavelength physical parameters in RGB scalar proxy",
+      "render_config": {
+        "resolution": 128,
+        "spp": 64,
+        "seed": 808,
+        "mode": "transmission",
+        "light_elevation_deg": 50,
+        "light_azimuth_deg": 25,
+        "light_halfwidth_deg": 7.0,
+        "view_elevation_deg": 90.0,
+        "view_azimuth_deg": -90.0,
+        "ior": 1.55,
+        "absorption_per_mm": 2.0,
+        "longitudinal_roughness": 0.18,
+        "azimuthal_roughness": 0.2,
+        "max_depth": -1,
+        "rr_depth": 8,
+        "exposure": 1.0,
+        "ambient": 0.0,
+        "width_fraction": 0.68
+      },
+      "material_parameter_source": "export manifest per material/radius; config material fields unused"
+    }
+  ],
+  "render_status": "executed",
+  "elapsed_seconds": 16.402306779000355,
+  "scope": [
+    "actual generated 3D fiber geometry is shared by optical export and statistics",
+    "exact 2D wave/ray inputs only for the accepted straight calibration yarn",
+    "no Tang2024/ASGGX fitting, no full Yu2025 wave-to-3D BSDF coupling",
+    "monochromatic proxy render values are camera radiance, not spectral color or hemispheric RT"
+  ]
+}

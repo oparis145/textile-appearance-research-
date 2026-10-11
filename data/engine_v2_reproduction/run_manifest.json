@@ -1,0 +1,533 @@
+{
+  "schema": "textile-engine-v2-run/1.0",
+  "root": "/workspace/scratch/2b957533e88d/textile_optics_engine",
+  "output": "/workspace/scratch/2b957533e88d/textile_optics_engine/data/engine_v2_reproduction",
+  "selected_stages": [
+    "geometry",
+    "refinement",
+    "optics"
+  ],
+  "requested_stages": [
+    "geometry",
+    "refinement",
+    "optics"
+  ],
+  "no_experiment_render": true,
+  "invocation": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "/workspace/scratch/2b957533e88d/textile_optics_engine/run_engine_v2.py",
+    "--stages",
+    "geometry",
+    "refinement",
+    "optics",
+    "--no-render",
+    "--output",
+    "data/engine_v2_reproduction"
+  ],
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "python_executable": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+    "packages_on_python_path": {
+      "numpy": "2.3.5",
+      "scipy": "1.17.0",
+      "matplotlib": "3.10.8",
+      "pillow": "12.3.0",
+      "mitsuba": null,
+      "drjit": null
+    },
+    "numeric_threads": {
+      "OPENBLAS_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    },
+    "MPLBACKEND": "Agg",
+    "version_scope": "Distribution metadata; renderer also records its actually loaded version."
+  },
+  "input_sha256": {
+    "examples/hierarchy/basket_rectangular_three_ply.json": "811e8c3140dd494dd8eacc08c64202f2690602a4f724e0f31b5e43c476fcb885",
+    "examples/hierarchy/plain_single_ply.json": "eccb0aa7ee9a84550be4351cef58fe99d448d775df1ed327d4b445076f0864ba",
+    "examples/hierarchy/twill_loop_excursions.json": "ceba79d734e24222d253e11f96b87e9e3543ceb8dbd46af76df2123a952db5ed",
+    "examples/hierarchy/twill_migration_waviness.json": "0cc077f69cc11ec05357d8e2616891a3f86bdc662196b6672fc14c47007cd78d",
+    "examples/hierarchy/twill_two_ply.json": "4b38f19b4d9c23c64732edc304e456e144dc450959b52391b82c094439548f3e",
+    "package_results.py": "d84e4ef3969edc44372627c5306be94bcf0a4035a943876cbac45785232f5f14",
+    "requirements.txt": "23ee0bb10e90787a79f489879e393e92e78ff7b24e8d374a0c4155b1d18e4a12",
+    "run_all.py": "3222cb4bcb8aa8614b2e4e73dddf0dd41192593d7c2d4723b31f5cd2042952e4",
+    "run_engine_v2.py": "eadbae8ac7a97bda6c79cd59bb7dfa52d70400a7d8fd3e4bdec186f0bc455845",
+    "run_fabric_experiments.py": "83ff37c96d42bf9cab7c0e4de37d927bf400b9a6b19540504cf0551f9482452c",
+    "run_optical_bridge_experiments.py": "fc686552c0ec8068e90047865d67a6bf34817eb0c2ae2724996fd0ed12e11563",
+    "tests/test_angular_measurement.py": "c2e134c793547c80828a0da09ae91ac99597b4319c33a3ed4d03e2e017da22d8",
+    "tests/test_angular_surrogate.py": "82cd46156378fefd10185395a66d216461fff70fd836f483ce11332e63780fa0",
+    "tests/test_aperture_wave.py": "e705894bd6fc2b390389cdc34aec331dcb49d1329d18494e608b95ff07ac9327",
+    "tests/test_camera.py": "b9ab3c70ffe07ca35b866ecc17466ce1c784aabdd8496f1c48b0cc6bc9c2c8e2",
+    "tests/test_engine_v2_cli.py": "46da0da3749c784e24a20fda875b4f3bb8b66d316e50ca401386a06de06a2079",
+    "tests/test_engine_v2_review.py": "692e04eaf2bf16f31e124567859676998c10f6f9301d0ff52b6c546a9a70c0f5",
+    "tests/test_fiber_wave.py": "ccb4d86a5ba30973549b5435f91ec29f81ed764624f9f9ba96611100261baf25",
+    "tests/test_fiber_wave_beam.py": "24ff523d6c2ef5ffff10a708dde5aa58ea9bc29d85538d9533597f8b8032f1f3",
+    "tests/test_geometry.py": "6235b64d968bea59351673e415c5d0ef52e575c04a585d1324afea21c80eccd1",
+    "tests/test_hierarchy.py": "c2206d3e9a4356598bd0e68a73c7ed2220bc04104247a60ee7858650bedbd6de",
+    "tests/test_meta_optics.py": "e112ef0d41ebe73f4ade11b81303ff1ec1bb48bd2583fb72b837cb51953bd5ed",
+    "tests/test_optical_scene.py": "a51d6f0f2cb4eaa47664de24df160f29b4e9c0ccbcfbb064f5ac0aac3a34b373",
+    "tests/test_ply_ray.py": "db69e806a034281e3068e6697f79f225c791c12021512177b48c40c08e94791c",
+    "tests/test_render.py": "ed446d5c1b4a71f180ecdae9708c4fae3950f88d2ad6fc6aa92c305e5ec48673",
+    "tests/test_render_physics.py": "bd58f87d71eb2cbabc2b079e37577eff1b66dfc26ccc454bd2852e2bae66cf0a",
+    "tests/test_weave_draft.py": "466b083e2a76d99f7721536da0d6c76b77b582f5edb5c87789789a69d75100d1",
+    "textile_sim/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "textile_sim/angular_measurement.py": "ad641d1691ff4ed50313f4ff007fef7ba72f0aa27f1c4bce992752bc2affac79",
+    "textile_sim/angular_surrogate.py": "188341f88b89a7462c95f43aed577e78f2486c5ec179bdfc88701e27c979de2b",
+    "textile_sim/aperture_wave.py": "cd8c4147573ada0acccc32ed16434067dbc761e708f329aef8f2b6d80312f986",
+    "textile_sim/camera.py": "e59614eab1fc89c50d52c8441bae15dbba3187dfa2a1b22d2cfbf53215ef5336",
+    "textile_sim/fiber_wave.py": "315d35f57cd0748b05a1d941d44ceee8324dacc6ae15822a23c0b85ea3951bac",
+    "textile_sim/fiber_wave_beam.py": "ccbb7fb3993755dec46b1eadbd80b833eb619a14b915bcd4944e85b578f76360",
+    "textile_sim/geometry.py": "9a84cef0b62ee9702074b908eff3105e303a6371c650c51c98f919212fa980fc",
+    "textile_sim/hierarchy.py": "0ccea74ef08c735cbcf9c22682bd7a51a59423efb9599e743d23f1cb08ca3a73",
+    "textile_sim/meta_optics.py": "b8542e688934dea1e16bb07556869a7db4f6583ed64f932a66abab69ab36a3da",
+    "textile_sim/optical_scene.py": "8575c32cba21d784c1b6d19d3fa66723e0331d4a1be99756322efd488044e061",
+    "textile_sim/ply_ray.py": "d78b7e6270770161945481ecd7c303b22a870db825fffa5fed748b5d7af8d91a",
+    "textile_sim/render.py": "704c6052f0e22e0b0644137d1960fd175126ad7ed801f396163056aa6ade5ac9",
+    "textile_sim/weave_draft.py": "13704a2ade4f6ea7c9f43de0c23e077861c2094fbcd937ec13ca3b2d52efc540",
+    "validate_all.py": "cb469c71c2ddb735900692a003f6fa0f7f372e10e59895c6021fea3935c5a2cf",
+    "validate_render.py": "58d72df33998da7d80bd7f2c200d7c2ecbce57b8483e65be5503a0faefe71a02"
+  },
+  "scope": "Reproduces synthetic geometric/numerical experiments; does not establish measured fabric fidelity.",
+  "status": "passed",
+  "started_utc": "2026-10-11T09:12:55.221454+00:00",
+  "records": [
+    {
+      "stage": "geometry",
+      "case": "plain_single_ply",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-u",
+        "-m",
+        "textile_sim.hierarchy",
+        "--config",
+        "/workspace/scratch/2b957533e88d/textile_optics_engine/examples/hierarchy/plain_single_ply.json",
+        "--out",
+        "/workspace/scratch/2b957533e88d/textile_optics_engine/data/engine_v2_reproduction/hierarchy_v2/plain_single_ply",
+        "--max-candidate-pairs",
+        "8000000"
+      ],
+      "output_directory": "/workspace/scratch/2b957533e88d/textile_optics_engine/data/engine_v2_reproduction/hierarchy_v2/plain_single_ply",
+      "required_outputs": [
+        "hierarchy_geometry.npz",
+        "hierarchy_geometry.json",
+        "hierarchy_metrics.json"
+      ],
+      "cwd": "/workspace/scratch/2b957533e88d/textile_optics_engine",
+      "started_utc": "2026-10-11T09:12:55.221713+00:00",
+      "status": "passed",
+      "log": "logs/01_geometry_plain_single_ply.log",
+      "finished_utc": "2026-10-11T09:12:56.879662+00:00",
+      "elapsed_seconds": 1.6573041060000833,
+      "exit_code": 0,
+      "log_sha256": "829555c18d352a9c43163dbf2dba65024f582ac2c1f88896069d5c3f0ffe7b03",
+      "output_sha256": {
+        "hierarchy_v2/plain_single_ply/hierarchy_geometry.json": "cef1d5e2611baea5880b99eadf68a606b54bbe4419c7f269bd9e2fb3b64d9af6",
+        "hierarchy_v2/plain_single_ply/hierarchy_geometry.npz": "b530fedafdc41a77a86b28ea93491750a054edbca51b8c63c0950264d5e10d5f",
+        "hierarchy_v2/plain_single_ply/hierarchy_metrics.json": "58d5dba5b196be81d22eee0bb115938e31fb23caef98906191aadcf966dc656d"
+      }
+    },
+    {
+      "stage": "geometry",
+      "case": "twill_two_ply",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-u",
+        "-m",
+        "textile_sim.hierarchy",
+        "--config",
+        "/workspace/scratch/2b957533e88d/textile_optics_engine/examples/hierarchy/twill_two_ply.json",
+        "--out",
+        "/workspace/scratch/2b957533e88d/textile_optics_engine/data/engine_v2_reproduction/hierarchy_v2/twill_two_ply",
+        "--max-candidate-pairs",
+        "8000000"
+      ],
+      "output_directory": "/workspace/scratch/2b957533e88d/textile_optics_engine/data/engine_v2_reproduction/hierarchy_v2/twill_two_ply",
+      "required_outputs": [
+        "hierarchy_geometry.npz",
+        "hierarchy_geometry.json",
+        "hierarchy_metrics.json"
+      ],
+      "cwd": "/workspace/scratch/2b957533e88d/textile_optics_engine",
+      "started_utc": "2026-10-11T09:12:56.882437+00:00",
+      "status": "passed",
+      "log": "logs/02_geometry_twill_two_ply.log",
+      "finished_utc": "2026-10-11T09:12:58.981434+00:00",
+      "elapsed_seconds": 2.0982280209991586,
+      "exit_code": 0,
+      "log_sha256": "bfb479a5a00a21ec0efe9439350e4e0d58ca8bcc595554a20c22d3f329d02a08",
+      "output_sha256": {
+        "hierarchy_v2/twill_two_ply/hierarchy_geometry.json": "c42e321add84d0c64475d4e0c1df805931f1a505e0dad9d63e720630e00c61f4",
+        "hierarchy_v2/twill_two_ply/hierarchy_geometry.npz": "28d2f725ad0a75be611d771ae527a899be17f4730abc67c96942a3b9d8fcfeee",
+        "hierarchy_v2/twill_two_ply/hierarchy_metrics.json": "feccb2b473a4c2162d5abb24bb81e9240f002295ceadc974b9388ac094f3c663"
+      }
+    },
+    {
+      "stage": "geometry",
+      "case": "basket_rectangular_three_ply",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-u",
+        "-m",
+        "textile_sim.hierarchy",
+        "--config",
+        "/workspace/scratch/2b957533e88d/textile_optics_engine/examples/hierarchy/basket_rectangular_three_ply.json",
+        "--out",
+        "/workspace/scratch/2b957533e88d/textile_optics_engine/data/engine_v2_reproduction/hierarchy_v2/basket_rectangular_three_ply",
+        "--max-candidate-pairs",
+        "8000000"
+      ],
+      "output_directory": "/workspace/scratch/2b957533e88d/textile_optics_engine/data/engine_v2_reproduction/hierarchy_v2/basket_rectangular_three_ply",
+      "required_outputs": [
+        "hierarchy_geometry.npz",
+        "hierarchy_geometry.json",
+        "hierarchy_metrics.json"
+      ],
+      "cwd": "/workspace/scratch/2b957533e88d/textile_optics_engine",
+      "started_utc": "2026-10-11T09:12:58.984366+00:00",
+      "status": "passed",
+      "log": "logs/03_geometry_basket_rectangular_three_ply.log",
+      "finished_utc": "2026-10-11T09:13:01.058060+00:00",
+      "elapsed_seconds": 2.07259361800061,
+      "exit_code": 0,
+      "log_sha256": "4f2c74550aee729819705133e19e981deb10985b62cdc12a1b8dc756776101e6",
+      "output_sha256": {
+        "hierarchy_v2/basket_rectangular_three_ply/hierarchy_geometry.json": "0b6e4445724f219bec28cb7321016d77d944a65c2d31ee12c46c743079dc5fd4",
+        "hierarchy_v2/basket_rectangular_three_ply/hierarchy_geometry.npz": "d499dca375ad7edfe756a2f3dfd8b851e33a44b918e278c8d07f094b395ec994",
+        "hierarchy_v2/basket_rectangular_three_ply/hierarchy_metrics.json": "43ac83cd45298940090df93f791590b2c7b5199857870bd6dbc68d2d07bddc2e"
+      }
+    },
+    {
+      "stage": "geometry",
+      "case": "twill_migration_waviness",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-u",
+        "-m",
+        "textile_sim.hierarchy",
+        "--config",
+        "/workspace/scratch/2b957533e88d/textile_optics_engine/examples/hierarchy/twill_migration_waviness.json",
+        "--out",
+        "/workspace/scratch/2b957533e88d/textile_optics_engine/data/engine_v2_reproduction/hierarchy_v2/twill_migration_waviness",
+        "--max-candidate-pairs",
+        "8000000"
+      ],
+      "output_directory": "/workspace/scratch/2b957533e88d/textile_optics_engine/data/engine_v2_reproduction/hierarchy_v2/twill_migration_waviness",
+      "required_outputs": [
+        "hierarchy_geometry.npz",
+        "hierarchy_geometry.json",
+        "hierarchy_metrics.json"
+      ],
+      "cwd": "/workspace/scratch/2b957533e88d/textile_optics_engine",
+      "started_utc": "2026-10-11T09:13:01.062090+00:00",
+      "status": "passed",
+      "log": "logs/04_geometry_twill_migration_waviness.log",
+      "finished_utc": "2026-10-11T09:13:02.641692+00:00",
+      "elapsed_seconds": 1.578840748001312,
+      "exit_code": 0,
+      "log_sha256": "f70e1cfc4cb5d10cb26246e7a5fc90959ba196ca46f39d3482b288c866a77317",
+      "output_sha256": {
+        "hierarchy_v2/twill_migration_waviness/hierarchy_geometry.json": "68b7073c1a57035d03eee49b39c6af36b30c2ccdc886de8525185e6564d6ee3b",
+        "hierarchy_v2/twill_migration_waviness/hierarchy_geometry.npz": "3acb3090a3b932a315504fe6473dd3d71cd48d3f3e7bf5df2a52847b4c2aa1da",
+        "hierarchy_v2/twill_migration_waviness/hierarchy_metrics.json": "4e46c0cd299c06a2276c8f0bcddb8cab96d2594cef84cb1d0ac67384c7da9046"
+      }
+    },
+    {
+      "stage": "geometry",
+      "case": "twill_loop_excursions",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-u",
+        "-m",
+        "textile_sim.hierarchy",
+        "--config",
+        "/workspace/scratch/2b957533e88d/textile_optics_engine/examples/hierarchy/twill_loop_excursions.json",
+        "--out",
+        "/workspace/scratch/2b957533e88d/textile_optics_engine/data/engine_v2_reproduction/hierarchy_v2/twill_loop_excursions",
+        "--max-candidate-pairs",
+        "8000000"
+      ],
+      "output_directory": "/workspace/scratch/2b957533e88d/textile_optics_engine/data/engine_v2_reproduction/hierarchy_v2/twill_loop_excursions",
+      "required_outputs": [
+        "hierarchy_geometry.npz",
+        "hierarchy_geometry.json",
+        "hierarchy_metrics.json"
+      ],
+      "cwd": "/workspace/scratch/2b957533e88d/textile_optics_engine",
+      "started_utc": "2026-10-11T09:13:02.644989+00:00",
+      "status": "passed",
+      "log": "logs/05_geometry_twill_loop_excursions.log",
+      "finished_utc": "2026-10-11T09:13:05.471882+00:00",
+      "elapsed_seconds": 2.826247457000136,
+      "exit_code": 0,
+      "log_sha256": "d4ffd71478cada9d2469f048a11c06e8c6f5e779b41a542be42e494707db58cf",
+      "output_sha256": {
+        "hierarchy_v2/twill_loop_excursions/hierarchy_geometry.json": "6778c47e02a265d1d9075b337b495cbe6f205cca3e54bfb0f90f3e914ff72d20",
+        "hierarchy_v2/twill_loop_excursions/hierarchy_geometry.npz": "9335960681de96962af9888afefe9f509238839f0e9a903e49fe861a00682082",
+        "hierarchy_v2/twill_loop_excursions/hierarchy_metrics.json": "70261906519232f142c1ff6405ee0b54857ee52dacea36684d1c60fd44157e3c"
+      }
+    },
+    {
+      "stage": "refinement",
+      "case": "plain_single_ply",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-u",
+        "/workspace/scratch/2b957533e88d/textile_optics_engine/run_engine_v2.py",
+        "--_worker",
+        "refinement",
+        "--_config",
+        "/workspace/scratch/2b957533e88d/textile_optics_engine/examples/hierarchy/plain_single_ply.json",
+        "--output",
+        "/workspace/scratch/2b957533e88d/textile_optics_engine/data/engine_v2_reproduction/refinement/plain_single_ply"
+      ],
+      "output_directory": "/workspace/scratch/2b957533e88d/textile_optics_engine/data/engine_v2_reproduction/refinement/plain_single_ply",
+      "required_outputs": [
+        "sampling_refinement_metrics.json"
+      ],
+      "cwd": "/workspace/scratch/2b957533e88d/textile_optics_engine",
+      "started_utc": "2026-10-11T09:13:05.476374+00:00",
+      "status": "passed",
+      "log": "logs/06_refinement_plain_single_ply.log",
+      "finished_utc": "2026-10-11T09:13:06.942280+00:00",
+      "elapsed_seconds": 1.4650403070008906,
+      "exit_code": 0,
+      "log_sha256": "4e7805c74108949026d6b2289b798e5d6ca4a9d285e6dfe5495cebc0bb66ba9b",
+      "output_sha256": {
+        "refinement/plain_single_ply/sampling_refinement_metrics.json": "4e7805c74108949026d6b2289b798e5d6ca4a9d285e6dfe5495cebc0bb66ba9b"
+      }
+    },
+    {
+      "stage": "refinement",
+      "case": "twill_two_ply",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-u",
+        "/workspace/scratch/2b957533e88d/textile_optics_engine/run_engine_v2.py",
+        "--_worker",
+        "refinement",
+        "--_config",
+        "/workspace/scratch/2b957533e88d/textile_optics_engine/examples/hierarchy/twill_two_ply.json",
+        "--output",
+        "/workspace/scratch/2b957533e88d/textile_optics_engine/data/engine_v2_reproduction/refinement/twill_two_ply"
+      ],
+      "output_directory": "/workspace/scratch/2b957533e88d/textile_optics_engine/data/engine_v2_reproduction/refinement/twill_two_ply",
+      "required_outputs": [
+        "sampling_refinement_metrics.json"
+      ],
+      "cwd": "/workspace/scratch/2b957533e88d/textile_optics_engine",
+      "started_utc": "2026-10-11T09:13:06.943253+00:00",
+      "status": "passed",
+      "log": "logs/07_refinement_twill_two_ply.log",
+      "finished_utc": "2026-10-11T09:13:09.861097+00:00",
+      "elapsed_seconds": 2.9161574890003976,
+      "exit_code": 0,
+      "log_sha256": "8343d2332ccef14374c76c15608766c9857435722b508b6d6324c52ea3c23517",
+      "output_sha256": {
+        "refinement/twill_two_ply/sampling_refinement_metrics.json": "8343d2332ccef14374c76c15608766c9857435722b508b6d6324c52ea3c23517"
+      }
+    },
+    {
+      "stage": "refinement",
+      "case": "basket_rectangular_three_ply",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-u",
+        "/workspace/scratch/2b957533e88d/textile_optics_engine/run_engine_v2.py",
+        "--_worker",
+        "refinement",
+        "--_config",
+        "/workspace/scratch/2b957533e88d/textile_optics_engine/examples/hierarchy/basket_rectangular_three_ply.json",
+        "--output",
+        "/workspace/scratch/2b957533e88d/textile_optics_engine/data/engine_v2_reproduction/refinement/basket_rectangular_three_ply"
+      ],
+      "output_directory": "/workspace/scratch/2b957533e88d/textile_optics_engine/data/engine_v2_reproduction/refinement/basket_rectangular_three_ply",
+      "required_outputs": [
+        "sampling_refinement_metrics.json"
+      ],
+      "cwd": "/workspace/scratch/2b957533e88d/textile_optics_engine",
+      "started_utc": "2026-10-11T09:13:09.862396+00:00",
+      "status": "passed",
+      "log": "logs/08_refinement_basket_rectangular_three_ply.log",
+      "finished_utc": "2026-10-11T09:13:13.194762+00:00",
+      "elapsed_seconds": 3.3311549600002763,
+      "exit_code": 0,
+      "log_sha256": "af320f3dfd0f65a2eea5be27b52d3c9dc3b9ac580d1040556eeeef2cdb2398ff",
+      "output_sha256": {
+        "refinement/basket_rectangular_three_ply/sampling_refinement_metrics.json": "af320f3dfd0f65a2eea5be27b52d3c9dc3b9ac580d1040556eeeef2cdb2398ff"
+      }
+    },
+    {
+      "stage": "refinement",
+      "case": "twill_migration_waviness",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-u",
+        "/workspace/scratch/2b957533e88d/textile_optics_engine/run_engine_v2.py",
+        "--_worker",
+        "refinement",
+        "--_config",
+        "/workspace/scratch/2b957533e88d/textile_optics_engine/examples/hierarchy/twill_migration_waviness.json",
+        "--output",
+        "/workspace/scratch/2b957533e88d/textile_optics_engine/data/engine_v2_reproduction/refinement/twill_migration_waviness"
+      ],
+      "output_directory": "/workspace/scratch/2b957533e88d/textile_optics_engine/data/engine_v2_reproduction/refinement/twill_migration_waviness",
+      "required_outputs": [
+        "sampling_refinement_metrics.json"
+      ],
+      "cwd": "/workspace/scratch/2b957533e88d/textile_optics_engine",
+      "started_utc": "2026-10-11T09:13:13.195793+00:00",
+      "status": "passed",
+      "log": "logs/09_refinement_twill_migration_waviness.log",
+      "finished_utc": "2026-10-11T09:13:16.322893+00:00",
+      "elapsed_seconds": 3.1263519050007744,
+      "exit_code": 0,
+      "log_sha256": "06ea0b168124249424ead93367581f74b9d8f0821f75f017c62c8129f6ab3a77",
+      "output_sha256": {
+        "refinement/twill_migration_waviness/sampling_refinement_metrics.json": "06ea0b168124249424ead93367581f74b9d8f0821f75f017c62c8129f6ab3a77"
+      }
+    },
+    {
+      "stage": "refinement",
+      "case": "twill_loop_excursions",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-u",
+        "/workspace/scratch/2b957533e88d/textile_optics_engine/run_engine_v2.py",
+        "--_worker",
+        "refinement",
+        "--_config",
+        "/workspace/scratch/2b957533e88d/textile_optics_engine/examples/hierarchy/twill_loop_excursions.json",
+        "--output",
+        "/workspace/scratch/2b957533e88d/textile_optics_engine/data/engine_v2_reproduction/refinement/twill_loop_excursions"
+      ],
+      "output_directory": "/workspace/scratch/2b957533e88d/textile_optics_engine/data/engine_v2_reproduction/refinement/twill_loop_excursions",
+      "required_outputs": [
+        "sampling_refinement_metrics.json"
+      ],
+      "cwd": "/workspace/scratch/2b957533e88d/textile_optics_engine",
+      "started_utc": "2026-10-11T09:13:16.324212+00:00",
+      "status": "passed",
+      "log": "logs/10_refinement_twill_loop_excursions.log",
+      "finished_utc": "2026-10-11T09:13:21.491624+00:00",
+      "elapsed_seconds": 5.166549392999514,
+      "exit_code": 0,
+      "log_sha256": "7f214d0b2f4ac64464b90aa448f245ebe748fd67864aa768ed9adf24356fb5c2",
+      "output_sha256": {
+        "refinement/twill_loop_excursions/sampling_refinement_metrics.json": "7f214d0b2f4ac64464b90aa448f245ebe748fd67864aa768ed9adf24356fb5c2"
+      }
+    },
+    {
+      "stage": "optics",
+      "case": "",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-u",
+        "/workspace/scratch/2b957533e88d/textile_optics_engine/run_optical_bridge_experiments.py",
+        "--output",
+        "/workspace/scratch/2b957533e88d/textile_optics_engine/data/engine_v2_reproduction/optical_bridge_v2",
+        "--resolution",
+        "128",
+        "--spp",
+        "64",
+        "--skip-render"
+      ],
+      "output_directory": "/workspace/scratch/2b957533e88d/textile_optics_engine/data/engine_v2_reproduction/optical_bridge_v2",
+      "required_outputs": [
+        "optical_bridge_metrics.json"
+      ],
+      "cwd": "/workspace/scratch/2b957533e88d/textile_optics_engine",
+      "started_utc": "2026-10-11T09:13:21.492705+00:00",
+      "status": "passed",
+      "log": "logs/11_optics.log",
+      "finished_utc": "2026-10-11T09:13:29.141949+00:00",
+      "elapsed_seconds": 7.648513248999734,
+      "exit_code": 0,
+      "log_sha256": "1537ea37ace4b9e57c0fd264e2f29bd45c4b97adabf8475711dec38388489f35",
+      "output_sha256": {
+        "optical_bridge_v2/calibration_optical_arrays.npz": "744e33e5efdddbfcfe13f9c9947ec3a51890041dda67b67d292143ad4e34e4bd",
+        "optical_bridge_v2/calibration_scene.json": "cec7453206d75c8e14bfbbe36f0ea647a45ac12c8cf79ba27713bea3c1b1e9e6",
+        "optical_bridge_v2/calibration_section.json": "02fc8c92e554f6cd353ebf77c340cbe94f54f9ac73f0d1746fda2926b8cf5685",
+        "optical_bridge_v2/fabric_geometry/hierarchy_geometry.json": "1cd97c38e2ecf56ab7a65b2caeea51117b4445a340e49235da0a55aff57cf98c",
+        "optical_bridge_v2/fabric_geometry/hierarchy_geometry.npz": "1f027ddc4eb3c0123cba9b61670819ee2f15f826f348c755470746db92fb8a8f",
+        "optical_bridge_v2/fabric_microstructure.json": "a654b04458659aa5c4c10590579d59d544b7bcad444dfeb36ccceec684e51ab9",
+        "optical_bridge_v2/fabric_polyline_clearance.json": "f1b899babd7ae29a077bf21d52078be2f92ab9683c1d3ae42e27f2f2718e399c",
+        "optical_bridge_v2/fabric_scene.json": "79db2d3af39a48e6b0447020043b9f3b77c7aeeb42142d7c53a8461fa3ec985f",
+        "optical_bridge_v2/mitsuba_450nm/group_0000.curves": "15290d63464f9cba0d8ce31fc70616ad11f4316db7337fd825a84072d102f48c",
+        "optical_bridge_v2/mitsuba_450nm/group_0001.curves": "765211784e10b7da4a934524d17cbec9bfef1a56db991a2f50c8d597f187d928",
+        "optical_bridge_v2/mitsuba_450nm/group_0002.curves": "9a431682301776e1e39b7bdbd702ca8bd9faaf94e4f7e4af629be87dbb464651",
+        "optical_bridge_v2/mitsuba_450nm/group_0003.curves": "7c1d7dec36e60223c2de164c396af5788c102b38178132e5a5b5ad5130d6dd86",
+        "optical_bridge_v2/mitsuba_450nm/manifest.json": "869ffde4b555d6ab01d1233d2a81e269007196f5952c251c906771f2681f156e",
+        "optical_bridge_v2/mitsuba_650nm/group_0000.curves": "15290d63464f9cba0d8ce31fc70616ad11f4316db7337fd825a84072d102f48c",
+        "optical_bridge_v2/mitsuba_650nm/group_0001.curves": "765211784e10b7da4a934524d17cbec9bfef1a56db991a2f50c8d597f187d928",
+        "optical_bridge_v2/mitsuba_650nm/group_0002.curves": "9a431682301776e1e39b7bdbd702ca8bd9faaf94e4f7e4af629be87dbb464651",
+        "optical_bridge_v2/mitsuba_650nm/group_0003.curves": "7c1d7dec36e60223c2de164c396af5788c102b38178132e5a5b5ad5130d6dd86",
+        "optical_bridge_v2/mitsuba_650nm/manifest.json": "4d7c80181e6e63dc9e90b7054e257fcd188f8ba0267d0417fd3edd4ed9c83f1a",
+        "optical_bridge_v2/optical_bridge_diagnostics.png": "71cb2fbadc1c043ddff833fb1d4ddddc4ea56e69d8bf42220f63ff82d5795351",
+        "optical_bridge_v2/optical_bridge_metrics.json": "e0b4ee3e851fe8b2ee15752513d10ac76d5a9a8bead890f944d979f4398b521e"
+      }
+    }
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 33.93087525499868,
+  "finished_utc": "2026-10-11T09:13:29.152560+00:00",
+  "unexecuted_commands": [],
+  "output_sha256": {
+    "hierarchy_v2/basket_rectangular_three_ply/hierarchy_geometry.json": "0b6e4445724f219bec28cb7321016d77d944a65c2d31ee12c46c743079dc5fd4",
+    "hierarchy_v2/basket_rectangular_three_ply/hierarchy_geometry.npz": "d499dca375ad7edfe756a2f3dfd8b851e33a44b918e278c8d07f094b395ec994",
+    "hierarchy_v2/basket_rectangular_three_ply/hierarchy_metrics.json": "43ac83cd45298940090df93f791590b2c7b5199857870bd6dbc68d2d07bddc2e",
+    "hierarchy_v2/plain_single_ply/hierarchy_geometry.json": "cef1d5e2611baea5880b99eadf68a606b54bbe4419c7f269bd9e2fb3b64d9af6",
+    "hierarchy_v2/plain_single_ply/hierarchy_geometry.npz": "b530fedafdc41a77a86b28ea93491750a054edbca51b8c63c0950264d5e10d5f",
+    "hierarchy_v2/plain_single_ply/hierarchy_metrics.json": "58d5dba5b196be81d22eee0bb115938e31fb23caef98906191aadcf966dc656d",
+    "hierarchy_v2/twill_loop_excursions/hierarchy_geometry.json": "6778c47e02a265d1d9075b337b495cbe6f205cca3e54bfb0f90f3e914ff72d20",
+    "hierarchy_v2/twill_loop_excursions/hierarchy_geometry.npz": "9335960681de96962af9888afefe9f509238839f0e9a903e49fe861a00682082",
+    "hierarchy_v2/twill_loop_excursions/hierarchy_metrics.json": "70261906519232f142c1ff6405ee0b54857ee52dacea36684d1c60fd44157e3c",
+    "hierarchy_v2/twill_migration_waviness/hierarchy_geometry.json": "68b7073c1a57035d03eee49b39c6af36b30c2ccdc886de8525185e6564d6ee3b",
+    "hierarchy_v2/twill_migration_waviness/hierarchy_geometry.npz": "3acb3090a3b932a315504fe6473dd3d71cd48d3f3e7bf5df2a52847b4c2aa1da",
+    "hierarchy_v2/twill_migration_waviness/hierarchy_metrics.json": "4e46c0cd299c06a2276c8f0bcddb8cab96d2594cef84cb1d0ac67384c7da9046",
+    "hierarchy_v2/twill_two_ply/hierarchy_geometry.json": "c42e321add84d0c64475d4e0c1df805931f1a505e0dad9d63e720630e00c61f4",
+    "hierarchy_v2/twill_two_ply/hierarchy_geometry.npz": "28d2f725ad0a75be611d771ae527a899be17f4730abc67c96942a3b9d8fcfeee",
+    "hierarchy_v2/twill_two_ply/hierarchy_metrics.json": "feccb2b473a4c2162d5abb24bb81e9240f002295ceadc974b9388ac094f3c663",
+    "logs/01_geometry_plain_single_ply.log": "829555c18d352a9c43163dbf2dba65024f582ac2c1f88896069d5c3f0ffe7b03",
+    "logs/02_geometry_twill_two_ply.log": "bfb479a5a00a21ec0efe9439350e4e0d58ca8bcc595554a20c22d3f329d02a08",
+    "logs/03_geometry_basket_rectangular_three_ply.log": "4f2c74550aee729819705133e19e981deb10985b62cdc12a1b8dc756776101e6",
+    "logs/04_geometry_twill_migration_waviness.log": "f70e1cfc4cb5d10cb26246e7a5fc90959ba196ca46f39d3482b288c866a77317",
+    "logs/05_geometry_twill_loop_excursions.log": "d4ffd71478cada9d2469f048a11c06e8c6f5e779b41a542be42e494707db58cf",
+    "logs/06_refinement_plain_single_ply.log": "4e7805c74108949026d6b2289b798e5d6ca4a9d285e6dfe5495cebc0bb66ba9b",
+    "logs/07_refinement_twill_two_ply.log": "8343d2332ccef14374c76c15608766c9857435722b508b6d6324c52ea3c23517",
+    "logs/08_refinement_basket_rectangular_three_ply.log": "af320f3dfd0f65a2eea5be27b52d3c9dc3b9ac580d1040556eeeef2cdb2398ff",
+    "logs/09_refinement_twill_migration_waviness.log": "06ea0b168124249424ead93367581f74b9d8f0821f75f017c62c8129f6ab3a77",
+    "logs/10_refinement_twill_loop_excursions.log": "7f214d0b2f4ac64464b90aa448f245ebe748fd67864aa768ed9adf24356fb5c2",
+    "logs/11_optics.log": "1537ea37ace4b9e57c0fd264e2f29bd45c4b97adabf8475711dec38388489f35",
+    "optical_bridge_v2/calibration_optical_arrays.npz": "744e33e5efdddbfcfe13f9c9947ec3a51890041dda67b67d292143ad4e34e4bd",
+    "optical_bridge_v2/calibration_scene.json": "cec7453206d75c8e14bfbbe36f0ea647a45ac12c8cf79ba27713bea3c1b1e9e6",
+    "optical_bridge_v2/calibration_section.json": "02fc8c92e554f6cd353ebf77c340cbe94f54f9ac73f0d1746fda2926b8cf5685",
+    "optical_bridge_v2/fabric_geometry/hierarchy_geometry.json": "1cd97c38e2ecf56ab7a65b2caeea51117b4445a340e49235da0a55aff57cf98c",
+    "optical_bridge_v2/fabric_geometry/hierarchy_geometry.npz": "1f027ddc4eb3c0123cba9b61670819ee2f15f826f348c755470746db92fb8a8f",
+    "optical_bridge_v2/fabric_microstructure.json": "a654b04458659aa5c4c10590579d59d544b7bcad444dfeb36ccceec684e51ab9",
+    "optical_bridge_v2/fabric_polyline_clearance.json": "f1b899babd7ae29a077bf21d52078be2f92ab9683c1d3ae42e27f2f2718e399c",
+    "optical_bridge_v2/fabric_scene.json": "79db2d3af39a48e6b0447020043b9f3b77c7aeeb42142d7c53a8461fa3ec985f",
+    "optical_bridge_v2/mitsuba_450nm/group_0000.curves": "15290d63464f9cba0d8ce31fc70616ad11f4316db7337fd825a84072d102f48c",
+    "optical_bridge_v2/mitsuba_450nm/group_0001.curves": "765211784e10b7da4a934524d17cbec9bfef1a56db991a2f50c8d597f187d928",
+    "optical_bridge_v2/mitsuba_450nm/group_0002.curves": "9a431682301776e1e39b7bdbd702ca8bd9faaf94e4f7e4af629be87dbb464651",
+    "optical_bridge_v2/mitsuba_450nm/group_0003.curves": "7c1d7dec36e60223c2de164c396af5788c102b38178132e5a5b5ad5130d6dd86",
+    "optical_bridge_v2/mitsuba_450nm/manifest.json": "869ffde4b555d6ab01d1233d2a81e269007196f5952c251c906771f2681f156e",
+    "optical_bridge_v2/mitsuba_650nm/group_0000.curves": "15290d63464f9cba0d8ce31fc70616ad11f4316db7337fd825a84072d102f48c",
+    "optical_bridge_v2/mitsuba_650nm/group_0001.curves": "765211784e10b7da4a934524d17cbec9bfef1a56db991a2f50c8d597f187d928",
+    "optical_bridge_v2/mitsuba_650nm/group_0002.curves": "9a431682301776e1e39b7bdbd702ca8bd9faaf94e4f7e4af629be87dbb464651",
+    "optical_bridge_v2/mitsuba_650nm/group_0003.curves": "7c1d7dec36e60223c2de164c396af5788c102b38178132e5a5b5ad5130d6dd86",
+    "optical_bridge_v2/mitsuba_650nm/manifest.json": "4d7c80181e6e63dc9e90b7054e257fcd188f8ba0267d0417fd3edd4ed9c83f1a",
+    "optical_bridge_v2/optical_bridge_diagnostics.png": "71cb2fbadc1c043ddff833fb1d4ddddc4ea56e69d8bf42220f63ff82d5795351",
+    "optical_bridge_v2/optical_bridge_metrics.json": "e0b4ee3e851fe8b2ee15752513d10ac76d5a9a8bead890f944d979f4398b521e",
+    "refinement/basket_rectangular_three_ply/sampling_refinement_metrics.json": "af320f3dfd0f65a2eea5be27b52d3c9dc3b9ac580d1040556eeeef2cdb2398ff",
+    "refinement/plain_single_ply/sampling_refinement_metrics.json": "4e7805c74108949026d6b2289b798e5d6ca4a9d285e6dfe5495cebc0bb66ba9b",
+    "refinement/sampling_refinement_metrics.json": "c5302b4c81f979180181915eb5bfe5b389df1a04948a834644b6687c83d73947",
+    "refinement/twill_loop_excursions/sampling_refinement_metrics.json": "7f214d0b2f4ac64464b90aa448f245ebe748fd67864aa768ed9adf24356fb5c2",
+    "refinement/twill_migration_waviness/sampling_refinement_metrics.json": "06ea0b168124249424ead93367581f74b9d8f0821f75f017c62c8129f6ab3a77",
+    "refinement/twill_two_ply/sampling_refinement_metrics.json": "8343d2332ccef14374c76c15608766c9857435722b508b6d6324c52ea3c23517"
+  },
+  "hash_scope": "All run artifacts except this self-referential manifest; source hashes are recorded separately."
+}

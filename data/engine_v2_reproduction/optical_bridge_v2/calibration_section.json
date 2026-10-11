@@ -1,0 +1,217 @@
+{
+  "all_selected_required": true,
+  "approximation": "none beyond infinite axial extension",
+  "circular_overlap": false,
+  "eligible": true,
+  "half_window_mm": 0.02,
+  "length_unit": "mm",
+  "min_circular_gap_mm": 0.004,
+  "mode": "strict",
+  "plane_axes_rows_uvn": [
+    [
+      1.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      1.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "plane_origin_mm": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "requested_tolerances": {
+    "half_window_mm": 0.02,
+    "max_centerline_deviation_mm": 1e-05,
+    "max_tangent_change_deg": 0.2,
+    "max_tilt_deg": 0.1,
+    "mode": "strict"
+  },
+  "rows": [
+    {
+      "center_mm": [
+        -0.012,
+        0.0,
+        0.0
+      ],
+      "cross_section": "circle",
+      "ellipse_area_ratio_vs_circle": 1.0,
+      "ellipse_major_semiaxis_mm": 0.004,
+      "ellipse_minor_semiaxis_mm": 0.004,
+      "ellipse_semantics": "plane intersection of the local tangent cylinder, not a curved tube solution",
+      "fiber_id": "standalone:0000:calibration/p0/f0000",
+      "intersection_count": 1,
+      "local_tangent": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "material_id": "synthetic_A",
+      "max_centerline_deviation_mm": 0.0,
+      "max_tangent_change_deg": 0.0,
+      "reasons": [],
+      "tilt_deg": 0.0
+    },
+    {
+      "center_mm": [
+        -0.006,
+        0.010392304845413263,
+        0.0
+      ],
+      "cross_section": "circle",
+      "ellipse_area_ratio_vs_circle": 1.0,
+      "ellipse_major_semiaxis_mm": 0.004,
+      "ellipse_minor_semiaxis_mm": 0.004,
+      "ellipse_semantics": "plane intersection of the local tangent cylinder, not a curved tube solution",
+      "fiber_id": "standalone:0000:calibration/p0/f0001",
+      "intersection_count": 1,
+      "local_tangent": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "material_id": "synthetic_B",
+      "max_centerline_deviation_mm": 0.0,
+      "max_tangent_change_deg": 0.0,
+      "reasons": [],
+      "tilt_deg": 0.0
+    },
+    {
+      "center_mm": [
+        -0.006,
+        -0.010392304845413263,
+        0.0
+      ],
+      "cross_section": "circle",
+      "ellipse_area_ratio_vs_circle": 1.0,
+      "ellipse_major_semiaxis_mm": 0.004,
+      "ellipse_minor_semiaxis_mm": 0.004,
+      "ellipse_semantics": "plane intersection of the local tangent cylinder, not a curved tube solution",
+      "fiber_id": "standalone:0000:calibration/p0/f0002",
+      "intersection_count": 1,
+      "local_tangent": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "material_id": "synthetic_A",
+      "max_centerline_deviation_mm": 0.0,
+      "max_tangent_change_deg": 0.0,
+      "reasons": [],
+      "tilt_deg": 0.0
+    },
+    {
+      "center_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "cross_section": "circle",
+      "ellipse_area_ratio_vs_circle": 1.0,
+      "ellipse_major_semiaxis_mm": 0.004,
+      "ellipse_minor_semiaxis_mm": 0.004,
+      "ellipse_semantics": "plane intersection of the local tangent cylinder, not a curved tube solution",
+      "fiber_id": "standalone:0000:calibration/p0/f0003",
+      "intersection_count": 1,
+      "local_tangent": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "material_id": "synthetic_B",
+      "max_centerline_deviation_mm": 0.0,
+      "max_tangent_change_deg": 0.0,
+      "reasons": [],
+      "tilt_deg": 0.0
+    },
+    {
+      "center_mm": [
+        0.006,
+        0.010392304845413263,
+        0.0
+      ],
+      "cross_section": "circle",
+      "ellipse_area_ratio_vs_circle": 1.0,
+      "ellipse_major_semiaxis_mm": 0.004,
+      "ellipse_minor_semiaxis_mm": 0.004,
+      "ellipse_semantics": "plane intersection of the local tangent cylinder, not a curved tube solution",
+      "fiber_id": "standalone:0000:calibration/p0/f0004",
+      "intersection_count": 1,
+      "local_tangent": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "material_id": "synthetic_A",
+      "max_centerline_deviation_mm": 0.0,
+      "max_tangent_change_deg": 0.0,
+      "reasons": [],
+      "tilt_deg": 0.0
+    },
+    {
+      "center_mm": [
+        0.006,
+        -0.010392304845413263,
+        0.0
+      ],
+      "cross_section": "circle",
+      "ellipse_area_ratio_vs_circle": 1.0,
+      "ellipse_major_semiaxis_mm": 0.004,
+      "ellipse_minor_semiaxis_mm": 0.004,
+      "ellipse_semantics": "plane intersection of the local tangent cylinder, not a curved tube solution",
+      "fiber_id": "standalone:0000:calibration/p0/f0005",
+      "intersection_count": 1,
+      "local_tangent": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "material_id": "synthetic_B",
+      "max_centerline_deviation_mm": 0.0,
+      "max_tangent_change_deg": 0.0,
+      "reasons": [],
+      "tilt_deg": 0.0
+    },
+    {
+      "center_mm": [
+        0.012,
+        0.0,
+        0.0
+      ],
+      "cross_section": "circle",
+      "ellipse_area_ratio_vs_circle": 1.0,
+      "ellipse_major_semiaxis_mm": 0.004,
+      "ellipse_minor_semiaxis_mm": 0.004,
+      "ellipse_semantics": "plane intersection of the local tangent cylinder, not a curved tube solution",
+      "fiber_id": "standalone:0000:calibration/p0/f0006",
+      "intersection_count": 1,
+      "local_tangent": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "material_id": "synthetic_A",
+      "max_centerline_deviation_mm": 0.0,
+      "max_tangent_change_deg": 0.0,
+      "reasons": [],
+      "tilt_deg": 0.0
+    }
+  ],
+  "scene_sha256": "30e46aae945eae327cb23e43dc210cde80018fbb9470db7f8756c328c4331a67",
+  "strict_numerical_limits": {
+    "centerline_deviation_mm": 1e-12,
+    "tangent_change_deg": 1e-07,
+    "tilt_deg": 1e-07
+  },
+  "sum_circle_area_over_enclosing_axis_aligned_box": 0.3819949065027099,
+  "warning": "local infinite-cylinder reduction; no global 3D wave propagation equivalence"
+}

@@ -1,0 +1,8 @@
+{
+  "output": "/workspace/scratch/2b957533e88d/textile_optics_engine/data/engine_v2_reproduction/optical_bridge_v2",
+  "seconds": 4.458468065999114,
+  "fiber_count": 98,
+  "actual_renders": 0,
+  "wave_ray_conditions": 6,
+  "max_wave_flux_residual": 8.486203517303161e-15
+}

@@ -1,0 +1,187 @@
+{
+  "basket_rectangular_three_ply": {
+    "factors": [
+      1,
+      2,
+      4
+    ],
+    "vertices": [
+      58674,
+      117138,
+      234066
+    ],
+    "samples_per_crossing": [
+      48,
+      96,
+      192
+    ],
+    "comparisons": [
+      {
+        "coarse_factor": 1,
+        "fine_factor": 2,
+        "max_parameter_matched_centerline_distance_mm": 7.273240371977324e-05,
+        "rms_union_knot_distance_mm": 1.2661327220554217e-05,
+        "relative_total_length_change": 1.5502742491616823e-05,
+        "tangent_tensor_frobenius_change": 2.736128208602452e-05
+      },
+      {
+        "coarse_factor": 2,
+        "fine_factor": 4,
+        "max_parameter_matched_centerline_distance_mm": 2.3459109736939073e-05,
+        "rms_union_knot_distance_mm": 3.2087069601252462e-06,
+        "relative_total_length_change": 3.885490008240784e-06,
+        "tangent_tensor_frobenius_change": 6.848452684894827e-06
+      }
+    ],
+    "scope": "Observed complete hierarchy discretization; distance bounds relate generated polylines, not an uncomputed continuum limit.",
+    "seconds": 5.206556436000028
+  },
+  "plain_single_ply": {
+    "factors": [
+      1,
+      2,
+      4
+    ],
+    "vertices": [
+      26638,
+      53086,
+      105982
+    ],
+    "samples_per_crossing": [
+      24,
+      48,
+      96
+    ],
+    "comparisons": [
+      {
+        "coarse_factor": 1,
+        "fine_factor": 2,
+        "max_parameter_matched_centerline_distance_mm": 0.0001369312095075999,
+        "rms_union_knot_distance_mm": 3.811434122554498e-05,
+        "relative_total_length_change": 0.00012320141206697847,
+        "tangent_tensor_frobenius_change": 0.00021100113417112773
+      },
+      {
+        "coarse_factor": 2,
+        "fine_factor": 4,
+        "max_parameter_matched_centerline_distance_mm": 3.88691367692219e-05,
+        "rms_union_knot_distance_mm": 9.844831283487368e-06,
+        "relative_total_length_change": 3.0939661986856624e-05,
+        "tangent_tensor_frobenius_change": 5.292265304296976e-05
+      }
+    ],
+    "scope": "Observed complete hierarchy discretization; distance bounds relate generated polylines, not an uncomputed continuum limit.",
+    "seconds": 1.6931997100000444
+  },
+  "twill_loop_excursions": {
+    "factors": [
+      1,
+      2,
+      4
+    ],
+    "vertices": [
+      78092,
+      156044,
+      311948
+    ],
+    "samples_per_crossing": [
+      96,
+      192,
+      384
+    ],
+    "comparisons": [
+      {
+        "coarse_factor": 1,
+        "fine_factor": 2,
+        "max_parameter_matched_centerline_distance_mm": 2.1229498786884774e-05,
+        "rms_union_knot_distance_mm": 2.965672679844789e-06,
+        "relative_total_length_change": 4.424650110252088e-06,
+        "tangent_tensor_frobenius_change": 7.4895744078988335e-06
+      },
+      {
+        "coarse_factor": 2,
+        "fine_factor": 4,
+        "max_parameter_matched_centerline_distance_mm": 6.948379949246674e-06,
+        "rms_union_knot_distance_mm": 7.47440591896187e-07,
+        "relative_total_length_change": 1.1030373595245393e-06,
+        "tangent_tensor_frobenius_change": 1.8733936441776628e-06
+      }
+    ],
+    "scope": "Observed complete hierarchy discretization; distance bounds relate generated polylines, not an uncomputed continuum limit.",
+    "seconds": 3.353664256999764
+  },
+  "twill_migration_waviness": {
+    "factors": [
+      1,
+      2,
+      4
+    ],
+    "vertices": [
+      39116,
+      78092,
+      156044
+    ],
+    "samples_per_crossing": [
+      48,
+      96,
+      192
+    ],
+    "comparisons": [
+      {
+        "coarse_factor": 1,
+        "fine_factor": 2,
+        "max_parameter_matched_centerline_distance_mm": 6.905437199238264e-05,
+        "rms_union_knot_distance_mm": 1.1712606244530379e-05,
+        "relative_total_length_change": 1.7686929147500692e-05,
+        "tangent_tensor_frobenius_change": 2.9914573570856905e-05
+      },
+      {
+        "coarse_factor": 2,
+        "fine_factor": 4,
+        "max_parameter_matched_centerline_distance_mm": 2.1229498786884774e-05,
+        "rms_union_knot_distance_mm": 2.965045398318954e-06,
+        "relative_total_length_change": 4.4206211191714544e-06,
+        "tangent_tensor_frobenius_change": 7.48683242420234e-06
+      }
+    ],
+    "scope": "Observed complete hierarchy discretization; distance bounds relate generated polylines, not an uncomputed continuum limit.",
+    "seconds": 1.7249936610005534
+  },
+  "twill_two_ply": {
+    "factors": [
+      1,
+      2,
+      4
+    ],
+    "vertices": [
+      39116,
+      78092,
+      156044
+    ],
+    "samples_per_crossing": [
+      48,
+      96,
+      192
+    ],
+    "comparisons": [
+      {
+        "coarse_factor": 1,
+        "fine_factor": 2,
+        "max_parameter_matched_centerline_distance_mm": 6.625952960677184e-05,
+        "rms_union_knot_distance_mm": 1.1221711671257332e-05,
+        "relative_total_length_change": 1.685434301423545e-05,
+        "tangent_tensor_frobenius_change": 3.0019593061891912e-05
+      },
+      {
+        "coarse_factor": 2,
+        "fine_factor": 4,
+        "max_parameter_matched_centerline_distance_mm": 2.0522077914568864e-05,
+        "rms_union_knot_distance_mm": 2.839962644342513e-06,
+        "relative_total_length_change": 4.218942654720227e-06,
+        "tangent_tensor_frobenius_change": 7.511130768950755e-06
+      }
+    ],
+    "scope": "Observed complete hierarchy discretization; distance bounds relate generated polylines, not an uncomputed continuum limit.",
+    "seconds": 2.615855176999503
+  }
+}

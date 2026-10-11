@@ -1,0 +1,212 @@
+{
+  "schema_version": "textile-hierarchy/2.0",
+  "curve_basis": "polyline",
+  "yarn_count": 10,
+  "ply_count": 20,
+  "fiber_count": 140,
+  "vertex_count": 39116,
+  "fiber_counts_by_material": {
+    "synthetic_A": 80,
+    "synthetic_B": 60
+  },
+  "total_fiber_length_mm": 130.28541970083478,
+  "cylinder_volume_proxy_mm3": 0.002357589412235551,
+  "bounds_mm": [
+    [
+      -0.4929339556892045,
+      -0.4029373112021294,
+      -0.05821218742151302
+    ],
+    [
+      0.49295021679516215,
+      0.4029925238267848,
+      0.05824594506233748
+    ]
+  ],
+  "metadata": {
+    "length_unit": "mm",
+    "schema_version": "textile-hierarchy/2.0",
+    "draft_diagnostics": {
+      "weft_repeat": 4,
+      "warp_repeat": 4,
+      "warp_top_fraction": 0.5,
+      "unbound_warp_indices": [],
+      "unbound_weft_indices": [],
+      "every_yarn_interlaces_in_repeat": true,
+      "run_lengths": {
+        "warp_value_0_max_run_in_repeat": 2,
+        "warp_value_1_max_run_in_repeat": 2,
+        "weft_value_0_max_run_in_repeat": 2,
+        "weft_value_1_max_run_in_repeat": 2
+      },
+      "scope": "Binary single-layer topology diagnostics; no manufacturing certificate."
+    },
+    "visible_size_mm": [
+      0.8400000000000001,
+      0.64
+    ],
+    "crossing_center_distance_mm": 0.064,
+    "nominal_crossing_envelope_gap_mm": 0.011499999999999996,
+    "sampling_refinements": 1,
+    "samples_per_crossing_used": 48,
+    "max_fiber_segment_mm": 0.004599593760539094,
+    "max_polyline_turn_radians": 0.055816917863119535,
+    "max_parent_twist_or_migration_phase_step_rad": 0.15268041368618254,
+    "geometry_tileable": false,
+    "periodicity_scope": "Draft and unperturbed/wavy yarn centerlines repeat; nested twist/migration phases are not forced to close.",
+    "physical_mechanics_solved": false,
+    "clearance_scope": "Reference-section bounds only; run actual polyline capsule audit for global separation.",
+    "flyaway_scope": "Optional C2 outward loop excursion of an existing fiber; no duplicated fiber objects, but length/volume can change. No mass conservation or fitted staple statistics."
+  },
+  "build_seconds": 0.3629948109992256,
+  "orientation_statistics": {
+    "all": {
+      "total_fiber_length_mm": 130.28541970083484,
+      "tangent_second_moment": [
+        [
+          0.4003210108718659,
+          4.182104648138113e-05,
+          -0.00035123325579364587
+        ],
+        [
+          4.1821046481380646e-05,
+          0.4933176670079978,
+          0.0060872407863536175
+        ],
+        [
+          -0.000351233255793646,
+          0.006087240786353619,
+          0.1063613221201361
+        ]
+      ],
+      "tensor_eigenvalues": [
+        0.10626516594350253,
+        0.40032141771996194,
+        0.49341341633653535
+      ],
+      "rms_out_of_plane_tilt_deg": 19.883945094954147
+    },
+    "family:warp": {
+      "total_fiber_length_mm": 71.270495574957,
+      "tangent_second_moment": [
+        [
+          0.008668135683227203,
+          2.230985394315956e-05,
+          -0.0006747619554497553
+        ],
+        [
+          2.230985394315949e-05,
+          0.8948111786812171,
+          0.010730270679248696
+        ],
+        [
+          -0.0006747619554497554,
+          0.0107302706792487,
+          0.09652068563555566
+        ]
+      ],
+      "tensor_eigenvalues": [
+        0.00866294100665451,
+        0.09638167457183992,
+        0.8949553844215059
+      ],
+      "rms_out_of_plane_tilt_deg": 18.824712520206454
+    },
+    "family:weft": {
+      "total_fiber_length_mm": 59.01492412587781,
+      "tangent_second_moment": [
+        [
+          0.8733080547679573,
+          6.538410924989998e-05,
+          3.9482331809753046e-05
+        ],
+        [
+          6.538410924989985e-05,
+          0.00844639129398371,
+          0.00047999742651900346
+        ],
+        [
+          3.94823318097514e-05,
+          0.00047999742651900324,
+          0.1182455539380588
+        ]
+      ],
+      "tensor_eigenvalues": [
+        0.00844428806301237,
+        0.11824765015761403,
+        0.8733080617793733
+      ],
+      "rms_out_of_plane_tilt_deg": 21.09235593571972
+    },
+    "material:synthetic_A": {
+      "total_fiber_length_mm": 74.49251004121236,
+      "tangent_second_moment": [
+        [
+          0.4002279461481079,
+          1.938028445899738e-05,
+          -0.00026381007735967586
+        ],
+        [
+          1.9380284458996726e-05,
+          0.49306074652819815,
+          0.0060095406834586255
+        ],
+        [
+          -0.00026381007735967624,
+          0.006009540683458628,
+          0.10671130732369398
+        ]
+      ],
+      "tensor_eigenvalues": [
+        0.10661761594688082,
+        0.40022818115580594,
+        0.49315420289731327
+      ],
+      "rms_out_of_plane_tilt_deg": 19.92007860682952
+    },
+    "material:synthetic_B": {
+      "total_fiber_length_mm": 55.792909659622424,
+      "tangent_second_moment": [
+        [
+          0.40044526724980617,
+          7.178307392327775e-05,
+          -0.0004679572631461467
+        ],
+        [
+          7.178307392327782e-05,
+          0.49366069718043415,
+          0.006190982923668554
+        ],
+        [
+          -0.0004679572631461492,
+          0.006190982923668555,
+          0.10589403556975967
+        ]
+      ],
+      "tensor_eigenvalues": [
+        0.10579447045736957,
+        0.4004459695868559,
+        0.4937595599557746
+      ],
+      "rms_out_of_plane_tilt_deg": 19.8355984325517
+    }
+  },
+  "config_sha256": "0cc077f69cc11ec05357d8e2616891a3f86bdc662196b6672fc14c47007cd78d",
+  "clearance_audit": {
+    "certified_separated": true,
+    "minimum_clearance_lower_bound_mm": 0.0015217314967090434,
+    "minimum_tested_clearance_mm": 0.0015217314967090434,
+    "overlapping_capsule_pairs": 0,
+    "pairs_within_probe_margin": 319098,
+    "tested_segment_pairs": 527159,
+    "total_segments": 38976,
+    "broadphase_radius_mm": 0.012399593760539094,
+    "probe_margin_mm": 0.003,
+    "closest_tested_fiber_pair": [
+      "warp:0002:two_ply/p0/f0000",
+      "warp:0002:two_ply/p0/f0001"
+    ],
+    "scope": "All pairs of DIFFERENT constant-radius polyline fibers; same-fiber self-contact excluded."
+  },
+  "clearance_audit_seconds": 0.47388459499961755
+}

@@ -1,0 +1,39 @@
+{
+  "factors": [
+    1,
+    2,
+    4
+  ],
+  "vertices": [
+    26638,
+    53086,
+    105982
+  ],
+  "samples_per_crossing": [
+    24,
+    48,
+    96
+  ],
+  "comparisons": [
+    {
+      "coarse_factor": 1,
+      "fine_factor": 2,
+      "max_parameter_matched_centerline_distance_mm": 0.0001369312095075999,
+      "rms_union_knot_distance_mm": 3.811434122554498e-05,
+      "relative_total_length_change": 0.00012320141206697847,
+      "tangent_tensor_frobenius_change": 0.00021100113417112773
+    },
+    {
+      "coarse_factor": 2,
+      "fine_factor": 4,
+      "max_parameter_matched_centerline_distance_mm": 3.88691367692219e-05,
+      "rms_union_knot_distance_mm": 9.844831283487368e-06,
+      "relative_total_length_change": 3.0939661986856624e-05,
+      "tangent_tensor_frobenius_change": 5.292265304296976e-05
+    }
+  ],
+  "scope": "Observed complete hierarchy discretization; distance bounds relate generated polylines, not an uncomputed continuum limit.",
+  "config_sha256": "eccb0aa7ee9a84550be4351cef58fe99d448d775df1ed327d4b445076f0864ba",
+  "config": "/workspace/scratch/2b957533e88d/textile_optics_engine/examples/hierarchy/plain_single_ply.json",
+  "seconds": 0.7930231160007679
+}

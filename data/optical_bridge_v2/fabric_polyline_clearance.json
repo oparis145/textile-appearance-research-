@@ -1,0 +1,16 @@
+{
+  "certified_separated": true,
+  "minimum_clearance_lower_bound_mm": 0.002,
+  "minimum_tested_clearance_mm": 0.003951724957880437,
+  "overlapping_capsule_pairs": 0,
+  "pairs_within_probe_margin": 0,
+  "tested_segment_pairs": 212657,
+  "total_segments": 24304,
+  "broadphase_radius_mm": 0.015078188782657423,
+  "probe_margin_mm": 0.002,
+  "closest_tested_fiber_pair": [
+    "weft:0000:weft/p1/f0001",
+    "weft:0000:weft/p1/f0004"
+  ],
+  "scope": "All pairs of DIFFERENT constant-radius polyline fibers; same-fiber self-contact excluded."
+}

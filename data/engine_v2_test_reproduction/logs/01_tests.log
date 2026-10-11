@@ -1,0 +1,11 @@
+{
+  "tests_run": 181,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "elapsed_seconds": 11.278832070000135,
+  "failure_details": [],
+  "error_details": [],
+  "skipped_details": [],
+  "scope": "Complete unittest discovery; recorded legacy scene gates are checked, not re-rendered."
+}

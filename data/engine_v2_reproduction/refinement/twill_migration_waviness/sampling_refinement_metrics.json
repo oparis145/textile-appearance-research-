@@ -1,0 +1,39 @@
+{
+  "factors": [
+    1,
+    2,
+    4
+  ],
+  "vertices": [
+    39116,
+    78092,
+    156044
+  ],
+  "samples_per_crossing": [
+    48,
+    96,
+    192
+  ],
+  "comparisons": [
+    {
+      "coarse_factor": 1,
+      "fine_factor": 2,
+      "max_parameter_matched_centerline_distance_mm": 6.905437199238264e-05,
+      "rms_union_knot_distance_mm": 1.1712606244530379e-05,
+      "relative_total_length_change": 1.7686929147500692e-05,
+      "tangent_tensor_frobenius_change": 2.9914573570856905e-05
+    },
+    {
+      "coarse_factor": 2,
+      "fine_factor": 4,
+      "max_parameter_matched_centerline_distance_mm": 2.1229498786884774e-05,
+      "rms_union_knot_distance_mm": 2.965045398318954e-06,
+      "relative_total_length_change": 4.4206211191714544e-06,
+      "tangent_tensor_frobenius_change": 7.48683242420234e-06
+    }
+  ],
+  "scope": "Observed complete hierarchy discretization; distance bounds relate generated polylines, not an uncomputed continuum limit.",
+  "config_sha256": "0cc077f69cc11ec05357d8e2616891a3f86bdc662196b6672fc14c47007cd78d",
+  "config": "/workspace/scratch/2b957533e88d/textile_optics_engine/examples/hierarchy/twill_migration_waviness.json",
+  "seconds": 2.353467453000121
+}

@@ -1,0 +1,2286 @@
+{
+  "schema_version": "textile-hierarchy/2.0",
+  "curve_basis": "polyline",
+  "length_unit": "mm",
+  "spec": {
+    "draft": {
+      "name": "twill_2_2_step1",
+      "matrix": [
+        [
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0,
+          1
+        ]
+      ],
+      "row_axis": "weft",
+      "column_axis": "warp",
+      "one_means": "warp_over"
+    },
+    "warp_yarn": {
+      "id": "two_ply",
+      "plies": [
+        {
+          "id": "p0",
+          "fibers": [
+            {
+              "id": "f0000",
+              "material_id": "synthetic_A",
+              "radius_mm": 0.0024,
+              "offset_mm": [
+                -0.0066,
+                0.0
+              ],
+              "migration_amplitude_mm": 0.00025,
+              "migration_period_mm": 0.18,
+              "migration_phase_rad": null,
+              "loop_amplitude_mm": 0.0,
+              "loop_length_mm": 0.1,
+              "loop_center_fraction": 0.5
+            },
+            {
+              "id": "f0001",
+              "material_id": "synthetic_B",
+              "radius_mm": 0.0024,
+              "offset_mm": [
+                -0.0033,
+                0.005715767664977295
+              ],
+              "migration_amplitude_mm": 0.00025,
+              "migration_period_mm": 0.18,
+              "migration_phase_rad": null,
+              "loop_amplitude_mm": 0.0,
+              "loop_length_mm": 0.1,
+              "loop_center_fraction": 0.5
+            },
+            {
+              "id": "f0002",
+              "material_id": "synthetic_A",
+              "radius_mm": 0.0024,
+              "offset_mm": [
+                -0.0033,
+                -0.005715767664977295
+              ],
+              "migration_amplitude_mm": 0.00025,
+              "migration_period_mm": 0.18,
+              "migration_phase_rad": null,
+              "loop_amplitude_mm": 0.0,
+              "loop_length_mm": 0.1,
+              "loop_center_fraction": 0.5
+            },
+            {
+              "id": "f0003",
+              "material_id": "synthetic_B",
+              "radius_mm": 0.0024,
+              "offset_mm": [
+                0.0,
+                0.0
+              ],
+              "migration_amplitude_mm": 0.0,
+              "migration_period_mm": 0.3,
+              "migration_phase_rad": null,
+              "loop_amplitude_mm": 0.0,
+              "loop_length_mm": 0.1,
+              "loop_center_fraction": 0.5
+            },
+            {
+              "id": "f0004",
+              "material_id": "synthetic_A",
+              "radius_mm": 0.0024,
+              "offset_mm": [
+                0.0033,
+                0.005715767664977295
+              ],
+              "migration_amplitude_mm": 0.00025,
+              "migration_period_mm": 0.18,
+              "migration_phase_rad": null,
+              "loop_amplitude_mm": 0.0,
+              "loop_length_mm": 0.1,
+              "loop_center_fraction": 0.5
+            },
+            {
+              "id": "f0005",
+              "material_id": "synthetic_B",
+              "radius_mm": 0.0024,
+              "offset_mm": [
+                0.0033,
+                -0.005715767664977295
+              ],
+              "migration_amplitude_mm": 0.00025,
+              "migration_period_mm": 0.18,
+              "migration_phase_rad": null,
+              "loop_amplitude_mm": 0.0,
+              "loop_length_mm": 0.1,
+              "loop_center_fraction": 0.5
+            },
+            {
+              "id": "f0006",
+              "material_id": "synthetic_A",
+              "radius_mm": 0.0024,
+              "offset_mm": [
+                0.0066,
+                0.0
+              ],
+              "migration_amplitude_mm": 0.00025,
+              "migration_period_mm": 0.18,
+              "migration_phase_rad": null,
+              "loop_amplitude_mm": 0.0,
+              "loop_length_mm": 0.1,
+              "loop_center_fraction": 0.5
+            }
+          ],
+          "offset_mm": [
+            -0.017,
+            0.0
+          ],
+          "fiber_twist_per_mm": -2.2,
+          "fiber_phase_rad": 0.0
+        },
+        {
+          "id": "p1",
+          "fibers": [
+            {
+              "id": "f0000",
+              "material_id": "synthetic_A",
+              "radius_mm": 0.0024,
+              "offset_mm": [
+                -0.0066,
+                0.0
+              ],
+              "migration_amplitude_mm": 0.00025,
+              "migration_period_mm": 0.18,
+              "migration_phase_rad": null,
+              "loop_amplitude_mm": 0.0,
+              "loop_length_mm": 0.1,
+              "loop_center_fraction": 0.5
+            },
+            {
+              "id": "f0001",
+              "material_id": "synthetic_B",
+              "radius_mm": 0.0024,
+              "offset_mm": [
+                -0.0033,
+                0.005715767664977295
+              ],
+              "migration_amplitude_mm": 0.00025,
+              "migration_period_mm": 0.18,
+              "migration_phase_rad": null,
+              "loop_amplitude_mm": 0.0,
+              "loop_length_mm": 0.1,
+              "loop_center_fraction": 0.5
+            },
+            {
+              "id": "f0002",
+              "material_id": "synthetic_A",
+              "radius_mm": 0.0024,
+              "offset_mm": [
+                -0.0033,
+                -0.005715767664977295
+              ],
+              "migration_amplitude_mm": 0.00025,
+              "migration_period_mm": 0.18,
+              "migration_phase_rad": null,
+              "loop_amplitude_mm": 0.0,
+              "loop_length_mm": 0.1,
+              "loop_center_fraction": 0.5
+            },
+            {
+              "id": "f0003",
+              "material_id": "synthetic_B",
+              "radius_mm": 0.0024,
+              "offset_mm": [
+                0.0,
+                0.0
+              ],
+              "migration_amplitude_mm": 0.0,
+              "migration_period_mm": 0.3,
+              "migration_phase_rad": null,
+              "loop_amplitude_mm": 0.0,
+              "loop_length_mm": 0.1,
+              "loop_center_fraction": 0.5
+            },
+            {
+              "id": "f0004",
+              "material_id": "synthetic_A",
+              "radius_mm": 0.0024,
+              "offset_mm": [
+                0.0033,
+                0.005715767664977295
+              ],
+              "migration_amplitude_mm": 0.00025,
+              "migration_period_mm": 0.18,
+              "migration_phase_rad": null,
+              "loop_amplitude_mm": 0.0,
+              "loop_length_mm": 0.1,
+              "loop_center_fraction": 0.5
+            },
+            {
+              "id": "f0005",
+              "material_id": "synthetic_B",
+              "radius_mm": 0.0024,
+              "offset_mm": [
+                0.0033,
+                -0.005715767664977295
+              ],
+              "migration_amplitude_mm": 0.00025,
+              "migration_period_mm": 0.18,
+              "migration_phase_rad": null,
+              "loop_amplitude_mm": 0.0,
+              "loop_length_mm": 0.1,
+              "loop_center_fraction": 0.5
+            },
+            {
+              "id": "f0006",
+              "material_id": "synthetic_A",
+              "radius_mm": 0.0024,
+              "offset_mm": [
+                0.0066,
+                0.0
+              ],
+              "migration_amplitude_mm": 0.00025,
+              "migration_period_mm": 0.18,
+              "migration_phase_rad": null,
+              "loop_amplitude_mm": 0.0,
+              "loop_length_mm": 0.1,
+              "loop_center_fraction": 0.5
+            }
+          ],
+          "offset_mm": [
+            0.017,
+            0.0
+          ],
+          "fiber_twist_per_mm": -2.2,
+          "fiber_phase_rad": 0.0
+        }
+      ],
+      "ply_twist_per_mm": 0.8,
+      "ply_phase_rad": 0.0
+    },
+    "weft_yarn": {
+      "id": "two_ply",
+      "plies": [
+        {
+          "id": "p0",
+          "fibers": [
+            {
+              "id": "f0000",
+              "material_id": "synthetic_A",
+              "radius_mm": 0.0024,
+              "offset_mm": [
+                -0.0066,
+                0.0
+              ],
+              "migration_amplitude_mm": 0.00025,
+              "migration_period_mm": 0.18,
+              "migration_phase_rad": null,
+              "loop_amplitude_mm": 0.0,
+              "loop_length_mm": 0.1,
+              "loop_center_fraction": 0.5
+            },
+            {
+              "id": "f0001",
+              "material_id": "synthetic_B",
+              "radius_mm": 0.0024,
+              "offset_mm": [
+                -0.0033,
+                0.005715767664977295
+              ],
+              "migration_amplitude_mm": 0.00025,
+              "migration_period_mm": 0.18,
+              "migration_phase_rad": null,
+              "loop_amplitude_mm": 0.0,
+              "loop_length_mm": 0.1,
+              "loop_center_fraction": 0.5
+            },
+            {
+              "id": "f0002",
+              "material_id": "synthetic_A",
+              "radius_mm": 0.0024,
+              "offset_mm": [
+                -0.0033,
+                -0.005715767664977295
+              ],
+              "migration_amplitude_mm": 0.00025,
+              "migration_period_mm": 0.18,
+              "migration_phase_rad": null,
+              "loop_amplitude_mm": 0.0,
+              "loop_length_mm": 0.1,
+              "loop_center_fraction": 0.5
+            },
+            {
+              "id": "f0003",
+              "material_id": "synthetic_B",
+              "radius_mm": 0.0024,
+              "offset_mm": [
+                0.0,
+                0.0
+              ],
+              "migration_amplitude_mm": 0.0,
+              "migration_period_mm": 0.3,
+              "migration_phase_rad": null,
+              "loop_amplitude_mm": 0.0,
+              "loop_length_mm": 0.1,
+              "loop_center_fraction": 0.5
+            },
+            {
+              "id": "f0004",
+              "material_id": "synthetic_A",
+              "radius_mm": 0.0024,
+              "offset_mm": [
+                0.0033,
+                0.005715767664977295
+              ],
+              "migration_amplitude_mm": 0.00025,
+              "migration_period_mm": 0.18,
+              "migration_phase_rad": null,
+              "loop_amplitude_mm": 0.0,
+              "loop_length_mm": 0.1,
+              "loop_center_fraction": 0.5
+            },
+            {
+              "id": "f0005",
+              "material_id": "synthetic_B",
+              "radius_mm": 0.0024,
+              "offset_mm": [
+                0.0033,
+                -0.005715767664977295
+              ],
+              "migration_amplitude_mm": 0.00025,
+              "migration_period_mm": 0.18,
+              "migration_phase_rad": null,
+              "loop_amplitude_mm": 0.0,
+              "loop_length_mm": 0.1,
+              "loop_center_fraction": 0.5
+            },
+            {
+              "id": "f0006",
+              "material_id": "synthetic_A",
+              "radius_mm": 0.0024,
+              "offset_mm": [
+                0.0066,
+                0.0
+              ],
+              "migration_amplitude_mm": 0.00025,
+              "migration_period_mm": 0.18,
+              "migration_phase_rad": null,
+              "loop_amplitude_mm": 0.0,
+              "loop_length_mm": 0.1,
+              "loop_center_fraction": 0.5
+            }
+          ],
+          "offset_mm": [
+            -0.017,
+            0.0
+          ],
+          "fiber_twist_per_mm": -2.2,
+          "fiber_phase_rad": 0.0
+        },
+        {
+          "id": "p1",
+          "fibers": [
+            {
+              "id": "f0000",
+              "material_id": "synthetic_A",
+              "radius_mm": 0.0024,
+              "offset_mm": [
+                -0.0066,
+                0.0
+              ],
+              "migration_amplitude_mm": 0.00025,
+              "migration_period_mm": 0.18,
+              "migration_phase_rad": null,
+              "loop_amplitude_mm": 0.0,
+              "loop_length_mm": 0.1,
+              "loop_center_fraction": 0.5
+            },
+            {
+              "id": "f0001",
+              "material_id": "synthetic_B",
+              "radius_mm": 0.0024,
+              "offset_mm": [
+                -0.0033,
+                0.005715767664977295
+              ],
+              "migration_amplitude_mm": 0.00025,
+              "migration_period_mm": 0.18,
+              "migration_phase_rad": null,
+              "loop_amplitude_mm": 0.0,
+              "loop_length_mm": 0.1,
+              "loop_center_fraction": 0.5
+            },
+            {
+              "id": "f0002",
+              "material_id": "synthetic_A",
+              "radius_mm": 0.0024,
+              "offset_mm": [
+                -0.0033,
+                -0.005715767664977295
+              ],
+              "migration_amplitude_mm": 0.00025,
+              "migration_period_mm": 0.18,
+              "migration_phase_rad": null,
+              "loop_amplitude_mm": 0.0,
+              "loop_length_mm": 0.1,
+              "loop_center_fraction": 0.5
+            },
+            {
+              "id": "f0003",
+              "material_id": "synthetic_B",
+              "radius_mm": 0.0024,
+              "offset_mm": [
+                0.0,
+                0.0
+              ],
+              "migration_amplitude_mm": 0.0,
+              "migration_period_mm": 0.3,
+              "migration_phase_rad": null,
+              "loop_amplitude_mm": 0.0,
+              "loop_length_mm": 0.1,
+              "loop_center_fraction": 0.5
+            },
+            {
+              "id": "f0004",
+              "material_id": "synthetic_A",
+              "radius_mm": 0.0024,
+              "offset_mm": [
+                0.0033,
+                0.005715767664977295
+              ],
+              "migration_amplitude_mm": 0.00025,
+              "migration_period_mm": 0.18,
+              "migration_phase_rad": null,
+              "loop_amplitude_mm": 0.0,
+              "loop_length_mm": 0.1,
+              "loop_center_fraction": 0.5
+            },
+            {
+              "id": "f0005",
+              "material_id": "synthetic_B",
+              "radius_mm": 0.0024,
+              "offset_mm": [
+                0.0033,
+                -0.005715767664977295
+              ],
+              "migration_amplitude_mm": 0.00025,
+              "migration_period_mm": 0.18,
+              "migration_phase_rad": null,
+              "loop_amplitude_mm": 0.0,
+              "loop_length_mm": 0.1,
+              "loop_center_fraction": 0.5
+            },
+            {
+              "id": "f0006",
+              "material_id": "synthetic_A",
+              "radius_mm": 0.0024,
+              "offset_mm": [
+                0.0066,
+                0.0
+              ],
+              "migration_amplitude_mm": 0.00025,
+              "migration_period_mm": 0.18,
+              "migration_phase_rad": null,
+              "loop_amplitude_mm": 0.0,
+              "loop_length_mm": 0.1,
+              "loop_center_fraction": 0.5
+            }
+          ],
+          "offset_mm": [
+            0.017,
+            0.0
+          ],
+          "fiber_twist_per_mm": -2.2,
+          "fiber_phase_rad": 0.0
+        }
+      ],
+      "ply_twist_per_mm": 0.8,
+      "ply_phase_rad": 0.0
+    },
+    "warp_count": 6,
+    "weft_count": 4,
+    "warp_pitch_mm": 0.14,
+    "weft_pitch_mm": 0.16,
+    "crossing_gap_mm": 0.011499999999999996,
+    "warp_crimp_share": 0.5,
+    "yarn_waviness_mm": 0.0035,
+    "samples_per_crossing": 24,
+    "max_segment_mm": 0.008,
+    "max_turn_radians": 0.2,
+    "padding_crossings": 1,
+    "seed": 20261011,
+    "schema_version": "textile-hierarchy/2.0",
+    "units": {
+      "length": "mm",
+      "twist": "signed_turns_per_parent_arclength_mm"
+    }
+  },
+  "metadata": {
+    "length_unit": "mm",
+    "schema_version": "textile-hierarchy/2.0",
+    "draft_diagnostics": {
+      "weft_repeat": 4,
+      "warp_repeat": 4,
+      "warp_top_fraction": 0.5,
+      "unbound_warp_indices": [],
+      "unbound_weft_indices": [],
+      "every_yarn_interlaces_in_repeat": true,
+      "run_lengths": {
+        "warp_value_0_max_run_in_repeat": 2,
+        "warp_value_1_max_run_in_repeat": 2,
+        "weft_value_0_max_run_in_repeat": 2,
+        "weft_value_1_max_run_in_repeat": 2
+      },
+      "scope": "Binary single-layer topology diagnostics; no manufacturing certificate."
+    },
+    "visible_size_mm": [
+      0.8400000000000001,
+      0.64
+    ],
+    "crossing_center_distance_mm": 0.064,
+    "nominal_crossing_envelope_gap_mm": 0.011499999999999996,
+    "sampling_refinements": 1,
+    "samples_per_crossing_used": 48,
+    "max_fiber_segment_mm": 0.004599593760539094,
+    "max_polyline_turn_radians": 0.055816917863119535,
+    "max_parent_twist_or_migration_phase_step_rad": 0.15268041368618254,
+    "geometry_tileable": false,
+    "periodicity_scope": "Draft and unperturbed/wavy yarn centerlines repeat; nested twist/migration phases are not forced to close.",
+    "physical_mechanics_solved": false,
+    "clearance_scope": "Reference-section bounds only; run actual polyline capsule audit for global separation.",
+    "flyaway_scope": "Optional C2 outward loop excursion of an existing fiber; no duplicated fiber objects, but length/volume can change. No mass conservation or fitted staple statistics."
+  },
+  "fiber_provenance": [
+    {
+      "fiber_id": "warp:0000:two_ply/p0/f0000",
+      "yarn_id": "warp:0000:two_ply",
+      "ply_id": "warp:0000:two_ply/p0",
+      "material_id": "synthetic_A",
+      "family": "warp",
+      "yarn_index": 0,
+      "ply_index": 0,
+      "fiber_index": 0,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0000:two_ply/p0/f0001",
+      "yarn_id": "warp:0000:two_ply",
+      "ply_id": "warp:0000:two_ply/p0",
+      "material_id": "synthetic_B",
+      "family": "warp",
+      "yarn_index": 0,
+      "ply_index": 0,
+      "fiber_index": 1,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0000:two_ply/p0/f0002",
+      "yarn_id": "warp:0000:two_ply",
+      "ply_id": "warp:0000:two_ply/p0",
+      "material_id": "synthetic_A",
+      "family": "warp",
+      "yarn_index": 0,
+      "ply_index": 0,
+      "fiber_index": 2,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0000:two_ply/p0/f0003",
+      "yarn_id": "warp:0000:two_ply",
+      "ply_id": "warp:0000:two_ply/p0",
+      "material_id": "synthetic_B",
+      "family": "warp",
+      "yarn_index": 0,
+      "ply_index": 0,
+      "fiber_index": 3,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0000:two_ply/p0/f0004",
+      "yarn_id": "warp:0000:two_ply",
+      "ply_id": "warp:0000:two_ply/p0",
+      "material_id": "synthetic_A",
+      "family": "warp",
+      "yarn_index": 0,
+      "ply_index": 0,
+      "fiber_index": 4,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0000:two_ply/p0/f0005",
+      "yarn_id": "warp:0000:two_ply",
+      "ply_id": "warp:0000:two_ply/p0",
+      "material_id": "synthetic_B",
+      "family": "warp",
+      "yarn_index": 0,
+      "ply_index": 0,
+      "fiber_index": 5,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0000:two_ply/p0/f0006",
+      "yarn_id": "warp:0000:two_ply",
+      "ply_id": "warp:0000:two_ply/p0",
+      "material_id": "synthetic_A",
+      "family": "warp",
+      "yarn_index": 0,
+      "ply_index": 0,
+      "fiber_index": 6,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0000:two_ply/p1/f0000",
+      "yarn_id": "warp:0000:two_ply",
+      "ply_id": "warp:0000:two_ply/p1",
+      "material_id": "synthetic_A",
+      "family": "warp",
+      "yarn_index": 0,
+      "ply_index": 1,
+      "fiber_index": 0,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0000:two_ply/p1/f0001",
+      "yarn_id": "warp:0000:two_ply",
+      "ply_id": "warp:0000:two_ply/p1",
+      "material_id": "synthetic_B",
+      "family": "warp",
+      "yarn_index": 0,
+      "ply_index": 1,
+      "fiber_index": 1,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0000:two_ply/p1/f0002",
+      "yarn_id": "warp:0000:two_ply",
+      "ply_id": "warp:0000:two_ply/p1",
+      "material_id": "synthetic_A",
+      "family": "warp",
+      "yarn_index": 0,
+      "ply_index": 1,
+      "fiber_index": 2,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0000:two_ply/p1/f0003",
+      "yarn_id": "warp:0000:two_ply",
+      "ply_id": "warp:0000:two_ply/p1",
+      "material_id": "synthetic_B",
+      "family": "warp",
+      "yarn_index": 0,
+      "ply_index": 1,
+      "fiber_index": 3,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0000:two_ply/p1/f0004",
+      "yarn_id": "warp:0000:two_ply",
+      "ply_id": "warp:0000:two_ply/p1",
+      "material_id": "synthetic_A",
+      "family": "warp",
+      "yarn_index": 0,
+      "ply_index": 1,
+      "fiber_index": 4,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0000:two_ply/p1/f0005",
+      "yarn_id": "warp:0000:two_ply",
+      "ply_id": "warp:0000:two_ply/p1",
+      "material_id": "synthetic_B",
+      "family": "warp",
+      "yarn_index": 0,
+      "ply_index": 1,
+      "fiber_index": 5,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0000:two_ply/p1/f0006",
+      "yarn_id": "warp:0000:two_ply",
+      "ply_id": "warp:0000:two_ply/p1",
+      "material_id": "synthetic_A",
+      "family": "warp",
+      "yarn_index": 0,
+      "ply_index": 1,
+      "fiber_index": 6,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0001:two_ply/p0/f0000",
+      "yarn_id": "warp:0001:two_ply",
+      "ply_id": "warp:0001:two_ply/p0",
+      "material_id": "synthetic_A",
+      "family": "warp",
+      "yarn_index": 1,
+      "ply_index": 0,
+      "fiber_index": 0,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0001:two_ply/p0/f0001",
+      "yarn_id": "warp:0001:two_ply",
+      "ply_id": "warp:0001:two_ply/p0",
+      "material_id": "synthetic_B",
+      "family": "warp",
+      "yarn_index": 1,
+      "ply_index": 0,
+      "fiber_index": 1,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0001:two_ply/p0/f0002",
+      "yarn_id": "warp:0001:two_ply",
+      "ply_id": "warp:0001:two_ply/p0",
+      "material_id": "synthetic_A",
+      "family": "warp",
+      "yarn_index": 1,
+      "ply_index": 0,
+      "fiber_index": 2,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0001:two_ply/p0/f0003",
+      "yarn_id": "warp:0001:two_ply",
+      "ply_id": "warp:0001:two_ply/p0",
+      "material_id": "synthetic_B",
+      "family": "warp",
+      "yarn_index": 1,
+      "ply_index": 0,
+      "fiber_index": 3,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0001:two_ply/p0/f0004",
+      "yarn_id": "warp:0001:two_ply",
+      "ply_id": "warp:0001:two_ply/p0",
+      "material_id": "synthetic_A",
+      "family": "warp",
+      "yarn_index": 1,
+      "ply_index": 0,
+      "fiber_index": 4,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0001:two_ply/p0/f0005",
+      "yarn_id": "warp:0001:two_ply",
+      "ply_id": "warp:0001:two_ply/p0",
+      "material_id": "synthetic_B",
+      "family": "warp",
+      "yarn_index": 1,
+      "ply_index": 0,
+      "fiber_index": 5,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0001:two_ply/p0/f0006",
+      "yarn_id": "warp:0001:two_ply",
+      "ply_id": "warp:0001:two_ply/p0",
+      "material_id": "synthetic_A",
+      "family": "warp",
+      "yarn_index": 1,
+      "ply_index": 0,
+      "fiber_index": 6,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0001:two_ply/p1/f0000",
+      "yarn_id": "warp:0001:two_ply",
+      "ply_id": "warp:0001:two_ply/p1",
+      "material_id": "synthetic_A",
+      "family": "warp",
+      "yarn_index": 1,
+      "ply_index": 1,
+      "fiber_index": 0,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0001:two_ply/p1/f0001",
+      "yarn_id": "warp:0001:two_ply",
+      "ply_id": "warp:0001:two_ply/p1",
+      "material_id": "synthetic_B",
+      "family": "warp",
+      "yarn_index": 1,
+      "ply_index": 1,
+      "fiber_index": 1,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0001:two_ply/p1/f0002",
+      "yarn_id": "warp:0001:two_ply",
+      "ply_id": "warp:0001:two_ply/p1",
+      "material_id": "synthetic_A",
+      "family": "warp",
+      "yarn_index": 1,
+      "ply_index": 1,
+      "fiber_index": 2,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0001:two_ply/p1/f0003",
+      "yarn_id": "warp:0001:two_ply",
+      "ply_id": "warp:0001:two_ply/p1",
+      "material_id": "synthetic_B",
+      "family": "warp",
+      "yarn_index": 1,
+      "ply_index": 1,
+      "fiber_index": 3,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0001:two_ply/p1/f0004",
+      "yarn_id": "warp:0001:two_ply",
+      "ply_id": "warp:0001:two_ply/p1",
+      "material_id": "synthetic_A",
+      "family": "warp",
+      "yarn_index": 1,
+      "ply_index": 1,
+      "fiber_index": 4,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0001:two_ply/p1/f0005",
+      "yarn_id": "warp:0001:two_ply",
+      "ply_id": "warp:0001:two_ply/p1",
+      "material_id": "synthetic_B",
+      "family": "warp",
+      "yarn_index": 1,
+      "ply_index": 1,
+      "fiber_index": 5,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0001:two_ply/p1/f0006",
+      "yarn_id": "warp:0001:two_ply",
+      "ply_id": "warp:0001:two_ply/p1",
+      "material_id": "synthetic_A",
+      "family": "warp",
+      "yarn_index": 1,
+      "ply_index": 1,
+      "fiber_index": 6,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0002:two_ply/p0/f0000",
+      "yarn_id": "warp:0002:two_ply",
+      "ply_id": "warp:0002:two_ply/p0",
+      "material_id": "synthetic_A",
+      "family": "warp",
+      "yarn_index": 2,
+      "ply_index": 0,
+      "fiber_index": 0,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0002:two_ply/p0/f0001",
+      "yarn_id": "warp:0002:two_ply",
+      "ply_id": "warp:0002:two_ply/p0",
+      "material_id": "synthetic_B",
+      "family": "warp",
+      "yarn_index": 2,
+      "ply_index": 0,
+      "fiber_index": 1,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0002:two_ply/p0/f0002",
+      "yarn_id": "warp:0002:two_ply",
+      "ply_id": "warp:0002:two_ply/p0",
+      "material_id": "synthetic_A",
+      "family": "warp",
+      "yarn_index": 2,
+      "ply_index": 0,
+      "fiber_index": 2,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0002:two_ply/p0/f0003",
+      "yarn_id": "warp:0002:two_ply",
+      "ply_id": "warp:0002:two_ply/p0",
+      "material_id": "synthetic_B",
+      "family": "warp",
+      "yarn_index": 2,
+      "ply_index": 0,
+      "fiber_index": 3,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0002:two_ply/p0/f0004",
+      "yarn_id": "warp:0002:two_ply",
+      "ply_id": "warp:0002:two_ply/p0",
+      "material_id": "synthetic_A",
+      "family": "warp",
+      "yarn_index": 2,
+      "ply_index": 0,
+      "fiber_index": 4,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0002:two_ply/p0/f0005",
+      "yarn_id": "warp:0002:two_ply",
+      "ply_id": "warp:0002:two_ply/p0",
+      "material_id": "synthetic_B",
+      "family": "warp",
+      "yarn_index": 2,
+      "ply_index": 0,
+      "fiber_index": 5,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0002:two_ply/p0/f0006",
+      "yarn_id": "warp:0002:two_ply",
+      "ply_id": "warp:0002:two_ply/p0",
+      "material_id": "synthetic_A",
+      "family": "warp",
+      "yarn_index": 2,
+      "ply_index": 0,
+      "fiber_index": 6,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0002:two_ply/p1/f0000",
+      "yarn_id": "warp:0002:two_ply",
+      "ply_id": "warp:0002:two_ply/p1",
+      "material_id": "synthetic_A",
+      "family": "warp",
+      "yarn_index": 2,
+      "ply_index": 1,
+      "fiber_index": 0,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0002:two_ply/p1/f0001",
+      "yarn_id": "warp:0002:two_ply",
+      "ply_id": "warp:0002:two_ply/p1",
+      "material_id": "synthetic_B",
+      "family": "warp",
+      "yarn_index": 2,
+      "ply_index": 1,
+      "fiber_index": 1,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0002:two_ply/p1/f0002",
+      "yarn_id": "warp:0002:two_ply",
+      "ply_id": "warp:0002:two_ply/p1",
+      "material_id": "synthetic_A",
+      "family": "warp",
+      "yarn_index": 2,
+      "ply_index": 1,
+      "fiber_index": 2,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0002:two_ply/p1/f0003",
+      "yarn_id": "warp:0002:two_ply",
+      "ply_id": "warp:0002:two_ply/p1",
+      "material_id": "synthetic_B",
+      "family": "warp",
+      "yarn_index": 2,
+      "ply_index": 1,
+      "fiber_index": 3,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0002:two_ply/p1/f0004",
+      "yarn_id": "warp:0002:two_ply",
+      "ply_id": "warp:0002:two_ply/p1",
+      "material_id": "synthetic_A",
+      "family": "warp",
+      "yarn_index": 2,
+      "ply_index": 1,
+      "fiber_index": 4,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0002:two_ply/p1/f0005",
+      "yarn_id": "warp:0002:two_ply",
+      "ply_id": "warp:0002:two_ply/p1",
+      "material_id": "synthetic_B",
+      "family": "warp",
+      "yarn_index": 2,
+      "ply_index": 1,
+      "fiber_index": 5,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0002:two_ply/p1/f0006",
+      "yarn_id": "warp:0002:two_ply",
+      "ply_id": "warp:0002:two_ply/p1",
+      "material_id": "synthetic_A",
+      "family": "warp",
+      "yarn_index": 2,
+      "ply_index": 1,
+      "fiber_index": 6,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0003:two_ply/p0/f0000",
+      "yarn_id": "warp:0003:two_ply",
+      "ply_id": "warp:0003:two_ply/p0",
+      "material_id": "synthetic_A",
+      "family": "warp",
+      "yarn_index": 3,
+      "ply_index": 0,
+      "fiber_index": 0,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0003:two_ply/p0/f0001",
+      "yarn_id": "warp:0003:two_ply",
+      "ply_id": "warp:0003:two_ply/p0",
+      "material_id": "synthetic_B",
+      "family": "warp",
+      "yarn_index": 3,
+      "ply_index": 0,
+      "fiber_index": 1,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0003:two_ply/p0/f0002",
+      "yarn_id": "warp:0003:two_ply",
+      "ply_id": "warp:0003:two_ply/p0",
+      "material_id": "synthetic_A",
+      "family": "warp",
+      "yarn_index": 3,
+      "ply_index": 0,
+      "fiber_index": 2,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0003:two_ply/p0/f0003",
+      "yarn_id": "warp:0003:two_ply",
+      "ply_id": "warp:0003:two_ply/p0",
+      "material_id": "synthetic_B",
+      "family": "warp",
+      "yarn_index": 3,
+      "ply_index": 0,
+      "fiber_index": 3,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0003:two_ply/p0/f0004",
+      "yarn_id": "warp:0003:two_ply",
+      "ply_id": "warp:0003:two_ply/p0",
+      "material_id": "synthetic_A",
+      "family": "warp",
+      "yarn_index": 3,
+      "ply_index": 0,
+      "fiber_index": 4,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0003:two_ply/p0/f0005",
+      "yarn_id": "warp:0003:two_ply",
+      "ply_id": "warp:0003:two_ply/p0",
+      "material_id": "synthetic_B",
+      "family": "warp",
+      "yarn_index": 3,
+      "ply_index": 0,
+      "fiber_index": 5,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0003:two_ply/p0/f0006",
+      "yarn_id": "warp:0003:two_ply",
+      "ply_id": "warp:0003:two_ply/p0",
+      "material_id": "synthetic_A",
+      "family": "warp",
+      "yarn_index": 3,
+      "ply_index": 0,
+      "fiber_index": 6,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0003:two_ply/p1/f0000",
+      "yarn_id": "warp:0003:two_ply",
+      "ply_id": "warp:0003:two_ply/p1",
+      "material_id": "synthetic_A",
+      "family": "warp",
+      "yarn_index": 3,
+      "ply_index": 1,
+      "fiber_index": 0,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0003:two_ply/p1/f0001",
+      "yarn_id": "warp:0003:two_ply",
+      "ply_id": "warp:0003:two_ply/p1",
+      "material_id": "synthetic_B",
+      "family": "warp",
+      "yarn_index": 3,
+      "ply_index": 1,
+      "fiber_index": 1,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0003:two_ply/p1/f0002",
+      "yarn_id": "warp:0003:two_ply",
+      "ply_id": "warp:0003:two_ply/p1",
+      "material_id": "synthetic_A",
+      "family": "warp",
+      "yarn_index": 3,
+      "ply_index": 1,
+      "fiber_index": 2,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0003:two_ply/p1/f0003",
+      "yarn_id": "warp:0003:two_ply",
+      "ply_id": "warp:0003:two_ply/p1",
+      "material_id": "synthetic_B",
+      "family": "warp",
+      "yarn_index": 3,
+      "ply_index": 1,
+      "fiber_index": 3,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0003:two_ply/p1/f0004",
+      "yarn_id": "warp:0003:two_ply",
+      "ply_id": "warp:0003:two_ply/p1",
+      "material_id": "synthetic_A",
+      "family": "warp",
+      "yarn_index": 3,
+      "ply_index": 1,
+      "fiber_index": 4,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0003:two_ply/p1/f0005",
+      "yarn_id": "warp:0003:two_ply",
+      "ply_id": "warp:0003:two_ply/p1",
+      "material_id": "synthetic_B",
+      "family": "warp",
+      "yarn_index": 3,
+      "ply_index": 1,
+      "fiber_index": 5,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0003:two_ply/p1/f0006",
+      "yarn_id": "warp:0003:two_ply",
+      "ply_id": "warp:0003:two_ply/p1",
+      "material_id": "synthetic_A",
+      "family": "warp",
+      "yarn_index": 3,
+      "ply_index": 1,
+      "fiber_index": 6,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0004:two_ply/p0/f0000",
+      "yarn_id": "warp:0004:two_ply",
+      "ply_id": "warp:0004:two_ply/p0",
+      "material_id": "synthetic_A",
+      "family": "warp",
+      "yarn_index": 4,
+      "ply_index": 0,
+      "fiber_index": 0,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0004:two_ply/p0/f0001",
+      "yarn_id": "warp:0004:two_ply",
+      "ply_id": "warp:0004:two_ply/p0",
+      "material_id": "synthetic_B",
+      "family": "warp",
+      "yarn_index": 4,
+      "ply_index": 0,
+      "fiber_index": 1,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0004:two_ply/p0/f0002",
+      "yarn_id": "warp:0004:two_ply",
+      "ply_id": "warp:0004:two_ply/p0",
+      "material_id": "synthetic_A",
+      "family": "warp",
+      "yarn_index": 4,
+      "ply_index": 0,
+      "fiber_index": 2,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0004:two_ply/p0/f0003",
+      "yarn_id": "warp:0004:two_ply",
+      "ply_id": "warp:0004:two_ply/p0",
+      "material_id": "synthetic_B",
+      "family": "warp",
+      "yarn_index": 4,
+      "ply_index": 0,
+      "fiber_index": 3,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0004:two_ply/p0/f0004",
+      "yarn_id": "warp:0004:two_ply",
+      "ply_id": "warp:0004:two_ply/p0",
+      "material_id": "synthetic_A",
+      "family": "warp",
+      "yarn_index": 4,
+      "ply_index": 0,
+      "fiber_index": 4,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0004:two_ply/p0/f0005",
+      "yarn_id": "warp:0004:two_ply",
+      "ply_id": "warp:0004:two_ply/p0",
+      "material_id": "synthetic_B",
+      "family": "warp",
+      "yarn_index": 4,
+      "ply_index": 0,
+      "fiber_index": 5,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0004:two_ply/p0/f0006",
+      "yarn_id": "warp:0004:two_ply",
+      "ply_id": "warp:0004:two_ply/p0",
+      "material_id": "synthetic_A",
+      "family": "warp",
+      "yarn_index": 4,
+      "ply_index": 0,
+      "fiber_index": 6,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0004:two_ply/p1/f0000",
+      "yarn_id": "warp:0004:two_ply",
+      "ply_id": "warp:0004:two_ply/p1",
+      "material_id": "synthetic_A",
+      "family": "warp",
+      "yarn_index": 4,
+      "ply_index": 1,
+      "fiber_index": 0,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0004:two_ply/p1/f0001",
+      "yarn_id": "warp:0004:two_ply",
+      "ply_id": "warp:0004:two_ply/p1",
+      "material_id": "synthetic_B",
+      "family": "warp",
+      "yarn_index": 4,
+      "ply_index": 1,
+      "fiber_index": 1,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0004:two_ply/p1/f0002",
+      "yarn_id": "warp:0004:two_ply",
+      "ply_id": "warp:0004:two_ply/p1",
+      "material_id": "synthetic_A",
+      "family": "warp",
+      "yarn_index": 4,
+      "ply_index": 1,
+      "fiber_index": 2,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0004:two_ply/p1/f0003",
+      "yarn_id": "warp:0004:two_ply",
+      "ply_id": "warp:0004:two_ply/p1",
+      "material_id": "synthetic_B",
+      "family": "warp",
+      "yarn_index": 4,
+      "ply_index": 1,
+      "fiber_index": 3,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0004:two_ply/p1/f0004",
+      "yarn_id": "warp:0004:two_ply",
+      "ply_id": "warp:0004:two_ply/p1",
+      "material_id": "synthetic_A",
+      "family": "warp",
+      "yarn_index": 4,
+      "ply_index": 1,
+      "fiber_index": 4,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0004:two_ply/p1/f0005",
+      "yarn_id": "warp:0004:two_ply",
+      "ply_id": "warp:0004:two_ply/p1",
+      "material_id": "synthetic_B",
+      "family": "warp",
+      "yarn_index": 4,
+      "ply_index": 1,
+      "fiber_index": 5,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0004:two_ply/p1/f0006",
+      "yarn_id": "warp:0004:two_ply",
+      "ply_id": "warp:0004:two_ply/p1",
+      "material_id": "synthetic_A",
+      "family": "warp",
+      "yarn_index": 4,
+      "ply_index": 1,
+      "fiber_index": 6,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0005:two_ply/p0/f0000",
+      "yarn_id": "warp:0005:two_ply",
+      "ply_id": "warp:0005:two_ply/p0",
+      "material_id": "synthetic_A",
+      "family": "warp",
+      "yarn_index": 5,
+      "ply_index": 0,
+      "fiber_index": 0,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0005:two_ply/p0/f0001",
+      "yarn_id": "warp:0005:two_ply",
+      "ply_id": "warp:0005:two_ply/p0",
+      "material_id": "synthetic_B",
+      "family": "warp",
+      "yarn_index": 5,
+      "ply_index": 0,
+      "fiber_index": 1,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0005:two_ply/p0/f0002",
+      "yarn_id": "warp:0005:two_ply",
+      "ply_id": "warp:0005:two_ply/p0",
+      "material_id": "synthetic_A",
+      "family": "warp",
+      "yarn_index": 5,
+      "ply_index": 0,
+      "fiber_index": 2,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0005:two_ply/p0/f0003",
+      "yarn_id": "warp:0005:two_ply",
+      "ply_id": "warp:0005:two_ply/p0",
+      "material_id": "synthetic_B",
+      "family": "warp",
+      "yarn_index": 5,
+      "ply_index": 0,
+      "fiber_index": 3,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0005:two_ply/p0/f0004",
+      "yarn_id": "warp:0005:two_ply",
+      "ply_id": "warp:0005:two_ply/p0",
+      "material_id": "synthetic_A",
+      "family": "warp",
+      "yarn_index": 5,
+      "ply_index": 0,
+      "fiber_index": 4,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0005:two_ply/p0/f0005",
+      "yarn_id": "warp:0005:two_ply",
+      "ply_id": "warp:0005:two_ply/p0",
+      "material_id": "synthetic_B",
+      "family": "warp",
+      "yarn_index": 5,
+      "ply_index": 0,
+      "fiber_index": 5,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0005:two_ply/p0/f0006",
+      "yarn_id": "warp:0005:two_ply",
+      "ply_id": "warp:0005:two_ply/p0",
+      "material_id": "synthetic_A",
+      "family": "warp",
+      "yarn_index": 5,
+      "ply_index": 0,
+      "fiber_index": 6,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0005:two_ply/p1/f0000",
+      "yarn_id": "warp:0005:two_ply",
+      "ply_id": "warp:0005:two_ply/p1",
+      "material_id": "synthetic_A",
+      "family": "warp",
+      "yarn_index": 5,
+      "ply_index": 1,
+      "fiber_index": 0,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0005:two_ply/p1/f0001",
+      "yarn_id": "warp:0005:two_ply",
+      "ply_id": "warp:0005:two_ply/p1",
+      "material_id": "synthetic_B",
+      "family": "warp",
+      "yarn_index": 5,
+      "ply_index": 1,
+      "fiber_index": 1,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0005:two_ply/p1/f0002",
+      "yarn_id": "warp:0005:two_ply",
+      "ply_id": "warp:0005:two_ply/p1",
+      "material_id": "synthetic_A",
+      "family": "warp",
+      "yarn_index": 5,
+      "ply_index": 1,
+      "fiber_index": 2,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0005:two_ply/p1/f0003",
+      "yarn_id": "warp:0005:two_ply",
+      "ply_id": "warp:0005:two_ply/p1",
+      "material_id": "synthetic_B",
+      "family": "warp",
+      "yarn_index": 5,
+      "ply_index": 1,
+      "fiber_index": 3,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0005:two_ply/p1/f0004",
+      "yarn_id": "warp:0005:two_ply",
+      "ply_id": "warp:0005:two_ply/p1",
+      "material_id": "synthetic_A",
+      "family": "warp",
+      "yarn_index": 5,
+      "ply_index": 1,
+      "fiber_index": 4,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0005:two_ply/p1/f0005",
+      "yarn_id": "warp:0005:two_ply",
+      "ply_id": "warp:0005:two_ply/p1",
+      "material_id": "synthetic_B",
+      "family": "warp",
+      "yarn_index": 5,
+      "ply_index": 1,
+      "fiber_index": 5,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "warp:0005:two_ply/p1/f0006",
+      "yarn_id": "warp:0005:two_ply",
+      "ply_id": "warp:0005:two_ply/p1",
+      "material_id": "synthetic_A",
+      "family": "warp",
+      "yarn_index": 5,
+      "ply_index": 1,
+      "fiber_index": 6,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "weft:0000:two_ply/p0/f0000",
+      "yarn_id": "weft:0000:two_ply",
+      "ply_id": "weft:0000:two_ply/p0",
+      "material_id": "synthetic_A",
+      "family": "weft",
+      "yarn_index": 0,
+      "ply_index": 0,
+      "fiber_index": 0,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "weft:0000:two_ply/p0/f0001",
+      "yarn_id": "weft:0000:two_ply",
+      "ply_id": "weft:0000:two_ply/p0",
+      "material_id": "synthetic_B",
+      "family": "weft",
+      "yarn_index": 0,
+      "ply_index": 0,
+      "fiber_index": 1,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "weft:0000:two_ply/p0/f0002",
+      "yarn_id": "weft:0000:two_ply",
+      "ply_id": "weft:0000:two_ply/p0",
+      "material_id": "synthetic_A",
+      "family": "weft",
+      "yarn_index": 0,
+      "ply_index": 0,
+      "fiber_index": 2,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "weft:0000:two_ply/p0/f0003",
+      "yarn_id": "weft:0000:two_ply",
+      "ply_id": "weft:0000:two_ply/p0",
+      "material_id": "synthetic_B",
+      "family": "weft",
+      "yarn_index": 0,
+      "ply_index": 0,
+      "fiber_index": 3,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "weft:0000:two_ply/p0/f0004",
+      "yarn_id": "weft:0000:two_ply",
+      "ply_id": "weft:0000:two_ply/p0",
+      "material_id": "synthetic_A",
+      "family": "weft",
+      "yarn_index": 0,
+      "ply_index": 0,
+      "fiber_index": 4,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "weft:0000:two_ply/p0/f0005",
+      "yarn_id": "weft:0000:two_ply",
+      "ply_id": "weft:0000:two_ply/p0",
+      "material_id": "synthetic_B",
+      "family": "weft",
+      "yarn_index": 0,
+      "ply_index": 0,
+      "fiber_index": 5,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "weft:0000:two_ply/p0/f0006",
+      "yarn_id": "weft:0000:two_ply",
+      "ply_id": "weft:0000:two_ply/p0",
+      "material_id": "synthetic_A",
+      "family": "weft",
+      "yarn_index": 0,
+      "ply_index": 0,
+      "fiber_index": 6,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "weft:0000:two_ply/p1/f0000",
+      "yarn_id": "weft:0000:two_ply",
+      "ply_id": "weft:0000:two_ply/p1",
+      "material_id": "synthetic_A",
+      "family": "weft",
+      "yarn_index": 0,
+      "ply_index": 1,
+      "fiber_index": 0,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "weft:0000:two_ply/p1/f0001",
+      "yarn_id": "weft:0000:two_ply",
+      "ply_id": "weft:0000:two_ply/p1",
+      "material_id": "synthetic_B",
+      "family": "weft",
+      "yarn_index": 0,
+      "ply_index": 1,
+      "fiber_index": 1,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "weft:0000:two_ply/p1/f0002",
+      "yarn_id": "weft:0000:two_ply",
+      "ply_id": "weft:0000:two_ply/p1",
+      "material_id": "synthetic_A",
+      "family": "weft",
+      "yarn_index": 0,
+      "ply_index": 1,
+      "fiber_index": 2,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "weft:0000:two_ply/p1/f0003",
+      "yarn_id": "weft:0000:two_ply",
+      "ply_id": "weft:0000:two_ply/p1",
+      "material_id": "synthetic_B",
+      "family": "weft",
+      "yarn_index": 0,
+      "ply_index": 1,
+      "fiber_index": 3,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "weft:0000:two_ply/p1/f0004",
+      "yarn_id": "weft:0000:two_ply",
+      "ply_id": "weft:0000:two_ply/p1",
+      "material_id": "synthetic_A",
+      "family": "weft",
+      "yarn_index": 0,
+      "ply_index": 1,
+      "fiber_index": 4,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "weft:0000:two_ply/p1/f0005",
+      "yarn_id": "weft:0000:two_ply",
+      "ply_id": "weft:0000:two_ply/p1",
+      "material_id": "synthetic_B",
+      "family": "weft",
+      "yarn_index": 0,
+      "ply_index": 1,
+      "fiber_index": 5,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "weft:0000:two_ply/p1/f0006",
+      "yarn_id": "weft:0000:two_ply",
+      "ply_id": "weft:0000:two_ply/p1",
+      "material_id": "synthetic_A",
+      "family": "weft",
+      "yarn_index": 0,
+      "ply_index": 1,
+      "fiber_index": 6,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "weft:0001:two_ply/p0/f0000",
+      "yarn_id": "weft:0001:two_ply",
+      "ply_id": "weft:0001:two_ply/p0",
+      "material_id": "synthetic_A",
+      "family": "weft",
+      "yarn_index": 1,
+      "ply_index": 0,
+      "fiber_index": 0,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "weft:0001:two_ply/p0/f0001",
+      "yarn_id": "weft:0001:two_ply",
+      "ply_id": "weft:0001:two_ply/p0",
+      "material_id": "synthetic_B",
+      "family": "weft",
+      "yarn_index": 1,
+      "ply_index": 0,
+      "fiber_index": 1,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "weft:0001:two_ply/p0/f0002",
+      "yarn_id": "weft:0001:two_ply",
+      "ply_id": "weft:0001:two_ply/p0",
+      "material_id": "synthetic_A",
+      "family": "weft",
+      "yarn_index": 1,
+      "ply_index": 0,
+      "fiber_index": 2,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "weft:0001:two_ply/p0/f0003",
+      "yarn_id": "weft:0001:two_ply",
+      "ply_id": "weft:0001:two_ply/p0",
+      "material_id": "synthetic_B",
+      "family": "weft",
+      "yarn_index": 1,
+      "ply_index": 0,
+      "fiber_index": 3,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "weft:0001:two_ply/p0/f0004",
+      "yarn_id": "weft:0001:two_ply",
+      "ply_id": "weft:0001:two_ply/p0",
+      "material_id": "synthetic_A",
+      "family": "weft",
+      "yarn_index": 1,
+      "ply_index": 0,
+      "fiber_index": 4,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "weft:0001:two_ply/p0/f0005",
+      "yarn_id": "weft:0001:two_ply",
+      "ply_id": "weft:0001:two_ply/p0",
+      "material_id": "synthetic_B",
+      "family": "weft",
+      "yarn_index": 1,
+      "ply_index": 0,
+      "fiber_index": 5,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "weft:0001:two_ply/p0/f0006",
+      "yarn_id": "weft:0001:two_ply",
+      "ply_id": "weft:0001:two_ply/p0",
+      "material_id": "synthetic_A",
+      "family": "weft",
+      "yarn_index": 1,
+      "ply_index": 0,
+      "fiber_index": 6,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "weft:0001:two_ply/p1/f0000",
+      "yarn_id": "weft:0001:two_ply",
+      "ply_id": "weft:0001:two_ply/p1",
+      "material_id": "synthetic_A",
+      "family": "weft",
+      "yarn_index": 1,
+      "ply_index": 1,
+      "fiber_index": 0,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "weft:0001:two_ply/p1/f0001",
+      "yarn_id": "weft:0001:two_ply",
+      "ply_id": "weft:0001:two_ply/p1",
+      "material_id": "synthetic_B",
+      "family": "weft",
+      "yarn_index": 1,
+      "ply_index": 1,
+      "fiber_index": 1,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "weft:0001:two_ply/p1/f0002",
+      "yarn_id": "weft:0001:two_ply",
+      "ply_id": "weft:0001:two_ply/p1",
+      "material_id": "synthetic_A",
+      "family": "weft",
+      "yarn_index": 1,
+      "ply_index": 1,
+      "fiber_index": 2,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "weft:0001:two_ply/p1/f0003",
+      "yarn_id": "weft:0001:two_ply",
+      "ply_id": "weft:0001:two_ply/p1",
+      "material_id": "synthetic_B",
+      "family": "weft",
+      "yarn_index": 1,
+      "ply_index": 1,
+      "fiber_index": 3,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "weft:0001:two_ply/p1/f0004",
+      "yarn_id": "weft:0001:two_ply",
+      "ply_id": "weft:0001:two_ply/p1",
+      "material_id": "synthetic_A",
+      "family": "weft",
+      "yarn_index": 1,
+      "ply_index": 1,
+      "fiber_index": 4,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "weft:0001:two_ply/p1/f0005",
+      "yarn_id": "weft:0001:two_ply",
+      "ply_id": "weft:0001:two_ply/p1",
+      "material_id": "synthetic_B",
+      "family": "weft",
+      "yarn_index": 1,
+      "ply_index": 1,
+      "fiber_index": 5,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "weft:0001:two_ply/p1/f0006",
+      "yarn_id": "weft:0001:two_ply",
+      "ply_id": "weft:0001:two_ply/p1",
+      "material_id": "synthetic_A",
+      "family": "weft",
+      "yarn_index": 1,
+      "ply_index": 1,
+      "fiber_index": 6,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "weft:0002:two_ply/p0/f0000",
+      "yarn_id": "weft:0002:two_ply",
+      "ply_id": "weft:0002:two_ply/p0",
+      "material_id": "synthetic_A",
+      "family": "weft",
+      "yarn_index": 2,
+      "ply_index": 0,
+      "fiber_index": 0,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "weft:0002:two_ply/p0/f0001",
+      "yarn_id": "weft:0002:two_ply",
+      "ply_id": "weft:0002:two_ply/p0",
+      "material_id": "synthetic_B",
+      "family": "weft",
+      "yarn_index": 2,
+      "ply_index": 0,
+      "fiber_index": 1,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "weft:0002:two_ply/p0/f0002",
+      "yarn_id": "weft:0002:two_ply",
+      "ply_id": "weft:0002:two_ply/p0",
+      "material_id": "synthetic_A",
+      "family": "weft",
+      "yarn_index": 2,
+      "ply_index": 0,
+      "fiber_index": 2,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "weft:0002:two_ply/p0/f0003",
+      "yarn_id": "weft:0002:two_ply",
+      "ply_id": "weft:0002:two_ply/p0",
+      "material_id": "synthetic_B",
+      "family": "weft",
+      "yarn_index": 2,
+      "ply_index": 0,
+      "fiber_index": 3,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "weft:0002:two_ply/p0/f0004",
+      "yarn_id": "weft:0002:two_ply",
+      "ply_id": "weft:0002:two_ply/p0",
+      "material_id": "synthetic_A",
+      "family": "weft",
+      "yarn_index": 2,
+      "ply_index": 0,
+      "fiber_index": 4,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "weft:0002:two_ply/p0/f0005",
+      "yarn_id": "weft:0002:two_ply",
+      "ply_id": "weft:0002:two_ply/p0",
+      "material_id": "synthetic_B",
+      "family": "weft",
+      "yarn_index": 2,
+      "ply_index": 0,
+      "fiber_index": 5,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "weft:0002:two_ply/p0/f0006",
+      "yarn_id": "weft:0002:two_ply",
+      "ply_id": "weft:0002:two_ply/p0",
+      "material_id": "synthetic_A",
+      "family": "weft",
+      "yarn_index": 2,
+      "ply_index": 0,
+      "fiber_index": 6,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "weft:0002:two_ply/p1/f0000",
+      "yarn_id": "weft:0002:two_ply",
+      "ply_id": "weft:0002:two_ply/p1",
+      "material_id": "synthetic_A",
+      "family": "weft",
+      "yarn_index": 2,
+      "ply_index": 1,
+      "fiber_index": 0,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "weft:0002:two_ply/p1/f0001",
+      "yarn_id": "weft:0002:two_ply",
+      "ply_id": "weft:0002:two_ply/p1",
+      "material_id": "synthetic_B",
+      "family": "weft",
+      "yarn_index": 2,
+      "ply_index": 1,
+      "fiber_index": 1,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "weft:0002:two_ply/p1/f0002",
+      "yarn_id": "weft:0002:two_ply",
+      "ply_id": "weft:0002:two_ply/p1",
+      "material_id": "synthetic_A",
+      "family": "weft",
+      "yarn_index": 2,
+      "ply_index": 1,
+      "fiber_index": 2,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "weft:0002:two_ply/p1/f0003",
+      "yarn_id": "weft:0002:two_ply",
+      "ply_id": "weft:0002:two_ply/p1",
+      "material_id": "synthetic_B",
+      "family": "weft",
+      "yarn_index": 2,
+      "ply_index": 1,
+      "fiber_index": 3,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "weft:0002:two_ply/p1/f0004",
+      "yarn_id": "weft:0002:two_ply",
+      "ply_id": "weft:0002:two_ply/p1",
+      "material_id": "synthetic_A",
+      "family": "weft",
+      "yarn_index": 2,
+      "ply_index": 1,
+      "fiber_index": 4,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "weft:0002:two_ply/p1/f0005",
+      "yarn_id": "weft:0002:two_ply",
+      "ply_id": "weft:0002:two_ply/p1",
+      "material_id": "synthetic_B",
+      "family": "weft",
+      "yarn_index": 2,
+      "ply_index": 1,
+      "fiber_index": 5,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "weft:0002:two_ply/p1/f0006",
+      "yarn_id": "weft:0002:two_ply",
+      "ply_id": "weft:0002:two_ply/p1",
+      "material_id": "synthetic_A",
+      "family": "weft",
+      "yarn_index": 2,
+      "ply_index": 1,
+      "fiber_index": 6,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "weft:0003:two_ply/p0/f0000",
+      "yarn_id": "weft:0003:two_ply",
+      "ply_id": "weft:0003:two_ply/p0",
+      "material_id": "synthetic_A",
+      "family": "weft",
+      "yarn_index": 3,
+      "ply_index": 0,
+      "fiber_index": 0,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "weft:0003:two_ply/p0/f0001",
+      "yarn_id": "weft:0003:two_ply",
+      "ply_id": "weft:0003:two_ply/p0",
+      "material_id": "synthetic_B",
+      "family": "weft",
+      "yarn_index": 3,
+      "ply_index": 0,
+      "fiber_index": 1,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "weft:0003:two_ply/p0/f0002",
+      "yarn_id": "weft:0003:two_ply",
+      "ply_id": "weft:0003:two_ply/p0",
+      "material_id": "synthetic_A",
+      "family": "weft",
+      "yarn_index": 3,
+      "ply_index": 0,
+      "fiber_index": 2,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "weft:0003:two_ply/p0/f0003",
+      "yarn_id": "weft:0003:two_ply",
+      "ply_id": "weft:0003:two_ply/p0",
+      "material_id": "synthetic_B",
+      "family": "weft",
+      "yarn_index": 3,
+      "ply_index": 0,
+      "fiber_index": 3,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "weft:0003:two_ply/p0/f0004",
+      "yarn_id": "weft:0003:two_ply",
+      "ply_id": "weft:0003:two_ply/p0",
+      "material_id": "synthetic_A",
+      "family": "weft",
+      "yarn_index": 3,
+      "ply_index": 0,
+      "fiber_index": 4,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "weft:0003:two_ply/p0/f0005",
+      "yarn_id": "weft:0003:two_ply",
+      "ply_id": "weft:0003:two_ply/p0",
+      "material_id": "synthetic_B",
+      "family": "weft",
+      "yarn_index": 3,
+      "ply_index": 0,
+      "fiber_index": 5,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "weft:0003:two_ply/p0/f0006",
+      "yarn_id": "weft:0003:two_ply",
+      "ply_id": "weft:0003:two_ply/p0",
+      "material_id": "synthetic_A",
+      "family": "weft",
+      "yarn_index": 3,
+      "ply_index": 0,
+      "fiber_index": 6,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "weft:0003:two_ply/p1/f0000",
+      "yarn_id": "weft:0003:two_ply",
+      "ply_id": "weft:0003:two_ply/p1",
+      "material_id": "synthetic_A",
+      "family": "weft",
+      "yarn_index": 3,
+      "ply_index": 1,
+      "fiber_index": 0,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "weft:0003:two_ply/p1/f0001",
+      "yarn_id": "weft:0003:two_ply",
+      "ply_id": "weft:0003:two_ply/p1",
+      "material_id": "synthetic_B",
+      "family": "weft",
+      "yarn_index": 3,
+      "ply_index": 1,
+      "fiber_index": 1,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "weft:0003:two_ply/p1/f0002",
+      "yarn_id": "weft:0003:two_ply",
+      "ply_id": "weft:0003:two_ply/p1",
+      "material_id": "synthetic_A",
+      "family": "weft",
+      "yarn_index": 3,
+      "ply_index": 1,
+      "fiber_index": 2,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "weft:0003:two_ply/p1/f0003",
+      "yarn_id": "weft:0003:two_ply",
+      "ply_id": "weft:0003:two_ply/p1",
+      "material_id": "synthetic_B",
+      "family": "weft",
+      "yarn_index": 3,
+      "ply_index": 1,
+      "fiber_index": 3,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "weft:0003:two_ply/p1/f0004",
+      "yarn_id": "weft:0003:two_ply",
+      "ply_id": "weft:0003:two_ply/p1",
+      "material_id": "synthetic_A",
+      "family": "weft",
+      "yarn_index": 3,
+      "ply_index": 1,
+      "fiber_index": 4,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "weft:0003:two_ply/p1/f0005",
+      "yarn_id": "weft:0003:two_ply",
+      "ply_id": "weft:0003:two_ply/p1",
+      "material_id": "synthetic_B",
+      "family": "weft",
+      "yarn_index": 3,
+      "ply_index": 1,
+      "fiber_index": 5,
+      "kind": "core",
+      "cross_section": "circle"
+    },
+    {
+      "fiber_id": "weft:0003:two_ply/p1/f0006",
+      "yarn_id": "weft:0003:two_ply",
+      "ply_id": "weft:0003:two_ply/p1",
+      "material_id": "synthetic_A",
+      "family": "weft",
+      "yarn_index": 3,
+      "ply_index": 1,
+      "fiber_index": 6,
+      "kind": "core",
+      "cross_section": "circle"
+    }
+  ],
+  "yarn_ids": [
+    "warp:0000:two_ply",
+    "warp:0001:two_ply",
+    "warp:0002:two_ply",
+    "warp:0003:two_ply",
+    "warp:0004:two_ply",
+    "warp:0005:two_ply",
+    "weft:0000:two_ply",
+    "weft:0001:two_ply",
+    "weft:0002:two_ply",
+    "weft:0003:two_ply"
+  ],
+  "ply_ids": [
+    "warp:0000:two_ply/p0",
+    "warp:0000:two_ply/p1",
+    "warp:0001:two_ply/p0",
+    "warp:0001:two_ply/p1",
+    "warp:0002:two_ply/p0",
+    "warp:0002:two_ply/p1",
+    "warp:0003:two_ply/p0",
+    "warp:0003:two_ply/p1",
+    "warp:0004:two_ply/p0",
+    "warp:0004:two_ply/p1",
+    "warp:0005:two_ply/p0",
+    "warp:0005:two_ply/p1",
+    "weft:0000:two_ply/p0",
+    "weft:0000:two_ply/p1",
+    "weft:0001:two_ply/p0",
+    "weft:0001:two_ply/p1",
+    "weft:0002:two_ply/p0",
+    "weft:0002:two_ply/p1",
+    "weft:0003:two_ply/p0",
+    "weft:0003:two_ply/p1"
+  ],
+  "npz_sha256": "3acb3090a3b932a315504fe6473dd3d71cd48d3f3e7bf5df2a52847b4c2aa1da"
+}
