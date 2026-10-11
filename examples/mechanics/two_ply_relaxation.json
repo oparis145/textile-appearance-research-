@@ -1,0 +1,538 @@
+{
+  "mechanics": {
+    "draft": {
+      "name": "twill_2_1_step1",
+      "matrix": [
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ]
+      ],
+      "row_axis": "weft",
+      "column_axis": "warp",
+      "one_means": "warp_over"
+    },
+    "warp_envelope_radius_mm": 0.0165,
+    "weft_envelope_radius_mm": 0.0165,
+    "warp_elasticity": {
+      "axial_stiffness_N": 0.02,
+      "bending_stiffness_N_mm2": 1e-05,
+      "rest_fraction": 0.99,
+      "source": "synthetic reduced-mechanics verification fixture",
+      "data_status": "synthetic"
+    },
+    "weft_elasticity": {
+      "axial_stiffness_N": 0.02,
+      "bending_stiffness_N_mm2": 2e-06,
+      "rest_fraction": 0.995,
+      "source": "synthetic reduced-mechanics verification fixture",
+      "data_status": "synthetic"
+    },
+    "warp_count": 3,
+    "weft_count": 3,
+    "warp_pitch_mm": 0.32,
+    "weft_pitch_mm": 0.32,
+    "clearance_mm": 0.004,
+    "max_slope": 0.3,
+    "segments_per_crossing": 8,
+    "padding_crossings": 1,
+    "initial_warp_share": 0.5,
+    "schema_version": "textile.reduced_weave_mechanics/3.0",
+    "units": {
+      "length": "mm",
+      "force": "N",
+      "energy": "N*mm"
+    }
+  },
+  "warp_yarn": {
+    "id": "two_ply_warp",
+    "plies": [
+      {
+        "id": "p0",
+        "fibers": [
+          {
+            "id": "f0000",
+            "material_id": "synthetic_A",
+            "radius_mm": 0.0015,
+            "offset_mm": [
+              -0.006,
+              0.0
+            ],
+            "migration_amplitude_mm": 0.0,
+            "migration_period_mm": 0.3,
+            "migration_phase_rad": null,
+            "loop_amplitude_mm": 0.0,
+            "loop_length_mm": 0.1,
+            "loop_center_fraction": 0.5
+          },
+          {
+            "id": "f0001",
+            "material_id": "synthetic_A",
+            "radius_mm": 0.0015,
+            "offset_mm": [
+              -0.003,
+              0.005196152422706632
+            ],
+            "migration_amplitude_mm": 0.0,
+            "migration_period_mm": 0.3,
+            "migration_phase_rad": null,
+            "loop_amplitude_mm": 0.0,
+            "loop_length_mm": 0.1,
+            "loop_center_fraction": 0.5
+          },
+          {
+            "id": "f0002",
+            "material_id": "synthetic_A",
+            "radius_mm": 0.0015,
+            "offset_mm": [
+              -0.003,
+              -0.005196152422706632
+            ],
+            "migration_amplitude_mm": 0.0,
+            "migration_period_mm": 0.3,
+            "migration_phase_rad": null,
+            "loop_amplitude_mm": 0.0,
+            "loop_length_mm": 0.1,
+            "loop_center_fraction": 0.5
+          },
+          {
+            "id": "f0003",
+            "material_id": "synthetic_A",
+            "radius_mm": 0.0015,
+            "offset_mm": [
+              0.0,
+              0.0
+            ],
+            "migration_amplitude_mm": 0.0,
+            "migration_period_mm": 0.3,
+            "migration_phase_rad": null,
+            "loop_amplitude_mm": 0.0,
+            "loop_length_mm": 0.1,
+            "loop_center_fraction": 0.5
+          },
+          {
+            "id": "f0004",
+            "material_id": "synthetic_A",
+            "radius_mm": 0.0015,
+            "offset_mm": [
+              0.003,
+              0.005196152422706632
+            ],
+            "migration_amplitude_mm": 0.0,
+            "migration_period_mm": 0.3,
+            "migration_phase_rad": null,
+            "loop_amplitude_mm": 0.0,
+            "loop_length_mm": 0.1,
+            "loop_center_fraction": 0.5
+          },
+          {
+            "id": "f0005",
+            "material_id": "synthetic_A",
+            "radius_mm": 0.0015,
+            "offset_mm": [
+              0.003,
+              -0.005196152422706632
+            ],
+            "migration_amplitude_mm": 0.0,
+            "migration_period_mm": 0.3,
+            "migration_phase_rad": null,
+            "loop_amplitude_mm": 0.0,
+            "loop_length_mm": 0.1,
+            "loop_center_fraction": 0.5
+          },
+          {
+            "id": "f0006",
+            "material_id": "synthetic_A",
+            "radius_mm": 0.0015,
+            "offset_mm": [
+              0.006,
+              0.0
+            ],
+            "migration_amplitude_mm": 0.0,
+            "migration_period_mm": 0.3,
+            "migration_phase_rad": null,
+            "loop_amplitude_mm": 0.0,
+            "loop_length_mm": 0.1,
+            "loop_center_fraction": 0.5
+          }
+        ],
+        "offset_mm": [
+          -0.009,
+          0.0
+        ],
+        "fiber_twist_per_mm": -0.6,
+        "fiber_phase_rad": 0.0
+      },
+      {
+        "id": "p1",
+        "fibers": [
+          {
+            "id": "f0000",
+            "material_id": "synthetic_A",
+            "radius_mm": 0.0015,
+            "offset_mm": [
+              -0.006,
+              0.0
+            ],
+            "migration_amplitude_mm": 0.0,
+            "migration_period_mm": 0.3,
+            "migration_phase_rad": null,
+            "loop_amplitude_mm": 0.0,
+            "loop_length_mm": 0.1,
+            "loop_center_fraction": 0.5
+          },
+          {
+            "id": "f0001",
+            "material_id": "synthetic_A",
+            "radius_mm": 0.0015,
+            "offset_mm": [
+              -0.003,
+              0.005196152422706632
+            ],
+            "migration_amplitude_mm": 0.0,
+            "migration_period_mm": 0.3,
+            "migration_phase_rad": null,
+            "loop_amplitude_mm": 0.0,
+            "loop_length_mm": 0.1,
+            "loop_center_fraction": 0.5
+          },
+          {
+            "id": "f0002",
+            "material_id": "synthetic_A",
+            "radius_mm": 0.0015,
+            "offset_mm": [
+              -0.003,
+              -0.005196152422706632
+            ],
+            "migration_amplitude_mm": 0.0,
+            "migration_period_mm": 0.3,
+            "migration_phase_rad": null,
+            "loop_amplitude_mm": 0.0,
+            "loop_length_mm": 0.1,
+            "loop_center_fraction": 0.5
+          },
+          {
+            "id": "f0003",
+            "material_id": "synthetic_A",
+            "radius_mm": 0.0015,
+            "offset_mm": [
+              0.0,
+              0.0
+            ],
+            "migration_amplitude_mm": 0.0,
+            "migration_period_mm": 0.3,
+            "migration_phase_rad": null,
+            "loop_amplitude_mm": 0.0,
+            "loop_length_mm": 0.1,
+            "loop_center_fraction": 0.5
+          },
+          {
+            "id": "f0004",
+            "material_id": "synthetic_A",
+            "radius_mm": 0.0015,
+            "offset_mm": [
+              0.003,
+              0.005196152422706632
+            ],
+            "migration_amplitude_mm": 0.0,
+            "migration_period_mm": 0.3,
+            "migration_phase_rad": null,
+            "loop_amplitude_mm": 0.0,
+            "loop_length_mm": 0.1,
+            "loop_center_fraction": 0.5
+          },
+          {
+            "id": "f0005",
+            "material_id": "synthetic_A",
+            "radius_mm": 0.0015,
+            "offset_mm": [
+              0.003,
+              -0.005196152422706632
+            ],
+            "migration_amplitude_mm": 0.0,
+            "migration_period_mm": 0.3,
+            "migration_phase_rad": null,
+            "loop_amplitude_mm": 0.0,
+            "loop_length_mm": 0.1,
+            "loop_center_fraction": 0.5
+          },
+          {
+            "id": "f0006",
+            "material_id": "synthetic_A",
+            "radius_mm": 0.0015,
+            "offset_mm": [
+              0.006,
+              0.0
+            ],
+            "migration_amplitude_mm": 0.0,
+            "migration_period_mm": 0.3,
+            "migration_phase_rad": null,
+            "loop_amplitude_mm": 0.0,
+            "loop_length_mm": 0.1,
+            "loop_center_fraction": 0.5
+          }
+        ],
+        "offset_mm": [
+          0.009,
+          0.0
+        ],
+        "fiber_twist_per_mm": -0.6,
+        "fiber_phase_rad": 0.0
+      }
+    ],
+    "ply_twist_per_mm": 0.35,
+    "ply_phase_rad": 0.0
+  },
+  "weft_yarn": {
+    "id": "two_ply_weft",
+    "plies": [
+      {
+        "id": "p0",
+        "fibers": [
+          {
+            "id": "f0000",
+            "material_id": "synthetic_B",
+            "radius_mm": 0.0015,
+            "offset_mm": [
+              -0.006,
+              0.0
+            ],
+            "migration_amplitude_mm": 0.0,
+            "migration_period_mm": 0.3,
+            "migration_phase_rad": null,
+            "loop_amplitude_mm": 0.0,
+            "loop_length_mm": 0.1,
+            "loop_center_fraction": 0.5
+          },
+          {
+            "id": "f0001",
+            "material_id": "synthetic_B",
+            "radius_mm": 0.0015,
+            "offset_mm": [
+              -0.003,
+              0.005196152422706632
+            ],
+            "migration_amplitude_mm": 0.0,
+            "migration_period_mm": 0.3,
+            "migration_phase_rad": null,
+            "loop_amplitude_mm": 0.0,
+            "loop_length_mm": 0.1,
+            "loop_center_fraction": 0.5
+          },
+          {
+            "id": "f0002",
+            "material_id": "synthetic_B",
+            "radius_mm": 0.0015,
+            "offset_mm": [
+              -0.003,
+              -0.005196152422706632
+            ],
+            "migration_amplitude_mm": 0.0,
+            "migration_period_mm": 0.3,
+            "migration_phase_rad": null,
+            "loop_amplitude_mm": 0.0,
+            "loop_length_mm": 0.1,
+            "loop_center_fraction": 0.5
+          },
+          {
+            "id": "f0003",
+            "material_id": "synthetic_B",
+            "radius_mm": 0.0015,
+            "offset_mm": [
+              0.0,
+              0.0
+            ],
+            "migration_amplitude_mm": 0.0,
+            "migration_period_mm": 0.3,
+            "migration_phase_rad": null,
+            "loop_amplitude_mm": 0.0,
+            "loop_length_mm": 0.1,
+            "loop_center_fraction": 0.5
+          },
+          {
+            "id": "f0004",
+            "material_id": "synthetic_B",
+            "radius_mm": 0.0015,
+            "offset_mm": [
+              0.003,
+              0.005196152422706632
+            ],
+            "migration_amplitude_mm": 0.0,
+            "migration_period_mm": 0.3,
+            "migration_phase_rad": null,
+            "loop_amplitude_mm": 0.0,
+            "loop_length_mm": 0.1,
+            "loop_center_fraction": 0.5
+          },
+          {
+            "id": "f0005",
+            "material_id": "synthetic_B",
+            "radius_mm": 0.0015,
+            "offset_mm": [
+              0.003,
+              -0.005196152422706632
+            ],
+            "migration_amplitude_mm": 0.0,
+            "migration_period_mm": 0.3,
+            "migration_phase_rad": null,
+            "loop_amplitude_mm": 0.0,
+            "loop_length_mm": 0.1,
+            "loop_center_fraction": 0.5
+          },
+          {
+            "id": "f0006",
+            "material_id": "synthetic_B",
+            "radius_mm": 0.0015,
+            "offset_mm": [
+              0.006,
+              0.0
+            ],
+            "migration_amplitude_mm": 0.0,
+            "migration_period_mm": 0.3,
+            "migration_phase_rad": null,
+            "loop_amplitude_mm": 0.0,
+            "loop_length_mm": 0.1,
+            "loop_center_fraction": 0.5
+          }
+        ],
+        "offset_mm": [
+          -0.009,
+          0.0
+        ],
+        "fiber_twist_per_mm": 0.6,
+        "fiber_phase_rad": 0.0
+      },
+      {
+        "id": "p1",
+        "fibers": [
+          {
+            "id": "f0000",
+            "material_id": "synthetic_B",
+            "radius_mm": 0.0015,
+            "offset_mm": [
+              -0.006,
+              0.0
+            ],
+            "migration_amplitude_mm": 0.0,
+            "migration_period_mm": 0.3,
+            "migration_phase_rad": null,
+            "loop_amplitude_mm": 0.0,
+            "loop_length_mm": 0.1,
+            "loop_center_fraction": 0.5
+          },
+          {
+            "id": "f0001",
+            "material_id": "synthetic_B",
+            "radius_mm": 0.0015,
+            "offset_mm": [
+              -0.003,
+              0.005196152422706632
+            ],
+            "migration_amplitude_mm": 0.0,
+            "migration_period_mm": 0.3,
+            "migration_phase_rad": null,
+            "loop_amplitude_mm": 0.0,
+            "loop_length_mm": 0.1,
+            "loop_center_fraction": 0.5
+          },
+          {
+            "id": "f0002",
+            "material_id": "synthetic_B",
+            "radius_mm": 0.0015,
+            "offset_mm": [
+              -0.003,
+              -0.005196152422706632
+            ],
+            "migration_amplitude_mm": 0.0,
+            "migration_period_mm": 0.3,
+            "migration_phase_rad": null,
+            "loop_amplitude_mm": 0.0,
+            "loop_length_mm": 0.1,
+            "loop_center_fraction": 0.5
+          },
+          {
+            "id": "f0003",
+            "material_id": "synthetic_B",
+            "radius_mm": 0.0015,
+            "offset_mm": [
+              0.0,
+              0.0
+            ],
+            "migration_amplitude_mm": 0.0,
+            "migration_period_mm": 0.3,
+            "migration_phase_rad": null,
+            "loop_amplitude_mm": 0.0,
+            "loop_length_mm": 0.1,
+            "loop_center_fraction": 0.5
+          },
+          {
+            "id": "f0004",
+            "material_id": "synthetic_B",
+            "radius_mm": 0.0015,
+            "offset_mm": [
+              0.003,
+              0.005196152422706632
+            ],
+            "migration_amplitude_mm": 0.0,
+            "migration_period_mm": 0.3,
+            "migration_phase_rad": null,
+            "loop_amplitude_mm": 0.0,
+            "loop_length_mm": 0.1,
+            "loop_center_fraction": 0.5
+          },
+          {
+            "id": "f0005",
+            "material_id": "synthetic_B",
+            "radius_mm": 0.0015,
+            "offset_mm": [
+              0.003,
+              -0.005196152422706632
+            ],
+            "migration_amplitude_mm": 0.0,
+            "migration_period_mm": 0.3,
+            "migration_phase_rad": null,
+            "loop_amplitude_mm": 0.0,
+            "loop_length_mm": 0.1,
+            "loop_center_fraction": 0.5
+          },
+          {
+            "id": "f0006",
+            "material_id": "synthetic_B",
+            "radius_mm": 0.0015,
+            "offset_mm": [
+              0.006,
+              0.0
+            ],
+            "migration_amplitude_mm": 0.0,
+            "migration_period_mm": 0.3,
+            "migration_phase_rad": null,
+            "loop_amplitude_mm": 0.0,
+            "loop_length_mm": 0.1,
+            "loop_center_fraction": 0.5
+          }
+        ],
+        "offset_mm": [
+          0.009,
+          0.0
+        ],
+        "fiber_twist_per_mm": 0.6,
+        "fiber_phase_rad": 0.0
+      }
+    ],
+    "ply_twist_per_mm": -0.35,
+    "ply_phase_rad": 0.0
+  },
+  "subdivisions": 4,
+  "seed": 20261011
+}
