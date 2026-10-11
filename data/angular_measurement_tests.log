@@ -1,0 +1,15 @@
+test_bad_angular_grid_rejected (test_angular_measurement.AngularIntegrationTests.test_bad_angular_grid_rejected) ... ok
+test_histogram_order_and_probability_preservation (test_angular_measurement.AngularIntegrationTests.test_histogram_order_and_probability_preservation) ... ok
+test_known_fourier_polynomial_integrals_on_shifted_grid (test_angular_measurement.AngularIntegrationTests.test_known_fourier_polynomial_integrals_on_shifted_grid) ... ok
+test_real_nyquist_cosine_integral (test_angular_measurement.AngularIntegrationTests.test_real_nyquist_cosine_integral) ... ok
+test_KL_against_independent_poisson_logpmf_sum (test_angular_measurement.PoissonInformationTests.test_KL_against_independent_poisson_logpmf_sum) ... ok
+test_coarsening_cannot_increase_information (test_angular_measurement.PoissonInformationTests.test_coarsening_cannot_increase_information) ... ok
+test_flux_shape_decomposition_and_profile_gain (test_angular_measurement.PoissonInformationTests.test_flux_shape_decomposition_and_profile_gain) ... ok
+test_profile_likelihood_matches_explicit_gain_maximization (test_angular_measurement.PoissonInformationTests.test_profile_likelihood_matches_explicit_gain_maximization) ... ok
+test_saved_data_rebinning_vs_independent_total_and_grid_convergence (test_angular_measurement.PoissonInformationTests.test_saved_data_rebinning_vs_independent_total_and_grid_convergence) ... ok
+test_scaling_zero_support_and_invalid_probabilities (test_angular_measurement.PoissonInformationTests.test_scaling_zero_support_and_invalid_probabilities) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.313s
+
+OK

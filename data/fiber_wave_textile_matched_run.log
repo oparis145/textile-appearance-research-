@@ -1,0 +1,642 @@
+{
+  "model": "exact 2D cylinder cluster vs incoherent geometric power rays",
+  "geometry": "ply_ray.hex_bundle(shells=1, radius_um=5, gap_um=.4)",
+  "index": "fixed synthetic n=1.55 (no material-specific dispersion)",
+  "wavelengths_um": [
+    0.45,
+    0.55,
+    0.65
+  ],
+  "polarizations": [
+    "Ez",
+    "Hz"
+  ],
+  "n_geometries": 3,
+  "geometry_ensemble": "regular hexagon plus two center-jitter realizations, sigma=.06 um",
+  "geometry_seed": 20261010,
+  "bin_width_deg": 2,
+  "subsamples_per_bin": 48,
+  "forward_exclusion_half_angle_deg": 6,
+  "averaging": "equal incoherent irradiance weights across 3 wavelengths and 3 geometries",
+  "ray_count_per_geometry_per_polarization": 150000,
+  "comparison": "absolute um/rad, no energy or shape renormalization; forward exclusion avoids comparing the direct diffraction peak with an absent ray term",
+  "earlier_same_configuration_unoptimized_solve_seconds": 9.88561500799915,
+  "wave_convergence": [
+    {
+      "polarization": "Ez",
+      "geometry_index": 0,
+      "wavelength_um": 0.45,
+      "N_low": 97,
+      "N_high": 105,
+      "seconds_low": 0.9296353560021089,
+      "seconds_high": 0.8727517799998168,
+      "order_attempts": [
+        {
+          "N_low": 97,
+          "N_high": 105,
+          "relative_L2": 8.298393271211017e-08,
+          "seconds_low": 0.9296353560021089,
+          "seconds_high": 0.8727517799998168
+        }
+      ],
+      "angular_intensity_relative_L2_change": 8.298393271211017e-08,
+      "relative_Csca_change": 5.070470710120421e-08,
+      "Csca_um": 59.23815680494978,
+      "Cext_um": 59.238156804951366,
+      "global_vs_local_flux_relative_residual": 5.272447647200868e-15
+    },
+    {
+      "polarization": "Ez",
+      "geometry_index": 0,
+      "wavelength_um": 0.55,
+      "N_low": 83,
+      "N_high": 91,
+      "seconds_low": 0.49472714200237533,
+      "seconds_high": 0.5791223699998227,
+      "order_attempts": [
+        {
+          "N_low": 83,
+          "N_high": 91,
+          "relative_L2": 9.779433659708526e-10,
+          "seconds_low": 0.49472714200237533,
+          "seconds_high": 0.5791223699998227
+        }
+      ],
+      "angular_intensity_relative_L2_change": 9.779433659708526e-10,
+      "relative_Csca_change": 6.83888743407455e-11,
+      "Csca_um": 56.30824381665734,
+      "Cext_um": 56.308243816655725,
+      "global_vs_local_flux_relative_residual": 4.513207179884228e-15
+    },
+    {
+      "polarization": "Ez",
+      "geometry_index": 0,
+      "wavelength_um": 0.65,
+      "N_low": 73,
+      "N_high": 81,
+      "seconds_low": 0.34340524000072037,
+      "seconds_high": 0.511519905001478,
+      "order_attempts": [
+        {
+          "N_low": 73,
+          "N_high": 81,
+          "relative_L2": 9.188889650182822e-08,
+          "seconds_low": 0.34340524000072037,
+          "seconds_high": 0.511519905001478
+        }
+      ],
+      "angular_intensity_relative_L2_change": 9.188889650182822e-08,
+      "relative_Csca_change": 3.398251197765214e-08,
+      "Csca_um": 49.12706028022776,
+      "Cext_um": 49.12706028022762,
+      "global_vs_local_flux_relative_residual": 4.172654751927624e-15
+    },
+    {
+      "polarization": "Ez",
+      "geometry_index": 1,
+      "wavelength_um": 0.45,
+      "N_low": 105,
+      "N_high": 113,
+      "seconds_low": 0.8024019469994528,
+      "seconds_high": 0.9321983699992415,
+      "order_attempts": [
+        {
+          "N_low": 97,
+          "N_high": 105,
+          "relative_L2": 4.553324152039692e-07,
+          "seconds_low": 0.7678105250015506,
+          "seconds_high": 0.8024019469994528
+        },
+        {
+          "N_low": 105,
+          "N_high": 113,
+          "relative_L2": 9.164343355519438e-09,
+          "seconds_low": 0.8024019469994528,
+          "seconds_high": 0.9321983699992415
+        }
+      ],
+      "angular_intensity_relative_L2_change": 9.164343355519438e-09,
+      "relative_Csca_change": 1.6293117871730471e-09,
+      "Csca_um": 60.38362000015516,
+      "Cext_um": 60.38362000015656,
+      "global_vs_local_flux_relative_residual": 6.1824534085895825e-15
+    },
+    {
+      "polarization": "Ez",
+      "geometry_index": 1,
+      "wavelength_um": 0.55,
+      "N_low": 83,
+      "N_high": 91,
+      "seconds_low": 0.5669926000009582,
+      "seconds_high": 0.5813528969993058,
+      "order_attempts": [
+        {
+          "N_low": 83,
+          "N_high": 91,
+          "relative_L2": 1.7943488093437932e-08,
+          "seconds_low": 0.5669926000009582,
+          "seconds_high": 0.5813528969993058
+        }
+      ],
+      "angular_intensity_relative_L2_change": 1.7943488093437932e-08,
+      "relative_Csca_change": 6.587879674867335e-09,
+      "Csca_um": 56.62330147205081,
+      "Cext_um": 56.623301472049405,
+      "global_vs_local_flux_relative_residual": 6.052737123414116e-15
+    },
+    {
+      "polarization": "Ez",
+      "geometry_index": 1,
+      "wavelength_um": 0.65,
+      "N_low": 81,
+      "N_high": 89,
+      "seconds_low": 0.437913899000705,
+      "seconds_high": 0.524314129997947,
+      "order_attempts": [
+        {
+          "N_low": 73,
+          "N_high": 81,
+          "relative_L2": 3.276818152222294e-06,
+          "seconds_low": 0.3894831190009427,
+          "seconds_high": 0.437913899000705
+        },
+        {
+          "N_low": 81,
+          "N_high": 89,
+          "relative_L2": 1.8064573049548105e-08,
+          "seconds_low": 0.437913899000705,
+          "seconds_high": 0.524314129997947
+        }
+      ],
+      "angular_intensity_relative_L2_change": 1.8064573049548105e-08,
+      "relative_Csca_change": 3.2855282405293012e-09,
+      "Csca_um": 50.84611574409532,
+      "Cext_um": 50.846115744095265,
+      "global_vs_local_flux_relative_residual": 6.232915908967469e-15
+    },
+    {
+      "polarization": "Ez",
+      "geometry_index": 2,
+      "wavelength_um": 0.45,
+      "N_low": 105,
+      "N_high": 113,
+      "seconds_low": 1.3725438520013995,
+      "seconds_high": 3.8280398130009416,
+      "order_attempts": [
+        {
+          "N_low": 97,
+          "N_high": 105,
+          "relative_L2": 1.2336233724304443e-07,
+          "seconds_low": 0.7902090099996713,
+          "seconds_high": 1.3725438520013995
+        },
+        {
+          "N_low": 105,
+          "N_high": 113,
+          "relative_L2": 1.9094277938285752e-09,
+          "seconds_low": 1.3725438520013995,
+          "seconds_high": 3.8280398130009416
+        }
+      ],
+      "angular_intensity_relative_L2_change": 1.9094277938285752e-09,
+      "relative_Csca_change": 6.280051556108152e-10,
+      "Csca_um": 60.60955584497244,
+      "Cext_um": 60.609555844974096,
+      "global_vs_local_flux_relative_residual": 8.840238283937384e-15
+    },
+    {
+      "polarization": "Ez",
+      "geometry_index": 2,
+      "wavelength_um": 0.55,
+      "N_low": 83,
+      "N_high": 91,
+      "seconds_low": 2.2260016729997005,
+      "seconds_high": 1.320768847999716,
+      "order_attempts": [
+        {
+          "N_low": 83,
+          "N_high": 91,
+          "relative_L2": 1.9095210228381765e-09,
+          "seconds_low": 2.2260016729997005,
+          "seconds_high": 1.320768847999716
+        }
+      ],
+      "angular_intensity_relative_L2_change": 1.9095210228381765e-09,
+      "relative_Csca_change": 2.614107258468517e-10,
+      "Csca_um": 55.286056623222976,
+      "Cext_um": 55.28605662322144,
+      "global_vs_local_flux_relative_residual": 5.467882423304768e-15
+    },
+    {
+      "polarization": "Ez",
+      "geometry_index": 2,
+      "wavelength_um": 0.65,
+      "N_low": 81,
+      "N_high": 89,
+      "seconds_low": 3.2227619500008586,
+      "seconds_high": 1.805750600000465,
+      "order_attempts": [
+        {
+          "N_low": 73,
+          "N_high": 81,
+          "relative_L2": 6.425849665198822e-07,
+          "seconds_low": 0.9220346820002305,
+          "seconds_high": 3.2227619500008586
+        },
+        {
+          "N_low": 81,
+          "N_high": 89,
+          "relative_L2": 3.151306298378484e-09,
+          "seconds_low": 3.2227619500008586,
+          "seconds_high": 1.805750600000465
+        }
+      ],
+      "angular_intensity_relative_L2_change": 3.151306298378484e-09,
+      "relative_Csca_change": 7.706396700945192e-10,
+      "Csca_um": 50.38914107193897,
+      "Cext_um": 50.38914107193893,
+      "global_vs_local_flux_relative_residual": 7.69276315072537e-15
+    },
+    {
+      "polarization": "Hz",
+      "geometry_index": 0,
+      "wavelength_um": 0.45,
+      "N_low": 97,
+      "N_high": 105,
+      "seconds_low": 1.1718680990015855,
+      "seconds_high": 4.68609705900235,
+      "order_attempts": [
+        {
+          "N_low": 97,
+          "N_high": 105,
+          "relative_L2": 8.825125131734269e-08,
+          "seconds_low": 1.1718680990015855,
+          "seconds_high": 4.68609705900235
+        }
+      ],
+      "angular_intensity_relative_L2_change": 8.825125131734269e-08,
+      "relative_Csca_change": 2.4844658917092216e-08,
+      "Csca_um": 58.536607149629354,
+      "Cext_um": 58.53660714963019,
+      "global_vs_local_flux_relative_residual": 5.626034551312299e-15
+    },
+    {
+      "polarization": "Hz",
+      "geometry_index": 0,
+      "wavelength_um": 0.55,
+      "N_low": 83,
+      "N_high": 91,
+      "seconds_low": 0.9284644489998755,
+      "seconds_high": 3.6513281680017826,
+      "order_attempts": [
+        {
+          "N_low": 83,
+          "N_high": 91,
+          "relative_L2": 1.8280564210865355e-08,
+          "seconds_low": 0.9284644489998755,
+          "seconds_high": 3.6513281680017826
+        }
+      ],
+      "angular_intensity_relative_L2_change": 1.8280564210865355e-08,
+      "relative_Csca_change": 7.531554617910157e-09,
+      "Csca_um": 56.57241271959881,
+      "Cext_um": 56.572412719597196,
+      "global_vs_local_flux_relative_residual": 5.345948734390015e-15
+    },
+    {
+      "polarization": "Hz",
+      "geometry_index": 0,
+      "wavelength_um": 0.65,
+      "N_low": 73,
+      "N_high": 81,
+      "seconds_low": 0.5991929049996543,
+      "seconds_high": 1.1628543820006598,
+      "order_attempts": [
+        {
+          "N_low": 73,
+          "N_high": 81,
+          "relative_L2": 3.5557955055439096e-08,
+          "seconds_low": 0.5991929049996543,
+          "seconds_high": 1.1628543820006598
+        }
+      ],
+      "angular_intensity_relative_L2_change": 3.5557955055439096e-08,
+      "relative_Csca_change": 1.587695727323588e-08,
+      "Csca_um": 48.68770657430058,
+      "Cext_um": 48.687706574300584,
+      "global_vs_local_flux_relative_residual": 1.0864819857647625e-15
+    },
+    {
+      "polarization": "Hz",
+      "geometry_index": 1,
+      "wavelength_um": 0.45,
+      "N_low": 105,
+      "N_high": 113,
+      "seconds_low": 1.5808953890009434,
+      "seconds_high": 1.9131043310007954,
+      "order_attempts": [
+        {
+          "N_low": 97,
+          "N_high": 105,
+          "relative_L2": 5.980961978045553e-07,
+          "seconds_low": 1.5419601610010432,
+          "seconds_high": 1.5808953890009434
+        },
+        {
+          "N_low": 105,
+          "N_high": 113,
+          "relative_L2": 1.218077499681476e-08,
+          "seconds_low": 1.5808953890009434,
+          "seconds_high": 1.9131043310007954
+        }
+      ],
+      "angular_intensity_relative_L2_change": 1.218077499681476e-08,
+      "relative_Csca_change": 2.3368694901298244e-09,
+      "Csca_um": 60.7175801217128,
+      "Cext_um": 60.71758012171387,
+      "global_vs_local_flux_relative_residual": 7.514160861068554e-15
+    },
+    {
+      "polarization": "Hz",
+      "geometry_index": 1,
+      "wavelength_um": 0.55,
+      "N_low": 91,
+      "N_high": 99,
+      "seconds_low": 0.9069476910008234,
+      "seconds_high": 1.325010366999777,
+      "order_attempts": [
+        {
+          "N_low": 83,
+          "N_high": 91,
+          "relative_L2": 1.3716439256336428e-06,
+          "seconds_low": 1.8542018059997645,
+          "seconds_high": 0.9069476910008234
+        },
+        {
+          "N_low": 91,
+          "N_high": 99,
+          "relative_L2": 8.94342184201056e-08,
+          "seconds_low": 0.9069476910008234,
+          "seconds_high": 1.325010366999777
+        }
+      ],
+      "angular_intensity_relative_L2_change": 8.94342184201056e-08,
+      "relative_Csca_change": 1.1038516345794719e-08,
+      "Csca_um": 56.00978500069195,
+      "Cext_um": 56.009785000690364,
+      "global_vs_local_flux_relative_residual": 6.837770610745392e-15
+    },
+    {
+      "polarization": "Hz",
+      "geometry_index": 1,
+      "wavelength_um": 0.65,
+      "N_low": 81,
+      "N_high": 89,
+      "seconds_low": 0.6027588450015173,
+      "seconds_high": 0.7216570730015519,
+      "order_attempts": [
+        {
+          "N_low": 73,
+          "N_high": 81,
+          "relative_L2": 1.467814332957867e-07,
+          "seconds_low": 0.6960354279981402,
+          "seconds_high": 0.6027588450015173
+        },
+        {
+          "N_low": 81,
+          "N_high": 89,
+          "relative_L2": 5.478991016397298e-09,
+          "seconds_low": 0.6027588450015173,
+          "seconds_high": 0.7216570730015519
+        }
+      ],
+      "angular_intensity_relative_L2_change": 5.478991016397298e-09,
+      "relative_Csca_change": 8.945400810314218e-10,
+      "Csca_um": 49.77759132798399,
+      "Cext_um": 49.77759132798431,
+      "global_vs_local_flux_relative_residual": 8.129075935292695e-15
+    },
+    {
+      "polarization": "Hz",
+      "geometry_index": 2,
+      "wavelength_um": 0.45,
+      "N_low": 105,
+      "N_high": 113,
+      "seconds_low": 1.4358810159974382,
+      "seconds_high": 1.4080210050015012,
+      "order_attempts": [
+        {
+          "N_low": 97,
+          "N_high": 105,
+          "relative_L2": 1.6783506306019303e-07,
+          "seconds_low": 1.6967688299992005,
+          "seconds_high": 1.4358810159974382
+        },
+        {
+          "N_low": 105,
+          "N_high": 113,
+          "relative_L2": 2.9804625670912873e-10,
+          "seconds_low": 1.4358810159974382,
+          "seconds_high": 1.4080210050015012
+        }
+      ],
+      "angular_intensity_relative_L2_change": 2.9804625670912873e-10,
+      "relative_Csca_change": 6.382782507301347e-11,
+      "Csca_um": 60.39106593782514,
+      "Cext_um": 60.39106593782635,
+      "global_vs_local_flux_relative_residual": 9.94538253994759e-15
+    },
+    {
+      "polarization": "Hz",
+      "geometry_index": 2,
+      "wavelength_um": 0.55,
+      "N_low": 91,
+      "N_high": 99,
+      "seconds_low": 0.812902863999625,
+      "seconds_high": 1.0272695509993355,
+      "order_attempts": [
+        {
+          "N_low": 83,
+          "N_high": 91,
+          "relative_L2": 1.5056231463463107e-07,
+          "seconds_low": 0.7653894299983222,
+          "seconds_high": 0.812902863999625
+        },
+        {
+          "N_low": 91,
+          "N_high": 99,
+          "relative_L2": 3.3683248131633437e-09,
+          "seconds_low": 0.812902863999625,
+          "seconds_high": 1.0272695509993355
+        }
+      ],
+      "angular_intensity_relative_L2_change": 3.3683248131633437e-09,
+      "relative_Csca_change": 8.719952472992245e-10,
+      "Csca_um": 54.79416024595162,
+      "Cext_um": 54.79416024595005,
+      "global_vs_local_flux_relative_residual": 7.443242852206356e-15
+    },
+    {
+      "polarization": "Hz",
+      "geometry_index": 2,
+      "wavelength_um": 0.65,
+      "N_low": 73,
+      "N_high": 81,
+      "seconds_low": 0.6145440859982045,
+      "seconds_high": 0.7786612620002415,
+      "order_attempts": [
+        {
+          "N_low": 73,
+          "N_high": 81,
+          "relative_L2": 6.386340080288365e-08,
+          "seconds_low": 0.6145440859982045,
+          "seconds_high": 0.7786612620002415
+        }
+      ],
+      "angular_intensity_relative_L2_change": 6.386340080288365e-08,
+      "relative_Csca_change": 7.889786095144989e-09,
+      "Csca_um": 49.32524534070561,
+      "Cext_um": 49.32524534070588,
+      "global_vs_local_flux_relative_residual": 7.415620951218177e-15
+    }
+  ],
+  "ray_cases": [
+    {
+      "polarization": "Ez",
+      "geometry_index": 0,
+      "seconds": 1.2847582909998891,
+      "beam_width_um": 28.01332839871632,
+      "energy": {
+        "backward": 0.24390666666666666,
+        "collided_forward": 0.7560933333333333,
+        "uncollided_forward": 0.0,
+        "absorbed": 0.0,
+        "residual": 0.0
+      },
+      "max_per_ray_energy_error": 0.0,
+      "numerical_failures": 0
+    },
+    {
+      "polarization": "Ez",
+      "geometry_index": 1,
+      "seconds": 1.2714918140009104,
+      "beam_width_um": 28.06363063421285,
+      "energy": {
+        "backward": 0.24460666666666667,
+        "collided_forward": 0.7553933333333334,
+        "uncollided_forward": 0.0,
+        "absorbed": 0.0,
+        "residual": 0.0
+      },
+      "max_per_ray_energy_error": 0.0,
+      "numerical_failures": 0
+    },
+    {
+      "polarization": "Ez",
+      "geometry_index": 2,
+      "seconds": 2.9410352220002096,
+      "beam_width_um": 28.128652963705342,
+      "energy": {
+        "backward": 0.24218666666666666,
+        "collided_forward": 0.7578133333333333,
+        "uncollided_forward": 0.0,
+        "absorbed": 0.0,
+        "residual": 0.0
+      },
+      "max_per_ray_energy_error": 0.0,
+      "numerical_failures": 0
+    },
+    {
+      "polarization": "Hz",
+      "geometry_index": 0,
+      "seconds": 2.242426193999563,
+      "beam_width_um": 28.01332839871632,
+      "energy": {
+        "backward": 0.14554,
+        "collided_forward": 0.85446,
+        "uncollided_forward": 0.0,
+        "absorbed": 0.0,
+        "residual": 0.0
+      },
+      "max_per_ray_energy_error": 0.0,
+      "numerical_failures": 0
+    },
+    {
+      "polarization": "Hz",
+      "geometry_index": 1,
+      "seconds": 1.5146535160019994,
+      "beam_width_um": 28.06363063421285,
+      "energy": {
+        "backward": 0.14801333333333333,
+        "collided_forward": 0.8519866666666667,
+        "uncollided_forward": 0.0,
+        "absorbed": 0.0,
+        "residual": 0.0
+      },
+      "max_per_ray_energy_error": 0.0,
+      "numerical_failures": 0
+    },
+    {
+      "polarization": "Hz",
+      "geometry_index": 2,
+      "seconds": 2.113908170002105,
+      "beam_width_um": 28.128652963705342,
+      "energy": {
+        "backward": 0.14410666666666666,
+        "collided_forward": 0.8558933333333333,
+        "uncollided_forward": 0.0,
+        "absorbed": 0.0,
+        "residual": 0.0
+      },
+      "max_per_ray_energy_error": 0.0,
+      "numerical_failures": 0
+    }
+  ],
+  "comparison_metrics": {
+    "Ez": {
+      "single_wavelength_regular_geometry_off_forward_relative_L2": 0.5607330292321326,
+      "averaged_off_forward_relative_L2": 0.5063712621604574,
+      "averaged_off_forward_relative_L1": 0.33179269394068284,
+      "wave_off_forward_cross_section_um": 22.913170739090663,
+      "ray_off_forward_cross_section_um": 21.714459843092943,
+      "wave_backward_cross_section_um": 7.394614570002396,
+      "ray_backward_cross_section_um": 6.836524465024059,
+      "ray_backward_standard_error_um": 0.017960031177376486,
+      "relative_backward_cross_section_difference": -0.07547250768719325
+    },
+    "Hz": {
+      "single_wavelength_regular_geometry_off_forward_relative_L2": 0.5630586238691906,
+      "averaged_off_forward_relative_L2": 0.546475260395019,
+      "averaged_off_forward_relative_L1": 0.3939818143261942,
+      "wave_off_forward_cross_section_um": 23.03879838953386,
+      "ray_off_forward_cross_section_um": 21.682229238095495,
+      "wave_backward_cross_section_um": 5.387178718784835,
+      "ray_backward_cross_section_um": 4.094792582392499,
+      "ray_backward_standard_error_um": 0.01476976918473354,
+      "relative_backward_cross_section_difference": -0.2399003641527331
+    }
+  },
+  "single_configuration": {
+    "Ez": {
+      "Csca_um": 56.30824381665734,
+      "Cext_um": 56.308243816655725,
+      "N": 91,
+      "seconds": 0.5791223699998227,
+      "coupling_free_relative_intensity_L2_error": 4.177558446747126,
+      "coupling_free_Csca_um": 236.87110745698996,
+      "coupling_free_Cext_um": 125.12163778912502
+    },
+    "Hz": {
+      "Csca_um": 56.57241271959881,
+      "Cext_um": 56.572412719597196,
+      "N": 91,
+      "seconds": 3.6513281680017826,
+      "coupling_free_relative_intensity_L2_error": 3.9846223887276926,
+      "coupling_free_Csca_um": 230.4620859658933,
+      "coupling_free_Cext_um": 124.23130098750508
+    }
+  },
+  "total_benchmark_wall_seconds": 67.71725416200206,
+  "max_multipole_intensity_relative_L2_change": 9.188889650182822e-08,
+  "max_global_local_flux_relative_residual": 9.94538253994759e-15
+}

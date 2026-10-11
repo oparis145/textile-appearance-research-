@@ -1,0 +1,13 @@
+GEOMETRY plain {'certified_separated': True, 'minimum_clearance_lower_bound_mm': 0.0012158416902978949, 'max_curve_to_chord_bound_mm': 0.0001689260312710649, 'unresolved_capsule_pairs': 0, 'tested_pairs': 2341046, 'segments': 193880, 'bezier_subdivisions': 0, 'scope': 'All pairs of DIFFERENT constant-radius cubic B-spline fibers; excludes same-fiber self-intersections.'}
+GEOMETRY twill {'certified_separated': True, 'minimum_clearance_lower_bound_mm': 0.001263840486841629, 'max_curve_to_chord_bound_mm': 0.00014754914646514523, 'unresolved_capsule_pairs': 0, 'tested_pairs': 2278646, 'segments': 193880, 'bezier_subdivisions': 0, 'scope': 'All pairs of DIFFERENT constant-radius cubic B-spline fibers; excludes same-fiber self-intersections.'}
+GEOMETRY satin {'certified_separated': True, 'minimum_clearance_lower_bound_mm': 0.0012323004398224644, 'max_curve_to_chord_bound_mm': 0.00016888813645282586, 'unresolved_capsule_pairs': 0, 'tested_pairs': 2361717, 'segments': 193880, 'bezier_subdivisions': 0, 'scope': 'All pairs of DIFFERENT constant-radius cubic B-spline fibers; excludes same-fiber self-intersections.'}
+RENDER plain_front_x 36.91663164499914 mean 0.17284183204174042
+RENDER plain_front_y 42.516590604001976 mean 0.17315535247325897
+RENDER plain_back_diffuse 41.657108669998706 mean 0.7090814709663391
+RENDER twill_front_x 31.799044150000555 mean 0.18116407096385956
+RENDER twill_front_y 32.2769787540019 mean 0.1785687953233719
+RENDER twill_back_diffuse 35.44081329300025 mean 0.6948818564414978
+RENDER satin_front_x 29.710892994997266 mean 0.2109951227903366
+RENDER satin_front_y 31.69532286300091 mean 0.1541982740163803
+RENDER satin_back_diffuse 37.744755655003246 mean 0.6930520534515381
+FABRIC EXPERIMENTS DONE

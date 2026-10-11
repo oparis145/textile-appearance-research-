@@ -1,0 +1,20 @@
+test_boundary_and_na_loss_are_accounted (test_aperture_wave.AperturePhysicsTests.test_boundary_and_na_loss_are_accounted) ... ok
+test_circular_acceptance_partial_bins (test_aperture_wave.AperturePhysicsTests.test_circular_acceptance_partial_bins) ... ok
+test_closed_and_open_masks (test_aperture_wave.AperturePhysicsTests.test_closed_and_open_masks) ... ok
+test_continuum_sinc_under_pixel_refinement (test_aperture_wave.AperturePhysicsTests.test_continuum_sinc_under_pixel_refinement) ... ok
+test_gap_projection_limits_and_disorder_repeatability (test_aperture_wave.AperturePhysicsTests.test_gap_projection_limits_and_disorder_repeatability) ... ok
+test_gaussian_beam_aperture_fraction_against_erf (test_aperture_wave.AperturePhysicsTests.test_gaussian_beam_aperture_fraction_against_erf) ... ok
+test_incident_field_scale_does_not_change_fraction (test_aperture_wave.AperturePhysicsTests.test_incident_field_scale_does_not_change_fraction) ... ok
+test_incoherent_average_does_not_cancel_opposite_fields (test_aperture_wave.AperturePhysicsTests.test_incoherent_average_does_not_cancel_opposite_fields) ... ok
+test_incoherent_gaussian_adds_angular_variance (test_aperture_wave.AperturePhysicsTests.test_incoherent_gaussian_adds_angular_variance) ... ok
+test_invalid_parameters (test_aperture_wave.AperturePhysicsTests.test_invalid_parameters) ... ok
+test_na_does_not_add_gap_transmission (test_aperture_wave.AperturePhysicsTests.test_na_does_not_add_gap_transmission) ... ok
+test_padding_only_refines_angles (test_aperture_wave.AperturePhysicsTests.test_padding_only_refines_angles) ... ok
+test_parseval_complex_mask_and_padding (test_aperture_wave.AperturePhysicsTests.test_parseval_complex_mask_and_padding) ... ok
+test_rectangular_slit_first_zero (test_aperture_wave.AperturePhysicsTests.test_rectangular_slit_first_zero) ... ok
+test_spectral_rebin_preserves_weighted_power (test_aperture_wave.AperturePhysicsTests.test_spectral_rebin_preserves_weighted_power) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.278s
+
+OK

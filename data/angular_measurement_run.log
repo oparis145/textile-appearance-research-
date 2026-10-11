@@ -1,0 +1,10 @@
+{
+  "cases": 6,
+  "wall_seconds": 12.832471706002252,
+  "files": [
+    "angular_measurement_probabilities.npz",
+    "angular_measurement_metrics.json",
+    "angular_measurement_information.png",
+    "angular_measurement_errors.png"
+  ]
+}

@@ -1,0 +1,2667 @@
+{
+  "description": "Ideal 2-D angular photon counting of two fixed simulated optical models; not experimental or perceptual evidence",
+  "source_files": [
+    "fiber_wave_gaussian_beam.npz",
+    "fiber_wave_gaussian_beam_metrics.json"
+  ],
+  "wavelength_um": 0.55,
+  "sectors": [
+    1,
+    6,
+    18,
+    90
+  ],
+  "expected_incident_photon_counts": [
+    100,
+    1000,
+    10000
+  ],
+  "ray_dictionary_sample_count": 250000,
+  "assumptions": [
+    "Independent Poisson incident illumination with known mean N, unit detection efficiency, full backward angular acceptance",
+    "No dark/read noise, finite detector blur, calibration error, bandwidth, or 3-D finite-length effects",
+    "Gain-profile statistic conditions on total reflected photons; physical reflected probabilities remain unchanged",
+    "Ray angular bins are 2 degrees; no inference below the saved ray resolution"
+  ],
+  "cases": [
+    {
+      "label": "Ez_offset0",
+      "polarization": "Ez",
+      "offset_um": 0.0,
+      "R_wave": 0.2669193043475189,
+      "R_ray": 0.2688000000000001,
+      "R_wave_difference_vs_independent_GL512_reference": 5.551115123125783e-15,
+      "R_ray_difference_vs_saved_total": 1.1102230246251565e-16,
+      "spectral_integral_subsample_convergence": {
+        "4320": {
+          "max_absolute_bin_error_vs_8640": 1.3444106938820255e-16,
+          "relative_bin_L1_error_vs_8640": 8.55925660171417e-15
+        },
+        "2160": {
+          "max_absolute_bin_error_vs_8640": 1.6132928326584306e-16,
+          "relative_bin_L1_error_vs_8640": 8.72823205474725e-15
+        },
+        "1080": {
+          "max_absolute_bin_error_vs_8640": 2.3071822230491534e-16,
+          "relative_bin_L1_error_vs_8640": 1.146108505476305e-14
+        }
+      },
+      "crude_8640_midpoint_total_R_error": 4.2292463003912317e-07,
+      "minimum_ray_bin_count": 254,
+      "minimum_wave_bin_probability": 0.00032110553084059926,
+      "ray_dictionary_KL_bootstrap": {
+        "1": {
+          "known_N_KL_per_incident_photon_percentile_2p5_97p5": [
+            2.2743506608163823e-07,
+            2.5202447724911867e-05
+          ],
+          "profile_KL_per_incident_photon_percentile_2p5_97p5": [
+            0.0,
+            0.0
+          ],
+          "bootstrap_repeats": 400
+        },
+        "6": {
+          "known_N_KL_per_incident_photon_percentile_2p5_97p5": [
+            0.0009290300613967604,
+            0.0012914181663235005
+          ],
+          "profile_KL_per_incident_photon_percentile_2p5_97p5": [
+            0.0009196526196235759,
+            0.0012729376980383017
+          ],
+          "bootstrap_repeats": 400
+        },
+        "18": {
+          "known_N_KL_per_incident_photon_percentile_2p5_97p5": [
+            0.007014576411113261,
+            0.007990010311487893
+          ],
+          "profile_KL_per_incident_photon_percentile_2p5_97p5": [
+            0.007003585777428763,
+            0.007980600559280805
+          ],
+          "bootstrap_repeats": 400
+        },
+        "90": {
+          "known_N_KL_per_incident_photon_percentile_2p5_97p5": [
+            0.04255762674673781,
+            0.04484345019507382
+          ],
+          "profile_KL_per_incident_photon_percentile_2p5_97p5": [
+            0.04253944572111042,
+            0.044835111004344425
+          ],
+          "bootstrap_repeats": 400
+        }
+      },
+      "information": [
+        {
+          "sectors": 1,
+          "width_deg": 180.0,
+          "expected_incident_photons": 100,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 0.0006594669248294327,
+            "expected_deviance": 0.0013189338496588654,
+            "total_flux_information_nats": 0.0006594669248294327,
+            "profile_gain_information_nats": 0.0,
+            "conditional_shape_KL_per_reflected_photon": 0.0,
+            "expected_reflected_photons": 26.691930434751892,
+            "decomposition_absolute_error_nats": 0.0
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 0.0006610121540795433,
+            "expected_deviance": 0.0013220243081590866,
+            "total_flux_information_nats": 0.0006610121540795433,
+            "profile_gain_information_nats": 0.0,
+            "conditional_shape_KL_per_reflected_photon": 0.0,
+            "expected_reflected_photons": 26.88000000000001,
+            "decomposition_absolute_error_nats": 0.0
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.017102046661145558
+        },
+        {
+          "sectors": 1,
+          "width_deg": 180.0,
+          "expected_incident_photons": 1000,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 0.006594669248294327,
+            "expected_deviance": 0.013189338496588654,
+            "total_flux_information_nats": 0.006594669248294327,
+            "profile_gain_information_nats": 0.0,
+            "conditional_shape_KL_per_reflected_photon": 0.0,
+            "expected_reflected_photons": 266.9193043475189,
+            "decomposition_absolute_error_nats": 0.0
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 0.006610121540795433,
+            "expected_deviance": 0.013220243081590866,
+            "total_flux_information_nats": 0.006610121540795433,
+            "profile_gain_information_nats": 0.0,
+            "conditional_shape_KL_per_reflected_photon": 0.0,
+            "expected_reflected_photons": 268.80000000000007,
+            "decomposition_absolute_error_nats": 0.0
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.05408142009969782
+        },
+        {
+          "sectors": 1,
+          "width_deg": 180.0,
+          "expected_incident_photons": 10000,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 0.06594669248294327,
+            "expected_deviance": 0.13189338496588654,
+            "total_flux_information_nats": 0.06594669248294327,
+            "profile_gain_information_nats": 0.0,
+            "conditional_shape_KL_per_reflected_photon": 0.0,
+            "expected_reflected_photons": 2669.1930434751894,
+            "decomposition_absolute_error_nats": 0.0
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 0.06610121540795433,
+            "expected_deviance": 0.13220243081590866,
+            "total_flux_information_nats": 0.06610121540795433,
+            "profile_gain_information_nats": 0.0,
+            "conditional_shape_KL_per_reflected_photon": 0.0,
+            "expected_reflected_photons": 2688.000000000001,
+            "decomposition_absolute_error_nats": 0.0
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.1710204666114556
+        },
+        {
+          "sectors": 6,
+          "width_deg": 30.0,
+          "expected_incident_photons": 100,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 0.10840765580643445,
+            "expected_deviance": 0.2168153116128689,
+            "total_flux_information_nats": 0.0006594669248238816,
+            "profile_gain_information_nats": 0.10774818888160553,
+            "conditional_shape_KL_per_reflected_photon": 0.004036732717590235,
+            "expected_reflected_photons": 26.6919304347519,
+            "decomposition_absolute_error_nats": 5.0306980803327406e-15
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 0.10589518567054972,
+            "expected_deviance": 0.21179037134109943,
+            "total_flux_information_nats": 0.0006610121540795433,
+            "profile_gain_information_nats": 0.10523417351647148,
+            "conditional_shape_KL_per_reflected_photon": 0.003914961812368729,
+            "expected_reflected_photons": 26.88000000000001,
+            "decomposition_absolute_error_nats": 1.3010426069826053e-15
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.019763886257515247
+        },
+        {
+          "sectors": 6,
+          "width_deg": 30.0,
+          "expected_incident_photons": 1000,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 1.0840765580643446,
+            "expected_deviance": 2.168153116128689,
+            "total_flux_information_nats": 0.006594669248238816,
+            "profile_gain_information_nats": 1.0774818888160553,
+            "conditional_shape_KL_per_reflected_photon": 0.004036732717590235,
+            "expected_reflected_photons": 266.91930434751896,
+            "decomposition_absolute_error_nats": 5.0306980803327406e-14
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 1.0589518567054972,
+            "expected_deviance": 2.1179037134109944,
+            "total_flux_information_nats": 0.006610121540795433,
+            "profile_gain_information_nats": 1.0523417351647146,
+            "conditional_shape_KL_per_reflected_photon": 0.003914961812368729,
+            "expected_reflected_photons": 268.80000000000007,
+            "decomposition_absolute_error_nats": 1.3010426069826053e-14
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.0624988959902493
+        },
+        {
+          "sectors": 6,
+          "width_deg": 30.0,
+          "expected_incident_photons": 10000,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 10.840765580643446,
+            "expected_deviance": 21.68153116128689,
+            "total_flux_information_nats": 0.06594669248238816,
+            "profile_gain_information_nats": 10.774818888160555,
+            "conditional_shape_KL_per_reflected_photon": 0.004036732717590235,
+            "expected_reflected_photons": 2669.19304347519,
+            "decomposition_absolute_error_nats": 5.030698080332741e-13
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 10.589518567054972,
+            "expected_deviance": 21.179037134109944,
+            "total_flux_information_nats": 0.06610121540795433,
+            "profile_gain_information_nats": 10.523417351647147,
+            "conditional_shape_KL_per_reflected_photon": 0.003914961812368729,
+            "expected_reflected_photons": 2688.000000000001,
+            "decomposition_absolute_error_nats": 1.3010426069826053e-13
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.19763886257515245
+        },
+        {
+          "sectors": 18,
+          "width_deg": 10.0,
+          "expected_incident_photons": 100,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 0.744306628408151,
+            "expected_deviance": 1.488613256816302,
+            "total_flux_information_nats": 0.0006594669248294327,
+            "profile_gain_information_nats": 0.7436471614833254,
+            "conditional_shape_KL_per_reflected_photon": 0.027860373879707283,
+            "expected_reflected_photons": 26.691930434751892,
+            "decomposition_absolute_error_nats": 3.903127820947816e-15
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 0.7864471810761837,
+            "expected_deviance": 1.5728943621523674,
+            "total_flux_information_nats": 0.0006610121540795433,
+            "profile_gain_information_nats": 0.7857861689221007,
+            "conditional_shape_KL_per_reflected_photon": 0.029233116403351952,
+            "expected_reflected_photons": 26.88000000000001,
+            "decomposition_absolute_error_nats": 3.469446951953614e-15
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.019942517393749467
+        },
+        {
+          "sectors": 18,
+          "width_deg": 10.0,
+          "expected_incident_photons": 1000,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 7.44306628408151,
+            "expected_deviance": 14.88613256816302,
+            "total_flux_information_nats": 0.006594669248294327,
+            "profile_gain_information_nats": 7.436471614833255,
+            "conditional_shape_KL_per_reflected_photon": 0.027860373879707283,
+            "expected_reflected_photons": 266.9193043475189,
+            "decomposition_absolute_error_nats": 3.903127820947816e-14
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 7.864471810761837,
+            "expected_deviance": 15.728943621523674,
+            "total_flux_information_nats": 0.006610121540795433,
+            "profile_gain_information_nats": 7.857861689221007,
+            "conditional_shape_KL_per_reflected_photon": 0.029233116403351952,
+            "expected_reflected_photons": 268.80000000000007,
+            "decomposition_absolute_error_nats": 3.469446951953614e-14
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.06306377724177327
+        },
+        {
+          "sectors": 18,
+          "width_deg": 10.0,
+          "expected_incident_photons": 10000,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 74.4306628408151,
+            "expected_deviance": 148.8613256816302,
+            "total_flux_information_nats": 0.06594669248294327,
+            "profile_gain_information_nats": 74.36471614833255,
+            "conditional_shape_KL_per_reflected_photon": 0.027860373879707283,
+            "expected_reflected_photons": 2669.1930434751894,
+            "decomposition_absolute_error_nats": 3.903127820947816e-13
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 78.64471810761837,
+            "expected_deviance": 157.28943621523675,
+            "total_flux_information_nats": 0.06610121540795433,
+            "profile_gain_information_nats": 78.57861689221008,
+            "conditional_shape_KL_per_reflected_photon": 0.029233116403351952,
+            "expected_reflected_photons": 2688.000000000001,
+            "decomposition_absolute_error_nats": 3.469446951953614e-13
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.19942517393749468
+        },
+        {
+          "sectors": 90,
+          "width_deg": 2.0,
+          "expected_incident_photons": 100,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 4.353730925530332,
+            "expected_deviance": 8.707461851060664,
+            "total_flux_information_nats": 0.0006594669248294327,
+            "profile_gain_information_nats": 4.3530714586055055,
+            "conditional_shape_KL_per_reflected_photon": 0.16308567374872107,
+            "expected_reflected_photons": 26.691930434751892,
+            "decomposition_absolute_error_nats": 2.7755575615628914e-15
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 5.240432649323183,
+            "expected_deviance": 10.480865298646366,
+            "total_flux_information_nats": 0.0006610121540795433,
+            "profile_gain_information_nats": 5.2397716371691025,
+            "conditional_shape_KL_per_reflected_photon": 0.1949319805494457,
+            "expected_reflected_photons": 26.88000000000001,
+            "decomposition_absolute_error_nats": 1.3877787807814457e-15
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.0199898374180482
+        },
+        {
+          "sectors": 90,
+          "width_deg": 2.0,
+          "expected_incident_photons": 1000,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 43.53730925530332,
+            "expected_deviance": 87.07461851060664,
+            "total_flux_information_nats": 0.006594669248294327,
+            "profile_gain_information_nats": 43.530714586055055,
+            "conditional_shape_KL_per_reflected_photon": 0.16308567374872107,
+            "expected_reflected_photons": 266.9193043475189,
+            "decomposition_absolute_error_nats": 2.7755575615628914e-14
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 52.40432649323183,
+            "expected_deviance": 104.80865298646366,
+            "total_flux_information_nats": 0.006610121540795433,
+            "profile_gain_information_nats": 52.397716371691025,
+            "conditional_shape_KL_per_reflected_photon": 0.1949319805494457,
+            "expected_reflected_photons": 268.80000000000007,
+            "decomposition_absolute_error_nats": 1.3877787807814457e-14
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.06321341629749179
+        },
+        {
+          "sectors": 90,
+          "width_deg": 2.0,
+          "expected_incident_photons": 10000,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 435.37309255303325,
+            "expected_deviance": 870.7461851060665,
+            "total_flux_information_nats": 0.06594669248294327,
+            "profile_gain_information_nats": 435.3071458605506,
+            "conditional_shape_KL_per_reflected_photon": 0.16308567374872107,
+            "expected_reflected_photons": 2669.1930434751894,
+            "decomposition_absolute_error_nats": 2.7755575615628914e-13
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 524.0432649323183,
+            "expected_deviance": 1048.0865298646365,
+            "total_flux_information_nats": 0.06610121540795433,
+            "profile_gain_information_nats": 523.9771637169102,
+            "conditional_shape_KL_per_reflected_photon": 0.1949319805494457,
+            "expected_reflected_photons": 2688.000000000001,
+            "decomposition_absolute_error_nats": 1.3877787807814457e-13
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.199898374180482
+        }
+      ]
+    },
+    {
+      "label": "Ez_offset5",
+      "polarization": "Ez",
+      "offset_um": 5.0,
+      "R_wave": 0.2511001340576388,
+      "R_ray": 0.24414400000000014,
+      "R_wave_difference_vs_independent_GL512_reference": 5.162537064506978e-15,
+      "R_ray_difference_vs_saved_total": 1.3877787807814457e-16,
+      "spectral_integral_subsample_convergence": {
+        "4320": {
+          "max_absolute_bin_error_vs_8640": 1.491862189340054e-16,
+          "relative_bin_L1_error_vs_8640": 7.298822675852499e-15
+        },
+        "2160": {
+          "max_absolute_bin_error_vs_8640": 1.196959198423997e-16,
+          "relative_bin_L1_error_vs_8640": 9.177932725859012e-15
+        },
+        "1080": {
+          "max_absolute_bin_error_vs_8640": 1.700029006457271e-16,
+          "relative_bin_L1_error_vs_8640": 1.1713349594801622e-14
+        }
+      },
+      "crude_8640_midpoint_total_R_error": 4.442524940140302e-07,
+      "minimum_ray_bin_count": 207,
+      "minimum_wave_bin_probability": 0.0002115960809454167,
+      "ray_dictionary_KL_bootstrap": {
+        "1": {
+          "known_N_KL_per_incident_photon_percentile_2p5_97p5": [
+            5.611726067173695e-05,
+            0.00014401148552391219
+          ],
+          "profile_KL_per_incident_photon_percentile_2p5_97p5": [
+            0.0,
+            0.0
+          ],
+          "bootstrap_repeats": 400
+        },
+        "6": {
+          "known_N_KL_per_incident_photon_percentile_2p5_97p5": [
+            0.0008338373378000947,
+            0.0011683892257066217
+          ],
+          "profile_KL_per_incident_photon_percentile_2p5_97p5": [
+            0.000742181275306162,
+            0.0010669850998228842
+          ],
+          "bootstrap_repeats": 400
+        },
+        "18": {
+          "known_N_KL_per_incident_photon_percentile_2p5_97p5": [
+            0.00648184992184062,
+            0.007395489005747323
+          ],
+          "profile_KL_per_incident_photon_percentile_2p5_97p5": [
+            0.006395172289436228,
+            0.007306660773124828
+          ],
+          "bootstrap_repeats": 400
+        },
+        "90": {
+          "known_N_KL_per_incident_photon_percentile_2p5_97p5": [
+            0.03850681192888976,
+            0.04063236768681809
+          ],
+          "profile_KL_per_incident_photon_percentile_2p5_97p5": [
+            0.03840196667846926,
+            0.04057274590595087
+          ],
+          "bootstrap_repeats": 400
+        }
+      },
+      "information": [
+        {
+          "sectors": 1,
+          "width_deg": 180.0,
+          "expected_incident_photons": 100,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 0.009816887577934752,
+            "expected_deviance": 0.019633775155869504,
+            "total_flux_information_nats": 0.009816887577934752,
+            "profile_gain_information_nats": 0.0,
+            "conditional_shape_KL_per_reflected_photon": 0.0,
+            "expected_reflected_photons": 25.11001340576388,
+            "decomposition_absolute_error_nats": 0.0
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 0.009725386691336602,
+            "expected_deviance": 0.019450773382673203,
+            "total_flux_information_nats": 0.009725386691336602,
+            "profile_gain_information_nats": 0.0,
+            "conditional_shape_KL_per_reflected_photon": 0.0,
+            "expected_reflected_photons": 24.414400000000015,
+            "decomposition_absolute_error_nats": 0.0
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.017387995859212756
+        },
+        {
+          "sectors": 1,
+          "width_deg": 180.0,
+          "expected_incident_photons": 1000,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 0.09816887577934752,
+            "expected_deviance": 0.19633775155869504,
+            "total_flux_information_nats": 0.09816887577934752,
+            "profile_gain_information_nats": 0.0,
+            "conditional_shape_KL_per_reflected_photon": 0.0,
+            "expected_reflected_photons": 251.10013405763883,
+            "decomposition_absolute_error_nats": 0.0
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 0.09725386691336602,
+            "expected_deviance": 0.19450773382673203,
+            "total_flux_information_nats": 0.09725386691336602,
+            "profile_gain_information_nats": 0.0,
+            "conditional_shape_KL_per_reflected_photon": 0.0,
+            "expected_reflected_photons": 244.14400000000015,
+            "decomposition_absolute_error_nats": 0.0
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.054985670860688785
+        },
+        {
+          "sectors": 1,
+          "width_deg": 180.0,
+          "expected_incident_photons": 10000,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 0.9816887577934752,
+            "expected_deviance": 1.9633775155869504,
+            "total_flux_information_nats": 0.9816887577934752,
+            "profile_gain_information_nats": 0.0,
+            "conditional_shape_KL_per_reflected_photon": 0.0,
+            "expected_reflected_photons": 2511.001340576388,
+            "decomposition_absolute_error_nats": 0.0
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 0.9725386691336602,
+            "expected_deviance": 1.9450773382673203,
+            "total_flux_information_nats": 0.9725386691336602,
+            "profile_gain_information_nats": 0.0,
+            "conditional_shape_KL_per_reflected_photon": 0.0,
+            "expected_reflected_photons": 2441.4400000000014,
+            "decomposition_absolute_error_nats": 0.0
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.17387995859212757
+        },
+        {
+          "sectors": 6,
+          "width_deg": 30.0,
+          "expected_incident_photons": 100,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 0.09803041736503176,
+            "expected_deviance": 0.19606083473006353,
+            "total_flux_information_nats": 0.009816887577934752,
+            "profile_gain_information_nats": 0.08821352978709769,
+            "conditional_shape_KL_per_reflected_photon": 0.0035130817479710587,
+            "expected_reflected_photons": 25.11001340576388,
+            "decomposition_absolute_error_nats": 6.830473686658678e-16
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 0.09123406533465724,
+            "expected_deviance": 0.18246813066931447,
+            "total_flux_information_nats": 0.009725386691336602,
+            "profile_gain_information_nats": 0.0815086786433211,
+            "conditional_shape_KL_per_reflected_photon": 0.0033385493251245598,
+            "expected_reflected_photons": 24.41440000000002,
+            "decomposition_absolute_error_nats": 4.77048955893622e-16
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.019822895853028134
+        },
+        {
+          "sectors": 6,
+          "width_deg": 30.0,
+          "expected_incident_photons": 1000,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 0.9803041736503176,
+            "expected_deviance": 1.9606083473006353,
+            "total_flux_information_nats": 0.09816887577934752,
+            "profile_gain_information_nats": 0.882135297870977,
+            "conditional_shape_KL_per_reflected_photon": 0.0035130817479710587,
+            "expected_reflected_photons": 251.10013405763883,
+            "decomposition_absolute_error_nats": 6.830473686658678e-15
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 0.9123406533465723,
+            "expected_deviance": 1.8246813066931447,
+            "total_flux_information_nats": 0.09725386691336602,
+            "profile_gain_information_nats": 0.8150867864332111,
+            "conditional_shape_KL_per_reflected_photon": 0.0033385493251245598,
+            "expected_reflected_photons": 244.14400000000018,
+            "decomposition_absolute_error_nats": 4.7704895589362195e-15
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.06268550071587528
+        },
+        {
+          "sectors": 6,
+          "width_deg": 30.0,
+          "expected_incident_photons": 10000,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 9.803041736503177,
+            "expected_deviance": 19.606083473006354,
+            "total_flux_information_nats": 0.9816887577934752,
+            "profile_gain_information_nats": 8.82135297870977,
+            "conditional_shape_KL_per_reflected_photon": 0.0035130817479710587,
+            "expected_reflected_photons": 2511.001340576388,
+            "decomposition_absolute_error_nats": 6.830473686658678e-14
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 9.123406533465724,
+            "expected_deviance": 18.24681306693145,
+            "total_flux_information_nats": 0.9725386691336602,
+            "profile_gain_information_nats": 8.150867864332112,
+            "conditional_shape_KL_per_reflected_photon": 0.0033385493251245598,
+            "expected_reflected_photons": 2441.440000000002,
+            "decomposition_absolute_error_nats": 4.7704895589362195e-14
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.19822895853028133
+        },
+        {
+          "sectors": 18,
+          "width_deg": 10.0,
+          "expected_incident_photons": 100,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 0.6915000112424722,
+            "expected_deviance": 1.3830000224849444,
+            "total_flux_information_nats": 0.009816887577934752,
+            "profile_gain_information_nats": 0.6816831236645408,
+            "conditional_shape_KL_per_reflected_photon": 0.027147859805923637,
+            "expected_reflected_photons": 25.110013405763876,
+            "decomposition_absolute_error_nats": 3.382710778154774e-15
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 0.6998849319932988,
+            "expected_deviance": 1.3997698639865976,
+            "total_flux_information_nats": 0.009725386691336602,
+            "profile_gain_information_nats": 0.6901595453019594,
+            "conditional_shape_KL_per_reflected_photon": 0.028268544191213343,
+            "expected_reflected_photons": 24.414400000000015,
+            "decomposition_absolute_error_nats": 2.8622937353617317e-15
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.019951902164956604
+        },
+        {
+          "sectors": 18,
+          "width_deg": 10.0,
+          "expected_incident_photons": 1000,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 6.915000112424722,
+            "expected_deviance": 13.830000224849444,
+            "total_flux_information_nats": 0.09816887577934752,
+            "profile_gain_information_nats": 6.816831236645408,
+            "conditional_shape_KL_per_reflected_photon": 0.027147859805923637,
+            "expected_reflected_photons": 251.10013405763877,
+            "decomposition_absolute_error_nats": 3.382710778154774e-14
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 6.998849319932988,
+            "expected_deviance": 13.997698639865977,
+            "total_flux_information_nats": 0.09725386691336602,
+            "profile_gain_information_nats": 6.901595453019594,
+            "conditional_shape_KL_per_reflected_photon": 0.028268544191213343,
+            "expected_reflected_photons": 244.14400000000015,
+            "decomposition_absolute_error_nats": 2.862293735361732e-14
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.06309345449410739
+        },
+        {
+          "sectors": 18,
+          "width_deg": 10.0,
+          "expected_incident_photons": 10000,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 69.15000112424721,
+            "expected_deviance": 138.30000224849442,
+            "total_flux_information_nats": 0.9816887577934752,
+            "profile_gain_information_nats": 68.16831236645407,
+            "conditional_shape_KL_per_reflected_photon": 0.027147859805923637,
+            "expected_reflected_photons": 2511.0013405763875,
+            "decomposition_absolute_error_nats": 3.382710778154774e-13
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 69.98849319932988,
+            "expected_deviance": 139.97698639865976,
+            "total_flux_information_nats": 0.9725386691336602,
+            "profile_gain_information_nats": 69.01595453019594,
+            "conditional_shape_KL_per_reflected_photon": 0.028268544191213343,
+            "expected_reflected_photons": 2441.4400000000014,
+            "decomposition_absolute_error_nats": 2.8622937353617317e-13
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.19951902164956603
+        },
+        {
+          "sectors": 90,
+          "width_deg": 2.0,
+          "expected_incident_photons": 100,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 3.9339374524086606,
+            "expected_deviance": 7.867874904817321,
+            "total_flux_information_nats": 0.009816887577934752,
+            "profile_gain_information_nats": 3.9241205648307242,
+            "conditional_shape_KL_per_reflected_photon": 0.1562771194670076,
+            "expected_reflected_photons": 25.11001340576388,
+            "decomposition_absolute_error_nats": 1.3877787807814457e-15
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 4.672453043398739,
+            "expected_deviance": 9.344906086797478,
+            "total_flux_information_nats": 0.009725386691336602,
+            "profile_gain_information_nats": 4.662727656707404,
+            "conditional_shape_KL_per_reflected_photon": 0.19098268467410223,
+            "expected_reflected_photons": 24.414400000000015,
+            "decomposition_absolute_error_nats": 2.0816681711721685e-15
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.019991718285330053
+        },
+        {
+          "sectors": 90,
+          "width_deg": 2.0,
+          "expected_incident_photons": 1000,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 39.3393745240866,
+            "expected_deviance": 78.6787490481732,
+            "total_flux_information_nats": 0.09816887577934752,
+            "profile_gain_information_nats": 39.24120564830724,
+            "conditional_shape_KL_per_reflected_photon": 0.1562771194670076,
+            "expected_reflected_photons": 251.10013405763883,
+            "decomposition_absolute_error_nats": 1.3877787807814457e-14
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 46.72453043398739,
+            "expected_deviance": 93.44906086797478,
+            "total_flux_information_nats": 0.09725386691336602,
+            "profile_gain_information_nats": 46.62727656707404,
+            "conditional_shape_KL_per_reflected_photon": 0.19098268467410223,
+            "expected_reflected_photons": 244.14400000000015,
+            "decomposition_absolute_error_nats": 2.0816681711721685e-14
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.06321936412207893
+        },
+        {
+          "sectors": 90,
+          "width_deg": 2.0,
+          "expected_incident_photons": 10000,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 393.39374524086605,
+            "expected_deviance": 786.7874904817321,
+            "total_flux_information_nats": 0.9816887577934752,
+            "profile_gain_information_nats": 392.41205648307243,
+            "conditional_shape_KL_per_reflected_photon": 0.1562771194670076,
+            "expected_reflected_photons": 2511.001340576388,
+            "decomposition_absolute_error_nats": 1.3877787807814457e-13
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 467.2453043398739,
+            "expected_deviance": 934.4906086797478,
+            "total_flux_information_nats": 0.9725386691336602,
+            "profile_gain_information_nats": 466.27276567074045,
+            "conditional_shape_KL_per_reflected_photon": 0.19098268467410223,
+            "expected_reflected_photons": 2441.4400000000014,
+            "decomposition_absolute_error_nats": 2.0816681711721685e-13
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.1999171828533005
+        }
+      ]
+    },
+    {
+      "label": "Ez_offset10",
+      "polarization": "Ez",
+      "offset_um": 10.0,
+      "R_wave": 0.19327306836545047,
+      "R_ray": 0.1797280000000001,
+      "R_wave_difference_vs_independent_GL512_reference": 3.747002708109903e-15,
+      "R_ray_difference_vs_saved_total": 1.1102230246251565e-16,
+      "spectral_integral_subsample_convergence": {
+        "4320": {
+          "max_absolute_bin_error_vs_8640": 9.020562075079397e-17,
+          "relative_bin_L1_error_vs_8640": 6.502753689245324e-15
+        },
+        "2160": {
+          "max_absolute_bin_error_vs_8640": 9.80118763926896e-17,
+          "relative_bin_L1_error_vs_8640": 8.17668545328156e-15
+        },
+        "1080": {
+          "max_absolute_bin_error_vs_8640": 1.465841337200402e-16,
+          "relative_bin_L1_error_vs_8640": 9.558913290609068e-15
+        }
+      },
+      "crude_8640_midpoint_total_R_error": 4.388220522788533e-07,
+      "minimum_ray_bin_count": 138,
+      "minimum_wave_bin_probability": 0.00014751023335617293,
+      "ray_dictionary_KL_bootstrap": {
+        "1": {
+          "known_N_KL_per_incident_photon_percentile_2p5_97p5": [
+            0.0004003719736271928,
+            0.0006355610960272859
+          ],
+          "profile_KL_per_incident_photon_percentile_2p5_97p5": [
+            0.0,
+            0.0
+          ],
+          "bootstrap_repeats": 400
+        },
+        "6": {
+          "known_N_KL_per_incident_photon_percentile_2p5_97p5": [
+            0.0008202579549550945,
+            0.001173144526532421
+          ],
+          "profile_KL_per_incident_photon_percentile_2p5_97p5": [
+            0.000364672580419887,
+            0.0006136544340015937
+          ],
+          "bootstrap_repeats": 400
+        },
+        "18": {
+          "known_N_KL_per_incident_photon_percentile_2p5_97p5": [
+            0.005716131113561617,
+            0.00657190952338181
+          ],
+          "profile_KL_per_incident_photon_percentile_2p5_97p5": [
+            0.005215741998478817,
+            0.0060678516427826465
+          ],
+          "bootstrap_repeats": 400
+        },
+        "90": {
+          "known_N_KL_per_incident_photon_percentile_2p5_97p5": [
+            0.032093987869268946,
+            0.03428128350781533
+          ],
+          "profile_KL_per_incident_photon_percentile_2p5_97p5": [
+            0.03159394550735853,
+            0.03374893007489354
+          ],
+          "bootstrap_repeats": 400
+        }
+      },
+      "information": [
+        {
+          "sectors": 1,
+          "width_deg": 180.0,
+          "expected_incident_photons": 100,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 0.049804726043381486,
+            "expected_deviance": 0.09960945208676297,
+            "total_flux_information_nats": 0.049804726043381486,
+            "profile_gain_information_nats": 0.0,
+            "conditional_shape_KL_per_reflected_photon": 0.0,
+            "expected_reflected_photons": 19.32730683654505,
+            "decomposition_absolute_error_nats": 0.0
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 0.048613001178116066,
+            "expected_deviance": 0.09722600235623213,
+            "total_flux_information_nats": 0.048613001178116066,
+            "profile_gain_information_nats": 0.0,
+            "conditional_shape_KL_per_reflected_photon": 0.0,
+            "expected_reflected_photons": 17.97280000000001,
+            "decomposition_absolute_error_nats": 0.0
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.018113773764734945
+        },
+        {
+          "sectors": 1,
+          "width_deg": 180.0,
+          "expected_incident_photons": 1000,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 0.49804726043381486,
+            "expected_deviance": 0.9960945208676297,
+            "total_flux_information_nats": 0.49804726043381486,
+            "profile_gain_information_nats": 0.0,
+            "conditional_shape_KL_per_reflected_photon": 0.0,
+            "expected_reflected_photons": 193.27306836545046,
+            "decomposition_absolute_error_nats": 0.0
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 0.48613001178116066,
+            "expected_deviance": 0.9722600235623213,
+            "total_flux_information_nats": 0.48613001178116066,
+            "profile_gain_information_nats": 0.0,
+            "conditional_shape_KL_per_reflected_photon": 0.0,
+            "expected_reflected_photons": 179.72800000000012,
+            "decomposition_absolute_error_nats": 0.0
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.0572807821175654
+        },
+        {
+          "sectors": 1,
+          "width_deg": 180.0,
+          "expected_incident_photons": 10000,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 4.980472604338148,
+            "expected_deviance": 9.960945208676296,
+            "total_flux_information_nats": 4.980472604338148,
+            "profile_gain_information_nats": 0.0,
+            "conditional_shape_KL_per_reflected_photon": 0.0,
+            "expected_reflected_photons": 1932.7306836545047,
+            "decomposition_absolute_error_nats": 0.0
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 4.861300117811607,
+            "expected_deviance": 9.722600235623213,
+            "total_flux_information_nats": 4.861300117811607,
+            "profile_gain_information_nats": 0.0,
+            "conditional_shape_KL_per_reflected_photon": 0.0,
+            "expected_reflected_photons": 1797.280000000001,
+            "decomposition_absolute_error_nats": 0.0
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.18113773764734944
+        },
+        {
+          "sectors": 6,
+          "width_deg": 30.0,
+          "expected_incident_photons": 100,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 0.09673836565658386,
+            "expected_deviance": 0.19347673131316773,
+            "total_flux_information_nats": 0.049804726043381486,
+            "profile_gain_information_nats": 0.04693363961319958,
+            "conditional_shape_KL_per_reflected_photon": 0.002428359005738714,
+            "expected_reflected_photons": 19.32730683654505,
+            "decomposition_absolute_error_nats": 2.7972416050126014e-15
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 0.09273687425167959,
+            "expected_deviance": 0.18547374850335918,
+            "total_flux_information_nats": 0.048613001178116066,
+            "profile_gain_information_nats": 0.04412387307356734,
+            "conditional_shape_KL_per_reflected_photon": 0.0024550361142152205,
+            "expected_reflected_photons": 17.97280000000001,
+            "decomposition_absolute_error_nats": 3.816391647148976e-15
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.019822936210359958
+        },
+        {
+          "sectors": 6,
+          "width_deg": 30.0,
+          "expected_incident_photons": 1000,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 0.9673836565658387,
+            "expected_deviance": 1.9347673131316774,
+            "total_flux_information_nats": 0.49804726043381486,
+            "profile_gain_information_nats": 0.4693363961319958,
+            "conditional_shape_KL_per_reflected_photon": 0.002428359005738714,
+            "expected_reflected_photons": 193.27306836545046,
+            "decomposition_absolute_error_nats": 2.7972416050126014e-14
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 0.9273687425167959,
+            "expected_deviance": 1.8547374850335918,
+            "total_flux_information_nats": 0.48613001178116066,
+            "profile_gain_information_nats": 0.44123873073567343,
+            "conditional_shape_KL_per_reflected_photon": 0.0024550361142152205,
+            "expected_reflected_photons": 179.72800000000012,
+            "decomposition_absolute_error_nats": 3.8163916471489756e-14
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.06268562833696413
+        },
+        {
+          "sectors": 6,
+          "width_deg": 30.0,
+          "expected_incident_photons": 10000,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 9.673836565658386,
+            "expected_deviance": 19.34767313131677,
+            "total_flux_information_nats": 4.980472604338148,
+            "profile_gain_information_nats": 4.693363961319958,
+            "conditional_shape_KL_per_reflected_photon": 0.002428359005738714,
+            "expected_reflected_photons": 1932.7306836545047,
+            "decomposition_absolute_error_nats": 2.7972416050126014e-13
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 9.273687425167958,
+            "expected_deviance": 18.547374850335917,
+            "total_flux_information_nats": 4.861300117811607,
+            "profile_gain_information_nats": 4.412387307356734,
+            "conditional_shape_KL_per_reflected_photon": 0.0024550361142152205,
+            "expected_reflected_photons": 1797.280000000001,
+            "decomposition_absolute_error_nats": 3.8163916471489756e-13
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.19822936210359957
+        },
+        {
+          "sectors": 18,
+          "width_deg": 10.0,
+          "expected_incident_photons": 100,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 0.6094645535879393,
+            "expected_deviance": 1.2189291071758785,
+            "total_flux_information_nats": 0.049804726043381486,
+            "profile_gain_information_nats": 0.5596598275445573,
+            "conditional_shape_KL_per_reflected_photon": 0.02895694843972386,
+            "expected_reflected_photons": 19.327306836545045,
+            "decomposition_absolute_error_nats": 5.204170427930421e-16
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 0.5557096845861728,
+            "expected_deviance": 1.1114193691723455,
+            "total_flux_information_nats": 0.04861300117811329,
+            "profile_gain_information_nats": 0.5070966834080582,
+            "conditional_shape_KL_per_reflected_photon": 0.028214673473696814,
+            "expected_reflected_photons": 17.972800000000007,
+            "decomposition_absolute_error_nats": 1.214306433183765e-15
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.01996532994969029
+        },
+        {
+          "sectors": 18,
+          "width_deg": 10.0,
+          "expected_incident_photons": 1000,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 6.094645535879393,
+            "expected_deviance": 12.189291071758786,
+            "total_flux_information_nats": 0.49804726043381486,
+            "profile_gain_information_nats": 5.596598275445573,
+            "conditional_shape_KL_per_reflected_photon": 0.02895694843972386,
+            "expected_reflected_photons": 193.27306836545043,
+            "decomposition_absolute_error_nats": 5.204170427930421e-15
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 5.557096845861728,
+            "expected_deviance": 11.114193691723456,
+            "total_flux_information_nats": 0.4861300117811329,
+            "profile_gain_information_nats": 5.070966834080583,
+            "conditional_shape_KL_per_reflected_photon": 0.028214673473696814,
+            "expected_reflected_photons": 179.7280000000001,
+            "decomposition_absolute_error_nats": 1.214306433183765e-14
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.06313591687779627
+        },
+        {
+          "sectors": 18,
+          "width_deg": 10.0,
+          "expected_incident_photons": 10000,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 60.94645535879393,
+            "expected_deviance": 121.89291071758787,
+            "total_flux_information_nats": 4.980472604338148,
+            "profile_gain_information_nats": 55.96598275445573,
+            "conditional_shape_KL_per_reflected_photon": 0.02895694843972386,
+            "expected_reflected_photons": 1932.7306836545044,
+            "decomposition_absolute_error_nats": 5.204170427930421e-14
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 55.57096845861728,
+            "expected_deviance": 111.14193691723456,
+            "total_flux_information_nats": 4.861300117811329,
+            "profile_gain_information_nats": 50.70966834080583,
+            "conditional_shape_KL_per_reflected_photon": 0.028214673473696814,
+            "expected_reflected_photons": 1797.2800000000009,
+            "decomposition_absolute_error_nats": 1.214306433183765e-13
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.1996532994969029
+        },
+        {
+          "sectors": 90,
+          "width_deg": 2.0,
+          "expected_incident_photons": 100,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 3.2868691444368436,
+            "expected_deviance": 6.573738288873687,
+            "total_flux_information_nats": 0.049804726043381486,
+            "profile_gain_information_nats": 3.2370644183934614,
+            "conditional_shape_KL_per_reflected_photon": 0.16748657460503794,
+            "expected_reflected_photons": 19.32730683654505,
+            "decomposition_absolute_error_nats": 6.938893903907228e-16
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 3.4333841491426145,
+            "expected_deviance": 6.866768298285229,
+            "total_flux_information_nats": 0.048613001178116066,
+            "profile_gain_information_nats": 3.384771147964499,
+            "conditional_shape_KL_per_reflected_photon": 0.18832742521835757,
+            "expected_reflected_photons": 17.97280000000001,
+            "decomposition_absolute_error_nats": 6.938893903907228e-16
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.019994479238029682
+        },
+        {
+          "sectors": 90,
+          "width_deg": 2.0,
+          "expected_incident_photons": 1000,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 32.86869144436844,
+            "expected_deviance": 65.73738288873687,
+            "total_flux_information_nats": 0.49804726043381486,
+            "profile_gain_information_nats": 32.370644183934616,
+            "conditional_shape_KL_per_reflected_photon": 0.16748657460503794,
+            "expected_reflected_photons": 193.27306836545046,
+            "decomposition_absolute_error_nats": 6.938893903907228e-15
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 34.33384149142615,
+            "expected_deviance": 68.6676829828523,
+            "total_flux_information_nats": 0.48613001178116066,
+            "profile_gain_information_nats": 33.84771147964499,
+            "conditional_shape_KL_per_reflected_photon": 0.18832742521835757,
+            "expected_reflected_photons": 179.72800000000012,
+            "decomposition_absolute_error_nats": 6.938893903907228e-15
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.06322809502112174
+        },
+        {
+          "sectors": 90,
+          "width_deg": 2.0,
+          "expected_incident_photons": 10000,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 328.6869144436844,
+            "expected_deviance": 657.3738288873687,
+            "total_flux_information_nats": 4.980472604338148,
+            "profile_gain_information_nats": 323.70644183934616,
+            "conditional_shape_KL_per_reflected_photon": 0.16748657460503794,
+            "expected_reflected_photons": 1932.7306836545047,
+            "decomposition_absolute_error_nats": 6.938893903907228e-14
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 343.3384149142615,
+            "expected_deviance": 686.676829828523,
+            "total_flux_information_nats": 4.861300117811607,
+            "profile_gain_information_nats": 338.47711479644994,
+            "conditional_shape_KL_per_reflected_photon": 0.18832742521835757,
+            "expected_reflected_photons": 1797.280000000001,
+            "decomposition_absolute_error_nats": 6.938893903907228e-14
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.1999447923802968
+        }
+      ]
+    },
+    {
+      "label": "Hz_offset0",
+      "polarization": "Hz",
+      "offset_um": 0.0,
+      "R_wave": 0.15847078921841187,
+      "R_ray": 0.16060800000000006,
+      "R_wave_difference_vs_independent_GL512_reference": 6.938893903907228e-15,
+      "R_ray_difference_vs_saved_total": 5.551115123125783e-17,
+      "spectral_integral_subsample_convergence": {
+        "4320": {
+          "max_absolute_bin_error_vs_8640": 1.196959198423997e-16,
+          "relative_bin_L1_error_vs_8640": 9.638520942130295e-15
+        },
+        "2160": {
+          "max_absolute_bin_error_vs_8640": 1.3357370765021415e-16,
+          "relative_bin_L1_error_vs_8640": 1.3393220184777305e-14
+        },
+        "1080": {
+          "max_absolute_bin_error_vs_8640": 1.8388068845354155e-16,
+          "relative_bin_L1_error_vs_8640": 1.5878108604838154e-14
+        }
+      },
+      "crude_8640_midpoint_total_R_error": -2.725118677937566e-07,
+      "minimum_ray_bin_count": 93,
+      "minimum_wave_bin_probability": 0.00022224931998114303,
+      "ray_dictionary_KL_bootstrap": {
+        "1": {
+          "known_N_KL_per_incident_photon_percentile_2p5_97p5": [
+            2.0367850844388302e-06,
+            4.132402419943223e-05
+          ],
+          "profile_KL_per_incident_photon_percentile_2p5_97p5": [
+            0.0,
+            0.0
+          ],
+          "bootstrap_repeats": 400
+        },
+        "6": {
+          "known_N_KL_per_incident_photon_percentile_2p5_97p5": [
+            0.001804365617642002,
+            0.0023209534779777235
+          ],
+          "profile_KL_per_incident_photon_percentile_2p5_97p5": [
+            0.0017818663902252358,
+            0.002301746477730303
+          ],
+          "bootstrap_repeats": 400
+        },
+        "18": {
+          "known_N_KL_per_incident_photon_percentile_2p5_97p5": [
+            0.006574674953726995,
+            0.007594491181986591
+          ],
+          "profile_KL_per_incident_photon_percentile_2p5_97p5": [
+            0.006561331459848362,
+            0.007581070230457886
+          ],
+          "bootstrap_repeats": 400
+        },
+        "90": {
+          "known_N_KL_per_incident_photon_percentile_2p5_97p5": [
+            0.02456909881451611,
+            0.02646189080404195
+          ],
+          "profile_KL_per_incident_photon_percentile_2p5_97p5": [
+            0.0245626499725991,
+            0.02643871998424384
+          ],
+          "bootstrap_repeats": 400
+        }
+      },
+      "information": [
+        {
+          "sectors": 1,
+          "width_deg": 180.0,
+          "expected_incident_photons": 100,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 0.0014283430705891442,
+            "expected_deviance": 0.0028566861411782885,
+            "total_flux_information_nats": 0.0014283430705891442,
+            "profile_gain_information_nats": 0.0,
+            "conditional_shape_KL_per_reflected_photon": 0.0,
+            "expected_reflected_photons": 15.847078921841188,
+            "decomposition_absolute_error_nats": 0.0
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 0.0014347355101446135,
+            "expected_deviance": 0.002869471020289227,
+            "total_flux_information_nats": 0.0014347355101446135,
+            "profile_gain_information_nats": 0.0,
+            "conditional_shape_KL_per_reflected_photon": 0.0,
+            "expected_reflected_photons": 16.060800000000004,
+            "decomposition_absolute_error_nats": 0.0
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.018323667755119333
+        },
+        {
+          "sectors": 1,
+          "width_deg": 180.0,
+          "expected_incident_photons": 1000,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 0.014283430705891442,
+            "expected_deviance": 0.028566861411782885,
+            "total_flux_information_nats": 0.014283430705891442,
+            "profile_gain_information_nats": 0.0,
+            "conditional_shape_KL_per_reflected_photon": 0.0,
+            "expected_reflected_photons": 158.47078921841188,
+            "decomposition_absolute_error_nats": 0.0
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 0.014347355101446135,
+            "expected_deviance": 0.02869471020289227,
+            "total_flux_information_nats": 0.014347355101446135,
+            "profile_gain_information_nats": 0.0,
+            "conditional_shape_KL_per_reflected_photon": 0.0,
+            "expected_reflected_photons": 160.60800000000006,
+            "decomposition_absolute_error_nats": 0.0
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.057944525194361544
+        },
+        {
+          "sectors": 1,
+          "width_deg": 180.0,
+          "expected_incident_photons": 10000,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 0.14283430705891442,
+            "expected_deviance": 0.28566861411782885,
+            "total_flux_information_nats": 0.14283430705891442,
+            "profile_gain_information_nats": 0.0,
+            "conditional_shape_KL_per_reflected_photon": 0.0,
+            "expected_reflected_photons": 1584.7078921841187,
+            "decomposition_absolute_error_nats": 0.0
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 0.14347355101446135,
+            "expected_deviance": 0.2869471020289227,
+            "total_flux_information_nats": 0.14347355101446135,
+            "profile_gain_information_nats": 0.0,
+            "conditional_shape_KL_per_reflected_photon": 0.0,
+            "expected_reflected_photons": 1606.0800000000006,
+            "decomposition_absolute_error_nats": 0.0
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.1832366775511933
+        },
+        {
+          "sectors": 6,
+          "width_deg": 30.0,
+          "expected_incident_photons": 100,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 0.2022120046983161,
+            "expected_deviance": 0.4044240093966322,
+            "total_flux_information_nats": 0.0014283430705891442,
+            "profile_gain_information_nats": 0.2007836616277221,
+            "conditional_shape_KL_per_reflected_photon": 0.012670073937159021,
+            "expected_reflected_photons": 15.847078921841188,
+            "decomposition_absolute_error_nats": 4.85722573273506e-15
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 0.19708432940547613,
+            "expected_deviance": 0.39416865881095225,
+            "total_flux_information_nats": 0.0014347355101446135,
+            "profile_gain_information_nats": 0.1956495938953362,
+            "conditional_shape_KL_per_reflected_photon": 0.012181808745226647,
+            "expected_reflected_photons": 16.060800000000004,
+            "decomposition_absolute_error_nats": 4.683753385137379e-15
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.019892712233378334
+        },
+        {
+          "sectors": 6,
+          "width_deg": 30.0,
+          "expected_incident_photons": 1000,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 2.022120046983161,
+            "expected_deviance": 4.044240093966322,
+            "total_flux_information_nats": 0.014283430705891442,
+            "profile_gain_information_nats": 2.007836616277221,
+            "conditional_shape_KL_per_reflected_photon": 0.012670073937159021,
+            "expected_reflected_photons": 158.47078921841188,
+            "decomposition_absolute_error_nats": 4.85722573273506e-14
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 1.9708432940547613,
+            "expected_deviance": 3.9416865881095227,
+            "total_flux_information_nats": 0.014347355101446135,
+            "profile_gain_information_nats": 1.956495938953362,
+            "conditional_shape_KL_per_reflected_photon": 0.012181808745226647,
+            "expected_reflected_photons": 160.60800000000006,
+            "decomposition_absolute_error_nats": 4.683753385137379e-14
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.06290627949577053
+        },
+        {
+          "sectors": 6,
+          "width_deg": 30.0,
+          "expected_incident_photons": 10000,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 20.221200469831608,
+            "expected_deviance": 40.442400939663216,
+            "total_flux_information_nats": 0.14283430705891442,
+            "profile_gain_information_nats": 20.07836616277221,
+            "conditional_shape_KL_per_reflected_photon": 0.012670073937159021,
+            "expected_reflected_photons": 1584.7078921841187,
+            "decomposition_absolute_error_nats": 4.85722573273506e-13
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 19.708432940547613,
+            "expected_deviance": 39.41686588109523,
+            "total_flux_information_nats": 0.14347355101446135,
+            "profile_gain_information_nats": 19.56495938953362,
+            "conditional_shape_KL_per_reflected_photon": 0.012181808745226647,
+            "expected_reflected_photons": 1606.0800000000006,
+            "decomposition_absolute_error_nats": 4.683753385137379e-13
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.19892712233378335
+        },
+        {
+          "sectors": 18,
+          "width_deg": 10.0,
+          "expected_incident_photons": 100,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 0.7001402184638098,
+            "expected_deviance": 1.4002804369276196,
+            "total_flux_information_nats": 0.0014283430705891442,
+            "profile_gain_information_nats": 0.6987118753932191,
+            "conditional_shape_KL_per_reflected_photon": 0.04409089390160238,
+            "expected_reflected_photons": 15.847078921841184,
+            "decomposition_absolute_error_nats": 1.5612511283791264e-15
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 0.6853950996022841,
+            "expected_deviance": 1.3707901992045681,
+            "total_flux_information_nats": 0.0014347355101446135,
+            "profile_gain_information_nats": 0.6839603640921401,
+            "conditional_shape_KL_per_reflected_photon": 0.04258569710675308,
+            "expected_reflected_photons": 16.060800000000004,
+            "decomposition_absolute_error_nats": 6.071532165918825e-16
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.019975424901613484
+        },
+        {
+          "sectors": 18,
+          "width_deg": 10.0,
+          "expected_incident_photons": 1000,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 7.001402184638098,
+            "expected_deviance": 14.002804369276197,
+            "total_flux_information_nats": 0.014283430705891442,
+            "profile_gain_information_nats": 6.987118753932191,
+            "conditional_shape_KL_per_reflected_photon": 0.04409089390160238,
+            "expected_reflected_photons": 158.47078921841185,
+            "decomposition_absolute_error_nats": 1.5612511283791264e-14
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 6.85395099602284,
+            "expected_deviance": 13.70790199204568,
+            "total_flux_information_nats": 0.014347355101446135,
+            "profile_gain_information_nats": 6.839603640921401,
+            "conditional_shape_KL_per_reflected_photon": 0.04258569710675308,
+            "expected_reflected_photons": 160.60800000000006,
+            "decomposition_absolute_error_nats": 6.071532165918825e-15
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.06316783991874346
+        },
+        {
+          "sectors": 18,
+          "width_deg": 10.0,
+          "expected_incident_photons": 10000,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 70.01402184638098,
+            "expected_deviance": 140.02804369276197,
+            "total_flux_information_nats": 0.14283430705891442,
+            "profile_gain_information_nats": 69.87118753932191,
+            "conditional_shape_KL_per_reflected_photon": 0.04409089390160238,
+            "expected_reflected_photons": 1584.7078921841185,
+            "decomposition_absolute_error_nats": 1.5612511283791264e-13
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 68.5395099602284,
+            "expected_deviance": 137.0790199204568,
+            "total_flux_information_nats": 0.14347355101446135,
+            "profile_gain_information_nats": 68.396036409214,
+            "conditional_shape_KL_per_reflected_photon": 0.04258569710675308,
+            "expected_reflected_photons": 1606.0800000000006,
+            "decomposition_absolute_error_nats": 6.071532165918825e-14
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.19975424901613484
+        },
+        {
+          "sectors": 90,
+          "width_deg": 2.0,
+          "expected_incident_photons": 100,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 2.530094121982429,
+            "expected_deviance": 5.060188243964858,
+            "total_flux_information_nats": 0.0014283430705891442,
+            "profile_gain_information_nats": 2.5286657789118356,
+            "conditional_shape_KL_per_reflected_photon": 0.15956668048309586,
+            "expected_reflected_photons": 15.847078921841188,
+            "decomposition_absolute_error_nats": 4.163336342344337e-15
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 2.4858916916201017,
+            "expected_deviance": 4.971783383240203,
+            "total_flux_information_nats": 0.0014347355101446135,
+            "profile_gain_information_nats": 2.484456956109959,
+            "conditional_shape_KL_per_reflected_photon": 0.15469073496400915,
+            "expected_reflected_photons": 16.060800000000004,
+            "decomposition_absolute_error_nats": 2.0816681711721685e-15
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.019996279653975636
+        },
+        {
+          "sectors": 90,
+          "width_deg": 2.0,
+          "expected_incident_photons": 1000,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 25.300941219824292,
+            "expected_deviance": 50.601882439648584,
+            "total_flux_information_nats": 0.014283430705891442,
+            "profile_gain_information_nats": 25.286657789118358,
+            "conditional_shape_KL_per_reflected_photon": 0.15956668048309586,
+            "expected_reflected_photons": 158.47078921841188,
+            "decomposition_absolute_error_nats": 4.163336342344337e-14
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 24.858916916201014,
+            "expected_deviance": 49.71783383240203,
+            "total_flux_information_nats": 0.014347355101446135,
+            "profile_gain_information_nats": 24.84456956109959,
+            "conditional_shape_KL_per_reflected_photon": 0.15469073496400915,
+            "expected_reflected_photons": 160.60800000000006,
+            "decomposition_absolute_error_nats": 2.0816681711721685e-14
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.06323378843624665
+        },
+        {
+          "sectors": 90,
+          "width_deg": 2.0,
+          "expected_incident_photons": 10000,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 253.0094121982429,
+            "expected_deviance": 506.0188243964858,
+            "total_flux_information_nats": 0.14283430705891442,
+            "profile_gain_information_nats": 252.86657789118357,
+            "conditional_shape_KL_per_reflected_photon": 0.15956668048309586,
+            "expected_reflected_photons": 1584.7078921841187,
+            "decomposition_absolute_error_nats": 4.163336342344337e-13
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 248.58916916201017,
+            "expected_deviance": 497.17833832402033,
+            "total_flux_information_nats": 0.14347355101446135,
+            "profile_gain_information_nats": 248.4456956109959,
+            "conditional_shape_KL_per_reflected_photon": 0.15469073496400915,
+            "expected_reflected_photons": 1606.0800000000006,
+            "decomposition_absolute_error_nats": 2.0816681711721685e-13
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.19996279653975635
+        }
+      ]
+    },
+    {
+      "label": "Hz_offset5",
+      "polarization": "Hz",
+      "offset_um": 5.0,
+      "R_wave": 0.15262702393633273,
+      "R_ray": 0.14825600000000008,
+      "R_wave_difference_vs_independent_GL512_reference": 6.661338147750939e-15,
+      "R_ray_difference_vs_saved_total": 8.326672684688674e-17,
+      "spectral_integral_subsample_convergence": {
+        "4320": {
+          "max_absolute_bin_error_vs_8640": 6.591949208711867e-17,
+          "relative_bin_L1_error_vs_8640": 9.626806225123462e-15
+        },
+        "2160": {
+          "max_absolute_bin_error_vs_8640": 9.020562075079397e-17,
+          "relative_bin_L1_error_vs_8640": 1.2962659385777224e-14
+        },
+        "1080": {
+          "max_absolute_bin_error_vs_8640": 1.0148132334464322e-16,
+          "relative_bin_L1_error_vs_8640": 1.3678702824009548e-14
+        }
+      },
+      "crude_8640_midpoint_total_R_error": -8.798104372820248e-08,
+      "minimum_ray_bin_count": 73,
+      "minimum_wave_bin_probability": 0.00012398275322633538,
+      "ray_dictionary_KL_bootstrap": {
+        "1": {
+          "known_N_KL_per_incident_photon_percentile_2p5_97p5": [
+            3.230841645720864e-05,
+            0.00010962952971870148
+          ],
+          "profile_KL_per_incident_photon_percentile_2p5_97p5": [
+            0.0,
+            0.0
+          ],
+          "bootstrap_repeats": 400
+        },
+        "6": {
+          "known_N_KL_per_incident_photon_percentile_2p5_97p5": [
+            0.001571104505808192,
+            0.0020344687598929934
+          ],
+          "profile_KL_per_incident_photon_percentile_2p5_97p5": [
+            0.0015093407508805351,
+            0.001976156884865236
+          ],
+          "bootstrap_repeats": 400
+        },
+        "18": {
+          "known_N_KL_per_incident_photon_percentile_2p5_97p5": [
+            0.006878975783183211,
+            0.007872871114743628
+          ],
+          "profile_KL_per_incident_photon_percentile_2p5_97p5": [
+            0.006849442525940262,
+            0.007808254142743315
+          ],
+          "bootstrap_repeats": 400
+        },
+        "90": {
+          "known_N_KL_per_incident_photon_percentile_2p5_97p5": [
+            0.028242591795386674,
+            0.03032869716924176
+          ],
+          "profile_KL_per_incident_photon_percentile_2p5_97p5": [
+            0.028196655987497165,
+            0.030247377758088317
+          ],
+          "bootstrap_repeats": 400
+        }
+      },
+      "information": [
+        {
+          "sectors": 1,
+          "width_deg": 180.0,
+          "expected_incident_photons": 100,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 0.00638112608447039,
+            "expected_deviance": 0.01276225216894078,
+            "total_flux_information_nats": 0.00638112608447039,
+            "profile_gain_information_nats": 0.0,
+            "conditional_shape_KL_per_reflected_photon": 0.0,
+            "expected_reflected_photons": 15.262702393633273,
+            "decomposition_absolute_error_nats": 0.0
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 0.006319620022351979,
+            "expected_deviance": 0.012639240044703959,
+            "total_flux_information_nats": 0.006319620022351979,
+            "profile_gain_information_nats": 0.0,
+            "conditional_shape_KL_per_reflected_photon": 0.0,
+            "expected_reflected_photons": 14.825600000000009,
+            "decomposition_absolute_error_nats": 0.0
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.018457995557481316
+        },
+        {
+          "sectors": 1,
+          "width_deg": 180.0,
+          "expected_incident_photons": 1000,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 0.0638112608447039,
+            "expected_deviance": 0.1276225216894078,
+            "total_flux_information_nats": 0.0638112608447039,
+            "profile_gain_information_nats": 0.0,
+            "conditional_shape_KL_per_reflected_photon": 0.0,
+            "expected_reflected_photons": 152.62702393633273,
+            "decomposition_absolute_error_nats": 0.0
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 0.0631962002235198,
+            "expected_deviance": 0.1263924004470396,
+            "total_flux_information_nats": 0.0631962002235198,
+            "profile_gain_information_nats": 0.0,
+            "conditional_shape_KL_per_reflected_photon": 0.0,
+            "expected_reflected_photons": 148.25600000000009,
+            "decomposition_absolute_error_nats": 0.0
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.058369307002910355
+        },
+        {
+          "sectors": 1,
+          "width_deg": 180.0,
+          "expected_incident_photons": 10000,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 0.638112608447039,
+            "expected_deviance": 1.276225216894078,
+            "total_flux_information_nats": 0.638112608447039,
+            "profile_gain_information_nats": 0.0,
+            "conditional_shape_KL_per_reflected_photon": 0.0,
+            "expected_reflected_photons": 1526.2702393633274,
+            "decomposition_absolute_error_nats": 0.0
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 0.6319620022351979,
+            "expected_deviance": 1.2639240044703959,
+            "total_flux_information_nats": 0.6319620022351979,
+            "profile_gain_information_nats": 0.0,
+            "conditional_shape_KL_per_reflected_photon": 0.0,
+            "expected_reflected_photons": 1482.5600000000009,
+            "decomposition_absolute_error_nats": 0.0
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.18457995557481316
+        },
+        {
+          "sectors": 6,
+          "width_deg": 30.0,
+          "expected_incident_photons": 100,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 0.17854846097925814,
+            "expected_deviance": 0.3570969219585163,
+            "total_flux_information_nats": 0.00638112608447039,
+            "profile_gain_information_nats": 0.17216733489478972,
+            "conditional_shape_KL_per_reflected_photon": 0.011280265476879645,
+            "expected_reflected_photons": 15.262702393633273,
+            "decomposition_absolute_error_nats": 1.973247953923618e-15
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 0.16787841407078022,
+            "expected_deviance": 0.33575682814156044,
+            "total_flux_information_nats": 0.006319620022351979,
+            "profile_gain_information_nats": 0.16155879404842605,
+            "conditional_shape_KL_per_reflected_photon": 0.010897285374516105,
+            "expected_reflected_photons": 14.825600000000009,
+            "decomposition_absolute_error_nats": 2.190088388420719e-15
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.01992610348261797
+        },
+        {
+          "sectors": 6,
+          "width_deg": 30.0,
+          "expected_incident_photons": 1000,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 1.7854846097925814,
+            "expected_deviance": 3.570969219585163,
+            "total_flux_information_nats": 0.0638112608447039,
+            "profile_gain_information_nats": 1.7216733489478973,
+            "conditional_shape_KL_per_reflected_photon": 0.011280265476879645,
+            "expected_reflected_photons": 152.62702393633273,
+            "decomposition_absolute_error_nats": 1.973247953923618e-14
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 1.6787841407078021,
+            "expected_deviance": 3.3575682814156043,
+            "total_flux_information_nats": 0.0631962002235198,
+            "profile_gain_information_nats": 1.6155879404842606,
+            "conditional_shape_KL_per_reflected_photon": 0.010897285374516105,
+            "expected_reflected_photons": 148.25600000000009,
+            "decomposition_absolute_error_nats": 2.190088388420719e-14
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.06301187189728615
+        },
+        {
+          "sectors": 6,
+          "width_deg": 30.0,
+          "expected_incident_photons": 10000,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 17.854846097925815,
+            "expected_deviance": 35.70969219585163,
+            "total_flux_information_nats": 0.638112608447039,
+            "profile_gain_information_nats": 17.216733489478973,
+            "conditional_shape_KL_per_reflected_photon": 0.011280265476879645,
+            "expected_reflected_photons": 1526.2702393633274,
+            "decomposition_absolute_error_nats": 1.973247953923618e-13
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 16.787841407078023,
+            "expected_deviance": 33.575682814156046,
+            "total_flux_information_nats": 0.6319620022351979,
+            "profile_gain_information_nats": 16.155879404842604,
+            "conditional_shape_KL_per_reflected_photon": 0.010897285374516105,
+            "expected_reflected_photons": 1482.5600000000009,
+            "decomposition_absolute_error_nats": 2.190088388420719e-13
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.19926103482617968
+        },
+        {
+          "sectors": 18,
+          "width_deg": 10.0,
+          "expected_incident_photons": 100,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 0.7376503362299243,
+            "expected_deviance": 1.4753006724598485,
+            "total_flux_information_nats": 0.00638112608447039,
+            "profile_gain_information_nats": 0.731269210145456,
+            "conditional_shape_KL_per_reflected_photon": 0.04791217120570337,
+            "expected_reflected_photons": 15.262702393633273,
+            "decomposition_absolute_error_nats": 2.168404344971009e-15
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 0.6740460838889519,
+            "expected_deviance": 1.3480921677779039,
+            "total_flux_information_nats": 0.006319620022351979,
+            "profile_gain_information_nats": 0.6677264638665974,
+            "conditional_shape_KL_per_reflected_photon": 0.04503874810237677,
+            "expected_reflected_photons": 14.825600000000009,
+            "decomposition_absolute_error_nats": 2.6020852139652106e-15
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.019982352213891136
+        },
+        {
+          "sectors": 18,
+          "width_deg": 10.0,
+          "expected_incident_photons": 1000,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 7.376503362299243,
+            "expected_deviance": 14.753006724598485,
+            "total_flux_information_nats": 0.0638112608447039,
+            "profile_gain_information_nats": 7.31269210145456,
+            "conditional_shape_KL_per_reflected_photon": 0.04791217120570337,
+            "expected_reflected_photons": 152.62702393633273,
+            "decomposition_absolute_error_nats": 2.168404344971009e-14
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 6.740460838889519,
+            "expected_deviance": 13.480921677779039,
+            "total_flux_information_nats": 0.0631962002235198,
+            "profile_gain_information_nats": 6.6772646386659735,
+            "conditional_shape_KL_per_reflected_photon": 0.04503874810237677,
+            "expected_reflected_photons": 148.25600000000009,
+            "decomposition_absolute_error_nats": 2.6020852139652106e-14
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.0631897460036041
+        },
+        {
+          "sectors": 18,
+          "width_deg": 10.0,
+          "expected_incident_photons": 10000,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 73.76503362299242,
+            "expected_deviance": 147.53006724598484,
+            "total_flux_information_nats": 0.638112608447039,
+            "profile_gain_information_nats": 73.1269210145456,
+            "conditional_shape_KL_per_reflected_photon": 0.04791217120570337,
+            "expected_reflected_photons": 1526.2702393633274,
+            "decomposition_absolute_error_nats": 2.1684043449710089e-13
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 67.4046083888952,
+            "expected_deviance": 134.8092167777904,
+            "total_flux_information_nats": 0.6319620022351979,
+            "profile_gain_information_nats": 66.77264638665974,
+            "conditional_shape_KL_per_reflected_photon": 0.04503874810237677,
+            "expected_reflected_photons": 1482.5600000000009,
+            "decomposition_absolute_error_nats": 2.6020852139652106e-13
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.19982352213891139
+        },
+        {
+          "sectors": 90,
+          "width_deg": 2.0,
+          "expected_incident_photons": 100,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 2.905800321821276,
+            "expected_deviance": 5.811600643642552,
+            "total_flux_information_nats": 0.00638112608447039,
+            "profile_gain_information_nats": 2.899419195736808,
+            "conditional_shape_KL_per_reflected_photon": 0.18996761654386185,
+            "expected_reflected_photons": 15.262702393633273,
+            "decomposition_absolute_error_nats": 2.42861286636753e-15
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 2.836489291627595,
+            "expected_deviance": 5.67297858325519,
+            "total_flux_information_nats": 0.006319620022351979,
+            "profile_gain_information_nats": 2.830169671605241,
+            "conditional_shape_KL_per_reflected_photon": 0.19089747946830074,
+            "expected_reflected_photons": 14.825600000000009,
+            "decomposition_absolute_error_nats": 2.0816681711721685e-15
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.019997079786808872
+        },
+        {
+          "sectors": 90,
+          "width_deg": 2.0,
+          "expected_incident_photons": 1000,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 29.05800321821276,
+            "expected_deviance": 58.11600643642552,
+            "total_flux_information_nats": 0.0638112608447039,
+            "profile_gain_information_nats": 28.99419195736808,
+            "conditional_shape_KL_per_reflected_photon": 0.18996761654386185,
+            "expected_reflected_photons": 152.62702393633273,
+            "decomposition_absolute_error_nats": 2.42861286636753e-14
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 28.36489291627595,
+            "expected_deviance": 56.7297858325519,
+            "total_flux_information_nats": 0.0631962002235198,
+            "profile_gain_information_nats": 28.301696716052408,
+            "conditional_shape_KL_per_reflected_photon": 0.19089747946830074,
+            "expected_reflected_photons": 148.25600000000009,
+            "decomposition_absolute_error_nats": 2.0816681711721685e-14
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.06323631867843035
+        },
+        {
+          "sectors": 90,
+          "width_deg": 2.0,
+          "expected_incident_photons": 10000,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 290.5800321821276,
+            "expected_deviance": 581.1600643642552,
+            "total_flux_information_nats": 0.638112608447039,
+            "profile_gain_information_nats": 289.9419195736808,
+            "conditional_shape_KL_per_reflected_photon": 0.18996761654386185,
+            "expected_reflected_photons": 1526.2702393633274,
+            "decomposition_absolute_error_nats": 2.42861286636753e-13
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 283.6489291627595,
+            "expected_deviance": 567.297858325519,
+            "total_flux_information_nats": 0.6319620022351979,
+            "profile_gain_information_nats": 283.0169671605241,
+            "conditional_shape_KL_per_reflected_photon": 0.19089747946830074,
+            "expected_reflected_photons": 1482.5600000000009,
+            "decomposition_absolute_error_nats": 2.0816681711721685e-13
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.19997079786808875
+        }
+      ]
+    },
+    {
+      "label": "Hz_offset10",
+      "polarization": "Hz",
+      "offset_um": 10.0,
+      "R_wave": 0.12882355533296438,
+      "R_ray": 0.11002000000000005,
+      "R_wave_difference_vs_independent_GL512_reference": 4.579669976578771e-15,
+      "R_ray_difference_vs_saved_total": 4.163336342344337e-17,
+      "spectral_integral_subsample_convergence": {
+        "4320": {
+          "max_absolute_bin_error_vs_8640": 5.377642775528102e-17,
+          "relative_bin_L1_error_vs_8640": 8.416179554144554e-15
+        },
+        "2160": {
+          "max_absolute_bin_error_vs_8640": 6.071532165918825e-17,
+          "relative_bin_L1_error_vs_8640": 1.0160011957763305e-14
+        },
+        "1080": {
+          "max_absolute_bin_error_vs_8640": 8.066464163292153e-17,
+          "relative_bin_L1_error_vs_8640": 1.2482877514707203e-14
+        }
+      },
+      "crude_8640_midpoint_total_R_error": 5.0437376969414416e-08,
+      "minimum_ray_bin_count": 39,
+      "minimum_wave_bin_probability": 5.497993580354417e-05,
+      "ray_dictionary_KL_bootstrap": {
+        "1": {
+          "known_N_KL_per_incident_photon_percentile_2p5_97p5": [
+            0.0013426956440203905,
+            0.0017633167522443948
+          ],
+          "profile_KL_per_incident_photon_percentile_2p5_97p5": [
+            0.0,
+            0.0
+          ],
+          "bootstrap_repeats": 400
+        },
+        "6": {
+          "known_N_KL_per_incident_photon_percentile_2p5_97p5": [
+            0.003910028083372074,
+            0.004752870250260172
+          ],
+          "profile_KL_per_incident_photon_percentile_2p5_97p5": [
+            0.002511035163077962,
+            0.003170648544786842
+          ],
+          "bootstrap_repeats": 400
+        },
+        "18": {
+          "known_N_KL_per_incident_photon_percentile_2p5_97p5": [
+            0.01173873048309904,
+            0.013260852281550996
+          ],
+          "profile_KL_per_incident_photon_percentile_2p5_97p5": [
+            0.01022355615784633,
+            0.011690937438998598
+          ],
+          "bootstrap_repeats": 400
+        },
+        "90": {
+          "known_N_KL_per_incident_photon_percentile_2p5_97p5": [
+            0.03024222624129194,
+            0.03270077983526702
+          ],
+          "profile_KL_per_incident_photon_percentile_2p5_97p5": [
+            0.028748869006612755,
+            0.031113319282713395
+          ],
+          "bootstrap_repeats": 400
+        }
+      },
+      "information": [
+        {
+          "sectors": 1,
+          "width_deg": 180.0,
+          "expected_incident_photons": 100,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 0.15224200759052509,
+            "expected_deviance": 0.30448401518105017,
+            "total_flux_information_nats": 0.15224200759052509,
+            "profile_gain_information_nats": 0.0,
+            "conditional_shape_KL_per_reflected_photon": 0.0,
+            "expected_reflected_photons": 12.882355533296439,
+            "decomposition_absolute_error_nats": 0.0
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 0.14444333253170183,
+            "expected_deviance": 0.28888666506340366,
+            "total_flux_information_nats": 0.14444333253170183,
+            "profile_gain_information_nats": 0.0,
+            "conditional_shape_KL_per_reflected_photon": 0.0,
+            "expected_reflected_photons": 11.002000000000004,
+            "decomposition_absolute_error_nats": 0.0
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.018867750263346184
+        },
+        {
+          "sectors": 1,
+          "width_deg": 180.0,
+          "expected_incident_photons": 1000,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 1.5224200759052509,
+            "expected_deviance": 3.0448401518105017,
+            "total_flux_information_nats": 1.5224200759052509,
+            "profile_gain_information_nats": 0.0,
+            "conditional_shape_KL_per_reflected_photon": 0.0,
+            "expected_reflected_photons": 128.8235553329644,
+            "decomposition_absolute_error_nats": 0.0
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 1.4444333253170183,
+            "expected_deviance": 2.8888666506340366,
+            "total_flux_information_nats": 1.4444333253170183,
+            "profile_gain_information_nats": 0.0,
+            "conditional_shape_KL_per_reflected_photon": 0.0,
+            "expected_reflected_photons": 110.02000000000005,
+            "decomposition_absolute_error_nats": 0.0
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.0596650651554157
+        },
+        {
+          "sectors": 1,
+          "width_deg": 180.0,
+          "expected_incident_photons": 10000,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 15.224200759052508,
+            "expected_deviance": 30.448401518105015,
+            "total_flux_information_nats": 15.224200759052508,
+            "profile_gain_information_nats": 0.0,
+            "conditional_shape_KL_per_reflected_photon": 0.0,
+            "expected_reflected_photons": 1288.2355533296438,
+            "decomposition_absolute_error_nats": 0.0
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 14.444333253170182,
+            "expected_deviance": 28.888666506340364,
+            "total_flux_information_nats": 14.444333253170182,
+            "profile_gain_information_nats": 0.0,
+            "conditional_shape_KL_per_reflected_photon": 0.0,
+            "expected_reflected_photons": 1100.2000000000005,
+            "decomposition_absolute_error_nats": 0.0
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.18867750263346184
+        },
+        {
+          "sectors": 6,
+          "width_deg": 30.0,
+          "expected_incident_photons": 100,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 0.43342970878431347,
+            "expected_deviance": 0.8668594175686269,
+            "total_flux_information_nats": 0.15224200759052509,
+            "profile_gain_information_nats": 0.28118770119378494,
+            "conditional_shape_KL_per_reflected_photon": 0.02182735140844482,
+            "expected_reflected_photons": 12.882355533296439,
+            "decomposition_absolute_error_nats": 3.426078865054194e-15
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 0.3725498288044156,
+            "expected_deviance": 0.7450996576088312,
+            "total_flux_information_nats": 0.14444333253170183,
+            "profile_gain_information_nats": 0.22810649627271587,
+            "conditional_shape_KL_per_reflected_photon": 0.02073318453669476,
+            "expected_reflected_photons": 11.002000000000004,
+            "decomposition_absolute_error_nats": 2.0816681711721685e-15
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.01995025814369328
+        },
+        {
+          "sectors": 6,
+          "width_deg": 30.0,
+          "expected_incident_photons": 1000,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 4.334297087843135,
+            "expected_deviance": 8.66859417568627,
+            "total_flux_information_nats": 1.5224200759052509,
+            "profile_gain_information_nats": 2.8118770119378493,
+            "conditional_shape_KL_per_reflected_photon": 0.02182735140844482,
+            "expected_reflected_photons": 128.8235553329644,
+            "decomposition_absolute_error_nats": 3.426078865054194e-14
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 3.725498288044156,
+            "expected_deviance": 7.450996576088312,
+            "total_flux_information_nats": 1.4444333253170183,
+            "profile_gain_information_nats": 2.2810649627271586,
+            "conditional_shape_KL_per_reflected_photon": 0.02073318453669476,
+            "expected_reflected_photons": 110.02000000000005,
+            "decomposition_absolute_error_nats": 2.0816681711721685e-14
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.06308825564239354
+        },
+        {
+          "sectors": 6,
+          "width_deg": 30.0,
+          "expected_incident_photons": 10000,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 43.342970878431345,
+            "expected_deviance": 86.68594175686269,
+            "total_flux_information_nats": 15.224200759052508,
+            "profile_gain_information_nats": 28.118770119378496,
+            "conditional_shape_KL_per_reflected_photon": 0.02182735140844482,
+            "expected_reflected_photons": 1288.2355533296438,
+            "decomposition_absolute_error_nats": 3.426078865054194e-13
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 37.25498288044156,
+            "expected_deviance": 74.50996576088312,
+            "total_flux_information_nats": 14.444333253170182,
+            "profile_gain_information_nats": 22.810649627271587,
+            "conditional_shape_KL_per_reflected_photon": 0.02073318453669476,
+            "expected_reflected_photons": 1100.2000000000005,
+            "decomposition_absolute_error_nats": 2.0816681711721685e-13
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.1995025814369328
+        },
+        {
+          "sectors": 18,
+          "width_deg": 10.0,
+          "expected_incident_photons": 100,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 1.2416084296370156,
+            "expected_deviance": 2.483216859274031,
+            "total_flux_information_nats": 0.15224200759052509,
+            "profile_gain_information_nats": 1.0893664220464905,
+            "conditional_shape_KL_per_reflected_photon": 0.08456267328058557,
+            "expected_reflected_photons": 12.882355533296439,
+            "decomposition_absolute_error_nats": 0.0
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 0.9677414297370636,
+            "expected_deviance": 1.9354828594741271,
+            "total_flux_information_nats": 0.14444333253170183,
+            "profile_gain_information_nats": 0.8232980972053615,
+            "conditional_shape_KL_per_reflected_photon": 0.07483167580488648,
+            "expected_reflected_photons": 11.002000000000006,
+            "decomposition_absolute_error_nats": 1.734723475976807e-16
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.019990117558433718
+        },
+        {
+          "sectors": 18,
+          "width_deg": 10.0,
+          "expected_incident_photons": 1000,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 12.416084296370155,
+            "expected_deviance": 24.83216859274031,
+            "total_flux_information_nats": 1.5224200759052509,
+            "profile_gain_information_nats": 10.893664220464904,
+            "conditional_shape_KL_per_reflected_photon": 0.08456267328058557,
+            "expected_reflected_photons": 128.8235553329644,
+            "decomposition_absolute_error_nats": 0.0
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 9.677414297370635,
+            "expected_deviance": 19.35482859474127,
+            "total_flux_information_nats": 1.4444333253170183,
+            "profile_gain_information_nats": 8.232980972053616,
+            "conditional_shape_KL_per_reflected_photon": 0.07483167580488648,
+            "expected_reflected_photons": 110.02000000000007,
+            "decomposition_absolute_error_nats": 1.734723475976807e-15
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.06321430217917462
+        },
+        {
+          "sectors": 18,
+          "width_deg": 10.0,
+          "expected_incident_photons": 10000,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 124.16084296370155,
+            "expected_deviance": 248.3216859274031,
+            "total_flux_information_nats": 15.224200759052508,
+            "profile_gain_information_nats": 108.93664220464905,
+            "conditional_shape_KL_per_reflected_photon": 0.08456267328058557,
+            "expected_reflected_photons": 1288.2355533296438,
+            "decomposition_absolute_error_nats": 0.0
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 96.77414297370636,
+            "expected_deviance": 193.54828594741272,
+            "total_flux_information_nats": 14.444333253170182,
+            "profile_gain_information_nats": 82.32980972053616,
+            "conditional_shape_KL_per_reflected_photon": 0.07483167580488648,
+            "expected_reflected_photons": 1100.2000000000007,
+            "decomposition_absolute_error_nats": 1.734723475976807e-14
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.19990117558433718
+        },
+        {
+          "sectors": 90,
+          "width_deg": 2.0,
+          "expected_incident_photons": 100,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 3.125524377661251,
+            "expected_deviance": 6.251048755322502,
+            "total_flux_information_nats": 0.15224200759052509,
+            "profile_gain_information_nats": 2.973282370070724,
+            "conditional_shape_KL_per_reflected_photon": 0.2308026946148021,
+            "expected_reflected_photons": 12.882355533296439,
+            "decomposition_absolute_error_nats": 2.0816681711721685e-15
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 2.6009332273705965,
+            "expected_deviance": 5.201866454741193,
+            "total_flux_information_nats": 0.14444333253170183,
+            "profile_gain_information_nats": 2.456489894838896,
+            "conditional_shape_KL_per_reflected_photon": 0.22327666740946142,
+            "expected_reflected_photons": 11.002000000000004,
+            "decomposition_absolute_error_nats": 6.938893903907228e-16
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.019998439939155253
+        },
+        {
+          "sectors": 90,
+          "width_deg": 2.0,
+          "expected_incident_photons": 1000,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 31.255243776612513,
+            "expected_deviance": 62.510487553225026,
+            "total_flux_information_nats": 1.5224200759052509,
+            "profile_gain_information_nats": 29.73282370070724,
+            "conditional_shape_KL_per_reflected_photon": 0.2308026946148021,
+            "expected_reflected_photons": 128.8235553329644,
+            "decomposition_absolute_error_nats": 2.0816681711721685e-14
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 26.00933227370597,
+            "expected_deviance": 52.01866454741194,
+            "total_flux_information_nats": 1.4444333253170183,
+            "profile_gain_information_nats": 24.564898948388954,
+            "conditional_shape_KL_per_reflected_photon": 0.22327666740946142,
+            "expected_reflected_photons": 110.02000000000005,
+            "decomposition_absolute_error_nats": 6.938893903907228e-15
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.06324061985780974
+        },
+        {
+          "sectors": 90,
+          "width_deg": 2.0,
+          "expected_incident_photons": 10000,
+          "wave_true": {
+            "expected_log_likelihood_ratio_nats": 312.55243776612514,
+            "expected_deviance": 625.1048755322503,
+            "total_flux_information_nats": 15.224200759052508,
+            "profile_gain_information_nats": 297.3282370070724,
+            "conditional_shape_KL_per_reflected_photon": 0.2308026946148021,
+            "expected_reflected_photons": 1288.2355533296438,
+            "decomposition_absolute_error_nats": 2.0816681711721685e-13
+          },
+          "ray_true": {
+            "expected_log_likelihood_ratio_nats": 260.0933227370597,
+            "expected_deviance": 520.1866454741194,
+            "total_flux_information_nats": 14.444333253170182,
+            "profile_gain_information_nats": 245.64898948388955,
+            "conditional_shape_KL_per_reflected_photon": 0.22327666740946142,
+            "expected_reflected_photons": 1100.2000000000005,
+            "decomposition_absolute_error_nats": 6.938893903907228e-14
+          },
+          "max_ray_dictionary_mean_uncertainty_over_shot_SD": 0.19998439939155252
+        }
+      ]
+    }
+  ],
+  "monte_carlo": [
+    {
+      "expected_incident_photons": 100,
+      "trials_per_truth": 40000,
+      "seed": 20261012,
+      "sectors": {
+        "1": {
+          "known_N": {
+            "wave": {
+              "error_fraction": 0.50615,
+              "error_95pct_Wilson_interval": [
+                0.5012501053534737,
+                0.511048713511371
+              ],
+              "mean_LLR_nats": 0.00036408696424524464,
+              "expected_LLR_nats": 0.0006594669248294327,
+              "mean_LLR_standard_error": 0.0001810233051988334,
+              "mean_LLR_z_discrepancy": -1.631723386443237,
+              "exact_ties": 0
+            },
+            "ray": {
+              "error_fraction": 0.482775,
+              "error_95pct_Wilson_interval": [
+                0.47787988743297366,
+                0.48767342070573366
+              ],
+              "mean_LLR_nats": -0.0006710174023291538,
+              "expected_LLR_nats": -0.0006610121540795433,
+              "mean_LLR_standard_error": 0.00018248569208041056,
+              "mean_LLR_z_discrepancy": -0.05482757653790095,
+              "exact_ties": 0
+            },
+            "balanced_error_fraction": 0.4944625
+          },
+          "profile_gain": {
+            "wave": {
+              "error_fraction": 0.4968,
+              "error_95pct_Wilson_interval": [
+                0.4919007329306576,
+                0.5016998816437321
+              ],
+              "mean_LLR_nats": 0.0,
+              "expected_LLR_nats": 0.0,
+              "mean_LLR_standard_error": 0.0,
+              "mean_LLR_z_discrepancy": 0.0,
+              "exact_ties": 40000
+            },
+            "ray": {
+              "error_fraction": 0.50055,
+              "error_95pct_Wilson_interval": [
+                0.4956502754557664,
+                0.5054496189142604
+              ],
+              "mean_LLR_nats": 0.0,
+              "expected_LLR_nats": -0.0,
+              "mean_LLR_standard_error": 0.0,
+              "mean_LLR_z_discrepancy": 0.0,
+              "exact_ties": 40000
+            },
+            "balanced_error_fraction": 0.49867500000000003
+          }
+        },
+        "6": {
+          "known_N": {
+            "wave": {
+              "error_fraction": 0.42025,
+              "error_95pct_Wilson_interval": [
+                0.4154207034031734,
+                0.42509461294294637
+              ],
+              "mean_LLR_nats": 0.10715202086083195,
+              "expected_LLR_nats": 0.10840765580643445,
+              "mean_LLR_standard_error": 0.00236332736459696,
+              "mean_LLR_z_discrepancy": -0.5312996262862804,
+              "exact_ties": 0
+            },
+            "ray": {
+              "error_fraction": 0.399175,
+              "error_95pct_Wilson_interval": [
+                0.39438564834654,
+                0.40398371554809975
+              ],
+              "mean_LLR_nats": -0.10444217662855176,
+              "expected_LLR_nats": -0.10589518567054972,
+              "mean_LLR_standard_error": 0.00226311645432584,
+              "mean_LLR_z_discrepancy": 0.6420390074141319,
+              "exact_ties": 0
+            },
+            "balanced_error_fraction": 0.40971250000000003
+          },
+          "profile_gain": {
+            "wave": {
+              "error_fraction": 0.4242,
+              "error_95pct_Wilson_interval": [
+                0.4193642295076145,
+                0.4290503282232429
+              ],
+              "mean_LLR_nats": 0.10678793389658026,
+              "expected_LLR_nats": 0.10774818888160553,
+              "mean_LLR_standard_error": 0.002364230821284608,
+              "mean_LLR_z_discrepancy": -0.4061595747675438,
+              "exact_ties": 0
+            },
+            "ray": {
+              "error_fraction": 0.396725,
+              "error_95pct_Wilson_interval": [
+                0.39194088861935567,
+                0.4015289458088012
+              ],
+              "mean_LLR_nats": -0.10377115922622913,
+              "expected_LLR_nats": -0.10523417351647148,
+              "mean_LLR_standard_error": 0.0022497888477679114,
+              "mean_LLR_z_discrepancy": 0.6502896001524083,
+              "exact_ties": 0
+            },
+            "balanced_error_fraction": 0.4104625
+          }
+        },
+        "18": {
+          "known_N": {
+            "wave": {
+              "error_fraction": 0.26575,
+              "error_95pct_Wilson_interval": [
+                0.2614437521991179,
+                0.27010123656675716
+              ],
+              "mean_LLR_nats": 0.7329589066583254,
+              "expected_LLR_nats": 0.744306628408151,
+              "mean_LLR_standard_error": 0.006001482507134198,
+              "mean_LLR_z_discrepancy": -1.890819766005497,
+              "exact_ties": 0
+            },
+            "ray": {
+              "error_fraction": 0.2737,
+              "error_95pct_Wilson_interval": [
+                0.26935257010201025,
+                0.27809089183061525
+              ],
+              "mean_LLR_nats": -0.7926620794264377,
+              "expected_LLR_nats": -0.7864471810761837,
+              "mean_LLR_standard_error": 0.006440854005310747,
+              "mean_LLR_z_discrepancy": -0.9649183703169766,
+              "exact_ties": 0
+            },
+            "balanced_error_fraction": 0.269725
+          },
+          "profile_gain": {
+            "wave": {
+              "error_fraction": 0.266575,
+              "error_95pct_Wilson_interval": [
+                0.2622643959233165,
+                0.2709304343975988
+              ],
+              "mean_LLR_nats": 0.732594819694073,
+              "expected_LLR_nats": 0.7436471614833254,
+              "mean_LLR_standard_error": 0.0060208436877830064,
+              "mean_LLR_z_discrepancy": -1.8356799083953792,
+              "exact_ties": 0
+            },
+            "ray": {
+              "error_fraction": 0.27175,
+              "error_95pct_Wilson_interval": [
+                0.2674125078327816,
+                0.27613132860611267
+              ],
+              "mean_LLR_nats": -0.7919910620241154,
+              "expected_LLR_nats": -0.7857861689221007,
+              "mean_LLR_standard_error": 0.00641717757014344,
+              "mean_LLR_z_discrepancy": -0.9669193401914806,
+              "exact_ties": 0
+            },
+            "balanced_error_fraction": 0.26916249999999997
+          }
+        },
+        "90": {
+          "known_N": {
+            "wave": {
+              "error_fraction": 0.0595,
+              "error_95pct_Wilson_interval": [
+                0.05722379830918273,
+                0.061860801696657086
+              ],
+              "mean_LLR_nats": 4.346739769599338,
+              "expected_LLR_nats": 4.353730925530332,
+              "mean_LLR_standard_error": 0.014040205048670233,
+              "mean_LLR_z_discrepancy": -0.4979383069377455,
+              "exact_ties": 0
+            },
+            "ray": {
+              "error_fraction": 0.068175,
+              "error_95pct_Wilson_interval": [
+                0.06574623240622104,
+                0.07068670152685902
+              ],
+              "mean_LLR_nats": -5.232512109424889,
+              "expected_LLR_nats": -5.240432649323183,
+              "mean_LLR_standard_error": 0.018378882917527442,
+              "mean_LLR_z_discrepancy": 0.4309587222376802,
+              "exact_ties": 0
+            },
+            "balanced_error_fraction": 0.06383749999999999
+          },
+          "profile_gain": {
+            "wave": {
+              "error_fraction": 0.0598,
+              "error_95pct_Wilson_interval": [
+                0.057518304967189585,
+                0.06216623742230119
+              ],
+              "mean_LLR_nats": 4.34637568263509,
+              "expected_LLR_nats": 4.3530714586055055,
+              "mean_LLR_standard_error": 0.014094834313419353,
+              "mean_LLR_z_discrepancy": -0.47505176872073684,
+              "exact_ties": 0
+            },
+            "ray": {
+              "error_fraction": 0.0679,
+              "error_95pct_Wilson_interval": [
+                0.0654758804927985,
+                0.0704071062552682
+              ],
+              "mean_LLR_nats": -5.231841092022566,
+              "expected_LLR_nats": -5.2397716371691025,
+              "mean_LLR_standard_error": 0.018328347152914922,
+              "mean_LLR_z_discrepancy": 0.4326928707958005,
+              "exact_ties": 0
+            },
+            "balanced_error_fraction": 0.06385
+          }
+        }
+      },
+      "label": "Ez_offset0"
+    },
+    {
+      "expected_incident_photons": 100,
+      "trials_per_truth": 40000,
+      "seed": 20261017,
+      "sectors": {
+        "1": {
+          "known_N": {
+            "wave": {
+              "error_fraction": 0.361225,
+              "error_95pct_Wilson_interval": [
+                0.35653113499517625,
+                0.365945517367617
+              ],
+              "mean_LLR_nats": 0.15366116815133604,
+              "expected_LLR_nats": 0.15224200759052509,
+              "mean_LLR_standard_error": 0.002812979656590273,
+              "mean_LLR_z_discrepancy": 0.5045043811412337,
+              "exact_ties": 0
+            },
+            "ray": {
+              "error_fraction": 0.42255,
+              "error_95pct_Wilson_interval": [
+                0.41771689522051575,
+                0.4273979794002613
+              ],
+              "mean_LLR_nats": -0.14316135774246705,
+              "expected_LLR_nats": -0.14444333253170183,
+              "mean_LLR_standard_error": 0.0026181865305886075,
+              "mean_LLR_z_discrepancy": 0.48964226736991606,
+              "exact_ties": 0
+            },
+            "balanced_error_fraction": 0.3918875
+          },
+          "profile_gain": {
+            "wave": {
+              "error_fraction": 0.500475,
+              "error_95pct_Wilson_interval": [
+                0.49557528190455696,
+                0.5053746268695571
+              ],
+              "mean_LLR_nats": 0.0,
+              "expected_LLR_nats": 0.0,
+              "mean_LLR_standard_error": 0.0,
+              "mean_LLR_z_discrepancy": 0.0,
+              "exact_ties": 40000
+            },
+            "ray": {
+              "error_fraction": 0.503075,
+              "error_95pct_Wilson_interval": [
+                0.49817512267389596,
+                0.5079742867585264
+              ],
+              "mean_LLR_nats": 0.0,
+              "expected_LLR_nats": -0.0,
+              "mean_LLR_standard_error": 0.0,
+              "mean_LLR_z_discrepancy": 0.0,
+              "exact_ties": 40000
+            },
+            "balanced_error_fraction": 0.5017750000000001
+          }
+        },
+        "6": {
+          "known_N": {
+            "wave": {
+              "error_fraction": 0.356475,
+              "error_95pct_Wilson_interval": [
+                0.35179528724951536,
+                0.3611822773721376
+              ],
+              "mean_LLR_nats": 0.43494597046556266,
+              "expected_LLR_nats": 0.43342970878431347,
+              "mean_LLR_standard_error": 0.005015597129493071,
+              "mean_LLR_z_discrepancy": 0.3023093047751298,
+              "exact_ties": 0
+            },
+            "ray": {
+              "error_fraction": 0.3003,
+              "error_95pct_Wilson_interval": [
+                0.2958272277844059,
+                0.30481112549860484
+              ],
+              "mean_LLR_nats": -0.37068668229828977,
+              "expected_LLR_nats": -0.3725498288044156,
+              "mean_LLR_standard_error": 0.003974699144852975,
+              "mean_LLR_z_discrepancy": 0.4687515804909465,
+              "exact_ties": 0
+            },
+            "balanced_error_fraction": 0.3283875
+          },
+          "profile_gain": {
+            "wave": {
+              "error_fraction": 0.369125,
+              "error_95pct_Wilson_interval": [
+                0.36440869985538865,
+                0.37386643527687985
+              ],
+              "mean_LLR_nats": 0.2812848023142215,
+              "expected_LLR_nats": 0.28118770119378494,
+              "mean_LLR_standard_error": 0.003864353852813921,
+              "mean_LLR_z_discrepancy": 0.025127388467759356,
+              "exact_ties": 0
+            },
+            "ray": {
+              "error_fraction": 0.35235,
+              "error_95pct_Wilson_interval": [
+                0.347682985312685,
+                0.3570453715337673
+              ],
+              "mean_LLR_nats": -0.22752532455582697,
+              "expected_LLR_nats": -0.22810649627271587,
+              "mean_LLR_standard_error": 0.0032790825266535944,
+              "mean_LLR_z_discrepancy": 0.17723607508042946,
+              "exact_ties": 0
+            },
+            "balanced_error_fraction": 0.3607375
+          }
+        },
+        "18": {
+          "known_N": {
+            "wave": {
+              "error_fraction": 0.25385,
+              "error_95pct_Wilson_interval": [
+                0.2496087693628206,
+                0.2581385048515665
+              ],
+              "mean_LLR_nats": 1.2340362855789142,
+              "expected_LLR_nats": 1.2416084296370156,
+              "mean_LLR_standard_error": 0.008901399680586492,
+              "mean_LLR_z_discrepancy": -0.8506689205986141,
+              "exact_ties": 0
+            },
+            "ray": {
+              "error_fraction": 0.204125,
+              "error_95pct_Wilson_interval": [
+                0.20020357656360774,
+                0.20810324756063256
+              ],
+              "mean_LLR_nats": -0.961502922931088,
+              "expected_LLR_nats": -0.9677414297370636,
+              "mean_LLR_standard_error": 0.006140890310572086,
+              "mean_LLR_z_discrepancy": 1.0158961470514227,
+              "exact_ties": 0
+            },
+            "balanced_error_fraction": 0.2289875
+          },
+          "profile_gain": {
+            "wave": {
+              "error_fraction": 0.252575,
+              "error_95pct_Wilson_interval": [
+                0.24834098172336014,
+                0.25685653736051034
+              ],
+              "mean_LLR_nats": 1.0803751174275735,
+              "expected_LLR_nats": 1.0893664220464905,
+              "mean_LLR_standard_error": 0.007913355188119628,
+              "mean_LLR_z_discrepancy": -1.136219012690806,
+              "exact_ties": 0
+            },
+            "ray": {
+              "error_fraction": 0.239475,
+              "error_95pct_Wilson_interval": [
+                0.23531794216755345,
+                0.24368209283022504
+              ],
+              "mean_LLR_nats": -0.8183415651886257,
+              "expected_LLR_nats": -0.8232980972053615,
+              "mean_LLR_standard_error": 0.0061246677097380785,
+              "mean_LLR_z_discrepancy": 0.8092736213027653,
+              "exact_ties": 0
+            },
+            "balanced_error_fraction": 0.246025
+          }
+        },
+        "90": {
+          "known_N": {
+            "wave": {
+              "error_fraction": 0.12875,
+              "error_95pct_Wilson_interval": [
+                0.12550342869178172,
+                0.1320678715401548
+              ],
+              "mean_LLR_nats": 3.1291003836209543,
+              "expected_LLR_nats": 3.125524377661251,
+              "mean_LLR_standard_error": 0.014286610562800029,
+              "mean_LLR_z_discrepancy": 0.25030471321270054,
+              "exact_ties": 0
+            },
+            "ray": {
+              "error_fraction": 0.113725,
+              "error_95pct_Wilson_interval": [
+                0.11065080408704103,
+                0.11687338176370987
+              ],
+              "mean_LLR_nats": -2.593596612842565,
+              "expected_LLR_nats": -2.6009332273705965,
+              "mean_LLR_standard_error": 0.01095293786196499,
+              "mean_LLR_z_discrepancy": 0.6698307450011746,
+              "exact_ties": 0
+            },
+            "balanced_error_fraction": 0.1212375
+          },
+          "profile_gain": {
+            "wave": {
+              "error_fraction": 0.1205,
+              "error_95pct_Wilson_interval": [
+                0.11734610194783907,
+                0.123726782733696
+              ],
+              "mean_LLR_nats": 2.9754392154696134,
+              "expected_LLR_nats": 2.973282370070724,
+              "mean_LLR_standard_error": 0.013139658135064592,
+              "mean_LLR_z_discrepancy": 0.16414775610741425,
+              "exact_ties": 0
+            },
+            "ray": {
+              "error_fraction": 0.137025,
+              "error_95pct_Wilson_interval": [
+                0.13368993630076506,
+                0.14042977468021048
+              ],
+              "mean_LLR_nats": -2.4504352551001016,
+              "expected_LLR_nats": -2.456489894838896,
+              "mean_LLR_standard_error": 0.011503043119714878,
+              "mean_LLR_z_discrepancy": 0.526351129503915,
+              "exact_ties": 0
+            },
+            "balanced_error_fraction": 0.1287625
+          }
+        }
+      },
+      "label": "Hz_offset10"
+    }
+  ],
+  "total_wall_seconds": 12.832471706002252
+}

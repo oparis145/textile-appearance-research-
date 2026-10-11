@@ -1,0 +1,11 @@
+{
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "matplotlib": "3.10.8",
+  "pillow": "12.3.0",
+  "reportlab": "4.4.9",
+  "fonttools": "4.61.1",
+  "mitsuba": "3.9.1",
+  "drjit": "1.5.0",
+  "python": "3.12.14"
+}

@@ -1,0 +1,1027 @@
+{
+  "package": "textile_optical_simulation_bundle",
+  "date": "2026-10-10",
+  "source_root": "textile_lab",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 11169,
+      "sha256": "bbda8aad0c8174162a9dab8d8e9187134b2d5a6c1a26f0966e1b6d758f49f35d"
+    },
+    {
+      "path": "data/angular_measurement_errors.png",
+      "bytes": 138987,
+      "sha256": "e0db29af7b5fc182d8df6add3455ed9ccf679bc466aa5724b6fdb5a92753b64f"
+    },
+    {
+      "path": "data/angular_measurement_information.png",
+      "bytes": 276861,
+      "sha256": "c964194f2ab07fcdd895a2fef4635b097b5d54b42a4c0fdbe05c239b85e41e28"
+    },
+    {
+      "path": "data/angular_measurement_metrics.json",
+      "bytes": 117530,
+      "sha256": "338441c47219104cc2ebd84e94f9813cdcfcef167818efa11b8fa1e528c1cfb9"
+    },
+    {
+      "path": "data/angular_measurement_probabilities.npz",
+      "bytes": 11957,
+      "sha256": "377cb46183a9723ac586291bd941a40ad1c9c3b3247bfcf853b41370101ec6ef"
+    },
+    {
+      "path": "data/angular_measurement_run.log",
+      "bytes": 238,
+      "sha256": "cedd86948e3b802d8c1580df4c6ffad6fc6ef723147641db95c9c119d3c1008b"
+    },
+    {
+      "path": "data/angular_measurement_tests.log",
+      "bytes": 1655,
+      "sha256": "a74b8750cf451f2f58b15b0730bb8dca637ef44df6f945c42f0f6daa59e22035"
+    },
+    {
+      "path": "data/aperture_arrays.npz",
+      "bytes": 80810,
+      "sha256": "097d4e7d9fb007072a99395f47a9b209ae158cc410fae713ab33b6ceaeb64ba2"
+    },
+    {
+      "path": "data/aperture_gap_source_sweep.png",
+      "bytes": 1348618,
+      "sha256": "e6251e0799e3b8246822fc3ef3616caaae291a1d3eb7682512c3a617ea0a653d"
+    },
+    {
+      "path": "data/aperture_gaussian_beam.png",
+      "bytes": 184089,
+      "sha256": "f331aa8184aeef122e202dacac6f58c13322699ae5b5ffb709905a4fc11074f4"
+    },
+    {
+      "path": "data/aperture_metrics.json",
+      "bytes": 10284,
+      "sha256": "54c7247c9b367c6a94361962ce535a13ebc86c876833e19c0e37e2114ed5bbbe"
+    },
+    {
+      "path": "data/aperture_periodic_vs_jitter.png",
+      "bytes": 1007742,
+      "sha256": "e572d0678aad12ca200ed1544fd47901ddc53cad4a0710448cf95c3fe8f90de7"
+    },
+    {
+      "path": "data/aperture_run.log",
+      "bytes": 10285,
+      "sha256": "926a678cb57488cb3e3239f37a40ea740543d411a83f78832394622543ea747e"
+    },
+    {
+      "path": "data/aperture_slit_wavelength.png",
+      "bytes": 375676,
+      "sha256": "05aa10c0652794d73783646d9f73679e325c952cbd53dd72bd7fe9d387766aa2"
+    },
+    {
+      "path": "data/aperture_tests.log",
+      "bytes": 2068,
+      "sha256": "90c36afdc807ea8262a2a860a2ef0b78fc6aec494b7bff2b6ddf2be2f5997a0e"
+    },
+    {
+      "path": "data/camera_NA0.02_bin1.npz",
+      "bytes": 7932250,
+      "sha256": "66519051855f38e0edc2bd0008532c25a1f75cc9c7b93591d66e69c3abbcc80b"
+    },
+    {
+      "path": "data/camera_NA0.04_bin1.npz",
+      "bytes": 7978113,
+      "sha256": "6270ce023c8f22880b2185e1e8434c038db61091f2ddf83ae33c57e44ed6ffcb"
+    },
+    {
+      "path": "data/camera_NA0.04_bin2.npz",
+      "bytes": 1998873,
+      "sha256": "fc7bebcbb5729beeee0ed937f24660aaa91b6168c754d88560efc758d37c4e8d"
+    },
+    {
+      "path": "data/camera_NA0.04_bin4.npz",
+      "bytes": 500853,
+      "sha256": "5e7027409b2ec5190f195fe45588dbcae71b9354b403695a9d0fd3b2f72f6fa1"
+    },
+    {
+      "path": "data/camera_NA0.04_bin8.npz",
+      "bytes": 125823,
+      "sha256": "162982db21fa1d851a2808158704affb6d69cb2c5cc77d7c8f5dbb57ee33d2de"
+    },
+    {
+      "path": "data/camera_NA0.08_bin1.npz",
+      "bytes": 8023387,
+      "sha256": "fc0604bdf2c4f6a337bb6981aa0fa01099a6f29c2159a40d7e40e2dbb82fa5ee"
+    },
+    {
+      "path": "data/environment.json",
+      "bytes": 205,
+      "sha256": "dd2abb0b6dd6c68d12b0593f8c0c3308ab61f368031d0a618032f93d7506883f"
+    },
+    {
+      "path": "data/fabric_metrics.json",
+      "bytes": 24310,
+      "sha256": "8e6350f851efcc734a8c388d9b1c84ebf8f861bef0b273c4d9b5d98e3b15b808"
+    },
+    {
+      "path": "data/fabric_plain/config.json",
+      "bytes": 389,
+      "sha256": "011a210aa01b2078b550862edf64dc441853d2640df18c85e2376974210b39f6"
+    },
+    {
+      "path": "data/fabric_plain/fibers.txt",
+      "bytes": 8605538,
+      "sha256": "1171b1341d7d8ce03ee9ac829b049872d2474d31280d3b9fdc579f9530b0d331"
+    },
+    {
+      "path": "data/fabric_plain/geometry.npz",
+      "bytes": 4475995,
+      "sha256": "6df1852fd6ba22e537f31da7aae679f639d7f5680868352b1ed1645ca1acaefc"
+    },
+    {
+      "path": "data/fabric_plain_gap.npz",
+      "bytes": 35796,
+      "sha256": "b80cc461d00279d1b0f9cc0ca2993506241b9df730f1a10f84347f04b209fd92"
+    },
+    {
+      "path": "data/fabric_run.log",
+      "bytes": 1736,
+      "sha256": "8cbf8279e1625ba7a8f5729ead4a5c848643a42d28ab172cf90940c6bf231fed"
+    },
+    {
+      "path": "data/fabric_satin/config.json",
+      "bytes": 389,
+      "sha256": "acbdc7851fb0859a4925a71755fd4da34dbd0f5478d223462c72a179d8f3cd28"
+    },
+    {
+      "path": "data/fabric_satin/fibers.txt",
+      "bytes": 8374123,
+      "sha256": "f3ec0a9224a20cb914a6c7e9f20b83e37c021d0232ee87904bab3a92bc084eca"
+    },
+    {
+      "path": "data/fabric_satin/geometry.npz",
+      "bytes": 3924900,
+      "sha256": "331e7a40e99bbc574fe2afd71d3f39068dc6e01f4c411b4125ba6bbaa01d332e"
+    },
+    {
+      "path": "data/fabric_satin_gap.npz",
+      "bytes": 38273,
+      "sha256": "4485525545c3b3c8e890826bfd257c7ab0cced0b907e4cd961636adc21aeca23"
+    },
+    {
+      "path": "data/fabric_twill/config.json",
+      "bytes": 389,
+      "sha256": "2b0c7a9aa1cacd8cef4d4a6de9a550331571dcf951d3386bbf80eb159c82e223"
+    },
+    {
+      "path": "data/fabric_twill/fibers.txt",
+      "bytes": 8450503,
+      "sha256": "c265ed14700f529ff250e43579cf7957a675923af3f368033cf0837c8580fa7d"
+    },
+    {
+      "path": "data/fabric_twill/geometry.npz",
+      "bytes": 4063484,
+      "sha256": "82918be69f81c2a2f2ecf82b6ff077a3e4a28c193e48240627f1ce82dffef2ed"
+    },
+    {
+      "path": "data/fabric_twill_gap.npz",
+      "bytes": 37790,
+      "sha256": "ccb9f0b8a44cc6872d7ad157a90c2297c41f673934634f954c6b2691c871d8a8"
+    },
+    {
+      "path": "data/fiber_wave_angular_profiles.npz",
+      "bytes": 56000,
+      "sha256": "88dc15c81fa8c32f6293e4210e750eea897b1f072bec72dc44258a5568f3fc61"
+    },
+    {
+      "path": "data/fiber_wave_angular_profiles.png",
+      "bytes": 221370,
+      "sha256": "e1865f120a5a3be94d55fb25897d360f4745be4d307b38b93875304d8dd15c04"
+    },
+    {
+      "path": "data/fiber_wave_beam_tests.log",
+      "bytes": 1627,
+      "sha256": "8dda9f49e910b0450a06f73bc0cc162f0c078a69361f2de8ec4230dbf48860c1"
+    },
+    {
+      "path": "data/fiber_wave_cluster_field.npz",
+      "bytes": 483808,
+      "sha256": "c946bd2e6eb6b40518244e16fd9b3b5758bd28d199322ef2dead8d9689c3e4a2"
+    },
+    {
+      "path": "data/fiber_wave_cluster_field.png",
+      "bytes": 179787,
+      "sha256": "3defceedad6fae4051bf5eb4b321f6dcc8c325e88785df31c745ffa2b82ce432"
+    },
+    {
+      "path": "data/fiber_wave_cluster_profiles.npz",
+      "bytes": 89625,
+      "sha256": "3fff7537afd1448278880768184d0bbd3cdc8172f8363523da5e592a756754bb"
+    },
+    {
+      "path": "data/fiber_wave_cluster_profiles.png",
+      "bytes": 290345,
+      "sha256": "1c5b9dea4eea020cdf35ef5f9e53583894c71e476b122412a638e66cae6681cb"
+    },
+    {
+      "path": "data/fiber_wave_gaussian_backward_profiles.png",
+      "bytes": 248365,
+      "sha256": "0eba757333277be1bb909d02a9dfbd0a4dfafc005dfa359c6267bde2e92f6b4d"
+    },
+    {
+      "path": "data/fiber_wave_gaussian_beam.npz",
+      "bytes": 501099,
+      "sha256": "8dfdf134a893ed0d2c6bef3971619dc97e87244ddf77ef6d5d16dc1b457817a6"
+    },
+    {
+      "path": "data/fiber_wave_gaussian_beam.png",
+      "bytes": 221471,
+      "sha256": "decef57ee7df47e50cffe285663785700ef090165b1004c6f2737ada8b225315"
+    },
+    {
+      "path": "data/fiber_wave_gaussian_beam_metrics.json",
+      "bytes": 10557,
+      "sha256": "46a96df6066a5c6d740b3ca4ecacbb6221300331bf75b9a50c8398ba40aca248"
+    },
+    {
+      "path": "data/fiber_wave_gaussian_beam_run.log",
+      "bytes": 10558,
+      "sha256": "124dbfc93adf9054cb243ddda888bfa0267ac9f7eb8422c780563107d765b750"
+    },
+    {
+      "path": "data/fiber_wave_metrics.json",
+      "bytes": 4498,
+      "sha256": "2d3aba017268cad4095eeb84214bdbeb038a8d2ced77cc843ad00e2a7e67f9e4"
+    },
+    {
+      "path": "data/fiber_wave_review_ray.json",
+      "bytes": 950,
+      "sha256": "c9733bf68fcdc5b90ef96f69452df247945b28a03686102d0c5edb9edf29f604"
+    },
+    {
+      "path": "data/fiber_wave_run.log",
+      "bytes": 4499,
+      "sha256": "fffe9ab5c8216a8d4f893ad3ed24f65d59af4a40de3d7bb9c561be86eee9c5e4"
+    },
+    {
+      "path": "data/fiber_wave_size_sweep.npz",
+      "bytes": 8359,
+      "sha256": "913ea5209f9f6cf0ccb49a32cf24b005a85592172c3c2c34d25c042ecfbe1c37"
+    },
+    {
+      "path": "data/fiber_wave_size_sweep.png",
+      "bytes": 144484,
+      "sha256": "59630c5f31181fdb5e837606d3be9880cca0cce9806812f7adacd90143a07bd5"
+    },
+    {
+      "path": "data/fiber_wave_tests.log",
+      "bytes": 2369,
+      "sha256": "3449e46d581fa893a8b0ca927581c028dfa27ce1ed726de016713c8b1d4f8375"
+    },
+    {
+      "path": "data/fiber_wave_textile_matched.npz",
+      "bytes": 448119,
+      "sha256": "2c4d684acf5d2cf250ba6fbc68eb4955622975a3600473422b8603aaa2908c89"
+    },
+    {
+      "path": "data/fiber_wave_textile_matched.png",
+      "bytes": 491811,
+      "sha256": "215c2fe0830a5121a055da190e3525f83d49a7b03389f0b55c3c271932e0533a"
+    },
+    {
+      "path": "data/fiber_wave_textile_matched_metrics.json",
+      "bytes": 23669,
+      "sha256": "878f4f5eb68bb65fe68dfefe7e5b3694330ace08f77aed499e54d60b8cc28004"
+    },
+    {
+      "path": "data/fiber_wave_textile_matched_run.log",
+      "bytes": 20458,
+      "sha256": "d6a7ccc4abbae9d6ac80d195a70eb9901292bd3a9e7dbef053f612dcbdfd9ff3"
+    },
+    {
+      "path": "data/final_test_summary.json",
+      "bytes": 2578,
+      "sha256": "f065bb0806d4eae1a35f9f1c6df76a376d8b462f2539c089f25cc21234a310fe"
+    },
+    {
+      "path": "data/final_tests.log",
+      "bytes": 15901,
+      "sha256": "419526b34ff87856c64c6af73bea095b6e870b93e4d57242f29de6afef5b0f6e"
+    },
+    {
+      "path": "data/meta_arrays.npz",
+      "bytes": 3357496,
+      "sha256": "daeb8c5ce3389e19fa875d8446ed4642298bf2ee090921ddfd450e12206aae46"
+    },
+    {
+      "path": "data/meta_lens_quantization.png",
+      "bytes": 1558798,
+      "sha256": "292246a4a7045677578746f6e989fb9138a55a67cd3bdabc92b5cbbd48f5ab84"
+    },
+    {
+      "path": "data/meta_measurement_matrix.png",
+      "bytes": 120591,
+      "sha256": "1dcad323e78dfe31380048193c7d0886ac81f9713ebf21be8d2ea78508dffdc7"
+    },
+    {
+      "path": "data/meta_metrics.json",
+      "bytes": 15005,
+      "sha256": "8a9e57e501b999808fcfb60f72df99165b518d0a2958cf6048022b87080a27d8"
+    },
+    {
+      "path": "data/meta_psf_wavelength_angle.png",
+      "bytes": 515597,
+      "sha256": "5d08592a73c3f407a644eefc66ace7586775b71e357379ff07ce2bab098f20f8"
+    },
+    {
+      "path": "data/meta_run.log",
+      "bytes": 15006,
+      "sha256": "ab7480f4b618992c04fee0560a9e28c9d29f65ebd3a081c0918ceec1861ef98a"
+    },
+    {
+      "path": "data/meta_single_lens_baseline.png",
+      "bytes": 451988,
+      "sha256": "fda712f5863920cf8a5f8d7873bc67ee37d235ed9da856b349d8da7cd7e87fab"
+    },
+    {
+      "path": "data/meta_symmetry_ablation.png",
+      "bytes": 228322,
+      "sha256": "a7fa0e52324a8c103d35041eb697ffb3e457a622ff149753f991c3a8e7e3904d"
+    },
+    {
+      "path": "data/meta_tests.log",
+      "bytes": 1544,
+      "sha256": "dd66c5cef080e31b0c285274e38b103022868c99216fd1162696682f55ce298d"
+    },
+    {
+      "path": "data/meta_validation_metrics.json",
+      "bytes": 158,
+      "sha256": "84ee62c5f4aba6e4346a27ebfca333ae302889bd7b834bc806d43835c1111c3e"
+    },
+    {
+      "path": "data/ply_ray_angular.csv",
+      "bytes": 141963,
+      "sha256": "f38e1b59775b9e239f802a0c22651bad84ffa0b8d9d1835672e640572a929c5d"
+    },
+    {
+      "path": "data/ply_ray_overview.png",
+      "bytes": 668671,
+      "sha256": "1dc9d9377fcbd576e03bbae24fe36401762ac4c62d96ba8b8d5de9278704e5ed"
+    },
+    {
+      "path": "data/ply_ray_overview.svg",
+      "bytes": 195138,
+      "sha256": "0ee62ffc91e2c499dd1e193c464057be3b33c3471f6700b42586c50fbfcc2c43"
+    },
+    {
+      "path": "data/ply_ray_review_wave.json",
+      "bytes": 1424,
+      "sha256": "378ab76e3b53d15d7ef90eeea18b8fde9ee61eaeb069fa73a3c40dd279022045"
+    },
+    {
+      "path": "data/ply_ray_single_quadrature_Ez.npz",
+      "bytes": 5560,
+      "sha256": "6cec0367e195bcf1673a6bd57e763b7831af019e56f77432404c3f67e784c5a6"
+    },
+    {
+      "path": "data/ply_ray_single_quadrature_Hz.npz",
+      "bytes": 5533,
+      "sha256": "f2c996e3f53b9c4f4fe0acaaef41c62d3f80b0f3fd7a44e1af314bcdfe2506e8"
+    },
+    {
+      "path": "data/ply_ray_single_quadrature_unpolarized.npz",
+      "bytes": 5454,
+      "sha256": "cb97574dfb0f187a2f2eb13dedb9dcb9e3b27f2abc785af8d4d5d59e04669f88"
+    },
+    {
+      "path": "data/ply_ray_summary.json",
+      "bytes": 24785,
+      "sha256": "611d7b2b907c9a9d492c357cf0fb806a961f274278611fa817b6b738b347a0ca"
+    },
+    {
+      "path": "data/ply_ray_surrogate_distributions.npz",
+      "bytes": 17976,
+      "sha256": "dae50ba08efc0ec978fb2b0b055a6e1599958ece7b64bee57c6d19650176a838"
+    },
+    {
+      "path": "data/ply_ray_surrogate_metrics.json",
+      "bytes": 60401,
+      "sha256": "3d0022754b3c89eb67fa6d922a1e142d9a7b10d633e0eb2cf2268bfe20aa127e"
+    },
+    {
+      "path": "data/ply_ray_surrogate_models.json",
+      "bytes": 3596,
+      "sha256": "1f7f9dcfe683cf6ce3b39b961f3ab7cc47485109dcf85dd2449e56627960ded1"
+    },
+    {
+      "path": "data/ply_ray_surrogate_overview.png",
+      "bytes": 302864,
+      "sha256": "3439e217b1e6c954b3e4c41fa6d437cf63170381a0d66abe22f2349aab9cc4b0"
+    },
+    {
+      "path": "data/render_validation_bsdf_probe.json",
+      "bytes": 604,
+      "sha256": "ef3fc8ab29077dd6dc79c7067bec8c43b041dcb9ce92c98d41814c9a0a719b19"
+    },
+    {
+      "path": "data/render_validation_camera.png",
+      "bytes": 176596,
+      "sha256": "9465741f52bfad4ca0bd9a2e0c10b7f00c92c7f36aa25279e58c74cd9a2c7073"
+    },
+    {
+      "path": "data/render_validation_coverage.npz",
+      "bytes": 4852,
+      "sha256": "cba8872c4ac8903617a10e85a74e0a9780d77219628ae3f11889ca3135179ec6"
+    },
+    {
+      "path": "data/render_validation_furnace_abs2_seed12101.npy",
+      "bytes": 110720,
+      "sha256": "a92f4a3673baae1a51258ee9e737cb93807cad8b0c93240b090f7c39d8a1d6c1"
+    },
+    {
+      "path": "data/render_validation_furnace_depth-1_seed9101.npy",
+      "bytes": 110720,
+      "sha256": "f421619dd7c8633895ca5c246f87823b0336d34b0d733a6d706924fd1e53c3c4"
+    },
+    {
+      "path": "data/render_validation_furnace_depth-1_seed9102.npy",
+      "bytes": 110720,
+      "sha256": "13ca7b31729c12bb20099ffad9603c63aac158b34d0bbb8fd86e5998ad409fc7"
+    },
+    {
+      "path": "data/render_validation_furnace_depth-1_seed9103.npy",
+      "bytes": 110720,
+      "sha256": "c9f7f6c9cfeacf6f3be76e2831ba24cabab230e33fe46a97b79a198f8e6ddf6f"
+    },
+    {
+      "path": "data/render_validation_furnace_depth16_seed9101.npy",
+      "bytes": 110720,
+      "sha256": "2d5fcfc5ecf0c16fcd9619d17f412c1a563b06330d3880224c3e07761c78edce"
+    },
+    {
+      "path": "data/render_validation_furnace_depth16_seed9102.npy",
+      "bytes": 110720,
+      "sha256": "af7a7711e8a1ca1af011633f924a8c7072c1c20c9dca4a8f3d49e06afd5f152b"
+    },
+    {
+      "path": "data/render_validation_furnace_depth16_seed9103.npy",
+      "bytes": 110720,
+      "sha256": "02d2567165e058e9279425cec41e3f09c34fd31de4b854cccf04a1580fdc8c90"
+    },
+    {
+      "path": "data/render_validation_furnace_depth2_seed9101.npy",
+      "bytes": 110720,
+      "sha256": "c84428758773b5befbc8c7932f0a1fb80ade4958ea6631ca788e753ac31cb205"
+    },
+    {
+      "path": "data/render_validation_furnace_depth2_seed9102.npy",
+      "bytes": 110720,
+      "sha256": "c7335dc8decb34cf9656657ada25da9d594d0394bffae382ff0efbe6857bb0b0"
+    },
+    {
+      "path": "data/render_validation_furnace_depth2_seed9103.npy",
+      "bytes": 110720,
+      "sha256": "9e15666ba81eee2993f4a80d33d5df98313a8f8b0697bf464ce1e1a19a61ef5d"
+    },
+    {
+      "path": "data/render_validation_furnace_depth32_seed9101.npy",
+      "bytes": 110720,
+      "sha256": "62b798e97113f2a7f97ee88bfa3e99bc22183e837fccb35876c742ab4b83b8ae"
+    },
+    {
+      "path": "data/render_validation_furnace_depth32_seed9102.npy",
+      "bytes": 110720,
+      "sha256": "6da6b81591fb958f65e39979f1c515ca03d52237729f07292c53165caf3c5a95"
+    },
+    {
+      "path": "data/render_validation_furnace_depth32_seed9103.npy",
+      "bytes": 110720,
+      "sha256": "60a1fdbf62ab194d35120ce8d2ddbb19685a71cf83427e11895078399525d427"
+    },
+    {
+      "path": "data/render_validation_furnace_depth4_seed9101.npy",
+      "bytes": 110720,
+      "sha256": "39f5dbdfb39f706b65f03822614da3a7705e62595723b67c2d377015bc0aba11"
+    },
+    {
+      "path": "data/render_validation_furnace_depth4_seed9102.npy",
+      "bytes": 110720,
+      "sha256": "b353ee741f31886818c1ac0fa0e71d058ced3fd97894ec707d6982062680f58c"
+    },
+    {
+      "path": "data/render_validation_furnace_depth4_seed9103.npy",
+      "bytes": 110720,
+      "sha256": "93d52a29ad421a0b1d617788107e099e0b32a26a8ac691e89ea2ac0a647a0218"
+    },
+    {
+      "path": "data/render_validation_furnace_depth8_seed9101.npy",
+      "bytes": 110720,
+      "sha256": "9651362c0306ad03b41a5c319dc8b5c86ce6faa64b2ad10ecb91a6d1ef1bfdc7"
+    },
+    {
+      "path": "data/render_validation_furnace_depth8_seed9102.npy",
+      "bytes": 110720,
+      "sha256": "4fd224b042d0d1c905085720f7a9278d99334e0570bdd04ce2c02ea4ae393462"
+    },
+    {
+      "path": "data/render_validation_furnace_depth8_seed9103.npy",
+      "bytes": 110720,
+      "sha256": "e84b4f30db15ad1ae023b1fbb620e28f95d3869df51fbc07541244a9c9aeac7c"
+    },
+    {
+      "path": "data/render_validation_hemisphere_reflection_seed10101.npy",
+      "bytes": 110720,
+      "sha256": "4910a7c9849bfba5263ebb188cf8d219b4c036dd8b1d26ff94c920ea1bd9d0ae"
+    },
+    {
+      "path": "data/render_validation_hemisphere_reflection_seed10102.npy",
+      "bytes": 110720,
+      "sha256": "40ca39bfd4268b8e3eb8c015124803a7cdeb072c8d3dc737648be1486676e7ee"
+    },
+    {
+      "path": "data/render_validation_hemisphere_reflection_seed10103.npy",
+      "bytes": 110720,
+      "sha256": "697129f00d78a721a5f09c3c727ff916234abc1f26b2fb2cc12cf26a598fec0f"
+    },
+    {
+      "path": "data/render_validation_hemisphere_transmission_seed11101.npy",
+      "bytes": 110720,
+      "sha256": "c6daeedecb3a9ad42f85507945cf6300efb7141516929d899c462b28dacdbf08"
+    },
+    {
+      "path": "data/render_validation_hemisphere_transmission_seed11102.npy",
+      "bytes": 110720,
+      "sha256": "c86752aa470becd146f9624e8d049aa9d8da6800cb65d2c66e68b2b7760f01dc"
+    },
+    {
+      "path": "data/render_validation_hemisphere_transmission_seed11103.npy",
+      "bytes": 110720,
+      "sha256": "6b0677c1d5ee0ffcc42a06d2c4fa7133af9f06ccc7a58410b13f9afd55548c44"
+    },
+    {
+      "path": "data/render_validation_metrics.json",
+      "bytes": 52548,
+      "sha256": "0d7e5fa67143c9ec872724916b5ab0c8355a2ecc2ba5674a3cd8138bca33fdc0"
+    },
+    {
+      "path": "data/render_validation_overview.png",
+      "bytes": 352843,
+      "sha256": "80de2a00b4b46b7c43cc535d3e5a6e682eb2501e675725ba1506a65cdb5d6491"
+    },
+    {
+      "path": "data/render_validation_sampling_reference_spp2048_seed16001.npy",
+      "bytes": 110720,
+      "sha256": "452918b4dfdfb00ee577c5b349158f7aa9878a68eda99f5361349c5fd733e215"
+    },
+    {
+      "path": "data/render_validation_sampling_spp1024_seed15001.npy",
+      "bytes": 110720,
+      "sha256": "ed1cab78e6dc59773a4f9777b154c1e05700268716d5b9c7b5a0e60f34b9e8a0"
+    },
+    {
+      "path": "data/render_validation_sampling_spp1024_seed15002.npy",
+      "bytes": 110720,
+      "sha256": "95cec743d245b1755a916e8865ce1127d15e8d8ba2acbac172904b690e0f2b90"
+    },
+    {
+      "path": "data/render_validation_sampling_spp1024_seed15003.npy",
+      "bytes": 110720,
+      "sha256": "fae52e04a9b85059d9f65fd04218dca90f1cd6cf84156657c6023ef6e2e0d9ea"
+    },
+    {
+      "path": "data/render_validation_sampling_spp256_seed15001.npy",
+      "bytes": 110720,
+      "sha256": "dced7d52186089fc8deeb786bf6671c508d11e60167b92ecf6ad468639b3f3fc"
+    },
+    {
+      "path": "data/render_validation_sampling_spp256_seed15002.npy",
+      "bytes": 110720,
+      "sha256": "2cda72637648e23342b24a9d508ac554bc3f745b2407bfee4c6237778d41e2e3"
+    },
+    {
+      "path": "data/render_validation_sampling_spp256_seed15003.npy",
+      "bytes": 110720,
+      "sha256": "2b00eec564def34badd20cf75e9dab09c727aaec6c5dfd60e5dba8d85fea0d47"
+    },
+    {
+      "path": "data/render_validation_sampling_spp64_seed15001.npy",
+      "bytes": 110720,
+      "sha256": "961a78cdc6331be6122a32d05c1b024b8fbc54bb3e78f99368d4c369122c1fc6"
+    },
+    {
+      "path": "data/render_validation_sampling_spp64_seed15002.npy",
+      "bytes": 110720,
+      "sha256": "481dc9667c5368e327866e83521b43898e149eac1ee8a288a2d012ba077d79be"
+    },
+    {
+      "path": "data/render_validation_sampling_spp64_seed15003.npy",
+      "bytes": 110720,
+      "sha256": "830e37c81e099000e8b5ba0e9ca30bf7c885133505b7a14b39f9ea39f4b30cf5"
+    },
+    {
+      "path": "data/render_validation_tests.json",
+      "bytes": 89,
+      "sha256": "4c81fecefa8903ea8e9c453c8c7a394a7d2d5b2475447e81538806d4fe7d8e96"
+    },
+    {
+      "path": "data/render_validation_tests.txt",
+      "bytes": 3165,
+      "sha256": "fd454c22b48369424ca4c984bdbfae2c1d8cba75244f45ad1688ba77a2185a08"
+    },
+    {
+      "path": "figures/camera_comparison.png",
+      "bytes": 2766463,
+      "sha256": "c3f7b94187890a69d07b0d38a06198c3e6bfe1e7d8e035424dbc500b639bd46f"
+    },
+    {
+      "path": "figures/fabric_contact_sheet.png",
+      "bytes": 3243768,
+      "sha256": "deea26a694d69cdd25ff726cedc145af020584278b3a244f397d9d9814897917"
+    },
+    {
+      "path": "figures/fabric_geometry.png",
+      "bytes": 1018289,
+      "sha256": "37e94a730b4165455237ad1d3aad2b37063e9481231f45c9e2d9da9a3e5ca186"
+    },
+    {
+      "path": "figures/fabric_macro.json",
+      "bytes": 1013,
+      "sha256": "a934a2a41ee55ff8968a377a41140ff6be3ccbd734201403de601d3de657c647"
+    },
+    {
+      "path": "figures/fabric_macro.png",
+      "bytes": 458906,
+      "sha256": "e824f8cded75e93da3739fecc6bb3572e7232ed8ab87ba1e6dec21e30e3f3e8f"
+    },
+    {
+      "path": "figures/fabric_macro_linear.npy",
+      "bytes": 3145856,
+      "sha256": "3ee3fd7f2477c2bf63fd5e6da4b9a35d4912d8c33aac31cde38ffa3c81b8a83e"
+    },
+    {
+      "path": "figures/plain_back_diffuse.json",
+      "bytes": 1016,
+      "sha256": "58325c862c262d7f7e95286bdc7d548f1a283caca91c74f8f90750770f64c543"
+    },
+    {
+      "path": "figures/plain_back_diffuse.png",
+      "bytes": 62495,
+      "sha256": "a6e1cc095e0f7a387edba6367c8a1eeecad7d5f707707e011915d21d405ae940"
+    },
+    {
+      "path": "figures/plain_back_diffuse_linear.npy",
+      "bytes": 786560,
+      "sha256": "5c57b6cb6ebd7e45debcbc007300e8f37e98d862bd98d230a1d060148da19aa2"
+    },
+    {
+      "path": "figures/plain_front_x.json",
+      "bytes": 1003,
+      "sha256": "d8f85a0d57feee967081f35d3f6ef451caea4e82bb703b9774dae39dc063b2e7"
+    },
+    {
+      "path": "figures/plain_front_x.png",
+      "bytes": 124771,
+      "sha256": "fdcff08e5aec939529bdd1c3970a48760117b9cab8ca947727ae4b62ae9315bf"
+    },
+    {
+      "path": "figures/plain_front_x_linear.npy",
+      "bytes": 786560,
+      "sha256": "f28cc7b184e9c11868996101053b9abf115df972f87ade89bbb3066586f64097"
+    },
+    {
+      "path": "figures/plain_front_y.json",
+      "bytes": 1005,
+      "sha256": "1d684c448cb37617b8727903ceaad239c7cb572410ae3d5de678bbf96dfb0184"
+    },
+    {
+      "path": "figures/plain_front_y.png",
+      "bytes": 124690,
+      "sha256": "f6bd974c052422eed8e0cd1769cd882cb7500af01d1df7c493d10318fd5efc4d"
+    },
+    {
+      "path": "figures/plain_front_y_linear.npy",
+      "bytes": 786560,
+      "sha256": "2dd7089949478bba2d139104267c881e503f6c58d19ab01e3894b33b729a8d5a"
+    },
+    {
+      "path": "figures/satin_back_diffuse.json",
+      "bytes": 1015,
+      "sha256": "2e126e3b99aaa126dc84b2bb790a6a7726a4d804650be4f1ea6cc0cc586d70fd"
+    },
+    {
+      "path": "figures/satin_back_diffuse.png",
+      "bytes": 62679,
+      "sha256": "cb9dc0abcee2bc9537402c2d3a5aed372ad93e6cfa9b1eb8c0a34dac3c53ae02"
+    },
+    {
+      "path": "figures/satin_back_diffuse_linear.npy",
+      "bytes": 786560,
+      "sha256": "8e0b1b906065165374fe7d4a63ef743ea89486630497ff6bd4c6e6f2b283222c"
+    },
+    {
+      "path": "figures/satin_front_x.json",
+      "bytes": 1003,
+      "sha256": "8eb33617b26f1a6703260d217ff68c7d001c5b21f57a36eeb2eaa22f9a9f694f"
+    },
+    {
+      "path": "figures/satin_front_x.png",
+      "bytes": 124997,
+      "sha256": "c698bd6612c8728bcd279c07940122dd744e6bc5c9d486c8ae329e9695ed6655"
+    },
+    {
+      "path": "figures/satin_front_x_linear.npy",
+      "bytes": 786560,
+      "sha256": "42a02db0be90532d6aa0a9f208dcd497d091762616bd66b0ba1dcdbe44b76567"
+    },
+    {
+      "path": "figures/satin_front_y.json",
+      "bytes": 1003,
+      "sha256": "9b9ec79e37a2827630f90b4ff3900f0897f4e6baf2d200641c2e547a809fc1f8"
+    },
+    {
+      "path": "figures/satin_front_y.png",
+      "bytes": 123661,
+      "sha256": "578cf42ac83372a0830ca575b2c5a5b0a1dc084c4fb18db3fc60f12f45ec1e87"
+    },
+    {
+      "path": "figures/satin_front_y_linear.npy",
+      "bytes": 786560,
+      "sha256": "f66bfdb12fadd952b49fc33edeb6059019f0a25c865b918b03831cd005cef65f"
+    },
+    {
+      "path": "figures/twill_back_diffuse.json",
+      "bytes": 1015,
+      "sha256": "8d0313fd1e791740c2f7f40ddcf94904aba9ba27aba856829731dad9fd82752f"
+    },
+    {
+      "path": "figures/twill_back_diffuse.png",
+      "bytes": 62691,
+      "sha256": "afe0be163ccb8bfc5b80ffbaae0607e48a4f152db486b81fa66ee686d137e02b"
+    },
+    {
+      "path": "figures/twill_back_diffuse_linear.npy",
+      "bytes": 786560,
+      "sha256": "8da2b2f72ee52fc5cd23a90a7a6b3f2e2c0ad35d9a147b2566b327c7ca9bbf41"
+    },
+    {
+      "path": "figures/twill_front_x.json",
+      "bytes": 1018,
+      "sha256": "df06028caf571f51bbe43fe895905e697783256b45ff1a2e272ff251feb41c3b"
+    },
+    {
+      "path": "figures/twill_front_x.png",
+      "bytes": 124480,
+      "sha256": "b7053912ad56897fc42bc313ae6b25445227a51596f03fa7b95aa00536733579"
+    },
+    {
+      "path": "figures/twill_front_x_linear.npy",
+      "bytes": 786560,
+      "sha256": "1c0d73c59a061c7e748b9b0f2a61fd88b5e4531ea5849dc11b4fb14948ce07ce"
+    },
+    {
+      "path": "figures/twill_front_y.json",
+      "bytes": 1002,
+      "sha256": "cfeb6829529b7b277fb0f44b825f04f9474519303aae4ecc6d85349dc54aeaed"
+    },
+    {
+      "path": "figures/twill_front_y.png",
+      "bytes": 123362,
+      "sha256": "6c4cc5f248d42f2e1217be9338b8a1b6bf40c51a799accc52b95202d79422343"
+    },
+    {
+      "path": "figures/twill_front_y_linear.npy",
+      "bytes": 786560,
+      "sha256": "2d16958e3e3a28ac814a4b91b8b8844a9deca1b5bba6c0aa29858b7b43c8ac47"
+    },
+    {
+      "path": "notes/angular_measurement.md",
+      "bytes": 15203,
+      "sha256": "8535208f06454a07697401dd9646f745b186a75f170ff898c87cde7a147dbeea"
+    },
+    {
+      "path": "notes/angular_surrogate.md",
+      "bytes": 6817,
+      "sha256": "79c8bd69bce4ec0b8f7beb84b74aec22c159d45d6f752d2fe98c24944a1df86c"
+    },
+    {
+      "path": "notes/aperture_wave.md",
+      "bytes": 7458,
+      "sha256": "f83325a34cb23e1a179f3dfa3f26c45d51232e62924697de7a33e26f68f974e9"
+    },
+    {
+      "path": "notes/fiber_wave.md",
+      "bytes": 13374,
+      "sha256": "bcb9bc0c7fef3047cb15fad21677057b9004b449adcfad2ce3affb5facac7396"
+    },
+    {
+      "path": "notes/fiber_wave_beam.md",
+      "bytes": 11741,
+      "sha256": "3816462988b467b0eb62dc11cedd4a2e3f11dd0b36ec04e829b5eb91453e2fbe"
+    },
+    {
+      "path": "notes/final_scope_review.md",
+      "bytes": 17622,
+      "sha256": "7fbf78434b6d3c5787fee9ac7594b4c3065d0d98729e77bb473c4e3b9aa62fc7"
+    },
+    {
+      "path": "notes/meta_optics.md",
+      "bytes": 18583,
+      "sha256": "a2615b0a585957581ccb5a6a43640ab46e703ded527b8e2b587234c4582627f0"
+    },
+    {
+      "path": "notes/model_contract.md",
+      "bytes": 2352,
+      "sha256": "73b77d61e44f22c7b7d97b6ff9f27e38910046699e2631c117e0a51ade6217b3"
+    },
+    {
+      "path": "notes/ply_ray.md",
+      "bytes": 12714,
+      "sha256": "5df771b7444097f8c452f1ad074ef29b122c7d025053dfb66cc28eb7656ad7f9"
+    },
+    {
+      "path": "notes/ray_wave_literature.md",
+      "bytes": 4956,
+      "sha256": "9d5eb83b5b085c85499c4ad5a43fb817ae25919471f198abbd7f4b2f746e7940"
+    },
+    {
+      "path": "notes/render_validation.md",
+      "bytes": 16778,
+      "sha256": "ccf1e78b99657dbfa8092d03bffd0f608b64ececff8e31da1eb0a9f1ee37bdba"
+    },
+    {
+      "path": "notes/review_fiber_vs_ray.md",
+      "bytes": 9192,
+      "sha256": "d7529a00bc6d28424ef9f1afcccfbc8a7fd2e86e48713406fa580024661faa85"
+    },
+    {
+      "path": "notes/review_geometry_render.md",
+      "bytes": 6968,
+      "sha256": "49987160a19173912b1c67e854f91bb6c688f15aeffcb21f6c705a99a27a447c"
+    },
+    {
+      "path": "notes/review_wave_module.md",
+      "bytes": 6432,
+      "sha256": "e219d98dcea6d6f730ae0b2b4afd5c9926dd78a893b46e3e80666ba851c69ad8"
+    },
+    {
+      "path": "package_results.py",
+      "bytes": 3013,
+      "sha256": "d84e4ef3969edc44372627c5306be94bcf0a4035a943876cbac45785232f5f14"
+    },
+    {
+      "path": "references/Mitsuba_LICENSE.txt",
+      "bytes": 2190,
+      "sha256": "8f9d91002eabbe1667a2394b51e28b38162ff5889aca3245179d0e8aa153fa2c"
+    },
+    {
+      "path": "references/Mitsuba_hair.cpp",
+      "bytes": 32994,
+      "sha256": "0ce061635989dfbb12b85b3c9f14851e858ca297ed71e8df86599b0c97a4791e"
+    },
+    {
+      "path": "references/NOTICE.md",
+      "bytes": 844,
+      "sha256": "1534d36d3f9d8305f246f82184ff30ec670b7a5761e1d560e1200e072f165616"
+    },
+    {
+      "path": "report/build_report.py",
+      "bytes": 53868,
+      "sha256": "9d2927e35c528226a0d56281e674b1578acb5875abc4acaec7b5202a92d46af2"
+    },
+    {
+      "path": "report/textile_optical_simulation_report_ko.pdf",
+      "bytes": 12809883,
+      "sha256": "14b656551dad527736f99f067685b13c2425a0ceda0980d38471987e37ab1d17"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 162,
+      "sha256": "23ee0bb10e90787a79f489879e393e92e78ff7b24e8d374a0c4155b1d18e4a12"
+    },
+    {
+      "path": "run_all.py",
+      "bytes": 3110,
+      "sha256": "3222cb4bcb8aa8614b2e4e73dddf0dd41192593d7c2d4723b31f5cd2042952e4"
+    },
+    {
+      "path": "run_fabric_experiments.py",
+      "bytes": 7770,
+      "sha256": "83ff37c96d42bf9cab7c0e4de37d927bf400b9a6b19540504cf0551f9482452c"
+    },
+    {
+      "path": "tests/test_angular_measurement.py",
+      "bytes": 5839,
+      "sha256": "c2e134c793547c80828a0da09ae91ac99597b4319c33a3ed4d03e2e017da22d8"
+    },
+    {
+      "path": "tests/test_angular_surrogate.py",
+      "bytes": 3151,
+      "sha256": "82cd46156378fefd10185395a66d216461fff70fd836f483ce11332e63780fa0"
+    },
+    {
+      "path": "tests/test_aperture_wave.py",
+      "bytes": 6856,
+      "sha256": "e705894bd6fc2b390389cdc34aec331dcb49d1329d18494e608b95ff07ac9327"
+    },
+    {
+      "path": "tests/test_camera.py",
+      "bytes": 1946,
+      "sha256": "b9ab3c70ffe07ca35b866ecc17466ce1c784aabdd8496f1c48b0cc6bc9c2c8e2"
+    },
+    {
+      "path": "tests/test_fiber_wave.py",
+      "bytes": 11082,
+      "sha256": "ccb4d86a5ba30973549b5435f91ec29f81ed764624f9f9ba96611100261baf25"
+    },
+    {
+      "path": "tests/test_fiber_wave_beam.py",
+      "bytes": 5942,
+      "sha256": "24ff523d6c2ef5ffff10a708dde5aa58ea9bc29d85538d9533597f8b8032f1f3"
+    },
+    {
+      "path": "tests/test_geometry.py",
+      "bytes": 3437,
+      "sha256": "6235b64d968bea59351673e415c5d0ef52e575c04a585d1324afea21c80eccd1"
+    },
+    {
+      "path": "tests/test_meta_optics.py",
+      "bytes": 4943,
+      "sha256": "e112ef0d41ebe73f4ade11b81303ff1ec1bb48bd2583fb72b837cb51953bd5ed"
+    },
+    {
+      "path": "tests/test_ply_ray.py",
+      "bytes": 9691,
+      "sha256": "db69e806a034281e3068e6697f79f225c791c12021512177b48c40c08e94791c"
+    },
+    {
+      "path": "tests/test_render.py",
+      "bytes": 976,
+      "sha256": "ed446d5c1b4a71f180ecdae9708c4fae3950f88d2ad6fc6aa92c305e5ec48673"
+    },
+    {
+      "path": "tests/test_render_physics.py",
+      "bytes": 7727,
+      "sha256": "bd58f87d71eb2cbabc2b079e37577eff1b66dfc26ccc454bd2852e2bae66cf0a"
+    },
+    {
+      "path": "textile_sim/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "textile_sim/angular_measurement.py",
+      "bytes": 19359,
+      "sha256": "ad641d1691ff4ed50313f4ff007fef7ba72f0aa27f1c4bce992752bc2affac79"
+    },
+    {
+      "path": "textile_sim/angular_surrogate.py",
+      "bytes": 16773,
+      "sha256": "188341f88b89a7462c95f43aed577e78f2486c5ec179bdfc88701e27c979de2b"
+    },
+    {
+      "path": "textile_sim/aperture_wave.py",
+      "bytes": 22210,
+      "sha256": "cd8c4147573ada0acccc32ed16434067dbc761e708f329aef8f2b6d80312f986"
+    },
+    {
+      "path": "textile_sim/camera.py",
+      "bytes": 4901,
+      "sha256": "e59614eab1fc89c50d52c8441bae15dbba3187dfa2a1b22d2cfbf53215ef5336"
+    },
+    {
+      "path": "textile_sim/fiber_wave.py",
+      "bytes": 39237,
+      "sha256": "315d35f57cd0748b05a1d941d44ceee8324dacc6ae15822a23c0b85ea3951bac"
+    },
+    {
+      "path": "textile_sim/fiber_wave_beam.py",
+      "bytes": 20140,
+      "sha256": "ccbb7fb3993755dec46b1eadbd80b833eb619a14b915bcd4944e85b578f76360"
+    },
+    {
+      "path": "textile_sim/geometry.py",
+      "bytes": 15168,
+      "sha256": "9a84cef0b62ee9702074b908eff3105e303a6371c650c51c98f919212fa980fc"
+    },
+    {
+      "path": "textile_sim/meta_optics.py",
+      "bytes": 19027,
+      "sha256": "b8542e688934dea1e16bb07556869a7db4f6583ed64f932a66abab69ab36a3da"
+    },
+    {
+      "path": "textile_sim/ply_ray.py",
+      "bytes": 33739,
+      "sha256": "d78b7e6270770161945481ecd7c303b22a870db825fffa5fed748b5d7af8d91a"
+    },
+    {
+      "path": "textile_sim/render.py",
+      "bytes": 7991,
+      "sha256": "704c6052f0e22e0b0644137d1960fd175126ad7ed801f396163056aa6ade5ac9"
+    },
+    {
+      "path": "validate_all.py",
+      "bytes": 1948,
+      "sha256": "cb469c71c2ddb735900692a003f6fa0f7f372e10e59895c6021fea3935c5a2cf"
+    },
+    {
+      "path": "validate_render.py",
+      "bytes": 27512,
+      "sha256": "58d72df33998da7d80bd7f2c200d7c2ecbce57b8483e65be5503a0faefe71a02"
+    }
+  ]
+}

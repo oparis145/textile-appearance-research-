@@ -1,0 +1,16 @@
+test_focal_plane_profile_against_airy (test_meta_optics.MetaOpticsPhysicsTests.test_focal_plane_profile_against_airy) ... ok
+test_incident_tilt_focal_translation (test_meta_optics.MetaOpticsPhysicsTests.test_incident_tilt_focal_translation) ... ok
+test_invalid_input (test_meta_optics.MetaOpticsPhysicsTests.test_invalid_input) ... ok
+test_odd_grid_padding_preserves_physical_origin (test_meta_optics.MetaOpticsPhysicsTests.test_odd_grid_padding_preserves_physical_origin) ... ok
+test_offaxis_carrier_wavelength_translation (test_meta_optics.MetaOpticsPhysicsTests.test_offaxis_carrier_wavelength_translation) ... ok
+test_parseval_under_padding_and_tilt (test_meta_optics.MetaOpticsPhysicsTests.test_parseval_under_padding_and_tilt) ... ok
+test_phase_quantization_passive_and_bounded_phase_error (test_meta_optics.MetaOpticsPhysicsTests.test_phase_quantization_passive_and_bounded_phase_error) ... ok
+test_positive_disjoint_measurement_matrix_and_column_budget (test_meta_optics.MetaOpticsPhysicsTests.test_positive_disjoint_measurement_matrix_and_column_budget) ... ok
+test_scalar_angular_spectrum_does_not_amplify (test_meta_optics.MetaOpticsPhysicsTests.test_scalar_angular_spectrum_does_not_amplify) ... ok
+test_unit_pupil_power_and_declared_loss (test_meta_optics.MetaOpticsPhysicsTests.test_unit_pupil_power_and_declared_loss) ... ok
+test_zero_distance_identity (test_meta_optics.MetaOpticsPhysicsTests.test_zero_distance_identity) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 1.154s
+
+OK

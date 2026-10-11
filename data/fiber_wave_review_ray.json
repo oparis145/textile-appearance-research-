@@ -1,0 +1,31 @@
+{
+  "review_scope": "independent review of ply_ray by fiber_wave implementer",
+  "heterogeneous_absorbing_index_matched_cluster": {
+    "n_rays": 50000,
+    "mu_per_um": [
+      0.002,
+      0.007,
+      0.021,
+      0.017,
+      0.032,
+      0.008,
+      0.025
+    ],
+    "max_weight_absolute_error": 1.6653345369377348e-15,
+    "max_total_path_absolute_error_um": 1.2218004385999848e-13,
+    "analytic_transmitted_mean": 0.8130470356793573,
+    "quadrature_estimated_error": 2.7115021339341183e-11,
+    "monte_carlo_transmitted_mean": 0.8143498612870349,
+    "monte_carlo_standard_error": 0.0005954404562145693,
+    "absolute_z_score": 2.188003173247778,
+    "numerical_failure_count": 0
+  },
+  "length_scaling_1000": {
+    "max_angle_difference_rad": 1.1861622795095172e-12,
+    "max_channel_energy_difference": 0.0
+  },
+  "all_refractive_indices_scaling_1p33": {
+    "max_angle_difference_rad": 0.0,
+    "max_channel_energy_difference": 0.0
+  }
+}

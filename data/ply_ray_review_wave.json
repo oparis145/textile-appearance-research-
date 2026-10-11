@@ -1,0 +1,41 @@
+{
+  "independent_graf_relative_errors": [
+    2.262597085461103e-15,
+    2.2020056198486303e-15,
+    1.95913568076199e-15
+  ],
+  "Ez": {
+    "global_Cabs_um": 0.3836479378725204,
+    "local_flux_Cabs_um": 0.38364793787252327,
+    "volume_integral_Cabs_per_fiber_coarse_um": [
+      0.1756680623422835,
+      0.20797987553024003
+    ],
+    "volume_integral_Cabs_per_fiber_fine_um": [
+      0.1756680623422835,
+      0.20797987553023983
+    ],
+    "volume_vs_global_relative_error": 7.668726258693644e-15,
+    "volume_grid_relative_change": 4.3407884483171236e-16,
+    "uniform_length_scaling_relative_Csca_error": 3.219646771412954e-15,
+    "absorbing_heterogeneous_reciprocity_relative_error": 4.0584081456833275e-16,
+    "linear_system_residual": 2.665552168097068e-16
+  },
+  "Hz": {
+    "global_Cabs_um": 0.4075609971504186,
+    "local_flux_Cabs_um": 0.40756099715042104,
+    "volume_integral_Cabs_per_fiber_coarse_um": [
+      0.14972295799717764,
+      0.257838039127117
+    ],
+    "volume_integral_Cabs_per_fiber_fine_um": [
+      0.14972295799718655,
+      0.25783803912652836
+    ],
+    "volume_vs_global_relative_error": 6.552073186014969e-11,
+    "volume_grid_relative_change": 1.4223710227405714e-12,
+    "uniform_length_scaling_relative_Csca_error": 3.4416913763379853e-15,
+    "absorbing_heterogeneous_reciprocity_relative_error": 6.905283551674227e-16,
+    "linear_system_residual": 2.7654034664181995e-16
+  }
+}

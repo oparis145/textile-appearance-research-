@@ -1,0 +1,22 @@
+test_full_cluster_boundary_trace_and_weighted_derivative (test_fiber_wave.ClusterWaveTests.test_full_cluster_boundary_trace_and_weighted_derivative) ... ok
+test_index_matching_cluster_and_field (test_fiber_wave.ClusterWaveTests.test_index_matching_cluster_and_field) ... ok
+test_lossless_and_absorbing_global_local_flux_agreement (test_fiber_wave.ClusterWaveTests.test_lossless_and_absorbing_global_local_flux_agreement) ... ok
+test_order_and_angular_quadrature_convergence (test_fiber_wave.ClusterWaveTests.test_order_and_angular_quadrature_convergence) ... ok
+test_overlap_rejected (test_fiber_wave.ClusterWaveTests.test_overlap_rejected) ... ok
+test_rotation_covariance_and_reciprocity (test_fiber_wave.ClusterWaveTests.test_rotation_covariance_and_reciprocity) ... ok
+test_separated_fiber_limit_reduces_coupling (test_fiber_wave.ClusterWaveTests.test_separated_fiber_limit_reduces_coupling) ... ok
+test_single_cylinder_reduction (test_fiber_wave.ClusterWaveTests.test_single_cylinder_reduction) ... ok
+test_translation_covariance_of_amplitude_and_cross_sections (test_fiber_wave.ClusterWaveTests.test_translation_covariance_of_amplitude_and_cross_sections) ... ok
+test_absorption_positive_for_passive_index (test_fiber_wave.CylinderWaveTests.test_absorption_positive_for_passive_index) ... ok
+test_actual_boundary_fields_against_exact_plane_wave (test_fiber_wave.CylinderWaveTests.test_actual_boundary_fields_against_exact_plane_wave) ... ok
+test_angle_covariance_and_incoherent_intensity_average (test_fiber_wave.CylinderWaveTests.test_angle_covariance_and_incoherent_intensity_average) ... ok
+test_index_matching_zero_scattering (test_fiber_wave.CylinderWaveTests.test_index_matching_zero_scattering) ... ok
+test_invalid_parameters_rejected (test_fiber_wave.CylinderWaveTests.test_invalid_parameters_rejected) ... ok
+test_lossless_optical_theorem_and_angular_integral (test_fiber_wave.CylinderWaveTests.test_lossless_optical_theorem_and_angular_integral) ... ok
+test_multipole_convergence_not_just_conservation (test_fiber_wave.CylinderWaveTests.test_multipole_convergence_not_just_conservation) ... ok
+test_small_size_analytic_rayleigh_limit_both_polarizations (test_fiber_wave.CylinderWaveTests.test_small_size_analytic_rayleigh_limit_both_polarizations) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 3.680s
+
+OK

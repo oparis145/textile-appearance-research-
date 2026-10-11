@@ -1,0 +1,134 @@
+{
+  "conventions": {
+    "length_unit": "um",
+    "index": "synthetic n=1.53; not a named real fiber",
+    "time_convention": "exp(-i omega t)",
+    "geometry": "infinite circular cylinder along z; incident +x"
+  },
+  "cylinder_checks": {
+    "Ez": {
+      "Csca": 24.248854693702302,
+      "Cext": 24.24885469370225,
+      "Cabs": -5.3290705182007514e-14,
+      "Csca_angular": 24.248854693702224,
+      "boundary_value_residual": 1.7976937271916614e-16,
+      "boundary_derivative_residual": 2.103198581962082e-16,
+      "n_terms": 83
+    },
+    "Hz": {
+      "Csca": 24.709669178408394,
+      "Cext": 24.709669178408333,
+      "Cabs": -6.039613253960852e-14,
+      "Csca_angular": 24.709669178408298,
+      "boundary_value_residual": 1.9794736187310777e-16,
+      "boundary_derivative_residual": 1.8440982763831286e-16,
+      "n_terms": 83
+    }
+  },
+  "cluster_Ez": {
+    "Csca": 3.6649954758143166,
+    "Cext": 3.6649954758143193,
+    "Cabs": 2.6645352591003757e-15,
+    "Cabs_local_flux": 3.5390873843910453e-15,
+    "relative_energy_flux_residual": 2.386229754066352e-16,
+    "linear_system_residual": 1.1845493175741707e-15,
+    "n_terms": 21,
+    "angular_samples_for_integral": 1024,
+    "coupling_free_intensity_relative_L2_error": 22.782407128698715,
+    "coupling_free_Csca": 41.99511452029517,
+    "coupling_free_Cext": 19.171657768108094,
+    "coupling_free_apparent_Cabs": -22.823456752187074,
+    "disorder_intensity_relative_L2_change": 0.34456896545371607
+  },
+  "cluster_Hz": {
+    "Csca": 3.6379474325321364,
+    "Cext": 3.6379474325321386,
+    "Cabs": 2.220446049250313e-15,
+    "Cabs_local_flux": 6.526957731935786e-15,
+    "relative_energy_flux_residual": 1.1837751266482678e-15,
+    "linear_system_residual": 1.0349260602661257e-15,
+    "n_terms": 21,
+    "angular_samples_for_integral": 1024,
+    "coupling_free_intensity_relative_L2_error": 18.772098178530435,
+    "coupling_free_Csca": 35.447199748567606,
+    "coupling_free_Cext": 17.947859028967304,
+    "coupling_free_apparent_Cabs": -17.4993407196003,
+    "disorder_intensity_relative_L2_change": 0.48699426131923146
+  },
+  "cluster_multipole_convergence": [
+    {
+      "N": 4,
+      "Csca": 3.6075121016979543,
+      "Cext": 3.6075121016979605,
+      "relative_energy_flux_residual": 3.4327330629162044e-17,
+      "intensity_relative_L2_to_default": 0.07421334612158993
+    },
+    {
+      "N": 6,
+      "Csca": 3.6644078774320676,
+      "Cext": 3.664407877432072,
+      "relative_energy_flux_residual": 4.721211852781926e-16,
+      "intensity_relative_L2_to_default": 0.0006451067025245652
+    },
+    {
+      "N": 8,
+      "Csca": 3.6649957930035413,
+      "Cext": 3.664995793003545,
+      "relative_energy_flux_residual": 7.290516514994301e-16,
+      "intensity_relative_L2_to_default": 1.1627179007149348e-06
+    },
+    {
+      "N": 10,
+      "Csca": 3.6649954865906964,
+      "Cext": 3.6649954865906977,
+      "relative_energy_flux_residual": 5.795339858536192e-16,
+      "intensity_relative_L2_to_default": 3.12139465350558e-08
+    },
+    {
+      "N": 14,
+      "Csca": 3.664995475803354,
+      "Cext": 3.6649954758033574,
+      "relative_energy_flux_residual": 4.3798680738856687e-16,
+      "intensity_relative_L2_to_default": 5.535845864560651e-12
+    },
+    {
+      "N": 18,
+      "Csca": 3.6649954758143055,
+      "Cext": 3.664995475814309,
+      "relative_energy_flux_residual": 1.281094935255573e-16,
+      "intensity_relative_L2_to_default": 4.6529566455320216e-15
+    },
+    {
+      "N": 22,
+      "Csca": 3.6649954758143153,
+      "Cext": 3.6649954758143166,
+      "relative_energy_flux_residual": 1.4241233550243286e-16,
+      "intensity_relative_L2_to_default": 1.3403219459427808e-15
+    },
+    {
+      "N": 26,
+      "Csca": 3.6649954758143166,
+      "Cext": 3.664995475814318,
+      "relative_energy_flux_residual": 3.280082226207064e-16,
+      "intensity_relative_L2_to_default": 1.0121759390303954e-15
+    }
+  ],
+  "size_sweep_max_relative_lossless_energy_error": 5.80925867221733e-13,
+  "size_sweep_max_boundary_residual": 5.139667719892256e-16,
+  "absorbing_cluster": {
+    "Csca": 2.8802530055882642,
+    "Cext": 4.108643675033142,
+    "Cabs": 1.2283906694448778,
+    "Cabs_local_flux": 1.2283906694448765,
+    "relative_energy_flux_residual": 3.2425971559566825e-16,
+    "Cabs_per_cylinder": [
+      0.1461940600635255,
+      0.04888318661171844,
+      0.12388337777714313,
+      0.28338798885419575,
+      0.2187706895069548,
+      0.2833879888541953,
+      0.12388337777714352
+    ]
+  }
+}

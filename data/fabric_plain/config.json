@@ -1,0 +1,18 @@
+{
+  "pattern": "plain",
+  "yarns_per_direction": 10,
+  "pitch_mm": 0.2,
+  "fiber_radius_mm": 0.004,
+  "fiber_spacing_mm": 0.016,
+  "fiber_rings": 3,
+  "plies": 1,
+  "ply_orbit_mm": 0.0,
+  "ply_scale_u": 1.35,
+  "ply_scale_v": 0.6,
+  "fiber_twist_per_mm": 0.7,
+  "ply_twist_per_mm": 0.35,
+  "crimp_height_mm": 0.038,
+  "samples_per_pitch": 24,
+  "jitter_fraction": 0.0,
+  "seed": 20261010
+}

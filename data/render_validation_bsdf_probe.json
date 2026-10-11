@@ -1,0 +1,13 @@
+{
+  "incident_sensor_rays": 131072,
+  "valid_surface_rays": 112323,
+  "seed": 28719,
+  "mean_zero_absorption_one_event_sample_weight": 0.9999995810433918,
+  "std_weight": 3.8973543217044645e-06,
+  "weight_min": 0.9999697804450989,
+  "weight_max": 1.000030755996704,
+  "finite_fraction": 1.0,
+  "note": "First-hit radiance-mode BSDF samples, not pointwise reciprocity. This checks local sample weights; it does not establish eval/PDF normalization or full-scene furnace conservation.",
+  "geometry_sha256": "1171b1341d7d8ce03ee9ac829b049872d2474d31280d3b9fdc579f9530b0d331",
+  "mitsuba_version": "3.9.1"
+}

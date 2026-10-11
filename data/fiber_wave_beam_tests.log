@@ -1,0 +1,15 @@
+test_arbitrary_illumination_operator_plane_wave_reduction (test_fiber_wave_beam.GaussianScatteringTests.test_arbitrary_illumination_operator_plane_wave_reduction) ... ok
+test_index_matched_gaussian_has_no_scattering (test_fiber_wave_beam.GaussianScatteringTests.test_index_matched_gaussian_has_no_scattering) ... ok
+test_lossless_and_absorbing_flux_bounds (test_fiber_wave_beam.GaussianScatteringTests.test_lossless_and_absorbing_flux_bounds) ... ok
+test_single_cylinder_against_coherent_sum_of_exact_plane_wave_solutions (test_fiber_wave_beam.GaussianScatteringTests.test_single_cylinder_against_coherent_sum_of_exact_plane_wave_solutions) ... ok
+test_source_and_backward_angular_quadrature_convergence (test_fiber_wave_beam.GaussianScatteringTests.test_source_and_backward_angular_quadrature_convergence) ... ok
+test_translation_of_beam_and_object_preserves_power (test_fiber_wave_beam.GaussianScatteringTests.test_translation_of_beam_and_object_preserves_power) ... ok
+test_flux_norm_and_paraxial_limit (test_fiber_wave_beam.GaussianSourceTests.test_flux_norm_and_paraxial_limit) ... ok
+test_invalid_source_rejected (test_fiber_wave_beam.GaussianSourceTests.test_invalid_source_rejected) ... ok
+test_source_quadrature_can_fail_without_energy_renormalization (test_fiber_wave_beam.GaussianSourceTests.test_source_quadrature_can_fail_without_energy_renormalization) ... ok
+test_waist_profile_and_two_plane_power_conservation (test_fiber_wave_beam.GaussianSourceTests.test_waist_profile_and_two_plane_power_conservation) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.524s
+
+OK

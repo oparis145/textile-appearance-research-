@@ -1,0 +1,324 @@
+{
+  "gap_source_sweep": [
+    {
+      "gap_um": 10.0,
+      "source_sigma_deg": 0.0,
+      "geometric_open_fraction": 0.006103515625,
+      "transmitted_total": 0.006103515625,
+      "within_0p5_deg": 0.0004906841578823031,
+      "within_2_deg": 0.004121380470568325,
+      "angular_window_loss": 0.0,
+      "largest_parseval_error": 1.734723475976807e-18
+    },
+    {
+      "gap_um": 10.0,
+      "source_sigma_deg": 0.1,
+      "geometric_open_fraction": 0.006103515625,
+      "transmitted_total": 0.006103513895851412,
+      "within_0p5_deg": 0.0004878844736834966,
+      "within_2_deg": 0.004117886795729242,
+      "angular_window_loss": 1.7291485882031665e-09,
+      "largest_parseval_error": 1.734723475976807e-18
+    },
+    {
+      "gap_um": 10.0,
+      "source_sigma_deg": 1.0,
+      "geometric_open_fraction": 0.006103515625,
+      "transmitted_total": 0.006100986078148858,
+      "within_0p5_deg": 0.0002798678244652007,
+      "within_2_deg": 0.0030322161084620257,
+      "angular_window_loss": 2.529546851141873e-06,
+      "largest_parseval_error": 1.734723475976807e-18
+    },
+    {
+      "gap_um": 30.0,
+      "source_sigma_deg": 0.0,
+      "geometric_open_fraction": 0.054931640625,
+      "transmitted_total": 0.05493164062500003,
+      "within_0p5_deg": 0.027474668337488774,
+      "within_2_deg": 0.04910242514465104,
+      "angular_window_loss": 0.0,
+      "largest_parseval_error": 6.938893903907228e-18
+    },
+    {
+      "gap_um": 30.0,
+      "source_sigma_deg": 0.1,
+      "geometric_open_fraction": 0.054931640625,
+      "transmitted_total": 0.05493159745351299,
+      "within_0p5_deg": 0.026435720435990205,
+      "within_2_deg": 0.049189628024369395,
+      "angular_window_loss": 4.317148703802953e-08,
+      "largest_parseval_error": 6.938893903907228e-18
+    },
+    {
+      "gap_um": 30.0,
+      "source_sigma_deg": 1.0,
+      "geometric_open_fraction": 0.054931640625,
+      "transmitted_total": 0.054919024766171456,
+      "within_0p5_deg": 0.0049008274643498086,
+      "within_2_deg": 0.04026818563254717,
+      "angular_window_loss": 1.2615858828571302e-05,
+      "largest_parseval_error": 6.938893903907228e-18
+    },
+    {
+      "gap_um": 80.0,
+      "source_sigma_deg": 0.0,
+      "geometric_open_fraction": 0.390625,
+      "transmitted_total": 0.3906250000000001,
+      "within_0p5_deg": 0.32997263261889787,
+      "within_2_deg": 0.3748042553941867,
+      "angular_window_loss": 0.0,
+      "largest_parseval_error": 1.1102230246251565e-16
+    },
+    {
+      "gap_um": 80.0,
+      "source_sigma_deg": 0.1,
+      "geometric_open_fraction": 0.390625,
+      "transmitted_total": 0.3906244822766213,
+      "within_0p5_deg": 0.3251308077945516,
+      "within_2_deg": 0.3751580257040604,
+      "angular_window_loss": 5.177233788344893e-07,
+      "largest_parseval_error": 1.1102230246251565e-16
+    },
+    {
+      "gap_um": 80.0,
+      "source_sigma_deg": 1.0,
+      "geometric_open_fraction": 0.390625,
+      "transmitted_total": 0.39059041773840686,
+      "within_0p5_deg": 0.041570092963326186,
+      "within_2_deg": 0.3180214632663532,
+      "angular_window_loss": 3.4582261593252284e-05,
+      "largest_parseval_error": 1.1102230246251565e-16
+    }
+  ],
+  "periodicity_sweep": [
+    {
+      "jitter_fraction": 0.0,
+      "source_sigma_deg": 0.0,
+      "open_fraction": 0.054931640625,
+      "total_power": 0.05493164062500001,
+      "peak_density_per_sr": 2614.927685950305
+    },
+    {
+      "jitter_fraction": 0.0,
+      "source_sigma_deg": 1.0,
+      "open_fraction": 0.054931640625,
+      "total_power": 0.054886326049749176,
+      "peak_density_per_sr": 21.576388096250035
+    },
+    {
+      "jitter_fraction": 0.12,
+      "source_sigma_deg": 0.0,
+      "open_fraction": 0.050449371337890625,
+      "total_power": 0.050449371337890625,
+      "peak_density_per_sr": 2205.5964824581024
+    },
+    {
+      "jitter_fraction": 0.12,
+      "source_sigma_deg": 1.0,
+      "open_fraction": 0.050449371337890625,
+      "total_power": 0.050401598407539855,
+      "peak_density_per_sr": 19.57175083963138
+    }
+  ],
+  "single_slit": [
+    {
+      "slit_width_um": 10.0,
+      "wavelength_um": 0.45,
+      "analytic_first_zero_deg_paraxial": 2.5783100780887045,
+      "nearest_fft_bin_deg": 2.580827959024338,
+      "intensity_near_first_zero_relative": 9.596939772905155e-07
+    },
+    {
+      "slit_width_um": 10.0,
+      "wavelength_um": 0.55,
+      "analytic_first_zero_deg_paraxial": 3.151267873219528,
+      "nearest_fft_bin_deg": 3.154345283251969,
+      "intensity_near_first_zero_relative": 9.596939772905155e-07
+    },
+    {
+      "slit_width_um": 10.0,
+      "wavelength_um": 0.65,
+      "analytic_first_zero_deg_paraxial": 3.724225668350351,
+      "nearest_fft_bin_deg": 3.7278626074795995,
+      "intensity_near_first_zero_relative": 9.596939772905155e-07
+    },
+    {
+      "slit_width_um": 30.0,
+      "wavelength_um": 0.45,
+      "analytic_first_zero_deg_paraxial": 0.8594366926962349,
+      "nearest_fft_bin_deg": 0.8560795181153902,
+      "intensity_near_first_zero_relative": 1.5391879681676944e-05
+    },
+    {
+      "slit_width_um": 30.0,
+      "wavelength_um": 0.55,
+      "analytic_first_zero_deg_paraxial": 1.0504226244065094,
+      "nearest_fft_bin_deg": 1.0463194110299214,
+      "intensity_near_first_zero_relative": 1.5391879681676944e-05
+    },
+    {
+      "slit_width_um": 30.0,
+      "wavelength_um": 0.65,
+      "analytic_first_zero_deg_paraxial": 1.2414085561167838,
+      "nearest_fft_bin_deg": 1.2365593039444525,
+      "intensity_near_first_zero_relative": 1.5391879681676944e-05
+    },
+    {
+      "slit_width_um": 80.0,
+      "wavelength_um": 0.45,
+      "analytic_first_zero_deg_paraxial": 0.32228875976108806,
+      "nearest_fft_bin_deg": 0.3273245216323551,
+      "intensity_near_first_zero_relative": 0.00023652769927581682
+    },
+    {
+      "slit_width_um": 80.0,
+      "wavelength_um": 0.55,
+      "analytic_first_zero_deg_paraxial": 0.393908484152441,
+      "nearest_fft_bin_deg": 0.4000633042173229,
+      "intensity_near_first_zero_relative": 0.00023652769927581682
+    },
+    {
+      "slit_width_um": 80.0,
+      "wavelength_um": 0.65,
+      "analytic_first_zero_deg_paraxial": 0.4655282085437939,
+      "nearest_fft_bin_deg": 0.4728020868022907,
+      "intensity_near_first_zero_relative": 0.00023652769927581682
+    }
+  ],
+  "gaussian_beam_sweep": [
+    {
+      "offset_um": 0.0,
+      "beam_waist_um": 10.0,
+      "wavelength_um": 0.45,
+      "aperture_width_um": 30.0,
+      "transmitted_beam_fraction": 0.9946297576474903,
+      "within_2_deg_beam_fraction": 0.9923879801526838,
+      "parseval_error": 3.3306690738754696e-16
+    },
+    {
+      "offset_um": 0.0,
+      "beam_waist_um": 10.0,
+      "wavelength_um": 0.55,
+      "aperture_width_um": 30.0,
+      "transmitted_beam_fraction": 0.9946297576474903,
+      "within_2_deg_beam_fraction": 0.992311185177914,
+      "parseval_error": 3.3306690738754696e-16
+    },
+    {
+      "offset_um": 0.0,
+      "beam_waist_um": 10.0,
+      "wavelength_um": 0.65,
+      "aperture_width_um": 30.0,
+      "transmitted_beam_fraction": 0.9946297576474903,
+      "within_2_deg_beam_fraction": 0.9905740347730596,
+      "parseval_error": 3.3306690738754696e-16
+    },
+    {
+      "offset_um": 12.0,
+      "beam_waist_um": 10.0,
+      "wavelength_um": 0.45,
+      "aperture_width_um": 30.0,
+      "transmitted_beam_fraction": 0.7238786539989848,
+      "within_2_deg_beam_fraction": 0.6756910005861707,
+      "parseval_error": 1.1102230246251565e-16
+    },
+    {
+      "offset_um": 12.0,
+      "beam_waist_um": 10.0,
+      "wavelength_um": 0.55,
+      "aperture_width_um": 30.0,
+      "transmitted_beam_fraction": 0.7238786539989848,
+      "within_2_deg_beam_fraction": 0.6599729332022712,
+      "parseval_error": 1.1102230246251565e-16
+    },
+    {
+      "offset_um": 12.0,
+      "beam_waist_um": 10.0,
+      "wavelength_um": 0.65,
+      "aperture_width_um": 30.0,
+      "transmitted_beam_fraction": 0.7238786539989848,
+      "within_2_deg_beam_fraction": 0.6376542236279166,
+      "parseval_error": 1.1102230246251565e-16
+    },
+    {
+      "offset_um": 22.0,
+      "beam_waist_um": 10.0,
+      "wavelength_um": 0.45,
+      "aperture_width_um": 30.0,
+      "transmitted_beam_fraction": 0.08045239330903073,
+      "within_2_deg_beam_fraction": 0.05998280314483673,
+      "parseval_error": 1.3877787807814457e-17
+    },
+    {
+      "offset_um": 22.0,
+      "beam_waist_um": 10.0,
+      "wavelength_um": 0.55,
+      "aperture_width_um": 30.0,
+      "transmitted_beam_fraction": 0.08045239330903073,
+      "within_2_deg_beam_fraction": 0.0549945077895452,
+      "parseval_error": 1.3877787807814457e-17
+    },
+    {
+      "offset_um": 22.0,
+      "beam_waist_um": 10.0,
+      "wavelength_um": 0.65,
+      "aperture_width_um": 30.0,
+      "transmitted_beam_fraction": 0.08045239330903073,
+      "within_2_deg_beam_fraction": 0.05003777765418265,
+      "parseval_error": 1.3877787807814457e-17
+    }
+  ],
+  "convergence": [
+    {
+      "pixel_um": 2.0,
+      "pad_factor": 4,
+      "case": "physical_grid",
+      "total_power": 0.09765625000000001,
+      "within_0p5_deg": 0.06603477595077288
+    },
+    {
+      "pixel_um": 1.0,
+      "pad_factor": 4,
+      "case": "physical_grid",
+      "total_power": 0.09765625000000003,
+      "within_0p5_deg": 0.06597218913106953
+    },
+    {
+      "pixel_um": 0.5,
+      "pad_factor": 4,
+      "case": "physical_grid",
+      "total_power": 0.09765625000000001,
+      "within_0p5_deg": 0.06595655856129452
+    },
+    {
+      "pixel_um": 1.0,
+      "pad_factor": 2,
+      "case": "angular_padding",
+      "total_power": 0.09765625,
+      "within_0p5_deg": 0.0655661975929739
+    },
+    {
+      "pixel_um": 1.0,
+      "pad_factor": 4,
+      "case": "angular_padding",
+      "total_power": 0.09765625000000003,
+      "within_0p5_deg": 0.06597218913106953
+    },
+    {
+      "pixel_um": 1.0,
+      "pad_factor": 8,
+      "case": "angular_padding",
+      "total_power": 0.09765625000000003,
+      "within_0p5_deg": 0.06611305269143286
+    },
+    {
+      "pixel_um": 1.0,
+      "pad_factor": 16,
+      "case": "angular_padding",
+      "total_power": 0.09765625,
+      "within_0p5_deg": 0.0661371200815379
+    }
+  ],
+  "scope": "Synthetic opaque-gap masks; fixed index absent here; scalar paraxial thin screen. No measured fabric validation."
+}

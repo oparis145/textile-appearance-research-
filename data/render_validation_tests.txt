@@ -1,0 +1,26 @@
+test_deterministic_seed (test_camera.CameraTests.test_deterministic_seed) ... ok
+test_flat_field_and_equal_exposure_photons (test_camera.CameraTests.test_flat_field_and_equal_exposure_photons) ... ok
+test_mtf_analytic_values (test_camera.CameraTests.test_mtf_analytic_values) ... ok
+test_pixel_energy (test_camera.CameraTests.test_pixel_energy) ... ok
+test_shot_read_variance (test_camera.CameraTests.test_shot_read_variance) ... ok
+test_sinusoid_transfer_matches_mtf (test_camera.CameraTests.test_sinusoid_transfer_matches_mtf) ... ok
+test_dark_readout_retains_unbiased_negative_estimates (test_render_physics.ExecutedCameraChecks.test_dark_readout_retains_unbiased_negative_estimates) ... ok
+test_fixed_physical_area_preserves_photon_budget_across_binning (test_render_physics.ExecutedCameraChecks.test_fixed_physical_area_preserves_photon_budget_across_binning) ... ok
+test_independent_seed_noise_matches_area_and_read_noise_scaling (test_render_physics.ExecutedCameraChecks.test_independent_seed_noise_matches_area_and_read_noise_scaling) ... ok
+test_saturation_is_explicitly_outside_unsaturated_variance_claim (test_render_physics.ExecutedCameraChecks.test_saturation_is_explicitly_outside_unsaturated_variance_claim) ... ok
+test_actual_cloth_sampling_converges_on_independent_reference (test_render_physics.ExecutedRenderChecks.test_actual_cloth_sampling_converges_on_independent_reference) ... ok
+test_coverage_uses_actual_sensor_rays_and_has_substantial_core (test_render_physics.ExecutedRenderChecks.test_coverage_uses_actual_sensor_rays_and_has_substantial_core) ... ok
+test_finite_path_depth_bias_is_measured_and_not_hidden (test_render_physics.ExecutedRenderChecks.test_finite_path_depth_bias_is_measured_and_not_hidden) ... ok
+test_lossless_furnace_including_covered_pixels (test_render_physics.ExecutedRenderChecks.test_lossless_furnace_including_covered_pixels) ... ok
+test_passive_absorption_lowers_furnace_response (test_render_physics.ExecutedRenderChecks.test_passive_absorption_lowers_furnace_response) ... ok
+test_source_hemispheres_have_correct_camera_orientation (test_render_physics.ExecutedRenderChecks.test_source_hemispheres_have_correct_camera_orientation) ... ok
+test_upper_plus_lower_illumination_is_linear (test_render_physics.ExecutedRenderChecks.test_upper_plus_lower_illumination_is_linear) ... ok
+test_camera_metadata_distinguishes_collection_sampling_and_preclip_variance (test_render_physics.IndependentOpticsChecks.test_camera_metadata_distinguishes_collection_sampling_and_preclip_variance) ... ok
+test_circular_otf_from_geometric_pupil_autocorrelation (test_render_physics.IndependentOpticsChecks.test_circular_otf_from_geometric_pupil_autocorrelation) ... ok
+test_oblique_grating_transfer_includes_pixel_area_response (test_render_physics.IndependentOpticsChecks.test_oblique_grating_transfer_includes_pixel_area_response) ... ok
+test_radius_normalized_absorption_matches_pinned_source_and_beer_units (test_render_physics.IndependentOpticsChecks.test_radius_normalized_absorption_matches_pinned_source_and_beer_units) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 0.131s
+
+OK
