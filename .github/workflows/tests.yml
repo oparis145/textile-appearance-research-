@@ -1,0 +1,52 @@
+name: Manual CPU validation
+
+# Deliberately manual: full scientific experiments are never started by push/PR.
+# This workflow was authored and checked locally; no GitHub execution is claimed.
+'on':
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      CUDA_VISIBLE_DEVICES: ''
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+      MPLBACKEND: Agg
+      DRJIT_LIBLLVM_PATH: /usr/lib/x86_64-linux-gnu/libLLVM-18.so
+    steps:
+      # Release refs and exact action.yml verified through official GitHub API
+      # on 2026-10-11. Ubuntu image/apt updates remain platform dependencies;
+      # this is not an immutable operating-system image.
+      - name: Check out the selected revision
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Set up the recorded Python version
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12.14'
+          architecture: x64
+      - name: Install the CPU LLVM runtime
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends --yes llvm-18
+      - name: Install pinned scientific dependencies
+        run: |
+          python -m pip install --requirement requirements.txt
+          python -m pip check
+      - name: Run the complete test suite with recorded-evidence gates
+        run: python run_engine_v2.py --stages tests --output data/engine_v2_ci
+      - name: Preserve logs and manifests even if tests fail
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: cpu-validation-${{ github.run_id }}-${{ github.run_attempt }}
+          path: data/engine_v2_ci
+          if-no-files-found: warn
+          retention-days: 14
