@@ -132,3 +132,11 @@ GitHub 앱으로 업로드한 각 단계의 tree가 로컬 commit의 tree와 정
 | 실제 실험·원본 배열·239-test 증거 | `1067ff6d49d7547d63c31ae5952b1189572872ab` | `36ed3c3a59a15295737cc93a4a10d668959bab2e` | `29977d71c7d23c509d4f066df11cff61a9066202` |
 
 공식 CIE CSV와 metadata의 원래 CRLF를 유지하기 위해 해당 경로를 `-text`로 지정했다. 일반 소스는 LF를 사용하고 curve 텍스트의 마지막 구분 빈 줄은 데이터 형식으로 보존한다. 원본 데이터나 렌더 입력을 whitespace 정리로 수정하지 않았다. PDF 생성기의 ReportLab 버전과 외부 글꼴 identity는 [report/README.md](../report/README.md)에 기록했다.
+
+### v0.3.0 게시 확인
+
+2026-10-11 11:48:13 UTC에 [v0.3.0 release](https://github.com/Phill-lms/textile-optics-engine/releases/tag/v0.3.0)를 게시했다. GitHub API와 릴리스 화면에서 tag가 `6e18d28c508420e47fb55589043b34a06bb27794`를 가리키는 것을 확인했다. 해당 tree `1801814a504e1e947ef016ebda4e05baa89a2d3e`는 로컬 archive commit `2de1efc0f17ab6db5a0125bdd2dfed1e154d62b6`의 tree와 동일하다. 태그의 연구 snapshot은 Git 파일 451개, 173,907,925 bytes이며 저장소는 private이다.
+
+문서·22쪽 보고서 단계의 원격 commit은 `1daf366f7299636dc0efd4c29710bb019eefee89`이다. 그 뒤 한국어 README에서 숫자와 강조 기호가 붙어 표시되는 문제만 수정한 commit `6e18d28`을 릴리스 대상으로 삼았다. 과학 소스는 최종 239-test summary에 기록된 SHA-256과 모두 일치했다. PDF는 1,635,817 bytes, SHA-256 `0b16f74315204d0b5f845cf903399349146987c4d3a70a5dea582926f78cd609`이다.
+
+[기계 판독 가능한 v0.3 배포 검증](../data/repository_release_v3_audit.json)과 [릴리스 확인 화면](github_v0_3_release_verified.jpg)을 이 로그와 함께 별도 provenance commit으로 보존한다. 따라서 이후 main에는 이 게시 기록이 추가되지만 v0.3.0 tag는 검증된 연구 snapshot에 유지된다. 이 게시 확인에서 실험이나 전체 테스트를 다시 실행한 것으로 기록하지 않으며 GitHub Actions 성공을 주장하지 않는다.

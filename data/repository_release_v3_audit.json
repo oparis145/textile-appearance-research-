@@ -1,0 +1,68 @@
+{
+  "verified_at_utc": "2026-10-11T11:49:56.705Z",
+  "repository": "Phill-lms/textile-optics-engine",
+  "visibility": "private",
+  "version": "0.3.0",
+  "release": {
+    "id": 409634755,
+    "tag": "v0.3.0",
+    "url": "https://github.com/Phill-lms/textile-optics-engine/releases/tag/v0.3.0",
+    "published_at": "2026-10-11T11:48:13Z",
+    "draft": false,
+    "prerelease": false,
+    "commit": "6e18d28c508420e47fb55589043b34a06bb27794",
+    "tree": "1801814a504e1e947ef016ebda4e05baa89a2d3e"
+  },
+  "local_archive_commit": "2de1efc0f17ab6db5a0125bdd2dfed1e154d62b6",
+  "release_git_files": 451,
+  "release_git_content_bytes": 173907925,
+  "release_tree_matches_local": true,
+  "release_tag_matches_commit": true,
+  "stages": [
+    {
+      "kind": "implementation",
+      "local_archive_commit": "386ca80e0991e0644e7c811068151f8bd83ea35d",
+      "remote_commit": "ef48484ceb13e0e818e5d935b8ee796f71a7cca0",
+      "tree": "d7c62abd7b9c03b31dcedbe8c5d2f5f56b8ac7f9"
+    },
+    {
+      "kind": "experiments",
+      "local_archive_commit": "1067ff6d49d7547d63c31ae5952b1189572872ab",
+      "remote_commit": "36ed3c3a59a15295737cc93a4a10d668959bab2e",
+      "tree": "29977d71c7d23c509d4f066df11cff61a9066202"
+    },
+    {
+      "kind": "documentation",
+      "local_archive_commit": "1cd061196858f669905f7ba04fcff19bcf1c52a6",
+      "remote_commit": "1daf366f7299636dc0efd4c29710bb019eefee89",
+      "tree": "b0f5587b448f34f5c32d191ae0ac7da2d49d3ce0"
+    },
+    {
+      "kind": "readme_rendering_fix",
+      "local_archive_commit": "2de1efc0f17ab6db5a0125bdd2dfed1e154d62b6",
+      "remote_commit": "6e18d28c508420e47fb55589043b34a06bb27794",
+      "tree": "1801814a504e1e947ef016ebda4e05baa89a2d3e"
+    }
+  ],
+  "validation": {
+    "summary_path": "data/final_test_summary.json",
+    "tests_run": 239,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "elapsed_seconds": 19.734876463000546,
+    "source_hash_mismatches_at_release_audit": [],
+    "scientific_experiment_renders_recorded": 536,
+    "scope": "Analytical/numerical and recorded-scene checks; not real-material validation. This publication audit did not rerun experiments or tests."
+  },
+  "report": {
+    "path": "report/fabric_engine_v3_report_ko.pdf",
+    "pages": 22,
+    "bytes": 1635817,
+    "sha256": "0b16f74315204d0b5f845cf903399349146987c4d3a70a5dea582926f78cd609"
+  },
+  "github_actions_execution_claimed": false,
+  "screenshot_path": "docs/github_v0_3_release_verified.jpg",
+  "post_release_note": "This audit, the release screenshot and the work-log update are recorded in a separate provenance commit after the v0.3.0 tag. The tag remains on the verified 451-file research snapshot.",
+  "previous_release_audit": "data/repository_release_audit.json"
+}
