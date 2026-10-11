@@ -204,3 +204,22 @@ GitHub 앱으로 업로드한 각 단계의 tree가 로컬 commit의 tree와 정
 | 최종 실험·297 tests·검산·pilot 기록 | `8d819a0a29c543e3237c3a94eeddafcd737a4cb1` | `ae62d9afe19eba52d085dafc8d20306061eb0964` | `b99d0b80f89a86031d701a21c7ba004f5f7512a6` |
 
 문서·실험을 완성한 tree를 확인한 뒤 main에 반영한다. 실제 v0.4.0 tag·release의 commit과 private 상태는 게시 후 별도 확인 기록으로 추가한다. 저장소 [연구 제목 반영 화면](github_research_identity_v4.jpg)도 함께 보존한다. 과거 태그와 보고서는 해당 버전의 원래 상태로 유지한다.
+
+## 2026-10-11 — v0.4.0 게시 완료와 최종 provenance 확인
+
+**2026-10-11 13:53:43 UTC**, [v0.4.0 릴리스](https://github.com/Phill-lms/textile-appearance-research/releases/tag/v0.4.0)를 게시했다. GitHub API에서 repository ID `1414149528`, 현재 이름 `Phill-lms/textile-appearance-research`, **private=true**, release ID `409698473`, draft=false, prerelease=false를 확인했다. 브라우저에서는 연구 제목·연구 목적·297개 테스트·108회 렌더와 Latest 표지를 확인했다. 저장소 이름과 About, README는 전체 연구 방향에 맞춰 수정되어 있다.
+
+| 확인 대상 | 실제 값 |
+| --- | --- |
+| Release tag | `v0.4.0` |
+| Tag가 가리키는 GitHub commit | `5060feb4c0e3f7789e231b44d93c2ac5154e5208` |
+| 내용이 같은 로컬 최종 commit | `7ab26bf96ae080dddb8d13100b9b4507886e1c68` |
+| 원격·로컬의 동일한 Git tree | `73148efc61aaf60f2290ef5057e5af25f598e983` |
+| 이 snapshot의 추적 파일 | 547 blobs, 총 192,406,367 bytes |
+| 게시 시 재확인한 코드 | 전체 테스트 source 41개·실험 producer source 19개, hash 불일치 0개 |
+
+이는 앞 표의 연구 정체성→코드→실험/검증 commit에 최종 README·연구 설계·수학·실험 보고·리뷰·작업 로그를 추가한 snapshot이다. Git 데이터 API로 만든 commit은 로컬 commit과 메타데이터가 달라 SHA가 다르지만, 각 단계의 tree hash를 대조해 경로와 파일 bytes의 일치를 확인했다. Main 갱신은 예상한 이전 head를 조건으로 수행했다.
+
+[기계 판독 가능한 게시 확인](../data/repository_release_v4_audit.json)에는 API에서 받은 릴리스 설명과 tag/commit/tree, private 상태, 결과·source hash 검사를 보존했다. [게시된 릴리스 화면](github_v0_4_release_verified.jpg)도 함께 남긴다. 이 후속 provenance commit은 main에 추가하며 **v0.4.0 tag는 위 검증된 snapshot에 유지한다.**
+
+게시 확인 단계에서는 광학 실험이나 전체 테스트를 다시 실행하지 않았다. 최종 실행의 297개 테스트·108회 렌더를 그대로 확인한 것이며, GitHub Actions 성공이나 실물 재현 성능을 인증한 것으로 기록하지 않는다. Pilot의 같은 네 seed를 추가 독립 표본으로 합치지 않는다. 현재 완료한 연구 증가분은 물질좌표에 따른 동일 fiber 상태 추적, 국소 변형 진단과 기존 광학 경로의 검증 가능한 연결이다.

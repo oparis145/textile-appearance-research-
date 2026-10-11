@@ -1,0 +1,71 @@
+{
+  "schema_version": "textile.repository_release_audit/4.0",
+  "observed_utc": "2026-10-11 13:54:36 UTC",
+  "repository": {
+    "id": 1414149528,
+    "full_name": "Phill-lms/textile-appearance-research",
+    "html_url": "https://github.com/Phill-lms/textile-appearance-research",
+    "private": true,
+    "description": "직물 외관 재현을 위한 다중 규모 광학 모델링과 메타광학 계측 연구. Fiber–ply–yarn–weave–fabric 물리 모델, VIS/IR 계산영상과 측정 설계, 재조명·재질감 검증을 통해 화면과 실물의 외관 차이를 줄이는 것을 목표로 합니다."
+  },
+  "release": {
+    "id": 409698473,
+    "tag_name": "v0.4.0",
+    "name": "v0.4.0 | 직물 외관 연구 · 물질좌표 추적과 광학 검증",
+    "html_url": "https://github.com/Phill-lms/textile-appearance-research/releases/tag/v0.4.0",
+    "draft": false,
+    "prerelease": false,
+    "published_at": "2026-10-11T13:53:43Z",
+    "body": "## 직물 외관 재현을 위한 다중 규모 광학 모델링과 메타광학 계측\r\n\r\n**Multiscale Textile Appearance Modeling and Meta-Optical Sensing**\r\n\r\n의류 사진에서 예상한 시각적 재질감과 실물을 보았을 때의 차이를 줄이는 연구입니다. Fiber → ply → yarn → weave → fabric 모델, 광학 시뮬레이션, VIS/IR 계측과 역추정, 재조명·실물 검증을 연결합니다. 저장소 이름을 **textile-appearance-research**로 바꾸고 README 첫 부분을 연구 목적·모듈·검증 기준 중심으로 정리했습니다. 같은 비공개 저장소의 기존 버전과 자료를 이어갑니다.\r\n\r\n### v0.4에서 구현한 것\r\n\r\n기준 물질좌표와 부모 대응을 고정한 상태에서 동일한 fiber 정점을 yarn → ply → fiber 순서로 운반합니다. 현재 원사 호길이로 자식 기하를 새로 생성하는 방식과 구분하여, 구조 변화와 광학 입력의 관계를 추적합니다.\r\n\r\n- 명시적인 기준/최종 director, 회전 frame 보간, 3성분 local offset 운반.\r\n- 선분별 stretch·strain과 constant-radius 또는 segment-volume-proxy 보존 모드.\r\n- 가변 반지름을 지원하지 않는 광학 export는 거부하여 평균 반지름으로 몰래 대체하지 않음.\r\n- 원시 배열·입력·producer source hash, 독립 artifact 검산, 실행 단계별 manifest.\r\n- 강한 고해상도 다중조명 RGB 비교군, VIS/IR의 역할, 메타표면의 추가 가치 검증, 시각적 재질감과 촉감의 구분을 연구헌장에 반영. 염색·퇴색은 보류.\r\n\r\n### 실제 실행과 결과\r\n\r\n| 항목 | 검증된 결과 |\r\n| --- | --- |\r\n| 전체 테스트 | **297개 통과**, failures/errors/skips 모두 0 |\r\n| 최종 광학 실행 | **3상태 × 3조명 × 3파장 × 4seed = 108회** 실제 단색 렌더 |\r\n| 영상·파장 | 64×64, 32 spp, 450/550/650 nm |\r\n| 추적 기하 | 42 fibers, 8,106 vertices, 8,064 segments |\r\n| 총 fiber 길이 변화 | +0.0442244% |\r\n| 국소 engineering strain | −14.032% ~ +14.120%, 길이 가중 RMS 1.72821% |\r\n| 새 transport와 재생성 비교 | 9개 조건 중 **8개**의 pointwise paired 95% 구간이 0 포함 |\r\n| 새 입력부터 no-render 실행 | experiment → verify 실제 통과, 새 렌더 0회 |\r\n| 최종 artifact 검산 | 저장된 108회 raw 자료 재계산 통과, source/input drift 없음 |\r\n\r\n최종 실험 driver 실행은 19.681초였습니다. 이전 pilot과 최종 실행은 같은 4개 seed와 byte-identical raw radiance를 사용하므로 8-seed 실험으로 합치지 않습니다. 95% 구간은 seed별 **절대 radiance 차이**의 pointwise 구간이며, 실측 정확성이나 전체 모델 불확실성을 나타내지 않습니다.\r\n\r\n**이번 성과는 동일 물질점 대응과 국소 변형·광학 입력을 추적할 수 있게 된 것입니다.** 총량이 작아도 국소 변화가 클 수 있습니다. 새 transport가 재생성보다 실제 외관을 더 정확히 예측한다고 입증하지는 못했습니다. 세 단색 진단은 완전한 RGB 색 재현이나 분광 적분 결과가 아닙니다.\r\n\r\n### 연구·수학·실험·작업 기록\r\n\r\n- [연구헌장과 대화 요구사항 대응](https://github.com/Phill-lms/textile-appearance-research/blob/v0.4.0/docs/RESEARCH_CHARTER_KO.md)\r\n- [전체 연구 설계와 모듈](https://github.com/Phill-lms/textile-appearance-research/blob/v0.4.0/docs/RESEARCH_DESIGN_KO.md)\r\n- [v0.4 상세 설명](https://github.com/Phill-lms/textile-appearance-research/blob/v0.4.0/docs/RELEASE_V0_4.md)\r\n- [수학·실험 보고와 전체 수치](https://github.com/Phill-lms/textile-appearance-research/blob/v0.4.0/notes/material_transport_v4_experiment.md)\r\n- [독립 리뷰와 수정한 실패 사례](https://github.com/Phill-lms/textile-appearance-research/blob/v0.4.0/notes/review_material_transport_v4.md)\r\n- [297개 테스트 summary](https://github.com/Phill-lms/textile-appearance-research/blob/v0.4.0/data/final_test_summary.json)\r\n- [작업 로그](https://github.com/Phill-lms/textile-appearance-research/blob/main/docs/WORK_LOG.md)\r\n\r\n### 재현\r\n\r\n저장소 루트에서 새 출력 폴더를 지정합니다.\r\n\r\n```bash\r\n# 저장된 canonical 자료의 독립 검산\r\npython run_engine_v4.py --stages verify --output scratch_runs/v4_audit\r\n\r\n# 새 experiment → verify → tests\r\nOPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python run_engine_v4.py --output scratch_runs/v4_full\r\n```\r\n\r\n현재 단계에는 fiber의 constitutive law·접촉·마찰·압착·물리적 twist, 가변 반지름 광학 adapter, 실측 원단 검증, 전체 fabric ray–wave 통합 및 메타표면의 계측 우위가 포함되지 않습니다. 이들은 연구 설계의 다음 검증 단계입니다.\r\n\r\nRelease source commit: `5060feb4c0e3f7789e231b44d93c2ac5154e5208`  \r\nVerified Git tree: `73148efc61aaf60f2290ef5057e5af25f598e983`\r\n"
+  },
+  "tag": {
+    "ref": "refs/tags/v0.4.0",
+    "target_type": "commit",
+    "commit": "5060feb4c0e3f7789e231b44d93c2ac5154e5208"
+  },
+  "snapshot": {
+    "github_commit": "5060feb4c0e3f7789e231b44d93c2ac5154e5208",
+    "local_commit": "7ab26bf96ae080dddb8d13100b9b4507886e1c68",
+    "verified_equal_git_tree": "73148efc61aaf60f2290ef5057e5af25f598e983",
+    "tracked_blob_count": 547,
+    "tracked_blob_bytes": 192406367
+  },
+  "verification": {
+    "source_verification": {
+      "tests": {
+        "source_count": 41,
+        "mismatches": []
+      },
+      "producer": {
+        "source_count": 19,
+        "mismatches": []
+      }
+    },
+    "tests": {
+      "tests_run": 297,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "elapsed_seconds": 19.256124534000264
+    },
+    "render_count": 108,
+    "render_elapsed_seconds": 19.681288638003025,
+    "tracked_blobs": 547,
+    "tracked_blob_bytes": 192406367,
+    "proof_bytes": 136287,
+    "proof_sha256": "12451107567d96a9aa04c03411b2d861a8d29de93a79ba61ead30daf2bf02970",
+    "raw_radiance_sha256": "7ad3703951ca475ac733a33cbf3354f2437cc589b88bbb7b605dee5df63269ea"
+  },
+  "proof": {
+    "path": "docs/github_v0_4_release_verified.jpg",
+    "sha256": "12451107567d96a9aa04c03411b2d861a8d29de93a79ba61ead30daf2bf02970",
+    "bytes": 136287
+  },
+  "scope": [
+    "The GitHub tag points at the exact tree containing the tested source and saved simulation artifacts.",
+    "This audit checks publication, source hashes and persisted results; it does not rerun simulations or tests.",
+    "The post-publication audit is stored in a later provenance commit on main; the v0.4.0 tag remains at the validated research snapshot.",
+    "297 tests and 108 final monochromatic renders are software and synthetic-fixture evidence, not proof of measured textile appearance, tactile prediction or metasurface advantage.",
+    "Pilot and final radiance bytes are identical with the same four seeds; they are not eight independent seeds."
+  ]
+}
