@@ -12,3 +12,7 @@
 논문·공식 코드·후속 연구별로 무엇을 읽고 구현했는지는 [문헌 검토](../../notes/literature_engine_v2.md)에 정리했다. 논문 제목이나 저장소를 확인한 것과 방법 전체를 재현한 것을 구분한다.
 
 GitHub가 반환한 asset digest와 로컬 원본 SHA-256이 일치함을 확인했다. [배포 검증 기록](../../data/repository_release_audit.json).
+
+## 추가 figure 참고 이미지 — 2026-10-12 KST
+
+사용자가 다시 첨부한 [Figure 5 이미지](fabricgen_figure5_reference.png)는 FabricGen의 **3-ply basket weave normal·orientation·height map**이다. 원본 바이트는 수정하지 않고 [별도 provenance](figure5_reference_provenance.json)에 해시·출처·용도를 기록했다. 새 구조맵의 표현 형식과 정의를 참고하며, 이 그림의 픽셀을 우리 엔진의 기하·측정값·검증 자료로 사용하지 않는다. 새 그림은 생성한 3D 표면과 명시한 camera에서 별도로 계산한다.

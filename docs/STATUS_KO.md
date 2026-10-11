@@ -1,10 +1,14 @@
-# 현재 연구 상태 — v0.5
+# 현재 연구 상태 — v0.5.1
 
 **업데이트: 2026-10-12 KST / 2026-10-11 UTC**
 
 ## 지금 어디까지 됐는가
 
-**Fiber → ply → yarn → weave → fabric의 계층 기하와 제한된 원사 평형을 만들고, 같은 섬유의 물질점·반지름 변화를 3D 광학 계산에 연결한 상태다.** v0.5의 전체 391개 테스트, 최종 216회 비교 실험과 독립 검산, 32회 물리 oracle, 72회 renderer 길이 척도 실험을 완료했다.
+**Fiber → ply → yarn → weave → fabric의 계층 기하와 제한된 원사 평형을 만들고, 같은 섬유의 물질점·반지름 변화를 3D 광학 계산에 연결한 상태다.** v0.5.0의 전체 391개 테스트, 최종 216회 비교 실험과 독립 검산, 32회 물리 oracle, 72회 renderer 길이 척도 실험을 완료했다.
+
+**v0.5.1에서는 같은 기하로부터 normal·orientation·height·visibility·identity 지도를 계산하는 경로를 추가했다.** 기존 시편과 별도 compact basket의 ply 표면/개별 fiber 표면을 같은 영역으로 비교하고, 원본 수치·색상 변환·논문용 PNG/PDF/SVG·검산 기록을 함께 저장한다. [v0.5.1 결과](RELEASE_V0_5_1.md)와 [표현 규약](VISUALIZATION_DESIGN_KO.md)에 계산 의미와 광학 연결 범위를 명시했다.
+
+현재 전체 **425개 테스트가 실패·오류·생략 없이 통과**했으며 실행 중 87개 소스 파일의 변경이 없었다. 8개 지도·24개 NPZ·18개 accepted figure 파일의 독립 검산과 PDF 6개의 실제 page parse·raster 확인도 완료했다. 당시 v0.5.0의 391-test 기록과 publication 보강 전 422-test 기록은 그대로 두고, [v0.5.1 최종 suite summary](../data/validation_v5_1/final_suite/test_summary.json)와 [로그](../data/validation_v5_1/final_suite/tests.log)를 별도 보존한다.
 
 **전체 연구가 완료된 상태는 아니다.** 실제 실크·코튼·큐프라·린넨의 외관을 정확히 복원했다거나, 좋은 RGB보다 추가 계측이 유리하다거나, 메타표면의 이득을 입증한 결과는 아직 없다. 이번에 새로 확인한 가장 가까운 과제는 **광택의 수치 수렴**이다. 그것을 확보해야 구조·재료 차이를 계측 설계의 근거로 사용할 수 있다.
 
@@ -24,10 +28,11 @@
 | **기하 → 광학** | v0.5 가변 radius·닫힌 mesh·Fresnel 경계·경로 길이 흡수 | 같은 fiber의 self-contact 인증, 단면 재구성의 국소 보존과 수렴 |
 | **광학 해석** | 기존 분광 hair 경로, 새 closed-volume 경로, raw radiance·seed 통계 | 원주·축 sampling·ray offset의 수치 오차, 실측 BSDF·파동 결합 |
 | **계층 광학 축약** | projected-area density·SGGX fitting 진단 | fabric BSDF·차폐·다중 산란·영상 오차에 대한 검증 |
+| **구조맵·figure** | 실제 triangle normal·3D centerline tangent·world-Z·IDs, 같은 crop의 ply/fiber 비교, 물리 배열과 PNG/PDF/SVG | 실측 구조 정합, 의복의 다층·뒤쪽 표면 정보와 BSDF 방향의 별도 연결 |
 | **카메라·추정·계측** | 관측·이상적 meta 모듈과 비교 설계 보존 | 교정된 실제 카메라, inverse fitting, RGB 대비 추가 채널 이득, 소자 제작 |
 | **제품 표현·지각** | 재조명·확대·역광·시편 매칭 평가 구조 | 실제 원단을 이용한 표시·사용자 평가 |
 
-## 이번에 실제로 추가한 것
+## 보존된 v0.5.0의 실제 광학 실행
 
 | 항목 | 결과 | 근거 |
 | --- | --- | --- |

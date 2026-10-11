@@ -1,0 +1,13 @@
+{
+  "schema": "user-provided-figure-reference/1.0",
+  "uploaded_name": "image.png",
+  "saved_path": "references/user_provided/fabricgen_figure5_reference.png",
+  "bytes": 163068,
+  "sha256": "19e8ff5a7565eaec91bd02f39342df3b5d7e57a57b87ed07135ea49ff9322822",
+  "received_date_kst": "2026-10-12",
+  "reference_identification": "FabricGen: Microstructure-Aware Woven Fabric Generation, Figure 5 (normal, orientation and height maps of a 3-ply basket weave)",
+  "primary_source": "https://arxiv.org/html/2603.07240v1",
+  "author_project": "https://lxtyin.ac.cn/projects/fabricgen/",
+  "role": "User-provided style and map-semantic reference; no pixels used as generated geometry or numerical validation data",
+  "rights": "Original figure rights remain with the authors/publisher; preserved unchanged in the user-authorized private research repository."
+}

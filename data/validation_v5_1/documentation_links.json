@@ -1,0 +1,1283 @@
+{
+  "schema": "textile.documentation_links/5.1",
+  "checked_utc": "2026-10-11T17:30:54.749710+00:00",
+  "status": "passed",
+  "checked_markdown_files": 9,
+  "local_link_occurrences": 252,
+  "missing_links": [],
+  "unpaired_fences": [],
+  "files_sha256": {
+    "README.md": "a13083eefcfa524e175b946a3b7abdecac5b206120214a2400240f6ab9f26013",
+    "CHANGELOG.md": "da48d988061ca785be3ed5fc5a5d07a35b8ee3a3e042545f3f7f4b5db277dcc0",
+    "docs/STATUS_KO.md": "1849378654f6aa7d714106e27a105a0f48c7a742619083cb6f90c0970209e6d2",
+    "docs/WORK_LOG.md": "29826cc0d66e2d75a6fb16f9aebfd90bf84782252a3877c36f07ade6972ef680",
+    "docs/RELEASE_V0_5_1.md": "b6254023d7a4af174e92eee32a3b36702772da500d0029cd4a78c550f4dc3403",
+    "docs/VISUALIZATION_DESIGN_KO.md": "08d65ac0ba2fbd130cc0caf691f98d02cb2e6039f50dbc3b08b9ea5dd707f857",
+    "references/user_provided/README.md": "63fc8abdce223290347784e1febed8f3866da6a35299cb7855acef97200b031f",
+    "notes/structure_figures_v5_1.md": "94a805254f38e911f9a8a8f97f1ff9ddeac4d4818d3412ca30af303a272cd4cb",
+    "notes/review_structure_figures_v5_1.md": "084777a93bb00543b633856e261bf01b8e53fdc54c0fa90000fab6a2b031f694"
+  },
+  "checks": [
+    {
+      "document": "README.md",
+      "target": "docs/STATUS_KO.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "docs/RESEARCH_CHARTER_KO.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "docs/RESEARCH_DESIGN_KO.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "docs/RELEASE_V0_5_1.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "docs/VISUALIZATION_DESIGN_KO.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "data/validation_v5_1/final_suite/test_summary.json",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "data/validation_v5_1/final_suite/tests.log",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "docs/RELEASE_V0_5.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "docs/RESEARCH_DESIGN_KO.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "notes/literature_engine_v3.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "docs/RESEARCH_CHARTER_KO.md#4-전체-연구-모듈과-구현-모듈의-대응",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "figures/hierarchy_v2/hierarchy_levels.png",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "docs/ARCHITECTURE.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "notes/optical_bridge.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "figures/structure_v5_1/compact/compact_structure_triptych.png",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "figures/structure_v5_1/fabric_structure_triptych.png",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "figures/structure_v5_1/fabric_structure_hierarchy.png",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "figures/structure_v5_1/fabric_structure_material_detail.png",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "examples/visualization/compact_three_ply_basket_design_audit.json",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "visualization/finalize_structure_figures.py",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "data/validation_v5_1/figure_finalization/publication_checks.json",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "visualization/README.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "docs/VISUALIZATION_DESIGN_KO.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "data/variable_radius_v5/figures/radius_geometry_diagnostics.png",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "textile_sim/variable_radius.py",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "textile_sim/volume_optics.py",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "notes/variable_radius_v5_experiment.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "notes/variable_radius_optics_source_audit_v5.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "docs/RELEASE_V0_5.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "notes/material_transport_v4.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "notes/material_transport_v4_experiment.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "notes/review_material_transport_v4.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "docs/RELEASE_V0_4.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "data/engine_v3_final_artifact_audit/run_manifest.json",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "notes/review_engine_v3.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "report/fabric_engine_v3_report_ko.pdf",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "notes/weave_mechanics_v3.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "notes/optical_scale_v3.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "docs/RELEASE_V0_3.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "docs/RESEARCH_DESIGN_KO.md#7-가장-유망한-다음-연구-질문",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "requirements.txt",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "data/environment.json",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "docs/STATUS_KO.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "docs/RESEARCH_CHARTER_KO.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "docs/RESEARCH_DESIGN_KO.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "docs/ARCHITECTURE.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "notes/hierarchy_design.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "notes/optical_bridge.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "notes/variable_radius_geometry_v5.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "notes/variable_radius_v5_experiment.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "notes/review_variable_radius_v5.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "notes/volume_optics_validation_v5.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "docs/RELEASE_V0_5.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "notes/material_transport_v4.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "notes/material_transport_v4_experiment.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "notes/review_material_transport_v4.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "docs/RELEASE_V0_4.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "report/fabric_engine_v3_report_ko.pdf",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "docs/RELEASE_V0_3.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "notes/review_engine_v3.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "notes/literature_engine_v3.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "notes/literature_engine_v2.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "notes/ray_wave_literature.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "docs/WORK_LOG.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "CHANGELOG.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "report/fabric_engine_v2_report_ko.pdf",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "docs/baseline_v0.1.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "notes/literature_engine_v2.md#7-source-and-license-audit",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "references/NOTICE.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "CITATION.cff",
+      "exists": true
+    },
+    {
+      "document": "CHANGELOG.md",
+      "target": "docs/WORK_LOG.md",
+      "exists": true
+    },
+    {
+      "document": "CHANGELOG.md",
+      "target": "data/validation_v5_1/final_suite/test_summary.json",
+      "exists": true
+    },
+    {
+      "document": "CHANGELOG.md",
+      "target": "data/validation_v5_1/rejected_figure_serialization/rejection_summary.json",
+      "exists": true
+    },
+    {
+      "document": "CHANGELOG.md",
+      "target": "data/validation_v5_1/figure_finalization/publication_checks.json",
+      "exists": true
+    },
+    {
+      "document": "CHANGELOG.md",
+      "target": "docs/RELEASE_V0_5_1.md",
+      "exists": true
+    },
+    {
+      "document": "CHANGELOG.md",
+      "target": "notes/variable_radius_geometry_v5.md",
+      "exists": true
+    },
+    {
+      "document": "CHANGELOG.md",
+      "target": "notes/variable_radius_optics_source_audit_v5.md",
+      "exists": true
+    },
+    {
+      "document": "CHANGELOG.md",
+      "target": "notes/variable_radius_v5_experiment.md",
+      "exists": true
+    },
+    {
+      "document": "CHANGELOG.md",
+      "target": "notes/volume_optics_validation_v5.md",
+      "exists": true
+    },
+    {
+      "document": "CHANGELOG.md",
+      "target": "notes/review_variable_radius_v5.md",
+      "exists": true
+    },
+    {
+      "document": "CHANGELOG.md",
+      "target": "data/validation_v5/serialization_rejection_216/rejection_audit.json",
+      "exists": true
+    },
+    {
+      "document": "CHANGELOG.md",
+      "target": "data/final_test_summary.json",
+      "exists": true
+    },
+    {
+      "document": "CHANGELOG.md",
+      "target": "data/variable_radius_v5/experiment_manifest.json",
+      "exists": true
+    },
+    {
+      "document": "CHANGELOG.md",
+      "target": "data/validation_v5/independent_review/verification_summary.json",
+      "exists": true
+    },
+    {
+      "document": "CHANGELOG.md",
+      "target": "data/validation_v5/volume_physics/validation_metrics.json",
+      "exists": true
+    },
+    {
+      "document": "CHANGELOG.md",
+      "target": "data/validation_v5/volume_scale_sensitivity/sensitivity_metrics.json",
+      "exists": true
+    },
+    {
+      "document": "CHANGELOG.md",
+      "target": "data/validation_v5/no_render_integration/run_manifest.json",
+      "exists": true
+    },
+    {
+      "document": "CHANGELOG.md",
+      "target": "docs/RELEASE_V0_4.md",
+      "exists": true
+    },
+    {
+      "document": "CHANGELOG.md",
+      "target": "data/validation_v4/pilot_checkpoint/checkpoint.json",
+      "exists": true
+    },
+    {
+      "document": "CHANGELOG.md",
+      "target": "data/final_test_summary.json",
+      "exists": true
+    },
+    {
+      "document": "CHANGELOG.md",
+      "target": "notes/review_engine_v3.md",
+      "exists": true
+    },
+    {
+      "document": "CHANGELOG.md",
+      "target": "data/engine_v2_test_reproduction/tests/test_summary.json",
+      "exists": true
+    },
+    {
+      "document": "CHANGELOG.md",
+      "target": "docs/baseline_v0.1.md",
+      "exists": true
+    },
+    {
+      "document": "docs/STATUS_KO.md",
+      "target": "RELEASE_V0_5_1.md",
+      "exists": true
+    },
+    {
+      "document": "docs/STATUS_KO.md",
+      "target": "VISUALIZATION_DESIGN_KO.md",
+      "exists": true
+    },
+    {
+      "document": "docs/STATUS_KO.md",
+      "target": "../data/validation_v5_1/final_suite/test_summary.json",
+      "exists": true
+    },
+    {
+      "document": "docs/STATUS_KO.md",
+      "target": "../data/validation_v5_1/final_suite/tests.log",
+      "exists": true
+    },
+    {
+      "document": "docs/STATUS_KO.md",
+      "target": "RESEARCH_CHARTER_KO.md",
+      "exists": true
+    },
+    {
+      "document": "docs/STATUS_KO.md",
+      "target": "../data/final_test_summary.json",
+      "exists": true
+    },
+    {
+      "document": "docs/STATUS_KO.md",
+      "target": "../data/final_tests.log",
+      "exists": true
+    },
+    {
+      "document": "docs/STATUS_KO.md",
+      "target": "../data/variable_radius_v5/geometry_metrics.json",
+      "exists": true
+    },
+    {
+      "document": "docs/STATUS_KO.md",
+      "target": "../data/variable_radius_v5/experiment_manifest.json",
+      "exists": true
+    },
+    {
+      "document": "docs/STATUS_KO.md",
+      "target": "../data/validation_v5/independent_review/verification_summary.json",
+      "exists": true
+    },
+    {
+      "document": "docs/STATUS_KO.md",
+      "target": "../notes/volume_optics_validation_v5.md",
+      "exists": true
+    },
+    {
+      "document": "docs/STATUS_KO.md",
+      "target": "../data/validation_v5/volume_scale_sensitivity/sensitivity_metrics.json",
+      "exists": true
+    },
+    {
+      "document": "docs/STATUS_KO.md",
+      "target": "../data/validation_v5/no_render_integration/run_manifest.json",
+      "exists": true
+    },
+    {
+      "document": "docs/STATUS_KO.md",
+      "target": "../notes/variable_radius_v5_experiment.md",
+      "exists": true
+    },
+    {
+      "document": "docs/STATUS_KO.md",
+      "target": "RELEASE_V0_5.md",
+      "exists": true
+    },
+    {
+      "document": "docs/STATUS_KO.md",
+      "target": "WORK_LOG.md",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "RESEARCH_DESIGN_KO.md",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "baseline_v0.1.md",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "baseline_v0.1.md",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../report/textile_optical_simulation_report_ko.pdf",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../notes/literature_engine_v2.md",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../references/user_provided/PROVENANCE.json",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../data/hierarchy_v2",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../data/hierarchy_v2/sampling_refinement_metrics.json",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../data/optical_bridge_v2/optical_bridge_metrics.json",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../notes/review_engine_v2.md",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../data/engine_v2_reproduction/run_manifest.json",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../data/engine_v2_test_reproduction/tests/test_summary.json",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../data/final_test_summary.json",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../data/final_test_summary.json",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../data/final_tests.log",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../references/user_provided/PROVENANCE.json",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../data/repository_release_audit.json",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../notes/literature_engine_v3.md",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../notes/weave_mechanics_v3.md",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../data/mechanics_v3",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../data/mechanics_v3/experiment_manifest.json",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../notes/optical_scale_v3.md",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../data/optical_v3/optical_scale_metrics.json",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../notes/review_engine_v3.md",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../data/validation_v3/initial_full_suite_failure.json",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../data/validation_v3/family_exchange_followup.json",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../data/final_test_summary.json",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../data/final_test_summary.json",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../data/engine_v3_final_artifact_audit/run_manifest.json",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../data/engine_v3_verification/run_manifest.json",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../data/validation_v3/no_render_integration/README.md",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../report/README.md",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../data/repository_release_v3_audit.json",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "github_v0_3_release_verified.jpg",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "RESEARCH_CHARTER_KO.md",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../data/repository_identity_2026_10_11.json",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../notes/material_transport_v4.md",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../notes/material_transport_v4_experiment.md",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../notes/review_material_transport_v4.md",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../data/material_transport_v4/experiment_manifest.json",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../data/material_transport_v4/optics/spectral_radiance.npz",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../data/validation_v4/pilot_checkpoint/checkpoint.json",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../data/validation_v4/final_artifact_audit/run_manifest.json",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../data/validation_v4/independent_review/verification_summary.json",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../data/validation_v4/no_render_integration/run_manifest.json",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "github_research_identity_v4.jpg",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../data/repository_release_v4_audit.json",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "github_v0_4_release_verified.jpg",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../notes/variable_radius_v5_experiment.md#5-실험-구성과-통계",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../notes/variable_radius_geometry_v5.md",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../notes/review_variable_radius_v5.md",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../notes/variable_radius_optics_source_audit_v5.md",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../data/validation_v5/backend_source_audit/checkpoint.json",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../notes/review_variable_radius_v5.md",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../notes/volume_optics_validation_v5.md",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../data/validation_v5/serialization_rejection_216/rejection_audit.json",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../data/variable_radius_v5/experiment_manifest.json",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../data/variable_radius_v5/optics/spectral_radiance.npz",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../data/final_test_summary.json",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../data/validation_v5/final_artifact_and_tests/tests/test_summary.json",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../data/validation_v5/independent_review/verification_summary.json",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../data/validation_v5/final_artifact_and_tests/run_manifest.json",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../data/validation_v5/no_render_integration/run_manifest.json",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../data/validation_v5/volume_physics/experiment_manifest.json",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../data/validation_v5/volume_physics/validation_metrics.json",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../data/validation_v5/volume_scale_sensitivity/experiment_manifest.json",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../data/validation_v5/volume_scale_sensitivity/sensitivity_metrics.json",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../data/variable_radius_v5/geometry_metrics.json",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../data/variable_radius_v5/optics/optical_metrics.json",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../notes/volume_optics_validation_v5.md",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../data/validation_v5/ray_offset_audit/ray_offset_audit.json",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "RESEARCH_DESIGN_KO.md",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "ARCHITECTURE.md",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "github_v0_5_release_verified.jpg",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../data/repository_release_v5_audit.json",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../visualization/README.md",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "VISUALIZATION_DESIGN_KO.md",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../examples/visualization/compact_three_ply_basket_design_audit.json",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../data/validation_v5_1/pre_publication_suite/test_summary.json",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../data/validation_v5_1/rejected_figure_serialization/rejection_summary.json",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../data/validation_v5_1/final_suite/test_summary.json",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../data/validation_v5_1/final_suite/tests.log",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../data/validation_v5_1/independent_review/verification_summary.json",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../data/validation_v5_1/compact_review/verification_summary.json",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../data/validation_v5_1/independent_review/analytic_oracles.json",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../notes/review_structure_figures_v5_1.md",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../data/validation_v5_1/figure_finalization/publication_checks.json",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../data/validation_v5_1/independent_review/visual_review.json",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../data/validation_v5_1/figure_finalization/page_container_qa.json",
+      "exists": true
+    },
+    {
+      "document": "docs/WORK_LOG.md",
+      "target": "../data/repository_data_v51_upload_audit.json",
+      "exists": true
+    },
+    {
+      "document": "docs/RELEASE_V0_5_1.md",
+      "target": "../references/user_provided/fabricgen_figure5_reference.png",
+      "exists": true
+    },
+    {
+      "document": "docs/RELEASE_V0_5_1.md",
+      "target": "../references/user_provided/figure5_reference_provenance.json",
+      "exists": true
+    },
+    {
+      "document": "docs/RELEASE_V0_5_1.md",
+      "target": "VISUALIZATION_DESIGN_KO.md",
+      "exists": true
+    },
+    {
+      "document": "docs/RELEASE_V0_5_1.md",
+      "target": "../visualization/README.md",
+      "exists": true
+    },
+    {
+      "document": "docs/RELEASE_V0_5_1.md",
+      "target": "../figures/structure_v5_1",
+      "exists": true
+    },
+    {
+      "document": "docs/RELEASE_V0_5_1.md",
+      "target": "../figures/structure_v5_1/compact",
+      "exists": true
+    },
+    {
+      "document": "docs/RELEASE_V0_5_1.md",
+      "target": "../data/structure_maps_v5_1",
+      "exists": true
+    },
+    {
+      "document": "docs/RELEASE_V0_5_1.md",
+      "target": "../figures/structure_v5_1/fabric_structure_triptych.png",
+      "exists": true
+    },
+    {
+      "document": "docs/RELEASE_V0_5_1.md",
+      "target": "../figures/structure_v5_1/fabric_structure_hierarchy.png",
+      "exists": true
+    },
+    {
+      "document": "docs/RELEASE_V0_5_1.md",
+      "target": "../visualization/structure_maps.py",
+      "exists": true
+    },
+    {
+      "document": "docs/RELEASE_V0_5_1.md",
+      "target": "../visualization/render_structure_figures.py",
+      "exists": true
+    },
+    {
+      "document": "docs/RELEASE_V0_5_1.md",
+      "target": "../visualization/render_compact_structure_figure.py",
+      "exists": true
+    },
+    {
+      "document": "docs/RELEASE_V0_5_1.md",
+      "target": "../visualization/finalize_structure_figures.py",
+      "exists": true
+    },
+    {
+      "document": "docs/RELEASE_V0_5_1.md",
+      "target": "../visualization/review_structure_figures.py",
+      "exists": true
+    },
+    {
+      "document": "docs/RELEASE_V0_5_1.md",
+      "target": "../visualization/validate_structure_release.py",
+      "exists": true
+    },
+    {
+      "document": "docs/RELEASE_V0_5_1.md",
+      "target": "../examples/visualization/compact_three_ply_basket_design_audit.json",
+      "exists": true
+    },
+    {
+      "document": "docs/RELEASE_V0_5_1.md",
+      "target": "../data/validation_v5_1/pre_publication_suite/test_summary.json",
+      "exists": true
+    },
+    {
+      "document": "docs/RELEASE_V0_5_1.md",
+      "target": "../data/validation_v5_1/final_suite/test_summary.json",
+      "exists": true
+    },
+    {
+      "document": "docs/RELEASE_V0_5_1.md",
+      "target": "../data/validation_v5_1/independent_review/verification_summary.json",
+      "exists": true
+    },
+    {
+      "document": "docs/RELEASE_V0_5_1.md",
+      "target": "../data/validation_v5_1/compact_review/verification_summary.json",
+      "exists": true
+    },
+    {
+      "document": "docs/RELEASE_V0_5_1.md",
+      "target": "../notes/review_structure_figures_v5_1.md",
+      "exists": true
+    },
+    {
+      "document": "docs/RELEASE_V0_5_1.md",
+      "target": "../data/validation_v5_1/rejected_figure_serialization/rejection_summary.json",
+      "exists": true
+    },
+    {
+      "document": "docs/RELEASE_V0_5_1.md",
+      "target": "../data/validation_v5_1/figure_finalization/publication_checks.json",
+      "exists": true
+    },
+    {
+      "document": "docs/RELEASE_V0_5_1.md",
+      "target": "../data/validation_v5_1/figure_finalization/page_container_qa.json",
+      "exists": true
+    },
+    {
+      "document": "docs/RELEASE_V0_5_1.md",
+      "target": "../data/validation_v5_1/independent_review/visual_review.json",
+      "exists": true
+    },
+    {
+      "document": "docs/RELEASE_V0_5_1.md",
+      "target": "../data/validation_v5_1/release_packaging_audit.json",
+      "exists": true
+    },
+    {
+      "document": "docs/RELEASE_V0_5_1.md",
+      "target": "RESEARCH_DESIGN_KO.md",
+      "exists": true
+    },
+    {
+      "document": "docs/RELEASE_V0_5_1.md",
+      "target": "STATUS_KO.md",
+      "exists": true
+    },
+    {
+      "document": "docs/VISUALIZATION_DESIGN_KO.md",
+      "target": "../references/user_provided/fabricgen_figure5_reference.png",
+      "exists": true
+    },
+    {
+      "document": "references/user_provided/README.md",
+      "target": "PROVENANCE.json",
+      "exists": true
+    },
+    {
+      "document": "references/user_provided/README.md",
+      "target": "Tang_FabricGen_Microstructure-Aware_Woven_Fabric_Generation_CVPR_2026_paper.pdf",
+      "exists": true
+    },
+    {
+      "document": "references/user_provided/README.md",
+      "target": "../../notes/literature_engine_v2.md",
+      "exists": true
+    },
+    {
+      "document": "references/user_provided/README.md",
+      "target": "../../data/repository_release_audit.json",
+      "exists": true
+    },
+    {
+      "document": "references/user_provided/README.md",
+      "target": "fabricgen_figure5_reference.png",
+      "exists": true
+    },
+    {
+      "document": "references/user_provided/README.md",
+      "target": "figure5_reference_provenance.json",
+      "exists": true
+    },
+    {
+      "document": "notes/review_structure_figures_v5_1.md",
+      "target": "../references/user_provided/fabricgen_figure5_reference.png",
+      "exists": true
+    },
+    {
+      "document": "notes/review_structure_figures_v5_1.md",
+      "target": "../references/user_provided/figure5_reference_provenance.json",
+      "exists": true
+    },
+    {
+      "document": "notes/review_structure_figures_v5_1.md",
+      "target": "../references/user_provided/Tang_FabricGen_Microstructure-Aware_Woven_Fabric_Generation_CVPR_2026_paper.pdf",
+      "exists": true
+    },
+    {
+      "document": "notes/review_structure_figures_v5_1.md",
+      "target": "../docs/VISUALIZATION_DESIGN_KO.md",
+      "exists": true
+    },
+    {
+      "document": "notes/review_structure_figures_v5_1.md",
+      "target": "../examples/hierarchy/basket_rectangular_three_ply.json",
+      "exists": true
+    },
+    {
+      "document": "notes/review_structure_figures_v5_1.md",
+      "target": "../examples/visualization/compact_three_ply_basket.json",
+      "exists": true
+    },
+    {
+      "document": "notes/review_structure_figures_v5_1.md",
+      "target": "../examples/visualization/compact_three_ply_basket_design_audit.json",
+      "exists": true
+    },
+    {
+      "document": "notes/review_structure_figures_v5_1.md",
+      "target": "../data/validation_v5_1/rejected_figure_serialization/rejection_summary.json",
+      "exists": true
+    },
+    {
+      "document": "notes/review_structure_figures_v5_1.md",
+      "target": "../data/validation_v5_1/rejected_figure_serialization/followup_main_svg/rejection_summary.json",
+      "exists": true
+    },
+    {
+      "document": "notes/review_structure_figures_v5_1.md",
+      "target": "../data/validation_v5_1/rejected_figure_serialization/followup_compact_pdf/rejection_summary.json",
+      "exists": true
+    },
+    {
+      "document": "notes/review_structure_figures_v5_1.md",
+      "target": "../data/validation_v5_1/independent_review/verification_summary.json",
+      "exists": true
+    },
+    {
+      "document": "notes/review_structure_figures_v5_1.md",
+      "target": "../data/validation_v5_1/compact_review/verification_summary.json",
+      "exists": true
+    },
+    {
+      "document": "notes/review_structure_figures_v5_1.md",
+      "target": "../data/validation_v5_1/independent_review/analytic_oracles.json",
+      "exists": true
+    },
+    {
+      "document": "notes/review_structure_figures_v5_1.md",
+      "target": "../data/validation_v5_1/independent_review/initial_development_oracles.json",
+      "exists": true
+    },
+    {
+      "document": "notes/review_structure_figures_v5_1.md",
+      "target": "../tests/test_structure_review_v5_1.py",
+      "exists": true
+    },
+    {
+      "document": "notes/review_structure_figures_v5_1.md",
+      "target": "../data/validation_v5_1/final_suite/",
+      "exists": true
+    },
+    {
+      "document": "notes/review_structure_figures_v5_1.md",
+      "target": "../data/validation_v5_1/independent_review/visual_review.json",
+      "exists": true
+    },
+    {
+      "document": "notes/review_structure_figures_v5_1.md",
+      "target": "../data/validation_v5_1/figure_finalization/page_container_qa.json",
+      "exists": true
+    }
+  ],
+  "scope": "Local link target existence and paired fences; not an external-link crawl or scientific test-suite execution."
+}

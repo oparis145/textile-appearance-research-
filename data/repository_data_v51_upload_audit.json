@@ -1,0 +1,65 @@
+{
+  "schema": "textile.github_data_publication/5.1",
+  "repository_full_name": "Phill-lms/textile-appearance-research",
+  "repository_id": 1414149528,
+  "private_verified": true,
+  "local_data_commit": "68d054f8cb0aca929a0e4d0dc140407bff623842",
+  "remote_data_commit": "38835c84694ede5f64801f86d81da5a39afceac3",
+  "exact_matching_tree": "7dda82d2d9931f20f76a171648caaabd3c5899e9",
+  "files": 81,
+  "size_bytes": 266012978,
+  "current_branch": "v0.5.1-publication",
+  "main_not_yet_updated": "60659c371eb4878f66393e9c0097551f7b9afed2",
+  "connector_compatible_blobs": 50,
+  "large_file_original_blob_checks": [
+    {
+      "path": "data/structure_maps_v5_1/compact/overview/explicit_fiber/display_sources.npz",
+      "sha": "6c03ac4ff984064aefb16372bd741ec3bbb07f9e",
+      "size": 24566772
+    },
+    {
+      "path": "data/structure_maps_v5_1/compact/overview/explicit_fiber/structure_maps.npz",
+      "sha": "249b0f5806fb7f2b10a9af2b31bbca4cc202ac9a",
+      "size": 13814599
+    },
+    {
+      "path": "data/structure_maps_v5_1/compact/overview/ply_envelope/display_sources.npz",
+      "sha": "4616902ee39ece98d10947d639501153d3e7d0d4",
+      "size": 19826051
+    },
+    {
+      "path": "data/structure_maps_v5_1/compact/overview/ply_envelope/structure_maps.npz",
+      "sha": "24cab7b35029c11e0045b9af8e6f2701b356c3ae",
+      "size": 13103396
+    },
+    {
+      "path": "data/structure_maps_v5_1/compact/zoom/explicit_fiber/display_sources.npz",
+      "sha": "dee040dbc40ff632db22087f34245194b08ccf8a",
+      "size": 18714721
+    },
+    {
+      "path": "data/structure_maps_v5_1/compact/zoom/explicit_fiber/structure_maps.npz",
+      "sha": "292b25b1330f616b017ef224abe2b4f1da067dac",
+      "size": 12834101
+    },
+    {
+      "path": "data/structure_maps_v5_1/compact/zoom/ply_envelope/display_sources.npz",
+      "sha": "8f8ea80596613efd043f5c123368de07e9d51d57",
+      "size": 16642518
+    },
+    {
+      "path": "data/validation_v5_1/compact_review/verification_summary.json",
+      "sha": "81b5c9fd499e08ad04f7a30d186db255dd7ad435",
+      "size": 15060904
+    }
+  ],
+  "transport_observations": [
+    "The connector rejected a base64 blob request with HTTP 400: MCP request body is invalid or exceeds the 16 MiB limit.",
+    "The GitHub browser upload accepted the first original pair. A six-file batch of 96181691 bytes failed to commit with the site message that a file was too large; no more precise threshold or root cause was established.",
+    "The remaining six files were committed in three smaller two-file batches using temporary distinct filenames on the publication branch. File sizes and Git blob hashes matched the original files.",
+    "A final tree assembled only from canonical source paths matched the frozen local data tree. Temporary transport paths are absent from the final tree; their bytes remain in historical transport commits."
+  ],
+  "status": "data_tree_verified",
+  "scope": "This audit verifies the data snapshot and original byte/path preservation. Final documentation, main update, tag and release publication are recorded separately after completion.",
+  "recorded_utc": "2026-10-11T17:30:03.454985+00:00"
+}

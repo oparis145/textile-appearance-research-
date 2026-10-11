@@ -5,7 +5,7 @@ message: >-
   is research software, not a published validation study of measured fabrics.
 type: software
 title: Multiscale Textile Appearance Modeling and Meta-Optical Sensing
-version: 0.5.0
+version: 0.5.1
 authors:
   - name: Phill-lms
 repository-code: https://github.com/Phill-lms/textile-appearance-research
@@ -22,6 +22,9 @@ abstract: >-
   diagnostics. Variable-radius profiles are connected to closed triangle meshes,
   real-index dielectric boundaries and physical path-length absorption, with
   explicit tessellation, unit-scale and Monte Carlo uncertainty diagnostics.
+  Geometry-derived normal, centerline-orientation, physical-height, visibility
+  and identity maps provide registered ply-versus-fiber figures with preserved
+  numerical arrays, coordinate/color conventions and independent artifact checks.
   Developed under user direction with AI assistance. Current examples use
   synthetic materials and prescribed kinematic correspondence. Variable-radius
   reconstruction preserves a per-fiber frustum integral, not local physical mass.

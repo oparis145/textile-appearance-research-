@@ -20,7 +20,11 @@
 | **사용자에게 전달되는 재질감** | 같은 화면 조건에서 실물 시편 판단 개선 | 조명 회전·확대·역광 비교와 시편 매칭 평가를 설계. 실측·사용자 검증은 후속 |
 | **촉감·염색·퇴색** | 속성별 기준 측정 또는 공정 모델과 연결 | 촉감의 포괄적 예측은 후속 연구. **염색·퇴색은 현재 개발 범위에서 보류** |
 
-**현재 v0.5는 물질좌표로 추적한 가변 반지름 섬유를 닫힌 3D 표면의 반사·굴절·내부 흡수 계산까지 연결했습니다. 전체 391개 테스트가 실패·오류·생략 없이 통과했습니다.** 반지름·원주 분할 비교 **216회**, 물리 oracle **32회**, renderer 길이 척도 감도 **72회**를 실제 실행했습니다. 실행 수를 독립 표본 수로 해석하지 않으며, 마지막 실험의 24개 기준 조건은 앞선 실험과 겹칩니다.
+**v0.5.1은 실제 계층 기하에서 법선·방향·물리 높이·가시성·재료 ID를 계산하고, 논문용 비교 그림과 검산 가능한 배열을 함께 내보내는 구조맵 모듈을 추가합니다.** 기존 3-ply basket과 별도의 compact 설계에서 ply 표면과 개별 fiber 표면을 같은 카메라·영역으로 비교합니다. [그림·구현·검증 설명](docs/RELEASE_V0_5_1.md), [표현 규약](docs/VISUALIZATION_DESIGN_KO.md).
+
+**현재 전체 테스트는 425개, 실패·오류·생략 0이며, 실행 중 검사 대상 소스 87개의 변경도 0입니다.** [현재 suite summary](data/validation_v5_1/final_suite/test_summary.json)와 [로그](data/validation_v5_1/final_suite/tests.log)를 보존합니다. 8개 지도·24개 NPZ·18개 최종 figure 파일의 독립 검산도 통과했습니다. 이 숫자는 아래 과거 릴리스의 테스트 수나 그림의 광선 수와 합산하지 않습니다.
+
+**보존된 v0.5.0에서는 물질좌표로 추적한 가변 반지름 섬유를 닫힌 3D 표면의 반사·굴절·내부 흡수 계산까지 연결했고, 당시 전체 391개 테스트가 실패·오류·생략 없이 통과했습니다.** 반지름·원주 분할 비교 **216회**, 물리 oracle **32회**, renderer 길이 척도 감도 **72회**를 실제 실행했습니다. 실행 수를 독립 표본 수로 해석하지 않으며, 마지막 실험의 24개 기준 조건은 앞선 실험과 겹칩니다. 새 구조맵의 광선 교차 질의를 이 광학 실험의 표본 수에 합산하지 않습니다.
 
 **새 광학 경로의 동작은 확인했지만, 반지름 효과의 검출과 광택의 수치 수렴은 아직 입증하지 못했습니다.** 원주 분할이 광학 반응에 큰 영향을 주고, micrometer 섬유에서 renderer의 ray offset도 검토해야 함을 확인했습니다. [v0.5 실행·검증 기록](docs/RELEASE_V0_5.md)에 결과와 이 한계를 함께 기록합니다. 이전 297 tests·108회는 [v0.4.0](https://github.com/Phill-lms/textile-appearance-research/releases/tag/v0.4.0), 239 tests·536회는 [v0.3.0](https://github.com/Phill-lms/textile-appearance-research/releases/tag/v0.3.0)의 근거입니다. 합성 시편과 선언한 모델의 검증이며, 실크·코튼·큐프라·린넨의 실측 외관을 재현했다는 뜻은 아닙니다.
 
@@ -84,6 +88,27 @@ flowchart TD
 | **관측·검증 — C1 / Q1** | 분광 radiance, CIE 적분, seed 통계, 근사·수렴 검사 | 실물 카메라·디스플레이 교정, 역문제와 관측 선택 |
 
 기하·scene 길이는 **mm**, 파장은 **vacuum nm**, 기존 2D solver 길이는 **μm**이며 adapter에서 변환합니다. 비간섭 성분은 강도로, coherent field는 복소 진폭으로 결합합니다. 국소 파동 해·직접 투과·공극 회절을 중복 에너지로 더하지 않습니다. 방향별 투영 면적이나 SGGX fitting 오차를 완전한 cloth BSDF 또는 실물 정확성으로 해석하지 않습니다. API와 물리 계약은 [ARCHITECTURE.md](docs/ARCHITECTURE.md), [optical_bridge.md](notes/optical_bridge.md)에 있습니다.
+
+## v0.5.1: 실제 구조를 논문용 그림과 물리 배열로 함께 표현
+
+사용자가 제공한 FabricGen Fig. 5의 normal/orientation/height 구성을 참고해, 현재 엔진이 생성한 **3D 삼각형과 실제 nearest-hit 교차**에서 동일 종류의 필드를 계산합니다. FabricGen의 UV 기반 해석식과 방향 정의를 그대로 재현한 결과는 아니며, 입력·단위·표면·카메라·색 변환을 별도로 명시했습니다.
+
+![별도 compact 3-ply basket의 법선·방향·높이 맵](figures/structure_v5_1/compact/compact_structure_triptych.png)
+
+| 필드 | 실제 저장값 | 그림의 의미 |
+| --- | --- | --- |
+| **Normal** | 실제 삼각형의 world-space 단위 법선 | RGB = (n + 1) / 2. 조명·감마·노출을 적용하지 않은 방향 코드 |
+| **Orientation** | 해당 ply 또는 fiber 중심선의 directed 3D tangent | XY 투영 축을 0–180° 순환 색상과 양끝이 같은 선으로 표현. 투영이 정의되지 않는 위치는 별도 mask |
+| **Height** | 교차점의 world-Z, 원본 단위 mm | 표시 단위 μm, 같은 사례의 모든 패널에 공통 범위. 카메라 거리와 구분 |
+| **Visibility / identity** | hit mask, coverage, 정수 primitive·fiber·ply·yarn·material ID | 배경을 높이 0으로 채우지 않고, 서로 다른 재료 ID를 평균하지 않음 |
+
+기존 시편의 [전체 3종 맵](figures/structure_v5_1/fabric_structure_triptych.png), [동일 교차점의 ply/fiber 비교](figures/structure_v5_1/fabric_structure_hierarchy.png), [재료 ID와 확대도](figures/structure_v5_1/fabric_structure_material_detail.png)를 함께 보존합니다. Compact 시편은 **80 μm pitch, 16 yarns·48 plies·336 fibers**의 새 합성 설계이며 기존 자료를 대체하지 않습니다. [설계와 보수적 간격 검사](examples/visualization/compact_three_ply_basket_design_audit.json)에 채택 조건과 거부한 후보도 기록했습니다.
+
+각 figure는 **PNG·PDF·SVG**로 내보내고, 실제 필드는 NPZ·JSON, 표시용 RGBA와 supersample은 별도 배열로 저장합니다. PDF/SVG의 글자·범례는 벡터지만 map 패널의 정보량은 기록한 표본 해상도로 제한됩니다. 저장 배열만으로 재구성할 수 있고, 그림을 다시 그리는 데 광학 실험을 다시 실행할 필요는 없습니다.
+
+최종 publication 경로는 그림을 메모리에서 완성한 뒤 검사·원자 저장·바이트 대조를 수행합니다. 독립 검산에서 발견한 PDF/SVG 잘림과 복원 기록을 보존했고, **최종 PDF 6개의 실제 1-page parse·raster 확인**까지 완료했습니다. [내보내기 보강](visualization/finalize_structure_figures.py), [최종 파일 검사](data/validation_v5_1/figure_finalization/publication_checks.json).
+
+이 모듈은 **기하 가정·공극·꼬임·가림·계층 축약을 눈으로 확인하고 수치로 검산하는 연결부**입니다. 표면 맵만으로 다중 산란·비침·회절·실물 색을 모두 복원했다고 주장하지 않습니다. 특히 ply envelope는 내부 공극을 채운 표현용 proxy이고, fiber 중심선 방향은 향후 anisotropic BSDF에서 사용할 표면 접선과 별도로 처리해야 합니다. 수학·API는 [visualization/README.md](visualization/README.md), 연구와의 연결은 [표현 설계](docs/VISUALIZATION_DESIGN_KO.md)에 있습니다.
 
 ## v0.5: 가변 반지름을 광학에 연결하고 오차의 크기를 확인
 
@@ -160,6 +185,26 @@ v0.3은 **원사 높이 평형 → 섬유 재생성 → 계층 광학 통계·�
 python -m venv .venv
 source .venv/bin/activate
 python -m pip install -r requirements.txt
+
+# 기존 시편의 물리 구조맵과 논문용 3종 그림을 새 폴더에 생성
+python -m visualization.render_structure_figures \
+  --data-dir scratch_runs/structure/data \
+  --figure-dir scratch_runs/structure/figures
+
+# 저장 RGBA에서 최종 그림을 메모리 직렬화·검사·원자 저장; 재추적 없음
+python -m visualization.finalize_structure_figures \
+  --manifest scratch_runs/structure/figures/figure_manifest.json \
+  --audit-directory scratch_runs/structure/publication
+
+# 저장한 지도·coverage·ID·그림 파일을 독립 검산; 새 광선 질의 0회
+python -m visualization.review_structure_figures \
+  --manifest scratch_runs/structure/figures/figure_manifest.json \
+  --output scratch_runs/structure_review --skip-oracles
+
+# 구조맵을 포함한 현재 전체 suite; 소스 해시와 로그를 새 경로에 보존
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 \
+  python -m visualization.validate_structure_release \
+  --output scratch_runs/structure_tests
 
 # 실제 명령·단계·경로 확인; 계산이나 파일 생성을 하지 않음
 python run_engine_v5.py --dry-run

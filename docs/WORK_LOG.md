@@ -324,3 +324,105 @@ NPZ를 메모리에서 완성한 뒤 임시 파일에 write·flush·fsync하고 
 **[v0.5.0 릴리스](https://github.com/Phill-lms/textile-appearance-research/releases/tag/v0.5.0)는 2026-10-11 16:23:03 UTC / 2026-10-12 01:23:03 KST에 게시됐다.** Release ID는 `409780890`이며 draft가 아니다. `v0.5.0` tag는 위 원격 commit을 가리킨다. 브라우저에서 연구 제목, tag·commit, 391개 테스트와 216/32/72회 표가 표시된 것을 확인하고 [게시 화면](github_v0_5_release_verified.jpg)을 보존했다. [게시 감사 JSON](../data/repository_release_v5_audit.json)에 확인 범위와 해시를 기록했다.
 
 문서의 로컬 링크 362개와 코드 fence를 검사했고 누락이 없었다. 마지막 검증의 75개 source 파일은 최종 391-test summary와 해시가 같았다. 첫 게시 기록 이후에는 감사 증거와 사용자가 추가 요청한 구조맵·figure 작업을 별도 commit으로 이어간다. **v0.5.0의 과학 코드·수치 자료 tag는 고정**하며 새로운 그림을 이전 실험 결과에 소급해 포함하지 않는다.
+
+## v0.5.1 — 실제 구조맵·논문용 figure 요청의 구현과 마무리
+
+**일자: 2026-10-12 KST / 2026-10-11 UTC.** 사용자가 하던 작업을 완료하고 첨부한 논문 figure처럼 데이터를 가공·render해 달라고 요청했다. 첨부 경로에 대한 읽기 오류 메시지가 있었지만 실제 작업공간의 `upload/image.png`를 확인할 수 있었고, 이미지를 직접 열어 normal·orientation·height 3-panel을 확인했다. 이 자료는 FabricGen Fig. 5였다. 원본을 변경 없이 비공개 저장소의 reference로 보존하고 출처·SHA-256을 기록했다. 별도의 생성형 이미지로 수치 결과를 대신하지 않았다.
+
+### 연구 범위와 구현 결정
+
+원래 연구 목적은 **제품 사진에서 예상한 원단 외관과 실제 시편을 보는 경험 사이의 차이**를 줄이는 것이다. 이번 figure 단계는 그 연구의 순방향 기하와 광학을 검토하는 연결부로 두었다. Normal·orientation·height를 보기 좋게 출력하는 것을 실제 실크·코튼·큐프라·린넨의 외관 복원이나 메타표면의 우위로 확대하지 않았다. 염색·퇴색 보류, 촉감의 별도 기준 측정, 강한 RGB 비교군, 미관측 조명 검증이라는 연구 방향을 유지했다.
+
+FabricGen 원문 §3·§5.1, Fig. 5 및 공식 supplementary를 참고했다. 해당 논문은 UV 기반의 해석적 curved-helix 모델을 제공한다. 현재 엔진의 결과는 **이미 구축한 명시적 fiber/ply 3D 표면**에서 실제 nearest-hit를 구하는 다른 표현이다. 특히 논문의 twist-rotated fiber orientation과 현재 ply centerline tangent를 같은 정의라고 표시하지 않았다. 공식 프로젝트의 dataset·supplement 링크와 웹사이트 템플릿 코드를 방법 구현 코드로 혼동하지 않았다.
+
+| 구현 결정 | 이유와 실제 계약 |
+| --- | --- |
+| 두 표면을 같은 hierarchy에서 생성 | Ply proxy는 표현 외피, explicit fiber는 개별 섬유·공극. 두 표현이 생략하는 정보를 비교 |
+| 같은 카메라·crop·nearest hit 사용 | Normal·height·ID가 서로 다른 표면 위치에서 오는 불일치를 방지 |
+| 실제 geometric normal 보존 | Smooth display normal과 분리해 삼각형 표면의 분할 오차를 숨기지 않음 |
+| Directed 3D centerline tangent 원본 | 화면에서는 XY 180° 주기 축으로 표시; surface BSDF tangent-plane projection은 별도 |
+| World-Z와 ray distance 분리 | 높이 원점을 고정하고 카메라 깊이를 물리 높이로 혼동하지 않음 |
+| Center 물리 필드와 supersample 표시 분리 | 경계의 coverage를 개선하면서 물리벡터·높이·정수 category를 가짜 평균값으로 바꾸지 않음 |
+| 표시 변환과 원본을 함께 보존 | RGB=(n+1)/2, cyclic orientation, μm 높이·공통 범위, headless glyph·스케일바를 독립 검산 |
+| Figure와 데이터 출처 연결 | PNG/PDF/SVG, NPZ/JSON, 최소 SS·RGBA·source·spec·camera·hash manifest |
+
+API·단위·camera·ray 식·barycentric 보간·원자 저장은 [시각화 기술 문서](../visualization/README.md), 연구 연결은 [표현 설계](VISUALIZATION_DESIGN_KO.md)에 정리했다. 문서 리뷰에서 +Z를 개별 표면 바깥쪽 법선과 혼동할 수 있는 문장을 고정 세계좌표의 높이 축으로 바로잡았다.
+
+### 별도 compact 설계와 거부한 조건
+
+기존 3×2 basket은 10 yarns·30 plies·210 fibers, 1.08×0.80 mm의 상대적으로 성긴 시편이다. 원래 spec·자료는 유지하고 별도의 2×2 compact basket을 만들었다. 확정한 값은 경·위사 8개씩, 총 **16 yarns·48 plies·336 fibers**, pitch80 μm, ply offset14 μm, ply twist+6 turns/mm, fiber twist−2.3 turns/mm, fiber radius2 μm, nominal crossing-envelope gap12 μm이다. 가시 패치는0.64×0.64 mm다.
+
+55 μm-pitch 후보는 기존 sampling/refinement 예산 gate에서 실패했다. 70 μm-pitch·6 μm-gap 후보는 different-fiber capsule 검사에서 음의 간격을 보여 분리 인증이 실패했다. Capsule overlap은 실제 삼각형 관통을 증명하는 별도 narrow-phase 결과가 아니므로 구분했다. Gate를 완화해 그림을 채우지 않고 채택 가능한 80 μm 시편을 사용했다.
+
+최종 전체 hierarchy는48 samples/crossing에서 최대 선분3.5911 μm·최대 turn0.09621 rad였다. 실제 다른-fiber/다른-ply capsule의 전역 분리 하한은 모두1 μm였다. 남겨진 후보 최소값2.4449/4.1221 μm를 전역 최소 간격으로 바꾸어 부르지 않았다. Same-curve self-contact, 본격적인 역학 평형·마찰·압착은 인증하지 않았다. [실제 입력·실패·sampling·clearance 감사](../examples/visualization/compact_three_ply_basket_design_audit.json).
+
+### 실제 지도 생성과 첫 통합 테스트
+
+원래 시편과 compact 시편에서 각각 전체 패치/같은 교차 확대 × ply/fiber의4개 지도를 생성했다. 기본 가로 표본은640, 표시 SS는2×2, 표면 원주 분할은64다. 원래 사례 전체 표본은474×640, 확대는640×640이며 compact는 모두640×640이다. 원래 사례의 공통 높이 범위는−70~70 μm, compact는−60~60 μm다. 다른 사례 간 동일 gray 값이 같은 높이를 뜻한다고 해석하지 않도록 범위를 각 figure에 명시했다.
+
+원래 최종 지도 생성은 **87.824516963초**, compact는 **157.705858047초**였다. 저장한 최종 map에 대응하는 primary ray 질의는 각각 **7,129,600 / 8,192,000회**다. 이는 pixel-center와 실제 표시 SS를 합친 기하 교차 수이며 radiance 호출이나 독립 물리 표본 수가 아니다. 이번 지도 producer의 조명 렌더 호출은0회다. 개발 preview나 레이아웃 조정 후 반복도 독립 표본 증가로 계산하지 않았다.
+
+Ply proxy와 explicit fiber의 전체 시야 sample coverage는 원래 시편에서 **41.1982% / 39.2858%**, compact에서 **74.2178% / 71.6590%**였다. Coverage는 해당 camera의 기하 hit 비율이다. 재료의 체적 충진율이나 광학 투과율로 해석하지 않는다. 정상적인 빈 공간은 gray background와 miss mask로 보존했다.
+
+새 기하16개·표현11개·독립 반례4개 테스트를 기존391개와 함께 실행했다. 첫 통합 결과는 **422 tests, failures/errors/skips0, 27.997428244초**, 당시85개 source hash가 전후 동일했다. 이후 출력 저장을 보강하기 때문에 이 snapshot은 [pre-publication suite](../data/validation_v5_1/pre_publication_suite/test_summary.json)에 별도 보존한다. 최종 상태의 suite와 수치를 혼용하지 않는다.
+
+### 파일 검산에서 발견한 PDF/SVG 잘림
+
+수치 원본·좌표·ID·coverage·색 변환이 통과한 후, figure 파일 단계에서 독립 reader가 불일치를 발견했다. 당시 기록과 손상 바이트를 각각 보존했다.
+
+| 발견 | 기대 길이 | 실제 관측 길이 | 검산 결과 |
+| --- | --- | --- | --- |
+| Canonical hierarchy PDF |566,866 bytes|433,871 bytes|EOF 없음·유효 페이지 확인 불가 |
+| 후속 canonical hierarchy SVG |778,425 bytes|581,192 bytes|닫히지 않은 XML token |
+| Compact material detail PDF |635,100 bytes|124,685 bytes|EOF 없음 |
+
+첫 PDF는 같은 source로 plot-only 재구성하면 원래 완전한566,866 bytes와 같은 SHA로 복원됐다. 그러나 후속 파일까지 잘린 관측이 있어 최종 저장 경로를 보강했다. **원인은 확정하지 않았다.** 이 기록만으로 특정 라이브러리, 파일시스템 또는 작업자가 원인이라고 결론내리지 않았다. 첫 실패 시 새 geometric oracle은 아직 호출되지 않았으므로 그 감사 시도의 새 query는0회였다. [거부 근거](../data/validation_v5_1/rejected_figure_serialization/rejection_summary.json)와 하위 후속 기록을 보존했다.
+
+이미 Git에 고정한 원래 지도 producer를 바꾸어 수치 측정을 다시 수행하지 않고 **새 publication adapter**를 추가했다. 기존 RGBA·camera·map metadata를 읽어 원래 compositor에 메모리 exporter를 일시 연결하고, PNG/PDF/SVG 전체를 BytesIO로 완성한 뒤 container 검사, flush/fsync·atomic replacement·exact-byte readback을 수행한다. 모든18개 accepted figure 파일의 최종 바이트를 한 번 더 대조하고 generation provenance와 publication provenance를 나눈다. PDF 전체 page parsing/raster QA는 설치된 도구로 별도 확인하며 필수 의존성으로 몰래 추가하지 않는다.
+
+Compact 3-panel의 설명문이 패널 제목과 겹친 시각 문제도 출력 단계에서 설명문을 패널 아래 여백으로 옮겨 수정한다. 데이터·카메라·색 변환은 바뀌지 않는다. 사용하지 않는 generic compact triptych와 임시 파일은 accepted figure 집합에 포함하지 않는다. 최종 출력·테스트·독립 감사의 실제 결과는 완료된 JSON과 아래 게시 기록을 기준으로 읽는다.
+
+### 추적 가능한 코드 단계
+
+| 단계 | 로컬 commit | GitHub commit | 동일한 Git tree |
+| --- | --- | --- | --- |
+| 구조맵·표현·검산·compact 입력과 테스트 |`71ca7692b4e65cfa5cc9f39790e2903e64882191`|`368bf1468f59519fc863b6a4793907375c473db6`|`1820418e654a89d270e7df2080bfd52942b1f7d3`|
+
+위 코드 commit을 기존 private repository의 main에 expected-head 조건으로 추가했다. 원래 v0.5.0 tag와 과학 core·자료는 그대로 유지했다. Publication 보강·최종 데이터·문서와 v0.5.1 태그는 그 뒤 별도 commit으로 이어지며, 게시를 실제 확인하기 전 완료로 기록하지 않는다.
+
+
+### 최종 검증 완료와 v0.5.1 게시 준비 — 2026-10-12 KST / 2026-10-11 UTC
+
+Publication 보강 후 최종 전체 suite와 두 사례의 독립 저장자료 검산, 최종 figure의 실제 화면·파일 확인을 완료했다. 아래 결과는 위의 422-test 중간 실행을 대체해 해석하는 **현재 소스의 최종 검증 기록**이며, 과거 v0.5.0의 391-test 실행과 각 실행 당시 source hash는 그대로 보존한다.
+
+| 최종 확인 항목 | 실제 완료 결과 | 근거 |
+| --- | --- | --- |
+| 현재 전체 unittest suite | **425 tests, failures/errors/skips 모두 0**, **24.814377603초**. 실행 전후 검사 대상 **87개 source SHA-256 동일**, 변경 파일 0 | [최종 summary](../data/validation_v5_1/final_suite/test_summary.json), [실행 로그](../data/validation_v5_1/final_suite/tests.log) |
+| 두 사례의 독립 저장자료 검산 | 합계 **8 maps·208 arrays·24개 고유 NPZ·18개 accepted figure files** 통과. 사례별 4 maps·104 arrays·12 NPZ·9 figure files | [기존 사례 summary](../data/validation_v5_1/independent_review/verification_summary.json), [compact summary](../data/validation_v5_1/compact_review/verification_summary.json) |
+| 최종 해석적 기하 oracle | **594 primary-ray queries**, 기울어진 평면·세계좌표·두 겹 표면의 가림 검산. 이 oracle 및 저장자료 검산의 **조명·radiance 렌더 호출 0회** | [최종 oracle 원본](../data/validation_v5_1/independent_review/analytic_oracles.json), [독립 검토 기록](../notes/review_structure_figures_v5_1.md) |
+| 최종 publication adapter | **15.417649361초**, 18개 accepted 파일의 메모리 container 검사·atomic 저장·exact-byte readback·최종 hash 대조 통과. 원시 기하 재추적 없음 | [최종 publication checks](../data/validation_v5_1/figure_finalization/publication_checks.json) |
+| 실제 그림과 PDF 확인 | 독립 검토자가 최종 PNG 6개를 직접 확인. PDF 6개 모두 실제 **1-page parse와 rasterization** 성공; PNG decode·SVG XML parse도 확인 | [독립 visual review](../data/validation_v5_1/independent_review/visual_review.json), [container/page QA](../data/validation_v5_1/figure_finalization/page_container_qa.json) |
+
+최종 425개는 기존 391개와 새 기하·표현·검산·publication 테스트 34개를 함께 실행한 테스트 함수 수다. 지도 생성의 primary-ray 수, 최종 594-query oracle, figure 파일 수 또는 v0.5의 광학 호출을 테스트 수에 합산하지 않았다. 저장 배열의 독립 reader는 원시 지도를 다시 생성하지 않았고, finalizer는 이미 보존한 RGBA를 재배치했다. **18개 accepted figure는 두 manifest가 지정한 세 그림 계열 × 세 형식 × 두 사례**이며, 거부하거나 미참조 상태로 보존한 중간 파일을 포함하지 않는다.
+
+최종 문서 `README.md`, `docs/STATUS_KO.md`, `docs/RELEASE_V0_5_1.md`, `docs/VISUALIZATION_DESIGN_KO.md`, `CHANGELOG.md`, `notes/structure_figures_v5_1.md`, `notes/review_structure_figures_v5_1.md`를 읽기 전용으로 점검했다. **로컬 링크·이미지 링크 153회에서 누락 대상 0개**였고, 현재형 425 tests·87 sources·8 maps·24 NPZ·18 accepted figures는 최종 JSON 기록과 일치했다. 391-test 및 보강 전 422-test 표현은 과거 실행으로 구분되어 있었다. 이 문서 점검을 위해 코드·그림·전체 테스트를 다시 실행하지 않았다.
+
+Publication 보강 코드와 최종 데이터의 Git 단계는 다음과 같이 기록했다.
+
+| 단계 | 로컬 commit | 확인한 GitHub commit | Git tree |
+| --- | --- | --- | --- |
+| Publication 저장 보강 코드·회귀 검사 | `f4d4ab0073e4c669946506a2076d9b6de704c0fb` | `60659c371eb4878f66393e9c0097551f7b9afed2` | `b02b8d8735ddf811ea1ebb01fa72c64861678503` |
+| 최종 지도·figure·검산·테스트 데이터 | `68d054f8cb0aca929a0e4d0dc140407bff623842` | 이 기록 시점에 원격 전송 중; commit 미확정 | `7dda82d2d9931f20f76a171648caaabd3c5899e9` |
+
+Publication 보강 코드의 로컬·원격 commit은 같은 Git tree로 반영되었음을 확인했다. 데이터 단계는 **81개 파일·266,012,978 bytes**를 로컬 commit으로 고정한 뒤 원격 전송 중이다. 따라서 이 절은 v0.5.1의 최종 데이터·문서·tag·release가 게시되었다고 기록하지 않는다. 원격 최종 commit·tree와 private 저장소의 실제 게시 확인은 완료 후 별도 게시 감사 절에 추가한다. 기존 v0.5.0 tag와 과학 코드·광학 데이터는 유지한다.
+
+
+### v0.5.1 원자료의 GitHub 전송 완료와 파일 트리 대조
+
+최종 데이터 81파일·266,012,978 bytes를 비공개 저장소의 `v0.5.1-publication` 작업 브랜치에 반영했다. 로컬 데이터 commit `68d054f8cb0aca929a0e4d0dc140407bff623842`와 원격 commit `38835c84694ede5f64801f86d81da5a39afceac3`의 Git tree는 **`7dda82d2d9931f20f76a171648caaabd3c5899e9`로 정확히 같았다.** 원자료 34파일, 두 figure manifest와 accepted 그림 18파일, 최종·중간·거부 검증 근거를 이 snapshot에 포함했다.
+
+전송 중 GitHub 연결 도구가 큰 base64 요청을 `MCP request body is invalid or exceeds the 16 MiB limit`이라는 HTTP 400으로 거부했다. 도구 제한에 맞는 50개 blob은 연결 도구로 저장하고, 큰 원본 8파일은 GitHub의 파일 업로드 기능으로 처리했다. 여섯 파일 96,181,691 bytes 묶음의 웹 commit도 파일 크기 오류로 실패했으며, 이 메시지만으로 별도의 정확한 제한값이나 내부 원인을 단정하지 않았다. 남은 파일을 성공한 범위의 두 파일 묶음으로 나눠 처리했다.
+
+서로 같은 basename을 가진 여섯 파일은 작업 브랜치의 전송 단계에서만 구별 가능한 임시 파일명을 사용했다. 원본 크기와 Git blob SHA를 모두 확인한 후 manifest의 원래 경로로 tree를 구성했다. **최종 데이터 tree에는 전송용 임시 경로가 없으며 수치 배열·정밀도·파일 바이트도 바뀌지 않았다.** 원격 metadata에서 repository ID 1414149528·private=true와 현재 연구 설명을 재확인했다. [전송 및 대조 감사](../data/repository_data_v51_upload_audit.json).
+
+연구 보고서에 실제 PDF 페이지 QA, 독립 육안 검토, 게시 전 해시 대조의 직접 링크도 추가했다. 로컬 Git origin은 변경된 저장소 이름 `Phill-lms/textile-appearance-research`에 맞췄다. 이 시점의 main은 publication 보강 코드 commit까지이며, 최종 문서를 작업 브랜치에 반영한 후 main·tag·release를 확정한다.

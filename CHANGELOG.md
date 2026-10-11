@@ -2,6 +2,27 @@
 
 변경 기록은 구현한 기능과 검증 범위를 기준으로 작성한다. 최종 배포 commit/tag는 [작업 로그](docs/WORK_LOG.md)에서 확인한다. 현재 저장소에 별도의 오픈소스 라이선스를 부여하지 않았다.
 
+## 0.5.1 — 2026-10-11 UTC / 2026-10-12 KST
+
+### Geometry-derived figures
+
+- `visualization/structure_maps.py`: 기존 hierarchy와 v0.5 tube sweep에서 실제 float32 triangle surface를 만들고 nearest-hit geometric normal·별도 smooth normal·barycentric centerline tangent·world-Z·distance·정수 계층/material ID를 공간 정합해 기록.
+- Ply envelope proxy와 explicit fiber, 전체 패치와 같은 교차점 확대를 비교. Mixed-material ply의 단일 material을 꾸며내지 않고 child provenance를 보존.
+- Center-hit 물리값과 실제 supersample 표시값을 분리. 180° 주기 orientation, 물리 높이 공통 범위, straight RGBA coverage, 정수 category, 스케일바·방향 glyph의 좌표 계약을 명시.
+- Canonical 3×2 basket과 별도 compact 2×2 basket의 세 figure family를 PNG/PDF/SVG로 출력. 저장 NPZ·JSON·RGBA·최소 supersample 배열과 hash manifest에서 plot-only 재구성을 제공.
+- 80 μm pitch·16 yarns/48 plies/336 fibers의 compact 설계와 실제 sampling·다른 curve capsule 간격 감사. 55 μm 후보의 sampling 실패와 70 μm 후보의 capsule 분리 인증 실패도 보존. Same-curve self-contact나 역학 평형 인증으로 해석하지 않음.
+- Producer 표시 함수를 재사용하지 않는 독립 coordinate/identity/RGBA/file 검산과 해석적 평면·가림 oracle. Source·입력·단위·카메라·파일·배열의 해시를 연결.
+- 사용자 Fig. 5의 출처, 원문·supplement의 normal/orientation/height 의미, 현재 구현과의 차이를 기록. 연구 README·현재 상태·CITATION·시각화 수학/API·figure 보고서를 갱신.
+
+### Validation and observed failure
+
+- **425 tests passed, failures/errors/skips 0**, 24.814377603초. 87개 source의 실행 전후 해시가 같음. 보강 전422-test 실행은 별도 보존. [최종 전체 summary](data/validation_v5_1/final_suite/test_summary.json).
+- 기존 v0.5.0 core·가변 반지름 실험·216/32/72회 radiance 자료는 변경하지 않음. 새 primary geometry ray 수를 광학 표본 수와 합산하지 않음.
+- 독립 reader가 canonical hierarchy PDF의 잘림을 검출: manifest566,866 bytes에 대해433,871 bytes, EOF 없음. 원인 미확정. 거부 증거를 보존하고 동결 source의 plot-only 경로로 복원해 파일 전체를 다시 검산. [거부 기록](data/validation_v5_1/rejected_figure_serialization/rejection_summary.json).
+- 후속 SVG/PDF에서도 잘림을 관측해 별도 `finalize_structure_figures.py`를 추가. 모든 그림을 BytesIO에서 완성·container 검사 후 원자 저장하고18개 accepted 파일을 최종 바이트 대조. 원래 generation provenance·24개 NPZ는 보존. 잘림 거부·hash 불일치 시 기존 destination 보호·일시 exporter의 실패 후 복구 테스트3개 추가.
+- 두 사례의 **8 maps/208 arrays/24 NPZ/18 figure files** 독립 검산 통과. 최종594-ray analytic oracle, PDF6개의 실제1-page parse·raster 확인. Compact 설명문 겹침을 데이터 변경 없이 조정. [최종 파일 검사](data/validation_v5_1/figure_finalization/publication_checks.json).
+- 구조맵은 실제 원단의 역추정, 논문 Fig. 5의 같은 파라미터 재현, 실물 색·촉감, complete fabric BSDF 또는 광택 수렴의 증거가 아님. [완료 범위·재현·한계](docs/RELEASE_V0_5_1.md).
+
 ## 0.5.0 — 2026-10-11 UTC / 2026-10-12 KST
 
 ### Added
