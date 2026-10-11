@@ -57,7 +57,7 @@ flowchart TD
 
 ![실제 원사 평형과 계층 기하](figures/mechanics_v3/mechanics_to_geometry.png)
 
-광학 비교용 3×3 평직 패치에는 **6 yarns, 6 plies, 42 fibers, 8,064 segments**가 있습니다. 선언한 합성 물성에서 초기 대비 평형의 excess energy는 **70.05% 감소**했고, warp crimp는 **0.7000% → 0.1225%**, weft crimp는 **0.7000% → 1.3667%**로 바뀌었습니다. 경사의 굽힘 강성이 큰 이 설정에서 경사가 더 펴지고 위사가 더 굽는 배분이 계산되었습니다. [실제 pair metrics](data/mechanics_v3/optical_pair/pair_metrics.json).
+광학 비교용 3×3 평직 패치에는 **6 yarns, 6 plies, 42 fibers, 8,064 segments**가 있습니다. 선언한 합성 물성에서 초기 대비 평형의 excess energy는 **70.05% 감소**했고, warp crimp는 **0.7000% → 0.1225%**, weft crimp는 **0.7000% → 1.3667%로** 바뀌었습니다. 경사의 굽힘 강성이 큰 이 설정에서 경사가 더 펴지고 위사가 더 굽는 배분이 계산되었습니다. [실제 pair metrics](data/mechanics_v3/optical_pair/pair_metrics.json).
 
 별도로 **2 plies × 7 fibers/yarn의 84-fiber twill**, 강성·사전 인장을 나눈 8개 sweep, 평직·능직·basket, 4/8/16 mechanical mesh, analytic simply-supported beam을 실행했습니다. 광학 pair의 mesh를 8→16으로 늘렸을 때 RMS 높이는 **0.1768 μm** 차이가 났습니다. 이것은 관찰된 수렴이며 실제 원단에 대한 절대 오차 상한은 아닙니다. [실험 manifest](data/mechanics_v3/experiment_manifest.json), [수렴·sweep 그림](figures/mechanics_v3/mechanics_validation.png).
 
@@ -94,7 +94,7 @@ SGGX를 직물에 적용하거나 원사 분포를 fitting하는 발상에는 [H
 
 **반사 두 방향의 변화는 부호가 반대였고, 투과 변화는 현재 Monte Carlo 예산에서 구분되지 않았습니다.** 신뢰구간은 seed 반복에 의한 수치 불확실성만 나타냅니다. 실제 원단 변동·모델 오차·교정 오차는 포함하지 않습니다. 평균 Y는 지정 rig의 관측량이며 반구 반사율·투과율이 아닙니다.
 
-실제로 추가한 12.5 nm 결과와 25 nm 결과의 XYZ 차이는 한 반사 방향에서 **0.170–0.363%**였습니다. 다른 조명은 50/25 nm 비교만 수행했습니다. 이 차이는 MC noise를 포함하며 파장 연속해의 오차 상한은 아닙니다. 별도의 Lambertian 조명 적분 기준과 실제 렌더의 차이는 **0.178%**였고, 이 검사는 조명 rig를 검사한 것으로 hair scattering 정확도의 검증을 대신하지 않습니다. [전체 수치·해석 범위](notes/optical_scale_v3.md).
+실제로 추가한 12.5 nm 결과와 25 nm 결과의 XYZ 차이는 한 반사 방향에서 **0.170–0.363% 수준**이었습니다. 다른 조명은 50/25 nm 비교만 수행했습니다. 이 차이는 MC noise를 포함하며 파장 연속해의 오차 상한은 아닙니다. 별도의 Lambertian 조명 적분 기준과 실제 렌더의 차이는 **0.178% 수준**이었고, 이 검사는 조명 rig를 검사한 것으로 hair scattering 정확도의 검증을 대신하지 않습니다. [전체 수치·해석 범위](notes/optical_scale_v3.md).
 
 ## v0.2에서 이어받은 계층·광학 기반
 
