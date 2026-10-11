@@ -1,0 +1,20 @@
+[
+  {
+    "filename": "Tang_FabricGen_Microstructure-Aware_Woven_Fabric_Generation_CVPR_2026_paper.pdf",
+    "sha256": "46664335279f8d5e517c306c0bdc5d8a1b5cf8e2ac045e05cd507eeeb8b696fb",
+    "bytes": 10995811,
+    "source": "User attachment, 2026-10-11",
+    "rights": "Original authors/publishers retain rights; included only in the user-requested private research repository.",
+    "storage": "Git-tracked file at references/user_provided/Tang_FabricGen_Microstructure-Aware_Woven_Fabric_Generation_CVPR_2026_paper.pdf"
+  },
+  {
+    "filename": "2406.19398v3.pdf",
+    "sha256": "15cb20b1b9953c0cb760945e0f033f9e1ca0a450838d9a8746d2a4f6396dde5e",
+    "bytes": 47640125,
+    "source": "User attachment, 2026-10-11",
+    "rights": "Original authors/publishers retain rights; included only in the user-requested private research repository.",
+    "storage": "Private GitHub Release asset",
+    "release_tag": "v0.2.0",
+    "asset_name": "2406.19398v3.pdf"
+  }
+]

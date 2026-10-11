@@ -1,0 +1,35 @@
+# Python/runtime files
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+*.egg-info/
+build/
+dist/
+.coverage
+htmlcov/
+
+# Uncurated local runs; selected baseline and v2 result folders remain tracked.
+scratch_runs/
+tmp/
+data/engine_v2_runs/
+
+# Local editor and environment files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.idea/
+.env
+.env.*
+!.env.example
+
+# Do not blanket-ignore PDFs, NPZ/NPY, PNGs, JSON metrics, or research logs.
+# The original 47.6 MB user PDF is preserved as a private GitHub Release asset.
+# Its exact hash and download location are tracked in references/user_provided/.
+references/user_provided/2406.19398v3.pdf
