@@ -1,0 +1,20 @@
+{
+  "status": "completed",
+  "started_utc": "2026-10-13T05:29:03.815152+00:00",
+  "source_sha256": {
+    "run_observation_upgrade.py": "1163aaf22cd440d6778dd5519f17f87ab2fdb7bcd61b973b6347663cd9775794",
+    "textile_sim/surface_reference.py": "706a72936c4f3327945fd486697bf162dad1b9d1d22ea7e2e0aebeb91e49ae9d",
+    "textile_sim/local_volume_profile.py": "e3c850a115223f680928e9cdbf4a080f3d64f0212931dd399abb8efc1ebeb0ce",
+    "textile_sim/observation_gate.py": "40b803d8dc7188578f5cfa8f7d460d81591025f334062bf80c7b0026af6b9da2",
+    "tests/test_observation_upgrade.py": "85ee84fd21678787918337f81400baba334bcf23d37fd4ccc47f547b9736b71f"
+  },
+  "python": "3.13.5",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "base_commit": "d5ee2b7d4677f8b98f99bac821fec340ffe98c9c",
+  "elapsed_seconds": 1.3623664640001607,
+  "source_unchanged": true,
+  "output_sha256": {
+    "results.json": "5501a2a89c78a007f98f093edb606c30f599c32cacacda5e896d496744f00eb9"
+  }
+}

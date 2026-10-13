@@ -1,0 +1,24 @@
+{
+  "schema": "textile.observation_upgrade.tests/1",
+  "executed_utc": "2026-10-13T05:29:11.532020+00:00",
+  "tests_run": 55,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "elapsed_seconds": 2.573996755000053,
+  "python": "3.13.5",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "source_sha256": {
+    "run_observation_upgrade.py": "1163aaf22cd440d6778dd5519f17f87ab2fdb7bcd61b973b6347663cd9775794",
+    "textile_sim/surface_reference.py": "706a72936c4f3327945fd486697bf162dad1b9d1d22ea7e2e0aebeb91e49ae9d",
+    "textile_sim/local_volume_profile.py": "e3c850a115223f680928e9cdbf4a080f3d64f0212931dd399abb8efc1ebeb0ce",
+    "textile_sim/observation_gate.py": "40b803d8dc7188578f5cfa8f7d460d81591025f334062bf80c7b0026af6b9da2",
+    "tests/test_observation_upgrade.py": "85ee84fd21678787918337f81400baba334bcf23d37fd4ccc47f547b9736b71f"
+  },
+  "source_unchanged": true,
+  "scope": "NEW test_observation_upgrade.py only; prior 425 suite and Mitsuba NOT rerun",
+  "command": "python -m unittest discover -s tests -p 'test_observation_upgrade.py' -v",
+  "log_sha256": "36fa05766268134702ca62548ec194a99b95ed9be362ef10f5545551bc6bf911",
+  "log_location": "tests.log in local release ZIP; compact test summary and exact source hashes retained on GitHub"
+}

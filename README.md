@@ -2,293 +2,47 @@
 
 **Multiscale Textile Appearance Modeling and Meta-Optical Sensing**
 
-온라인 의류 사진에서 예상한 **시각적 재질감과 실제 원단을 보았을 때의 차이**를 줄이는 연구입니다. 섬유와 원사의 구조를 광학 반응에 연결해 현재 원단을 복원하고, **촬영하지 않은 조명·관찰각·역광에서 어떻게 보일지 예측**하는 것을 목표로 합니다. 그 예측에 추가 각도·분광·편광 측정이 필요한지 검증한 뒤, 유용한 관측을 효율적으로 얻는 메타광학 계측계를 연구합니다.
+의류 사진에서 예상한 시각적 재질감과 실물의 차이를 줄이는 연구입니다. 실제 공간 디테일을 보존하며 다른 조명·시점·역광의 외관을 예측하고, 그 예측에 필요한 추가 관측을 검증한 뒤 외부 메타광학을 설계합니다. 4K·매크로·다중조명 RGB는 강한 비교군이고, VIS가 기준 대역입니다. IR은 추가 정보의 가치로 평가합니다. **염색·퇴색은 계속 보류합니다.**
 
-이 저장소는 **연구 목적·설계, fiber → ply → yarn → weave → fabric 시뮬레이션, 광학·관측 모델, 실험 자료와 리뷰 기록**을 함께 관리합니다. 시뮬레이터는 전체 연구의 기반 모듈입니다. 메타표면의 추가 가치와 실제 원단 외관 정확성은 각각 실험으로 입증할 연구 가설입니다.
+## 최신 추가: 관측 오차와 국소 부피 보존
 
-**연구 저장소:** [Phill-lms/textile-appearance-research](https://github.com/Phill-lms/textile-appearance-research) · **현재 어디까지 됐는가:** [현재 상태](docs/STATUS_KO.md) · **연구 의도와 결정:** [연구헌장](docs/RESEARCH_CHARTER_KO.md) · **수학·실험 설계:** [연구 설계](docs/RESEARCH_DESIGN_KO.md)
+2026-10-13의 **observation-gate 연구 증분**을 추가했습니다. 정식 v0.6 릴리스나 전체 엔진 검증을 뜻하지 않습니다. 기존 v0.5.1 코드·실험·논문용 구조맵은 보존했고, 아래 새 모듈은 그 결과를 덮어쓰지 않습니다.
 
-## 연구 목표와 현재 상태
-
-| 연구 항목 | 목표 | 검증된 범위와 남은 일 |
+| 추가 모듈 | 이번에 실제로 한 일 | 아직 주장하지 않는 것 |
 | --- | --- | --- |
-| **공간 텍스처** | 직조·실·미세 구조를 실제 크기에 맞게 기록·표현 | 명시적 섬유 기하 생성과 sampling 검사 구현. 실측 고해상도 RGB와의 정합·복원 검증 필요 |
-| **색·광택·비침** | 다른 광원·시점에서도 맞는 반사·투과 외관 예측 | 합성 물성의 개별 섬유 광선추적과 분광 관측 구현. 실물의 광학 물성·광원·카메라 교정 필요 |
-| **구조와 변형** | 원사·직조의 상태 변화가 광학 반응에 미치는 영향 설명 | 제한된 원사 높이 평형, v0.4의 동일 섬유 물질좌표 운반과 국소 strain 진단 구현. 본격적인 3D 접촉·변형 역학은 후속 |
-| **역추정과 관측 선택** | 좋은 다중조명 RGB에 무엇을 더 측정해야 하는지 판단 | 순방향 모델과 정보량 기반 실험 설계 마련. 실제 inverse fitting·RGB 대비 추가 정보 이득은 미검증 |
-| **메타광학 계측** | 제한된 시간·광량·검출기에서 유용한 채널 확보 | 이상적 광학·검출 진단 보존. 제작 소자의 효율·혼선과 전체 시스템 이점은 미검증 |
-| **사용자에게 전달되는 재질감** | 같은 화면 조건에서 실물 시편 판단 개선 | 조명 회전·확대·역광 비교와 시편 매칭 평가를 설계. 실측·사용자 검증은 후속 |
-| **촉감·염색·퇴색** | 속성별 기준 측정 또는 공정 모델과 연결 | 촉감의 포괄적 예측은 후속 연구. **염색·퇴색은 현재 개발 범위에서 보류** |
+| `local_volume_profile.py` | 양의 연속 반지름에서 각 선분의 직선 원뿔대 부피를 보존; 16개 합성 변형 검사 | 실제 섬유 구성식·굽은 mesh의 국소 고체 부피 보존 |
+| `surface_reference.py` | 원형/정다각형의 첫 표면 Fresnel 반사를 유한 각도 관측에서 비교; 252조건 | 완전한 fiber/fabric BSDF, 내부 굴절·다중 산란·파동 통합 |
+| `observation_gate.py` | CI 포함 0과 동등성을 구분; 관측 오차·refinement별 축약 선택; v5 데이터 adapter | 실측 정확도, 수렴한 reference의 자동 인증 |
+| `run_observation_upgrade.py` | 새 폴더에 결과와 소스·출력 hash 저장; 결정론적 재실행 | 기존 425개 테스트나 Mitsuba 원단 실험의 재실행 |
 
-**v0.5.1은 실제 계층 기하에서 법선·방향·물리 높이·가시성·재료 ID를 계산하고, 논문용 비교 그림과 검산 가능한 배열을 함께 내보내는 구조맵 모듈을 추가합니다.** 기존 3-ply basket과 별도의 compact 설계에서 ply 표면과 개별 fiber 표면을 같은 카메라·영역으로 비교합니다. [그림·구현·검증 설명](docs/RELEASE_V0_5_1.md), [표현 규약](docs/VISUALIZATION_DESIGN_KO.md).
+**새 모듈 55개 테스트가 실패·오류·생략 없이 통과했습니다.** 기존 v0.5.1의 425-test 기록과 합산하지 않습니다. 이번 새 Mitsuba/3D 원단 렌더는 0회입니다. 현재 환경은 Python 3.13.5, NumPy 2.3.5, SciPy 1.17.0이며 이전 전체 검증 환경과 구분합니다.
 
-**현재 전체 테스트는 425개, 실패·오류·생략 0이며, 실행 중 검사 대상 소스 87개의 변경도 0입니다.** [현재 suite summary](data/validation_v5_1/final_suite/test_summary.json)와 [로그](data/validation_v5_1/final_suite/tests.log)를 보존합니다. 8개 지도·24개 NPZ·18개 최종 figure 파일의 독립 검산도 통과했습니다. 이 숫자는 아래 과거 릴리스의 테스트 수나 그림의 광선 수와 합산하지 않습니다.
+실제 결과: 비교용 전체 부피 rescale의 최대 선분 오차 2.493%가 새 직선 원뿔대 규칙에서는 약 6.7e-16이었습니다. 광학 쪽에서는 detector bin과 facet 방향의 우연한 정렬이 가짜 수렴을 만들 수 있어, bin 수·단면 위상 대조와 회귀 테스트를 추가했습니다. 이것은 **기준 문제의 개선**이며 기존 3D 원단 광택 오차를 전부 해결한 결과가 아닙니다.
 
-**보존된 v0.5.0에서는 물질좌표로 추적한 가변 반지름 섬유를 닫힌 3D 표면의 반사·굴절·내부 흡수 계산까지 연결했고, 당시 전체 391개 테스트가 실패·오류·생략 없이 통과했습니다.** 반지름·원주 분할 비교 **216회**, 물리 oracle **32회**, renderer 길이 척도 감도 **72회**를 실제 실행했습니다. 실행 수를 독립 표본 수로 해석하지 않으며, 마지막 실험의 24개 기준 조건은 앞선 실험과 겹칩니다. 새 구조맵의 광선 교차 질의를 이 광학 실험의 표본 수에 합산하지 않습니다.
+## 읽는 순서
 
-**새 광학 경로의 동작은 확인했지만, 반지름 효과의 검출과 광택의 수치 수렴은 아직 입증하지 못했습니다.** 원주 분할이 광학 반응에 큰 영향을 주고, micrometer 섬유에서 renderer의 ray offset도 검토해야 함을 확인했습니다. [v0.5 실행·검증 기록](docs/RELEASE_V0_5.md)에 결과와 이 한계를 함께 기록합니다. 이전 297 tests·108회는 [v0.4.0](https://github.com/Phill-lms/textile-appearance-research/releases/tag/v0.4.0), 239 tests·536회는 [v0.3.0](https://github.com/Phill-lms/textile-appearance-research/releases/tag/v0.3.0)의 근거입니다. 합성 시편과 선언한 모델의 검증이며, 실크·코튼·큐프라·린넨의 실측 외관을 재현했다는 뜻은 아닙니다.
+- [현재 상태](docs/STATUS_KO.md) · [이번 수학·결과·한계](docs/OBSERVATION_UPGRADE_KO.md)
+- [문헌별 읽기 깊이·구현 결정](notes/literature_observation_upgrade.md)
+- [새 수치 요약](data/observation_gate_v6/summary.json) · [새 테스트 기록](data/observation_gate_v6/test_summary.json) · [실행 manifest](data/observation_gate_v6/run_manifest.json)
+- [원래 연구헌장](docs/RESEARCH_CHARTER_KO.md) · [기존 전체 연구 설계](docs/RESEARCH_DESIGN_KO.md) · [구현 아키텍처](docs/ARCHITECTURE.md)
+- [변경 전 v0.5.1 README 전체](README_v0_5_1.md): 과거 그림·수치·모든 실행 명령·문헌·라이선스 안내를 보존합니다.
 
-## 앞선 논의에서 유지하는 연구 방향
+## 새 모듈 실행
 
-**4K 또는 더 높은 해상도의 촬영은 유효한 방법이며 강한 비교군입니다.** 공간적인 디테일이 부족한 문제와, 한 촬영 조건으로 다른 조명·시점의 반응을 예측하기 어려운 문제를 나누어 평가합니다. 비교군에는 적절한 배율·MTF·노출·색 교정을 갖춘 고해상도 다중조명 RGB를 포함합니다.
-
-**VIS는 화면에 전달할 색과 외관을 직접 검증하는 기준 대역입니다.** IR은 보유한 메타표면·렌즈 연구와 연결할 보조 후보입니다. IR 채널이 구조·재료의 어떤 불확실성을 줄이고, 그 정보가 VIS 외관 예측에 실제로 도움이 되는지 확인합니다. 각도·파장·편광의 우선순위도 목표 오차를 줄이는 정도로 정합니다.
-
-**실크·코튼·큐프라·린넨·혼방은 고정된 외관 프리셋으로 두지 않습니다.** 섬유의 단면·직경·광학 응답, 원사의 꼬임·잔털, 직조·가공 상태를 분리하고 측정 출처를 기록합니다. 혼방은 구성 섬유의 재료 ID와 배치를 유지합니다. 보송하게 보이는 외관, 광택, 비침은 마찰·압축감·접촉 냉감과 다른 목표이며, 촉감까지 확대할 때는 해당 속성의 기준 측정이 필요합니다.
-
-첫 연구의 범위는 작은 원단 패치의 **방향성 광택·직조 대비·비침과 미관측 조건의 외관 오차**에 둡니다. 메타표면은 기존 렌즈·격자·편광자와 비교해 같은 정확도의 획득 시간, 전체 시스템 크기, 광량·픽셀 효율 중 무엇을 개선하는지 검증합니다. 광학계와 역모델을 연결했다는 구성만으로 독창성이나 소자 필요성을 주장하지 않습니다. 이 판단의 선행연구와 판정 기준은 [연구 설계](docs/RESEARCH_DESIGN_KO.md)와 [문헌 검토](notes/literature_engine_v3.md)에 있습니다.
-
-## 전체 연구 모듈
-
-아래는 처음 논의한 계측·재현 연구의 모듈입니다. **R-M 번호는 연구 모듈**, 코드의 H/K/O/V/C/Q는 구현 모듈입니다. v0.1 보고서의 M1–M9는 별도의 과거 소프트웨어 번호 체계이므로 혼용하지 않습니다. 대화에서 역할이 확정되지 않은 M3은 임의로 복원하지 않고, IR 확장은 **R-IR**로 명시했습니다.
-
-| 연구 모듈 | 역할과 연결 |
-| --- | --- |
-| **R-M1 고해상도 RGB** | 직조·실·잔털의 위치를 기록하고, 강한 다중조명 RGB 비교군을 구성 |
-| **R-M2 각도·분광·편광 / 메타광학** | 추가 관측의 정보 가치를 먼저 평가하고, 선택된 채널을 기존 광학·메타광학으로 구현 |
-| **R-IR 보조 적외선 관측** | VIS만으로 남는 모호성을 줄이는 조건에서 IR 관측을 결합하는 신규 확장 경로 |
-| **R-M4 통제된 변형 관측** | 굽힘·장력·드레이프에 따른 구조 변화를 관찰하고 역학 입력을 제한 |
-| **R-M5 교정·정합** | 공간 위치·단위·광원·각도·파장·편광·노출과 관측 불확실성을 연결 |
-| **R-M6 구조·광학 추정** | 계층 순방향 엔진을 이용해 외관 예측에 필요한 상태와 불확실성을 추정 |
-| **R-M7 사용자 표현** | 확대·조명 회전·역광 전환을 같은 화면 조건에서 제공 |
-| **R-M8 기준 측정** | 구조·분광 R/T·방향성 반응·필요한 역학 물성의 실제 기준값 확보 |
-| **R-M9 독립 검증** | 미관측 조명·원단 시편, RGB 비교군, 모델 오차와 사용자 판단을 평가 |
-
-```mermaid
-flowchart TD
-    A["RGB · 추가 광학 관측"] --> C["교정·정합"]
-    B["변형·기준 측정"] --> C
-    C --> I["구조·광학 상태 추정"]
-    G["Fiber → fabric 순방향 엔진"] --> I
-    I --> P["새 조건의 외관 예측"]
-    P --> D["화면 표현·실물 비교"]
-    D --> V["독립 시편·미관측 조건 검증"]
-    V --> S["필요한 관측 선택"]
-    S --> A
-```
-
-이 그림은 **전체 연구의 설계 관계**입니다. 모든 실물 계측·역추정·사용자 평가가 이미 연결되어 실행된다는 뜻은 아닙니다. 모듈별 입력·출력·구현 상태·완료 조건은 [연구헌장](docs/RESEARCH_CHARTER_KO.md#4-전체-연구-모듈과-구현-모듈의-대응)에 있습니다.
-
-## 시뮬레이션 엔진: low level → high level
-
-![실제 생성한 fiber, ply, yarn, fabric 계층](figures/hierarchy_v2/hierarchy_levels.png)
-
-그림은 저장된 기하의 진단용 중심선입니다. 구조를 보기 위해 선 두께·축 비율을 조정했으며, 물리적 치수는 좌표·반지름 배열로 확인합니다.
-
-| 계층 / 모듈 | 현재 계산하는 내용 | 다음 검증 또는 확장 |
-| --- | --- | --- |
-| **Constituent / fiber** | 재료 ID, scalar 복소 굴절률, 원형 단면과 명시적 중심선 | 실측 스펙트럼, 비원형 단면·표면·이방성 |
-| **Ply / yarn — H1** | 부모 호길이의 꼬임·배치·migration·loop 생성; v0.4의 고정 reference 물질좌표 운반 | 실제 material twist, fiber/ply 내부 응력·sliding |
-| **Weave / network — K1** | binary draft, lift-plan, 경·위사 교차, 유효 인장·굽힘에 의한 높이 평형 | multilayer topology, 3D rod, 마찰·압착·접촉 |
-| **Fabric patch — V1** | 유한 패치 생성, sampling·다른 fiber 간격 검사; 국소 strain·선분 proxy·가변 반지름 mesh 부피 진단 | 자기접촉, 실제 질량·단면 응답, 전체 의류 drape |
-| **공통 광학 입력 — O1** | 동일 기하·재료·단위·출처를 `OpticalScene`으로 전달 | 새 물성·단면의 adapter와 유효범위 |
-| **국소 광학 — O2** | 허용된 평행 원형 bundle의 실제 2D Maxwell / ray | 국소 해를 3D ply·fabric으로 올리는 정규화·회절·coherence 모델 |
-| **3D 광학 — O3** | 기존 hair 경로와 별도의 가변 반지름 closed-mesh dielectric/absorption 경로 | surface 분할·ray offset 수렴, 실측 scattering, 편광·wave correction |
-| **광학 축약 — O4** | 투영 면적 밀도와 계층별 SGGX fitting | 차폐·다중 산란을 포함한 fabric BSDF 및 실제 영상 오차 |
-| **관측·검증 — C1 / Q1** | 분광 radiance, CIE 적분, seed 통계, 근사·수렴 검사 | 실물 카메라·디스플레이 교정, 역문제와 관측 선택 |
-
-기하·scene 길이는 **mm**, 파장은 **vacuum nm**, 기존 2D solver 길이는 **μm**이며 adapter에서 변환합니다. 비간섭 성분은 강도로, coherent field는 복소 진폭으로 결합합니다. 국소 파동 해·직접 투과·공극 회절을 중복 에너지로 더하지 않습니다. 방향별 투영 면적이나 SGGX fitting 오차를 완전한 cloth BSDF 또는 실물 정확성으로 해석하지 않습니다. API와 물리 계약은 [ARCHITECTURE.md](docs/ARCHITECTURE.md), [optical_bridge.md](notes/optical_bridge.md)에 있습니다.
-
-## v0.5.1: 실제 구조를 논문용 그림과 물리 배열로 함께 표현
-
-사용자가 제공한 FabricGen Fig. 5의 normal/orientation/height 구성을 참고해, 현재 엔진이 생성한 **3D 삼각형과 실제 nearest-hit 교차**에서 동일 종류의 필드를 계산합니다. FabricGen의 UV 기반 해석식과 방향 정의를 그대로 재현한 결과는 아니며, 입력·단위·표면·카메라·색 변환을 별도로 명시했습니다.
-
-![별도 compact 3-ply basket의 법선·방향·높이 맵](figures/structure_v5_1/compact/compact_structure_triptych.png)
-
-| 필드 | 실제 저장값 | 그림의 의미 |
-| --- | --- | --- |
-| **Normal** | 실제 삼각형의 world-space 단위 법선 | RGB = (n + 1) / 2. 조명·감마·노출을 적용하지 않은 방향 코드 |
-| **Orientation** | 해당 ply 또는 fiber 중심선의 directed 3D tangent | XY 투영 축을 0–180° 순환 색상과 양끝이 같은 선으로 표현. 투영이 정의되지 않는 위치는 별도 mask |
-| **Height** | 교차점의 world-Z, 원본 단위 mm | 표시 단위 μm, 같은 사례의 모든 패널에 공통 범위. 카메라 거리와 구분 |
-| **Visibility / identity** | hit mask, coverage, 정수 primitive·fiber·ply·yarn·material ID | 배경을 높이 0으로 채우지 않고, 서로 다른 재료 ID를 평균하지 않음 |
-
-기존 시편의 [전체 3종 맵](figures/structure_v5_1/fabric_structure_triptych.png), [동일 교차점의 ply/fiber 비교](figures/structure_v5_1/fabric_structure_hierarchy.png), [재료 ID와 확대도](figures/structure_v5_1/fabric_structure_material_detail.png)를 함께 보존합니다. Compact 시편은 **80 μm pitch, 16 yarns·48 plies·336 fibers**의 새 합성 설계이며 기존 자료를 대체하지 않습니다. [설계와 보수적 간격 검사](examples/visualization/compact_three_ply_basket_design_audit.json)에 채택 조건과 거부한 후보도 기록했습니다.
-
-각 figure는 **PNG·PDF·SVG**로 내보내고, 실제 필드는 NPZ·JSON, 표시용 RGBA와 supersample은 별도 배열로 저장합니다. PDF/SVG의 글자·범례는 벡터지만 map 패널의 정보량은 기록한 표본 해상도로 제한됩니다. 저장 배열만으로 재구성할 수 있고, 그림을 다시 그리는 데 광학 실험을 다시 실행할 필요는 없습니다.
-
-최종 publication 경로는 그림을 메모리에서 완성한 뒤 검사·원자 저장·바이트 대조를 수행합니다. 독립 검산에서 발견한 PDF/SVG 잘림과 복원 기록을 보존했고, **최종 PDF 6개의 실제 1-page parse·raster 확인**까지 완료했습니다. [내보내기 보강](visualization/finalize_structure_figures.py), [최종 파일 검사](data/validation_v5_1/figure_finalization/publication_checks.json).
-
-이 모듈은 **기하 가정·공극·꼬임·가림·계층 축약을 눈으로 확인하고 수치로 검산하는 연결부**입니다. 표면 맵만으로 다중 산란·비침·회절·실물 색을 모두 복원했다고 주장하지 않습니다. 특히 ply envelope는 내부 공극을 채운 표현용 proxy이고, fiber 중심선 방향은 향후 anisotropic BSDF에서 사용할 표면 접선과 별도로 처리해야 합니다. 수학·API는 [visualization/README.md](visualization/README.md), 연구와의 연결은 [표현 설계](docs/VISUALIZATION_DESIGN_KO.md)에 있습니다.
-
-## v0.5: 가변 반지름을 광학에 연결하고 오차의 크기를 확인
-
-v0.4에서 광학 export가 막혀 있던 가변 반지름 상태를 처리하도록 새 모듈을 만들었습니다. 같은 중심선과 물질점에서 두 반지름 모델을 만들고, **node radius → 닫힌 mesh → dielectric 경계와 pure absorption medium → 반사·투과 영상**으로 전달합니다. 두 반지름 상태 모두 새 모델로 비교합니다.
-
-| 새 검증 항목 | 실제 결과와 의미 |
-| --- | --- |
-| **가변 단면** | 42 fibers, 8,106 points의 node radius 2.8083–3.2355 μm; 물질좌표·재료 ID 유지 |
-| **부피 정의 분리** | 선분 원기둥 proxy, 선형 radius frustum 적분, 실제 닫힌 mesh 부피를 각각 저장 |
-| **국소 오차 노출** | 섬유별 총 frustum 적분은 맞지만 선분별 부피는 −3.9638~+3.8000% 재분배됨 |
-| **기하 refinement** | 16/32/64각형의 mesh/frustum 부피 차이 약 −2.5539/−0.6448/−0.1641% |
-| **216회 광학 비교** | 최고 분할의 radius 효과 9조건 모두 pointwise·Bonferroni 구간에 0 포함; 효과 검출 미달 |
-| **광학 refinement 한계** | 32→64각형의 R0 평균 radiance가 두 상태·세 파장에서 약 25.7~31.6% 바뀜; 광택 수렴 미확보 |
-| **별도 물리·단위 감사** | Beer–Lambert·furnace·taper·단위 상사 32회와 실제 fiber의 길이 척도 감도 72회 |
-| **독립 검산** | 252개 fiber mesh, 54개 scene metadata, 216개 scalar 이미지·seed 통계와 원본 pair의 material-state 재구성 |
-
-![가변 반지름·국소 부피·원주 분할의 실제 기하 진단](data/variable_radius_v5/figures/radius_geometry_diagnostics.png)
-
-최고 분할에서도 T45의 상대 평균은 −18.46~+27.41%처럼 크게 보이지만 신뢰구간은 모두 0을 포함합니다. 작은 baseline과 렌더 잡음 때문에 이 수치를 검출된 물리 효과로 주장하지 않습니다. 부피 수렴과 specular normal의 수렴도 다릅니다. 다음 개발의 우선순위는 **순방향 모델의 수치 오차를 목표 재질 차이보다 작게 만드는 것**입니다.
-
-새 구현은 [variable_radius.py](textile_sim/variable_radius.py), [volume_optics.py](textile_sim/volume_optics.py), 수학·실험·통계는 [상세 보고서](notes/variable_radius_v5_experiment.md), renderer 선택의 근거는 [공식 소스 감사](notes/variable_radius_optics_source_audit_v5.md)에 있습니다. 전체 실행과 발견한 결함·수정·현재 한계는 [v0.5 릴리스 설명](docs/RELEASE_V0_5.md)에서 확인합니다.
-
-## 보존된 v0.4: 같은 섬유의 변형을 추적하고 광학 결과와 연결
-
-기존 v0.3은 새 부모 곡선의 현재 호길이에서 섬유를 재생성했습니다. v0.4는 **처음 정의한 물질좌표와 부모 대응을 고정**하고, yarn→ply→fiber의 같은 점을 새로운 frame으로 운반합니다. 시작 director와 부모 correspondence는 명시적 입력이며, 입력을 물리적으로 추정한 것으로 표시하지 않습니다.
-
-| 새 검증 항목 | 결과와 의미 |
-| --- | --- |
-| **물질점 대응** | 42 fibers, 8,106 vertices, 8,064 segments의 ID·원래 labels 유지 |
-| **국소 변형 진단** | 전체 fiber 길이 +0.044224%; 선분 engineering strain −14.032~+14.120%, reference-length 가중 RMS 1.7282% |
-| **두 radius 모드** | 일정 반지름에서는 부피 proxy 변화도 +0.044224%. `r_e=r_0/sqrt(lambda_e)` 모드는 각 선분 원기둥 부피 proxy를 수치 정밀도로 보존 |
-| **광학 연결** | 기존 constant-radius adapter에 전달할 수 있는 상태만 렌더. 가변 반지름 상태의 암묵적 평균화·export는 거부 |
-| **재생성과 추적의 차이** | 동일 parent parameter index의 위치 차이 RMS 0.07734 μm. 새로운 기하의 다른 fiber 간격과 spline export 오차를 다시 검사 |
-| **실제 광학 비교** | 3상태 × 3조명 × 3파장 × 4seed = **108회**, 64×64·32 spp의 합성 fiber 단색 렌더 |
-
-총 길이 변화가 작아도 국소 늘어남과 줄어듦이 상쇄될 수 있습니다. 위 strain은 저장한 초기 형상 기준의 **선언한 kinematic map 진단**이며, 실제 원단의 탄성 strain이나 fiber 응력 평형을 측정한 결과가 아닙니다. 선분 원기둥 부피 proxy 보존도 곡률·접합부·단면·접촉을 포함한 실제 3D 체적·질량 보존과 구분합니다.
-
-추적 방식과 기존 재생성 방식의 9개 조명·파장 비교 중 8개의 pointwise 95% 구간이 0을 포함했습니다. R90/450 nm의 한 구간만 양수였으며 다중비교 보정은 하지 않았습니다. **이번 결과는 기존보다 외관 정확도가 좋아졌다는 증거가 아니라, 동일 시편의 대응과 모델 한계를 검증하는 기반입니다.** 3파장은 단색 진단으로 사용했으며, 이 데이터로 CIE 색 재현을 주장하지 않습니다.
-
-수학과 API는 [물질좌표 설계](notes/material_transport_v4.md), 방법·원시 결과는 [실험 설명](notes/material_transport_v4_experiment.md), 독립 결함 발견·수정은 [리뷰](notes/review_material_transport_v4.md), 최종 실행 증거와 재현은 [v0.4 릴리스 설명](docs/RELEASE_V0_4.md)에 있습니다.
-
-## 보존된 v0.3 결과
-
-v0.3은 **원사 높이 평형 → 섬유 재생성 → 계층 광학 통계·실제 분광 관측**을 연결한 합성 실험입니다.
-
-| 실험 | 실제 결과 | 해석 범위 |
-| --- | --- | --- |
-| 42-fiber 평직의 축소 평형 | 초과 에너지 −70.05%; 경사 crimp 0.7000→0.1225%, 위사 0.7000→1.3667% | 선언한 유효 강성·경계·작은 기울기 굽힘 모델의 결과 |
-| 84-fiber, 2-ply 능직 | 평형 원사에 다중 ply 기하 연결 | ply 내부 응력·sliding을 계산한 결과는 아님 |
-| 전체 SGGX 1개 → 경·위사 2개 | 초기 방향별 투영 통계 RMSE 3.5727→0.2198% | 동일 기하의 통계 축약 성능; BSDF·영상 오차가 아님 |
-| 536회 실제 분광 렌더 | 2상태·3조명·17파장·4seed의 408회 + 중간 파장 128회 | 64×64, 32 spp, 합성 물성의 scalar path tracing |
-| 6500 K Planck 반사 0° / 90° | 평균 Y 변화 +37.04% / −32.37% | 해당 기하·조명에서 방향별 반응 차이 |
-| 같은 광원의 투과 45° | +0.64%, paired 95% 구간이 0 포함 | 현재 Monte Carlo 예산에서 변화 미분리 |
-
-6500 K Planck 광원은 D65가 아닙니다. 통계 구간은 4개 seed의 렌더링 불확실성이며 실물·모델·교정 오차를 포함하지 않습니다. v0.3은 평형 후 fiber를 재생성하므로 전체 부피 proxy가 +0.04424% 변했습니다. 이 비교를 같은 섬유의 물질점을 보존한 변형 또는 접선 변화 하나의 효과로 해석하지 않습니다.
-
-**v0.3 전체 테스트는 239개, failures/errors/skips 모두 0입니다.** [v0.3 태그에 고정한 검증 summary](https://github.com/Phill-lms/textile-appearance-research/blob/v0.3.0/data/final_test_summary.json), [저장 결과 재검산](data/engine_v3_final_artifact_audit/run_manifest.json), [독립 리뷰](notes/review_engine_v3.md)에 입력·소스 hash와 실패 후 수정 근거를 보존합니다. 새 코드의 검증 수치와 과거 버전의 수치는 해당 source와 run을 구분해서 읽어야 합니다.
-
-상세 수치·그림·수학은 [v0.3 한국어 보고서](report/fabric_engine_v3_report_ko.pdf), [역학 유도](notes/weave_mechanics_v3.md), [광학 유도](notes/optical_scale_v3.md), [릴리스 기록](docs/RELEASE_V0_3.md)에 있습니다. 이전 README의 상세 결과 표와 실행 설명도 [v0.3 태그의 README](https://github.com/Phill-lms/textile-appearance-research/blob/v0.3.0/README.md)에 보존되어 있습니다.
-
-## 가장 가까운 연구 질문과 다음 개발
-
-> **강한 다중조명 RGB에서 남는 원사 구조와 섬유 산란·흡수의 모호성을, 소수의 추가 관측으로 줄일 수 있는가? 그 이득은 기하·광학 모델이 틀린 경우와 새로운 원단에서도 유지되는가?**
-
-가까운 보완은 **원주·축 방향 sampling과 ray offset·좌표 척도의 오차를 줄여, 반지름·단면 모델의 광학 효과를 분리하는 것**입니다. Material twist·국소 단면 재구성과 계층 축약도 실제 radiance·BSDF에 대해 검증하고, 실측 원단으로 물성과 관측계를 보정해야 합니다. 추가 채널은 같은 획득 시간·광량·픽셀 조건에서 평가하며, 같은 원단의 인접 패치가 학습과 평가에 섞이지 않도록 합니다.
-
-이득이 확인된 채널을 기존 광학과 메타광학으로 각각 구현하고 relay·mount·detector를 포함한 전체 시스템으로 비교합니다. 실제 제품의 모든 촉감을 예측하거나 새 염료·퇴색 공정을 시뮬레이션하는 것은 별도 기준 측정과 모델을 요구하는 후속 과제입니다. 구체적인 진행·중단 조건은 [연구 설계 §7–8](docs/RESEARCH_DESIGN_KO.md#7-가장-유망한-다음-연구-질문)을 따릅니다.
-
-## 재현과 실행
-
-저장소 루트에서 실행합니다. v0.3 검증 환경은 Python 3.12.14, NumPy 2.3.5, SciPy 1.17.0, Mitsuba 3.9.1 / Dr.Jit 1.5.0, LLVM CPU였습니다. [requirements.txt](requirements.txt)와 [환경 기록](data/environment.json)을 참고하세요.
+저장소 루트와 기존 NumPy/SciPy 환경에서:
 
 ```bash
-python -m venv .venv
-source .venv/bin/activate
-python -m pip install -r requirements.txt
-
-# 기존 시편의 물리 구조맵과 논문용 3종 그림을 새 폴더에 생성
-python -m visualization.render_structure_figures \
-  --data-dir scratch_runs/structure/data \
-  --figure-dir scratch_runs/structure/figures
-
-# 저장 RGBA에서 최종 그림을 메모리 직렬화·검사·원자 저장; 재추적 없음
-python -m visualization.finalize_structure_figures \
-  --manifest scratch_runs/structure/figures/figure_manifest.json \
-  --audit-directory scratch_runs/structure/publication
-
-# 저장한 지도·coverage·ID·그림 파일을 독립 검산; 새 광선 질의 0회
-python -m visualization.review_structure_figures \
-  --manifest scratch_runs/structure/figures/figure_manifest.json \
-  --output scratch_runs/structure_review --skip-oracles
-
-# 구조맵을 포함한 현재 전체 suite; 소스 해시와 로그를 새 경로에 보존
-OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 \
-  python -m visualization.validate_structure_release \
-  --output scratch_runs/structure_tests
-
-# 실제 명령·단계·경로 확인; 계산이나 파일 생성을 하지 않음
-python run_engine_v5.py --dry-run
-
-# 저장된 v0.5 배열·scene·통계와 원본 material pair 검산
-python run_engine_v5.py --stages verify --output scratch_runs/v5_audit
-
-# 새 가변 반지름 기하와 독립 검산; 새 실험 render 0회
-python run_engine_v5.py --stages experiment verify \
-  --no-render --output scratch_runs/v5_no_render
-
-# 새 216회 렌더, 원시 배열 검산, 현재 전체 테스트
-OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 \
-  python run_engine_v5.py --output scratch_runs/v5_full
-
-# 보존된 v0.4 경로
-python run_engine_v4.py --dry-run
-
-# 저장된 v0.4 원시 배열·scene·통계 검산; 새로운 실험 렌더 0회
-python run_engine_v4.py --stages verify --output scratch_runs/v4_audit
-
-# 물질좌표·기하·광학 export와 검산; 새 실험 렌더 생략
-python run_engine_v4.py --stages experiment verify \
-  --no-render --output scratch_runs/v4_no_render
-
-# 새 108회 렌더, 원시 배열 검산, 현재 전체 테스트
-OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 \
-  python run_engine_v4.py --output scratch_runs/v4_full
-
-# 저장된 v0.3 실험을 독립 재검산; 536회 영상 재렌더 없이 실행
-python run_engine_v3.py --stages verify --output scratch_runs/v3_audit
-
-# 새 원사 평형·광학 통계·검산; 새 분광 실험 렌더 생략
-python run_engine_v3.py --stages mechanics optics verify \
-  --no-render --output scratch_runs/v3_no_render
-
-# 새 v0.3 전체 실험과 테스트; 기본 536회 fiber 렌더 포함
-OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 \
-  python run_engine_v3.py --output scratch_runs/v3_full
-
-# 현재 체크아웃의 전체 테스트와 source별 검증 기록
-python validate_all.py
+python -m unittest discover -s tests -p 'test_observation_upgrade.py' -v
+python run_observation_upgrade.py --output scratch_runs/observation_v6 --dry-run
+python run_observation_upgrade.py --output scratch_runs/observation_v6
 ```
 
-`--output`은 새 폴더 또는 빈 폴더여야 합니다. v5와 v4 단계는 `experiment verify tests`입니다. `--input-data DIR`로 지정한 디렉터리 아래에서 experiment는 `DIR/mechanics_v3/optical_pair`를, v5 verify-only는 `DIR/variable_radius_v5`를, v4 verify-only는 `DIR/material_transport_v4`를 읽습니다. V5는 기본 원본 pair가 있으면 다시 검증하며, 명시적 `--source-input`을 지정한 경우 읽지 못하면 실패합니다. V3의 단계는 `mechanics optics verify tests`입니다. `--no-render`는 실험 렌더를 생략하며, 따로 선택한 tests의 작은 renderer 검사까지 생략하는 옵션은 아닙니다. 기본 예산은 v5 216회, v4 108회이며 범위를 늘리려면 `--max-render-count`도 명시적으로 늘려야 합니다. 실제 명령·실패·생략·원시 결과는 각 `run_manifest.json`을 기준으로 확인합니다.
+출력 폴더는 새 폴더 또는 빈 폴더여야 합니다. `results.json`은 전체 각도 분포와 조건별 수치를, `run_manifest.json`은 소스/입출력 hash와 실행 범위를 담습니다. 저장소에는 compact summary와 재생성 코드를 두고 전체 raw 결과는 실행으로 만듭니다.
 
-기존 실행 경로도 유지합니다.
+기존 v5 archive의 평균 radiance를 새 동등성 판정으로 읽는 선택 기능도 있습니다. `--v5-input data/variable_radius_v5 --coarse 32 --fine 64 --absolute-tolerance ...`를 추가하되, 허용량은 실험 전에 정한 **절대 radiance 단위**여야 합니다. fixture 기반 adapter 테스트와 실제 archive 전체 검증은 다릅니다.
 
-```bash
-# Fiber–ply–yarn–fabric 기하 한 구성
-python -m textile_sim.hierarchy \
-  --config examples/hierarchy/twill_two_ply.json \
-  --out scratch_runs/twill_two_ply
+## 연구 우선순위
 
-# v0.2의 5개 기하·refinement·광학 specimen·tests
-python run_engine_v2.py --stages geometry refinement optics tests \
-  --output scratch_runs/v2_reproduction
+현재 구현은 실제 원단의 정확한 재현이나 RGB 대비 추가 계측·메타표면 우위를 입증한 상태가 아닙니다. 다음 단계는 원형 기준에서 곡선 fiber·교차·작은 patch로 광학 수렴을 검증하고, 물질좌표와 새 반지름의 연결에서 실제 고체 부피·접촉을 확인하는 것입니다. 그다음 실측 thread R/T와 strong RGB 기준을 교정하고, fiber/ply/yarn 축약 및 추가 관측의 이득을 비교합니다.
 
-# v0.1 광학·카메라·이상적 meta 실험 계획
-python run_all.py --dry-run
-```
-
-`run_engine_v2.py`와 `run_all.py`의 단계명은 v3와 다릅니다. 기존 전용 driver의 기본 출력 경로를 사용하면 추적 중인 결과가 갱신될 수 있으므로 새 실험은 별도의 출력 폴더를 사용합니다. 과거 수치가 새 소스로 자동 재실행된 것으로 표시되지 않도록 run별 source·config·seed·budget을 보존합니다.
-
-## 문서와 연구 기록
-
-| 읽을 목적 | 문서 |
-| --- | --- |
-| **현재 어디까지 끝났고 무엇이 남았는가** | [현재 상태와 다음 검증](docs/STATUS_KO.md) |
-| **왜 이 연구를 하는가 / 대화의 결정을 어떻게 반영했는가** | [연구헌장과 요구사항 매핑](docs/RESEARCH_CHARTER_KO.md) |
-| **어떤 가설을 어떤 비교로 검증하는가** | [연구 설계](docs/RESEARCH_DESIGN_KO.md) |
-| **어떤 데이터·API·수학을 사용하는가** | [Architecture](docs/ARCHITECTURE.md), [계층 기하](notes/hierarchy_design.md), [광학 연결](notes/optical_bridge.md) |
-| **v0.5 가변 반지름·표면 광학·수치 한계** | [기하 수학](notes/variable_radius_geometry_v5.md), [실험 보고서](notes/variable_radius_v5_experiment.md), [독립 리뷰](notes/review_variable_radius_v5.md), [물리 oracle](notes/volume_optics_validation_v5.md), [릴리스 검증](docs/RELEASE_V0_5.md) |
-| **v0.4의 같은 섬유 추적·광학 비교·검증** | [물질좌표 수학](notes/material_transport_v4.md), [실험 설명](notes/material_transport_v4_experiment.md), [독립 리뷰](notes/review_material_transport_v4.md), [v0.4 실행 증거](docs/RELEASE_V0_4.md) |
-| **v0.3의 실제 구현·실험·검증** | [22쪽 한국어 보고서](report/fabric_engine_v3_report_ko.pdf), [릴리스 설명](docs/RELEASE_V0_3.md), [독립 리뷰](notes/review_engine_v3.md) |
-| **어떤 논문·코드를 어디까지 확인했는가** | [v3 문헌·인용 관계](notes/literature_engine_v3.md), [v2 문헌·라이선스](notes/literature_engine_v2.md), [ray–wave 검토](notes/ray_wave_literature.md) |
-| **과거 결과와 변경 이유** | [작업 로그](docs/WORK_LOG.md), [CHANGELOG](CHANGELOG.md), [v0.2 보고서](report/fabric_engine_v2_report_ko.pdf), [v0.1 설명](docs/baseline_v0.1.md) |
-
-## 선행연구·코드 출처·버전 관리
-
-직조 설계에는 [Weavecraft](https://www.cs.cornell.edu/projects/weavecraft/)와 [Leaf의 원사 수준 직물 설계](https://graphics.stanford.edu/projects/yarnsim/), 외관·관측에는 [Tang의 반사·투과 capture](https://arxiv.org/abs/2406.19398), [FabricGen](https://lxtyin.ac.cn/projects/fabricgen/), [fiber-level capture](https://www.rendering-zixuan.com/paper_pages/FiberFabric/), [Yu의 ray–wave model](https://doi.org/10.1145/3763359)을 참고합니다. [SGGX](https://research.nvidia.com/labs/rtr/publication/heitz2015sggx/), [SpongeCake](https://wangningbei.github.io/2022/SpongeCake.html), [직물 SGGX fitting](https://doi.org/10.26599/CVM.2025.9450445)은 계층 광학의 직접 선행연구입니다. 이 논문들을 참고한 사실과 원 논문 전체 방법의 재현은 구분합니다.
-
-첨부 논문, 논문의 참고문헌, 확인된 후속 인용, 관련 연구와 공식 GitHub의 확인 깊이는 문헌 ledger에 기록합니다. 웹사이트 template의 GitHub 링크를 method code로 취급하지 않으며 확인하지 못한 후속 인용을 만들어 넣지 않습니다. Tang 공식 코드·TexGen의 확인 commit과 라이선스는 [v2 source audit](notes/literature_engine_v2.md#7-source-and-license-audit)에 있습니다.
-
-새 코드·문서는 사용자 지시에 따라 AI의 도움을 받아 설계·작성·검증했습니다. 제3자 파일은 [NOTICE](references/NOTICE.md)와 원 라이선스를 유지하며 이 연구 저장소 자체에 별도의 오픈소스 라이선스를 부여하지 않았습니다. 소프트웨어 인용은 [CITATION.cff](CITATION.cff)의 메타데이터와 정확한 tag·commit을 사용하고, 원 논문 방법은 해당 논문도 인용합니다.
-
-저장소의 이전 이름은 `textile-optics-engine`입니다. 연구 전체를 설명하도록 현재 제목과 주소를 정리했으며, 과거 태그·commit·실험·논문 첨부의 provenance는 당시 기록으로 보존합니다. v0.1·v0.2·v0.3은 각 버전의 근거이고, 새로운 구현이나 실험의 완료 여부는 해당 버전의 검증 기록으로 판단합니다.
+기존 provenance와 제3자 권리는 [이전 README](README_v0_5_1.md), [참조 NOTICE](references/NOTICE.md), 각 논문의 라이선스를 따릅니다. 이번 구현은 참고한 논문 전체의 재현이나 새로운 오픈소스 라이선스 부여를 뜻하지 않습니다.
